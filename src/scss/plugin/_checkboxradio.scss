@@ -1,0 +1,51 @@
+.checkbox, .radio {
+    display: inline-block;
+    label {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 0;
+        user-select: none;
+        > input {
+            display: none;
+        }
+        > i {
+            @extend %icon;
+            display: inline-block;
+            width: $font-size-3;
+            font-size:$font-size-3;
+            color: $color-8;
+        }
+        input:checked + i {
+        }
+        input:disabled + i {
+            color: $color-disable;
+        }
+    }
+    &.small{
+        label{
+            > i{
+                width: $font-size-4;
+                font-size:$font-size-4;
+            }
+        }
+    }
+}
+
+.checkbox {
+    input + i:before {
+        @extend .icon-square-o;
+    }
+    input:checked + i:before {
+        @extend .icon-check-square;
+    }
+}
+
+.radio {
+    input + i:before {
+        @extend .icon-circle-thin;
+    }
+    input:checked + i:before {
+        @extend .icon-check-circle;
+    }
+}

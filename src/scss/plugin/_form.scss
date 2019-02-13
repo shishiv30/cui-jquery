@@ -1,0 +1,13 @@
+.form {
+    @extend %clearfix;
+    .input, .select-textbox {
+        width: 100%;
+        margin: $space-l 0;
+    }
+    .radio, .checkbox {
+        margin: $space-l 0;
+    }
+    .btn {
+        margin: $space-l 0;
+    }
+}

@@ -1,0 +1,47 @@
+//font icon base
+@font-face {
+    font-family: 'fonticon';
+    src: url('~@/assets/fonts/fonticon.eot');
+    src: url('~@/assets/fonts/fonticon.eot') format('embedded-opentype'), url('~@/assets/fonts/fonticon.woff') format('woff'), url('~@/assets/fonts/fonticon.ttf') format('truetype'), url('~@/assets/fonts/fonticon.svg#fonticon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotolight';
+    src: url('~@/assets/fonts/roboto-light-webfont.eot');
+    src: url('~@/assets/fonts/roboto-light-webfont.eot') format('embedded-opentype'), url('~@/assets/fonts/roboto-light-webfont.woff') format('woff'), url('~@/assets/fonts/roboto-light-webfont.ttf') format('truetype'), url('~@/assets/fonts/roboto-light-webfont.svg#robotolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotomedium';
+    src: url('~@/assets/fonts/roboto-medium-webfont.eot');
+    src: url('~@/assets/fonts/roboto-medium-webfont.eot') format('embedded-opentype'), url('~@/assets/fonts/roboto-medium-webfont.woff') format('woff'), url('~@/assets/fonts/roboto-medium-webfont.ttf') format('truetype'), url('~@/assets/fonts/roboto-medium-webfont.svg#robotomedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotothin';
+    src: url('~@/assets/fonts/roboto-thin-webfont.eot');
+    src: url('~@/assets/fonts/roboto-thin-webfont.eot') format('embedded-opentype'), url('~@/assets/fonts/roboto-thin-webfont.woff') format('woff'), url('~@/assets/fonts/roboto-thin-webfont.ttf') format('truetype'), url('~@/assets/fonts/roboto-thin-webfont.svg#robotothin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'robotomono';
+    src: url('~@/assets/fonts/robotomono-thin-webfont.eot');
+    src: url('~@/assets/fonts/robotomono-thin-webfont.eot') format('embedded-opentype'), url('~@/assets/fonts/robotomono-thin-webfont.woff') format('woff'), url('~@/assets/fonts/robotomono-thin-webfont.ttf') format('truetype'), url('~@/assets/fonts/robotomono-thin-webfont.svg#robotomonothin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'print';
+    src: url('~@/assets/fonts/trana-webfont.eot');
+    src: url('~@/assets/fonts/trana-webfont.eot') format('embedded-opentype'), url('~@/assets/fonts/trana-webfont.woff') format('woff'), url('~@/assets/fonts/trana-webfont.svg#trana') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

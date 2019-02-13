@@ -1,0 +1,13 @@
+textarea {
+    width: 100%;
+    resize: none;
+    border: 1px solid $color-border;
+    min-height: 70px;
+    overflow-y: auto;
+    border-radius: 2px;
+}
+
+.textarea {
+    position: relative;
+    margin-bottom: 20px;
+}

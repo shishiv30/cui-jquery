@@ -1,0 +1,131 @@
+%btn-color{
+    &.white {
+        background-color: $color-f;
+        color: $color-3;
+        border-color: $color-3;
+    }
+    &.orange {
+        &.active {
+            background-color: $color-warning;
+            color: $color-f;
+        }
+        border-color: $color-warning;
+        color: $color-warning;
+    }
+    &.blue {
+        &.active {
+            background-color: $color-blue;
+            color: $color-f;
+        }
+        border-color: $color-blue;
+        color: $color-blue;
+    }
+    &.black {
+        &.active {
+            background-color: $color-3;
+            color: $color-f;
+        }
+        border-color: $color-3;
+        color: $color-3;
+    }
+    &.red {
+        &.active {
+            background-color: $color-danger;
+            color: $color-f;
+        }
+        border-color: $color-danger;
+        color: $color-danger;
+    }
+    &.green {
+        &.active {
+            background-color: $color-safe;
+            color: $color-f;
+        }
+        border-color: $color-safe;
+        color: $color-safe;
+    }
+}
+%btn {
+    @include singleline();
+    height: $form-size-normal;
+    line-height: calc(#{$form-size-normal} - 2px);
+    padding: 0 $gap-0;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    transition: opacity .1s ease-in-out;
+    opacity: 1;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    &:focus, &:hover {
+        opacity: .9;
+    }
+    @extend %btn-color;
+    &.small {
+        height: $form-size-small;
+        line-height: calc(#{$form-size-small} - 2px);
+        font-size: $font-size-5;
+        > * {
+            line-height: inherit;
+        }
+    }
+
+    &.circle {
+        display: inline-block;
+        height: $form-size-normal;
+        width: $form-size-normal;
+        line-height: calc(#{$form-size-normal} - 2px);
+        border-radius: 100%;
+        font-size: $font-size-4;
+    }
+    &[disabled] {
+        background-color: $color-c !important;
+        border-color: $color-7 !important;
+        color: $color-7 !important;
+        pointer-events: none !important;
+    }
+    &.loading {
+        opacity: .5 !important;
+        cursor: wait !important;
+    }
+}
+.btn {
+    @extend %btn;
+}
+.dropdown-button {
+    display: flex;
+    position: relative;
+    a {
+        @extend %btn;
+    }
+    & > a:first-of-type {
+        width: 100%;
+        border-right: none;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+    & > a:last-of-type {
+        width: $form-size-normal;
+        flex-shrink: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .dropdown-button-list {
+        position: absolute;
+        background: $color-f;
+        top: $form-size-normal;
+        left: $gap-0;
+        right: $gap-0;
+        z-index: $ui-buttongroup-index;
+        box-shadow: 0 0 1px $color-0;
+        display: none;
+         > a {
+            color: $color-0;
+            background: $color-f;
+            border-color: $color-e;
+            box-shadow: none;
+            border-top: 0;
+        }
+    }
+}

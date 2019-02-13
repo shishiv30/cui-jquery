@@ -1,0 +1,16 @@
+.imgzoom {
+    text-align: center;
+    //move little space between inline block img
+    font-size: 0;
+    line-height: 0;
+    -webkit-text-size-adjust: none;
+    overflow: scroll;
+    @include hidescrollbar();
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+    img {
+        display: inline-block;
+    }
+}

@@ -1,0 +1,42 @@
+import jQuery from 'jquery';
+import _collapse from './_collapse.js'
+import _datatable from './_datatable.js'
+import _datetimepicker from './_datetimepicker.js'
+import _dialog from './_dialog.js'
+import _dropdownbutton from './_dropdownbutton.js'
+import _form from './_form.js'
+import _gridtable from './_gridtable.js'
+import _gridview from './_gridview.js'
+import _header from './_header.js'
+import _inputformat from './_inputformat.js'
+import _links from './_links.js'
+import _loadimage from './_loadimage.js'
+import _loading from './_loading.js'
+import _locker from './_locker.js'
+import _maploader from './_map.loader.js'
+import _maputilities from './_map.utilities.js'
+import _mapdynamic from './_map.dynamic.js'
+import _mapstatic from './_map.static.js'
+import _measurement from './_measurement.js'
+import _onscroll from './_onscroll.js'
+import _pin from './_pin.js'
+import _ranger from './_ranger.js'
+import _request from './_request.js'
+import _scrollTo from './_scrollTo.js'
+import _shifter from './_shifter.js'
+import _slicker from './_slicker.js'
+import _sticky from './_sticky.js'
+import _tabs from './_tabs.js'
+import _textbox from './_textbox.js'
+import _tip from './_tip.js'
+import _transition from './_transition.js'
+import _validate from './_validate.js'
+import _view from './_view.js'
+import _webview from './_webview.js'
+import _zoom from './_zoom.js'
+
+(function ($) {
+    $(document).ready(function () {
+        $(document).trigger('cui.inital');
+    });
+})(jQuery);

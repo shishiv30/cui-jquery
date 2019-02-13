@@ -1,0 +1,34 @@
+html {
+    color: $color-text-default;
+}
+
+.h0, .h1, .h2 {
+    margin: $space-l auto;
+}
+
+.h3, .h4 {
+    margin: $space-l auto;
+}
+
+.h5, .h6 {
+    margin: $space-l auto;
+}
+
+b {
+    @extend %text-bold;
+}
+
+p, .paragraph {
+    line-height: $gap-2;
+}
+
+code {
+}
+
+dt {
+    line-height: $line-l;
+}
+
+dd {
+    line-height: $line-l;
+}

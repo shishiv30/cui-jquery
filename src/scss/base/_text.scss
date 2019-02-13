@@ -1,0 +1,159 @@
+.h0, .h1, .h2, .h3, .h4, .h5, .h6 {
+    line-height: initial;
+}
+
+%f0 {
+    font-size: $font-size-0;
+}
+
+.h0, .f0 {
+    @extend %f0;
+}
+
+%f1 {
+    font-size: $font-size-1;
+}
+
+.h1, .f1 {
+    @extend %f1;
+}
+
+%f2 {
+    font-size: $font-size-2;
+}
+
+.h2, .f2 {
+    @extend %f2;
+}
+
+%f3 {
+    font-size: $font-size-3;
+}
+
+.h3, .f3 {
+    @extend %f3;
+}
+
+%f4 {
+    font-size: $font-size-4;
+}
+
+.h4, .f4 {
+    @extend %f4;
+}
+
+%f5 {
+    font-size: $font-size-5;
+}
+
+.h5, .f5 {
+    @extend %f5;
+}
+
+%f6 {
+    font-size: $font-size-6;
+}
+
+.h6, .f6 {
+    @extend %f6;
+}
+
+%f7 .f7 {
+    font-size: $font-size-7;
+}
+
+%text-normal {
+    font-weight: normal;
+    font-family: $font !important;
+}
+
+.text-normal {
+    @extend %text-normal;
+}
+
+%text-bold {
+    font-weight: bold;
+}
+
+.text-bold {
+    @extend %text-bold;
+}
+
+%text-mono {
+    font-weight: normal;
+    font-family: $font-mono !important;
+}
+.text-mono{
+    @extend %text-mono;
+}
+
+%text-print {
+    font-weight: normal;
+    font-family: $font-print !important;
+}
+.text-print{
+    @extend %text-print;
+}
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-shadow {
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.7);
+}
+
+.text-white {
+    color: $color-f;
+}
+
+.text-darkgray {
+    color: $color-3;
+}
+
+.text-gray {
+    color: $color-7;
+}
+
+.text-lightgray {
+    color: $color-a;
+}
+
+.text-green, .text-safe {
+    color: $color-safe;
+}
+
+.text-orange, .text-warning {
+    color: $color-warning;
+}
+
+.text-red, .text-error {
+    color: $color-danger;
+}
+
+.text-blue {
+    color: $color-blue;
+}
+
+.text-main {
+    color: $color-main;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}

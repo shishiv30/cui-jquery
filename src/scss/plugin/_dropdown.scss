@@ -1,0 +1,29 @@
+.select-textbox {
+    position: relative;
+    background: $color-f;
+    font-size: $font-size-4;
+    label {
+        position: absolute;
+        top: $gap-0;
+        left: $gap-0;
+        color: $color-a;
+        font-size: $font-size-6;
+        line-height: $gap-1;
+        pointer-events: none;
+    }
+    select {
+        padding: $gap-2 $gap-3 $gap-0 $gap-0;
+        height: $form-size-normal;
+        line-height: $form-size-normal - $gap-0 * 2 - $gap-1;
+        background: inherit;
+        appearance: none;
+        font-size: inherit;
+    }
+    i {
+        @extend %block-center-y;
+        right: $gap-1;
+        font-size: $font-size-4;
+        color: $color-3;
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,43 @@
+.panel {
+    position: relative;
+    >.h1, >.h2, >.h3, >.h4, >.h5 {
+        position: relative;
+        display: block;
+        .subtitle {
+            font-size: $font-size-5;
+            color: $color-7;
+        }
+        margin: 0;
+        padding-top: $space-l;
+        padding-bottom: $space-l;
+        @extend %singleline;
+    }
+    >[data-collapse], >[data-collapse-load] {
+        padding-right: $line-l;
+        border-bottom: solid 1px $color-d;
+        &:before {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            @extend %icon;
+            @extend .icon-caret-left;
+            font-size: $font-size-5;
+            width: $line-l;
+            height: $line-l;
+            line-height: $line-l;
+            margin-top: $line-l/-2;
+        }
+        +div {
+            border-bottom: solid 1px transparent;
+            padding-bottom: $space-l;
+            display: none;
+        }
+        &.shown {
+            border-bottom-color: transparent;
+            +div {
+                border-bottom-color: $color-d;
+                display: block;
+            }
+        }
+    }
+}

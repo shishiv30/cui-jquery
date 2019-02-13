@@ -1,0 +1,47 @@
+{
+  "name": "cui-jquery",
+  "version": "1.0.0",
+  "description": "the jquery version of cui",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.config.js --mode=development --open",
+    "build": "webpack --config webpack.config.js --mode=production "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shishiv30/cui-jquery.git"
+  },
+  "keywords": [
+    "uiframework",
+    "jquery"
+  ],
+  "author": "conjee zou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shishiv30/cui-jquery/issues"
+  },
+  "homepage": "https://github.com/shishiv30/cui-jquery#readme",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.13.0",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^4.3.1",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "^0.4.2",
+    "moment": "^2.22.2",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.21.0",
+    "url-loader": "^0.5.9",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.7"
+  }
+}
