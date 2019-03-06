@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     $.fn.loadImg = function () {
         var $img = $(this);
@@ -38,11 +39,11 @@ import jQuery from 'jquery';
             delay: 100,
             precache: true,
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
+
             var $window = $(window);
-            context._load = function () {
+            var _load = exportObj._load = function () {
                 var height = $window.outerHeight();
                 var top = $window.scrollTop() - height * opt.buffer;
                 var bottom = top + height * (1 + opt.buffer);
@@ -63,12 +64,7 @@ import jQuery from 'jquery';
                     }
                 });
             };
-            $this.is(document) ? $this.on('dom.scroll', context._load) : $this.on('scroll', $.throttle(context._load, opt.delay));
-        },
-        exports: {
-            load: function () {
-                this._load();
-            }
+            $this.is(document) ? $this.on('dom.scroll', _load) : $this.on('scroll', _.throttle(_load, opt.delay));
         },
         setOptionsBefore: null,
         setOptionsAfter: null,
@@ -76,7 +72,7 @@ import jQuery from 'jquery';
         initAfter: null,
         destroyBefore: null
     };
-    $.CUI.plugin(loadimageConfig);
+    $.cui.plugin(loadimageConfig);
     $(document).on('dom.load.loadimage', function () {
         $('[data-loadimage]').each(function (index, item) {
             var $this = $(item);

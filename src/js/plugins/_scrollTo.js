@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var scrolltoConfig = {
         name: 'scrollto',
@@ -9,23 +10,23 @@ import jQuery from 'jquery';
             container: null,
             scrollafter: null
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
+
             $this.click(function () {
-                opt.scrollbefore && $.CUI.trigger(opt.scrollbefore, this);
+                opt.scrollbefore && _trigger(opt.scrollbefore, this);
                 $.scrollTo(opt.target, $(opt.container), opt.offsettop);
-                opt.scrollafter && $.CUI.trigger(opt.scrollafter, this);
+                opt.scrollafter && _trigger(opt.scrollafter, this);
             });
         },
-        exports: null,
+
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
         initAfter: null,
         destroyBefore: null
     };
-    $.CUI.plugin(scrolltoConfig);
+    $.cui.plugin(scrolltoConfig);
     $(document).on('dom.load.scrollto', function () {
         $('[data-scrollto]').each(function (index, item) {
             var $this = $(item);
@@ -39,7 +40,7 @@ import jQuery from 'jquery';
 
 (function ($) {
     $(document).on('dom.scroll.scrollSpy', function () {
-        var status = $.CUI.status;
+        var status = $.cui.status;
         $('[data-scrollspy]').each(function () {
             var $item = $(this);
             var offset = $($item.attr('data-offsettop'));

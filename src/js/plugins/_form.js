@@ -1,14 +1,13 @@
 //validate for form submit
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var formConfig = {
         name: 'form',
         defaultOpt: null,
         initBefore: null,
-        init: null,
-        exports: {
-            isValid: function () {
-                var $this = this.$element;
+        init: function ($this, opt, exportObj) {
+            exportObj.isValid = function () {
                 var foucsElement = null;
                 var isPassed = true;
                 $this.find('[data-validate-load]').each(function (index, item) {
@@ -25,9 +24,8 @@ import jQuery from 'jquery';
                     foucsElement.focus();
                 }
                 return isPassed;
-            },
-            getValue: function () {
-                var $this = this.$element;
+            };
+            exportObj.getValue = function () {
                 var obj = {};
                 $this.find(':text').each(function (index, item) {
                     var name = $(item).attr('name');
@@ -92,14 +90,15 @@ import jQuery from 'jquery';
                     }
                 });
                 return obj;
-            }
+            };
+            return exportObj;
         },
         setOptionsBefore: null,
         setOptionsAfter: null,
         destroyBefore: null,
         initAfter: null,
     };
-    $.CUI.plugin(formConfig);
+    $.cui.plugin(formConfig);
     $(document).on('dom.load', function () {
         $('[data-form]').each(function (index, item) {
             var $this = $(item);

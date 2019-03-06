@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var dialogConfig = {
         name: 'dialog',
@@ -15,16 +16,16 @@ import jQuery from 'jquery';
             html: null
         },
         initBefore: null,
-        init: function (context) {
-            var opt = context.opt;
+        init: function ($this, opt, exportObj) {
+
             opt.id = 'dialog' + new Date();
-            var $this = context.$element;
+
             var $dialog = $('<div class="dialog dialog-' + opt.theme + '" tabIndex="-1"></div>');
             var $dialogCloseButton = $('<a class="dialog-title-close" dialog-close href="javascript:void(0);"><i class="icon-remove"></i></a>');
             var $dialogPanel = $('<div class="dialog-panel"></div>');
             var $dialogBody = $('<div class="dialog-body"></div>');
             var $dialogOverLay = $('<div class="dialog-overlay"></div>');
-            var _reposition = context._reposition = function () {
+            var _reposition = exportObj._reposition = function () {
                 var height = $dialog.height() - $dialogPanel.outerHeight();
                 if (height > 0) {
                     $dialogPanel.css({
@@ -36,9 +37,10 @@ import jQuery from 'jquery';
                     });
                 }
             };
-            context._show = function () {
+            exportObj.show = function () {
+                $(document).trigger('dialog.hidden.except', [opt.id]);
                 if (opt.showbefore) {
-                    if ($.isFunction(opt.showbefore)) {
+                    if (_.isFunction(opt.showbefore)) {
                         opt.showbefore();
                     } else {
                         $(document).trigger(opt.showbefore, [opt.trigger]);
@@ -54,13 +56,13 @@ import jQuery from 'jquery';
                 setTimeout(function () {
                     $dialog.addClass('dialog-active');
                     _reposition();
-                    opt.showafter && $.CUI.trigger(opt.showafter, context);
+                    opt.showafter && _trigger(opt.showafter, context);
                 }, 50);
             };
-            var _hide = context._hide = function () {
+            var _hide = exportObj.hide = function () {
                 if ($dialog.hasClass('dialog-active')) {
                     if (opt.hidebefore) {
-                        if ($.isFunction(opt.hidebefore)) {
+                        if (_.isFunction(opt.hidebefore)) {
                             opt.hidebefore();
                         } else {
                             $(document).trigger(opt.hidebefore, [opt.trigger]);
@@ -74,7 +76,7 @@ import jQuery from 'jquery';
                         $dialog.hide();
                         $('html').removeClass('model-dialog');
                         if (opt.hideafter) {
-                            if ($.isFunction(opt.hideafter)) {
+                            if (_.isFunction(opt.hideafter)) {
                                 opt.hideafter();
                             } else {
                                 $(document).trigger(opt.hideafter, [opt.trigger]);
@@ -109,32 +111,21 @@ import jQuery from 'jquery';
             };
             _init();
         },
-        exports: {
-            show: function () {
-                var opt = this.opt;
-                $(document).trigger('dialog.hidden.except', [opt.id]);
-                this._show();
-            },
-            hide: function () {
-                this._hide();
-            }
-        },
         setOptionsBefore: null,
         setOptionsAfter: null,
         destroyBefore: null,
-        initAfter: function (context) {
-            var opt = context.opt;
+        initAfter: function ($this, opt, exportObj) {
             $(document).on('dialog.hidden.except', function (e, id) {
                 if (id != opt.id) {
-                    context._hide();
+                    exportObj.hide();
                 }
             });
             $(document).on('dom.resize', function () {
-                context._reposition();
+                exportObj._reposition();
             });
         },
     };
-    $.CUI.plugin(dialogConfig);
+    $.cui.plugin(dialogConfig);
     $(document).on('dom.load.dialog', function () {
         $('[data-dialog]').each(function () {
             var $this = $(this);

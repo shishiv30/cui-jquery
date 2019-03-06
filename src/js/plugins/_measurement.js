@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var measurementConfig = {
         name: 'measurement',
@@ -18,9 +19,9 @@ import jQuery from 'jquery';
             max: null,
             onclick: null
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
+
             var _render = function () {
                 var $container = $('<div class="measurement"><div class="measurement-line"></div></div></div>');
                 $.each(opt.data, function (index, item) {
@@ -39,7 +40,7 @@ import jQuery from 'jquery';
                         left: position + '%'
                     });
                     if (opt.onclick) {
-                        opt.onclick && $.CUI.trigger(opt.onclick, context, $item);
+                        opt.onclick && _trigger(opt.onclick, context, $item);
                     }
                     $container.append($item);
                 });
@@ -52,14 +53,14 @@ import jQuery from 'jquery';
             $this.append(_render());
 
         },
-        exports: null,
+
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
         initAfter: null,
         destroyBefore: null
     };
-    $.CUI.plugin(measurementConfig);
+    $.cui.plugin(measurementConfig);
     $(document).on('dom.load.measurement', function () {
         $('[data-measurement]').each(function (index, item) {
             var $this = $(item);

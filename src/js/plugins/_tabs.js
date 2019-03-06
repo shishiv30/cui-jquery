@@ -1,10 +1,11 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var tabsConfig = {
         name: 'tabs',
         defaultOpt: {},
-        init: function (context) {
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
             var $items = $this.find('[data-tab]');
             var _switchActiveTab = function () {
                 $items.each(function (index, item) {
@@ -27,14 +28,14 @@ import jQuery from 'jquery';
             });
             _switchActiveTab();
         },
-        exports: null,
+
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
         initAfter: null,
         destroyBefore: null
     };
-    $.CUI.plugin(tabsConfig);
+    $.cui.plugin(tabsConfig);
     $(document).on('dom.load.tabs', function () {
         $('[data-tabs]').each(function (index, item) {
             var $this = $(item);

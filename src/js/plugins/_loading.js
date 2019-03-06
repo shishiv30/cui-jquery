@@ -1,8 +1,9 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     // isShow flag for loading
     var isShow = false;
-    $.extend({
+    _.assignIn({
         showLoading: function () {
             if (!isShow) {
                 $('.loading-bg').stop().fadeIn(100);
@@ -52,7 +53,7 @@ import jQuery from 'jquery';
         }
     });
 
-    $.extend({
+    _.assignIn({
         'loading': {
             showspinner: function (item) {
                 $(item).addClass('loading spinner').css('position', 'relative');

@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var inputformatConfig = {
         name: 'inputformat',
@@ -6,9 +7,9 @@ import jQuery from 'jquery';
             type: 'phone',
         },
         initBefore: null,
-        init: function (context) {
-            var $this = context.$element;
-            var opt = context.opt;
+        init: function ($this, opt, exportObj) {
+
+
             var timer = null;
             var _get = function () {
                 var value = $this.val();
@@ -72,13 +73,13 @@ import jQuery from 'jquery';
                 }, 10);
             });
         },
-        exports: {},
+
         setOptionsBefore: null,
         setOptionsAfter: null,
         destroyBefore: null,
         initAfter: null,
     };
-    $.CUI.plugin(inputformatConfig);
+    $.cui.plugin(inputformatConfig);
     $(document).on('dom.load.inputformat', function () {
         $('[data-inputformat]').each(function (index, item) {
             var $this = $(item);

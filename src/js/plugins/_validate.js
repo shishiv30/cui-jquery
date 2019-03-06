@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     //customer validate
     var customValidate = {
@@ -88,7 +89,7 @@ import jQuery from 'jquery';
                     }
                     break;
                 case 'zipcode':
-                    if (value && !$.isZipCode(value)) {
+                    if (value && !$.isZipcode(value)) {
                         message = errorText || 'Please enter a valid zipcode';
                         _showValidate($element, message);
                         return false;
@@ -135,38 +136,30 @@ import jQuery from 'jquery';
             addition: null
         },
         initBefore: null,
-        init: function (context) {
-            var $this = context.$element;
-            var opt = context.opt;
+        init: function ($this, opt, exportObj) {
             opt.validate = opt.validate ? opt.validate.split(',') : [];
             $this.on('change.validate', function () {
                 _validate($this, opt.validate, opt.errortext, opt.addition);
             });
-        },
-        exports: {
-            isValid: function () {
-                var $this = this.$element;
-                var opt = this.opt;
+            exportObj.isValid = function () {
                 return _validate($this, opt.validate, opt.errortext, opt.addition);
             }
         },
         setOptionsBefore: function (e, context, options) {
             options.validate = options.validate ? options.validate.split(',') : [];
         },
-        setOptionsAfter: function (context) {
-            var $this = context.$element;
-            var opt = context.opt;
+        setOptionsAfter: function ($this, opt, exportObj) {
             $this.off('change.validate').on('change.validate', function () {
                 _validate($this, opt.validate, opt.errortext, opt.addition);
             });
         },
-        destroyBefore: function (context) {
-            var $this = context.$element;
+        destroyBefore: function ($this, opt, exportObj) {
+
             $this.off('change.validate');
         },
         initAfter: null,
     };
-    $.CUI.plugin(validateConfig);
+    $.cui.plugin(validateConfig);
     $(document).on('dom.load.validate', function () {
         $('[data-validate]').each(function () {
             var $this = $(this);

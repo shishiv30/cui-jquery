@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var gridviewConfig = {
         name: 'gridview',
@@ -12,9 +13,9 @@ import jQuery from 'jquery';
             reloadbefore: null,
             reloadafter: null,
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
+
             var $container = opt.container ? $(opt.container) : $(window);
             var _getpositionInfo = function () {
                 return {
@@ -148,7 +149,7 @@ import jQuery from 'jquery';
                 });
                 _loadImage();
             };
-            var _reload = function (force) {
+            var _reload = exportObj.reload = function (force) {
                 if (force) {
                     opt.colCount = -1;
                 }
@@ -160,9 +161,8 @@ import jQuery from 'jquery';
                     }
                 }
             };
-            context._reload = _reload;
             _reload(true);
-            $container.on('scroll', $.throttle(function () {
+            $container.on('scroll', _.throttle(function () {
                 var currentPositionInfo = _getpositionInfo();
                 var isDown = positionInfo.scrollTop < currentPositionInfo.scrollTop;
                 positionInfo = currentPositionInfo;
@@ -174,7 +174,7 @@ import jQuery from 'jquery';
                 _reload();
             }, true);
         },
-        exports: {},
+
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
@@ -182,7 +182,7 @@ import jQuery from 'jquery';
         destroyBefore: null,
         isThirdPart: true,
     };
-    $.CUI.plugin(gridviewConfig);
+    $.cui.plugin(gridviewConfig);
     $(document).on('dom.load.gridview', function () {
         $('[data-gridview]').each(function (index, item) {
             var $this = $(item);

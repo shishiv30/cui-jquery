@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var slickerConfig = {
         name: 'slicker',
@@ -15,9 +16,7 @@ import jQuery from 'jquery';
             responsive: true,
 
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context._slick = context.$element.children('ul');
+        init: function ($this, opt, exportObj) {
             if (opt.autoscroll) {
                 opt.autoplay = true;
                 opt.autoplaySpeed = opt.autoscroll;
@@ -84,10 +83,10 @@ import jQuery from 'jquery';
             delete opt.width;
             delete opt.autoscroll;
             if (opt.lazyload) {
-                $this.on('afterChange', $.debounce(function () {
+                $this.on('afterChange', _.debounce(function () {
                     $.loadImage();
                 }, 100));
-                $this.on('setPosition', $.debounce(function () {
+                $this.on('setPosition', _.debounce(function () {
                     $.loadImage();
                 }, 100));
             }
@@ -95,20 +94,18 @@ import jQuery from 'jquery';
             $(document).on('dom.resize.slicker', function () {
                 $this.slick('setPosition');
             });
-        },
-        exports: {
-            next: function () {
-                this._slick.slick('slickNext');
-            },
-            prev: function () {
-                this._slick.slick('slickPrev');
-            },
-            go: function (index, noAnimate) {
-                this._slick.slick('slickGoTo', index, noAnimate);
-            },
+            exportObj.next = function () {
+                $this.slick('slickNext');
+            };
+            exportObj.prev = function () {
+                $this.slick('slickPrev');
+            };
+            exportObj.go = function (index, noAnimate) {
+                $this.slick('slickGoTo', index, noAnimate);
+            };
         }
     };
-    $.CUI.plugin(slickerConfig);
+    $.cui.plugin(slickerConfig);
     $(document)
         .on('dom.load.slicker', function () {
             $('[data-slicker]')

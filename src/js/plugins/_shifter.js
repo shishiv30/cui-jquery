@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var shifterConfig = {
         name: 'shifter',
@@ -11,9 +12,9 @@ import jQuery from 'jquery';
             onchange: null,
             index: 1,
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
+
             var sign_isAuto = false;
             var lastScrollLeft = 0;
             var $list;
@@ -90,7 +91,7 @@ import jQuery from 'jquery';
                 }
                 if (opt.onchange && lastScrollLeft !== $wrap.scrollLeft()) {
                     var isNext = lastScrollLeft < $wrap.scrollLeft();
-                    if ($.isFunction(opt.onchange)) {
+                    if (_.isFunction(opt.onchange)) {
                         opt.onchange($list.find('.active'), sign_isAuto, isNext);
                     } else {
                         $(document).trigger(opt.onchange, [$list.find('.active'), sign_isAuto, isNext]);
@@ -182,7 +183,7 @@ import jQuery from 'jquery';
                 return _shift(index);
             };
             var _option = function (option) {
-                opt = $.extend(opt, option);
+                opt = _.assignIn(opt, option);
                 return opt;
             };
             var _adjust = function () {
@@ -197,13 +198,11 @@ import jQuery from 'jquery';
                     }
                 }
             };
-            context = $.extend(context, {
-                _prev: _prev,
-                _next: _next,
-                _go: _go,
-                _option: _option,
-                _adjust: _adjust
-            });
+            exportObj.prev = _prev;
+            exportObj.next = _next;
+            exportObj.go = _go;
+            exportObj.option = _option;
+            exportObj.adjust = _adjust;
             $list = $this.find('ul');
             $list.wrap('<div class="wrap"></div>');
             $wrap = $this.find('.wrap');
@@ -234,7 +233,7 @@ import jQuery from 'jquery';
                 _resize();
                 _scroll();
             });
-            $wrap.on('scroll', $.throttle(_scroll, 100));
+            $wrap.on('scroll', _.throttle(_scroll, 100));
             if ($.isMobile()) {
                 $wrap.on('touchstart', function () {
                     lastScrollLeft = $wrap.scrollLeft();
@@ -256,24 +255,13 @@ import jQuery from 'jquery';
                 $wrap.loadimage();
             }
         },
-        exports: {
-            prev: function () {
-                return this._prev();
-            },
-            next: function () {
-                return this._next();
-            },
-            go: function (index) {
-                return this._go(index);
-            },
-        },
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
         initAfter: null,
         destroyBefore: null
     };
-    $.CUI.plugin(shifterConfig);
+    $.cui.plugin(shifterConfig);
     $(document).on('dom.load.shifter', function () {
         $('[data-shifter]').each(function (index, item) {
             var $this = $(item);

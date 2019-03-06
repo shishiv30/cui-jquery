@@ -1,17 +1,17 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var dropdownbuttonConfig = {
         name: 'dropdownbutton',
         defaultOpt: {},
-        init: function (context) {
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
             var $link = $this.children('a').eq(0);
             var $icon = $this.children('a').eq(1);
             var $list = $this.find('.dropdown-button-list');
             $this.on('click', function (e) {
                 e.stopPropagation();
             });
-            context._select = function ($item) {
+            exportObj.select = function ($item) {
                 if ($item.closest('.dropdown-button-list').length > 0) {
                     $link.appendTo($list);
                     $item.prependTo($this);
@@ -19,33 +19,22 @@ import jQuery from 'jquery';
                     $(document).trigger('click.dropdownbutton');
                 }
             };
-            context._close = function () {
+            exportObj.close = function () {
                 $list.hide();
             };
-            context._open = function () {
+            exportObj.open = function () {
                 if ($list.is(':hidden')) {
                     $list.show();
-                    $(document).one('click.dropdownbutton', context._close);
+                    $(document).one('click.dropdownbutton', exportObj.close);
                 }
             };
-            $icon.on('click', context._open);
+            $icon.on('click', exportObj.open);
             $list.find('a').on('click', function () {
-                context._select($(this));
+                exportObj.select($(this));
             });
             $link.on('click', function () {
-                context._select($(this));
+                exportObj.select($(this));
             });
-        },
-        exports: {
-            show: function () {
-                this._open();
-            },
-            hide: function () {
-                this._close();
-            },
-            select: function (item) {
-                this._select(item);
-            }
         },
         setOptionsBefore: null,
         setOptionsAfter: null,
@@ -53,7 +42,7 @@ import jQuery from 'jquery';
         initAfter: null,
         destroyBefore: null
     };
-    $.CUI.plugin(dropdownbuttonConfig);
+    $.cui.plugin(dropdownbuttonConfig);
     $(document).on('dom.load.dropdownbutton', function () {
         $('[data-dropdownbutton]').each(function (index, item) {
             var $this = $(item);

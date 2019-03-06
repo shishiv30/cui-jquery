@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var rangerConfig = {
         name: 'ranger',
@@ -14,11 +15,9 @@ import jQuery from 'jquery';
             changebefore: null,
             changeafter: null,
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
             var $input = $this.find('input');
-            var $target = context.$target = (opt.target ? $(opt.target) : null);
+            var $target = (opt.target ? $(opt.target) : null);
             if (!opt.connect) {
                 opt.connect = [true];
                 $input.each(function (index) {
@@ -51,11 +50,11 @@ import jQuery from 'jquery';
                     }
                 }
             });
-            context.range = $ele[0].noUiSlider;
-            context._get = function () {
+            exportObj.range = $ele[0].noUiSlider;
+            exportObj.get = function () {
                 return this.range.get();
             };
-            context._set = function (values) {
+            exportObj.set = function (values) {
                 this.range.set(values);
                 var result = this.range.get();
                 if ($.isNumeric(result)) {
@@ -71,29 +70,18 @@ import jQuery from 'jquery';
                 $input.each(function () {
                     values.push($(this).val());
                 });
-                context._set(values);
+                exportObj.set(values);
             });
-            context.range.on('update', function (e, t) {
-                opt.changebefore && $.CUI.trigger(opt.changebefore, this, e, t);
+            exportObj.range.on('update', function (e, t) {
+                opt.changebefore && _trigger(opt.changebefore, this, e, t);
                 $input.each(function (index) {
                     $(this).val(e[index]).trigger('input');
                 });
-                opt.changeafter && $.CUI.trigger(opt.changeafter, this, e, t);
+                opt.changeafter && _trigger(opt.changeafter, this, e, t);
             });
         },
-        exports: {
-            get: function () {
-                this._get();
-            },
-            set: function () {
-                this._set();
-            },
-            range: function () {
-                this.range();
-            }
-        },
     };
-    $.CUI.plugin(rangerConfig);
+    $.cui.plugin(rangerConfig);
     $(document).on('dom.load.ranger', function () {
         $('[data-ranger]').each(function (index, item) {
             var $this = $(item);

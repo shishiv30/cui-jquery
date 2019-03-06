@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var dataTableConfig = {
         $element: null,
@@ -11,9 +12,9 @@ import jQuery from 'jquery';
             hideText: 'See More'
         },
         initBefore: null,
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
+
             var $thead = $('<thead></thead>');
             var $colgroup = $('<colgroup></colgroup>');
             var $tbody = $('<tbody></tbody>');
@@ -145,8 +146,8 @@ import jQuery from 'jquery';
                 }
                 return $tfoot;
             };
-            var _initTable = context._initTable = function () {
-                //todo send context to the follow method, otherwise the context.opt will not update
+            var _initTable = exportObj._initTable = function () {
+                //todo send context to the follow method, otherwise the opt will not update
                 if (opt.data && opt.data.length) {
                     $table = $('<table class="datatable"></table>');
                     $table.append(_initalThead());
@@ -157,18 +158,17 @@ import jQuery from 'jquery';
             };
             _initTable();
         },
-        exports: {},
         setOptionsBefore: null,
-        setOptionsAfter: function (context) {
-            context._initTable();
+        setOptionsAfter: function ($this, opt, exportObj) {
+            exportObj._initTable();
         },
-        destroyBefore: function (context) {
-            var $this = context.$element;
+        destroyBefore: function ($this, opt, exportObj) {
+
             $this.remove();
         },
         initAfter: null
     };
-    $.CUI.plugin(dataTableConfig);
+    $.cui.plugin(dataTableConfig);
     $(document).on('dom.load.datatable', function () {
         $('[data-datatable]').each(function () {
             var $this = $(this);

@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var viewConfig = {
         name: 'view',
@@ -20,9 +21,9 @@ import jQuery from 'jquery';
             jumpback: true,
             vitualized: false,
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
+
             var $wrapper = $this.children('ul');
             var $slides = $wrapper.children('li');
             var prePos = 0;
@@ -30,7 +31,7 @@ import jQuery from 'jquery';
             var info = null;
             var isAnimating = false;
             var animateTime = 0.2;
-            var _updateInfo = context._updateInfo = function () {
+            var _updateInfo = exportObj.updateInfo = function () {
                 var outerHeight = $this.outerHeight();
                 var outerWidth = $this.outerWidth();
                 var max = opt.direction === 'x' ? $wrapper.outerWidth() - outerWidth : $wrapper.outerHeight() - outerHeight;
@@ -53,7 +54,7 @@ import jQuery from 'jquery';
                 }
             };
             var dfd;
-            var _scroll = context._scroll = function (distance, animation) {
+            var _scroll = exportObj.scroll = function (distance, animation) {
                 dfd = $.Deferred();
                 if (isAnimating) {
                     dfd.reject();
@@ -80,7 +81,7 @@ import jQuery from 'jquery';
                 }
                 return dfd;
             };
-            context._geInfo = function () {
+            exportObj.geInfo = function () {
                 return info;
             };
             var _onMoving = function (moved) {
@@ -91,7 +92,7 @@ import jQuery from 'jquery';
                     } else {
                         eventName = opt.direction === 'x' ? opt.onoverleft : opt.onovertop;
                     }
-                    if ($.isFunction(eventName)) {
+                    if (_.isFunction(eventName)) {
                         eventName(currPos, prePos, info);
                     } else if (eventName) {
                         $(document).trigger(eventName, [currPos, prePos, info]);
@@ -103,7 +104,7 @@ import jQuery from 'jquery';
                     } else {
                         eventName = opt.direction === 'x' ? opt.onoverright : opt.onoverbottom;
                     }
-                    if ($.isFunction(eventName)) {
+                    if (_.isFunction(eventName)) {
                         eventName(currPos, prePos, info);
                     } else if (eventName) {
                         $(document).trigger(eventName, [currPos, prePos, info]);
@@ -133,7 +134,7 @@ import jQuery from 'jquery';
                     currPos = prePos - distance;
                 }
                 _limitation(direction);
-                _scroll(currPos, false).then($.throttle(function () {
+                _scroll(currPos, false).then(_.throttle(function () {
                     _onMoving(false);
                 }, 200));
             };
@@ -191,7 +192,7 @@ import jQuery from 'jquery';
                         prePos = currPos;
                         _updateInfo();
                         if (opt.onchange) {
-                            if ($.isFunction(opt.onchange)) {
+                            if (_.isFunction(opt.onchange)) {
                                 opt.onchange(currPos, prePos, info);
                             } else if (opt.onchange) {
                                 $(document).trigger(opt.onchange, [currPos, prePos, info]);
@@ -250,22 +251,11 @@ import jQuery from 'jquery';
             $(document).on('dom.resize', _updateInfo);
             _updateInfo();
             if (opt.oninital) {
-                if ($.isFunction(opt.oninital)) {
+                if (_.isFunction(opt.oninital)) {
                     opt.oninital(info);
                 } else if (opt.oninital) {
                     $(document).trigger(opt.oninital, [info]);
                 }
-            }
-        },
-        exports: {
-            updateInfo: function () {
-                return this._updateInfo();
-            },
-            getInfo: function () {
-                return this._getInfo();
-            },
-            scroll: function (currPos, animation) {
-                return this._scroll(currPos, animation);
             }
         },
         setOptionsBefore: null,
@@ -274,7 +264,7 @@ import jQuery from 'jquery';
         initAfter: null,
         destroyBefore: null
     };
-    $.CUI.plugin(viewConfig);
+    $.cui.plugin(viewConfig);
     $(document).on('dom.load.view', function () {
         $('[data-view]').each(function (index, item) {
             var $this = $(item);

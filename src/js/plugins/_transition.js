@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var transitionConfig = {
         name: 'transition',
@@ -11,9 +12,9 @@ import jQuery from 'jquery';
             fixed: 0,
             dateformat: 'MMMM Do YYYY'
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
+
             var start = null;
             var end = null;
             var step = null;
@@ -21,7 +22,7 @@ import jQuery from 'jquery';
             var times = null;
             var format = null;
             var isIncrease = null;
-            var _freshNumber = context._freshNumber = function () {
+            var _freshNumber = exportObj.freshNumber = function () {
                 start = opt.from * 1;
                 end = opt.to * 1;
                 duration = Math.floor(1000 / opt.frame);
@@ -29,7 +30,7 @@ import jQuery from 'jquery';
                 step = ((end - start) / times);
                 isIncrease = step > 0;
             };
-            var _freshDate = context._freshDate = function () {
+            var _freshDate = exportObj.freshDate = function () {
                 start = +new Date(opt.from);
                 end = +new Date(opt.to);
                 duration = 1000 / opt.frame;
@@ -37,7 +38,8 @@ import jQuery from 'jquery';
                 step = ((end - start) / times);
                 isIncrease = step > 0;
             };
-            var _fresh = context._fresh = function () {
+            var _fresh = exportObj.fresh = function () {
+                opt.freshbefore && _trigger(opt.freshbefore, this);
                 switch (opt.type) {
                     case 'number':
                         _freshNumber();
@@ -62,36 +64,29 @@ import jQuery from 'jquery';
                         start = rawNumber + step;
                     }
                 }, duration);
+                opt.freshafter && _trigger(opt.freshafter, this);
             };
             _fresh();
-        },
-        exports: {
-            fresh: function () {
-                var opt = this.opt;
-                opt.freshbefore && $.CUI.trigger(opt.freshbefore, this);
-                this._fresh();
-                opt.freshafter && $.CUI.trigger(opt.freshafter, this);
-            }
         },
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
-        initAfter: function (context) {
-            var $this = context.$element;
-            var opt = context.opt;
-            var exports = context.exports;
+        initAfter: function ($this, opt, exportObj) {
+
+
+
             if (!opt.once) {
                 $(document).on('dom.load.transition', function () {
                     if ($this.attr('data-to') != opt.to) {
                         opt.to = $this.attr('data-to');
-                        exports.fresh();
+                        exportObj.fresh();
                     }
                 });
             }
         },
         destroyBefore: null,
     };
-    $.CUI.plugin(transitionConfig);
+    $.cui.plugin(transitionConfig);
     $(document).on('dom.load.transition', function () {
         $('[data-transition]').each(function (index, item) {
             var $this = $(item);

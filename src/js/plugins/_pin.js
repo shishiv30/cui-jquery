@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var pinConfig = {
         name: 'pin',
@@ -7,10 +8,8 @@ import jQuery from 'jquery';
             bottom: 0,
             target: ''
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
-            var $target = context.$target = $(opt.target);
+        init: function ($this, opt, exportObj) {
+            var $target = $(opt.target);
             $this.css('position', 'relative');
             $target.addClass('pin');
             var offsetTop = 0;
@@ -55,29 +54,16 @@ import jQuery from 'jquery';
                     }
                 }
             };
-            context = $.extend(context, {
-                _pin: _pin,
-                _unpin: _unpin,
-                _setpin: _setpin
-            });
+            exportObj.pin = _pin;
+            exportObj.unpin = _unpin;
+            exportObj.setpin = _setpin;
             window.addEventListener('scroll', function () {
                 var scrollTop = $(window).scrollTop();
                 _setpin(scrollTop, false);
             }, true);
             $(document).on('dom.resize', function () {
-                _setpin($.CUI.scrollTop, true);
+                _setpin($.cui.scrollTop, true);
             });
-        },
-        exports: {
-            pin: function () {
-                this._pin();
-            },
-            unpin: function () {
-                this._unpin();
-            },
-            setpin: function () {
-                this._setpin();
-            },
         },
         setOptionsBefore: null,
         setOptionsAfter: null,
@@ -85,7 +71,7 @@ import jQuery from 'jquery';
         initAfter: null,
         destroyBefore: null
     };
-    $.CUI.plugin(pinConfig);
+    $.cui.plugin(pinConfig);
     $(document).on('dom.load.pin', function () {
         $('[data-pin]').each(function (index, item) {
             var $this = $(item);

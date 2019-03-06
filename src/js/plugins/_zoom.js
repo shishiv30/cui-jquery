@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var imgzoomConfig = {
         name: 'imgzoom',
@@ -11,16 +12,9 @@ import jQuery from 'jquery';
             zoombefore: null,
             zoomafter: null
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
-            var $target = null;
-            if (opt.target) {
-                $target = context.$target = $(opt.target);
-            } else {
-                $target = $this;
-            }
-            context._zoom = function (tmpStep) {
+        init: function ($this, opt, exportObj) {
+            var $target = opt.target ? $(opt.target) : $this;
+            exportObj.zoom = function (tmpStep) {
                 var step = $.isNumeric(tmpStep) || opt.step;
                 var currentzoom = $target.data('currentzoom');
                 if (!currentzoom) {
@@ -44,36 +38,31 @@ import jQuery from 'jquery';
                     $target.scrollTop(scrollTop);
                 }
             };
-        },
-        exports: {
-            getZoom: function () {
-                var $target = this.$target;
+            exportObj.getZoom = function () {
                 return Math.floor($target.find('img').width() / $target.outerWidth() * 10) * 10;
-            },
-            setZoom: function (step) {
+            };
+            exportObj.setZoom = function (step) {
                 var opt = this.opt;
-                opt.zoombefore && $.CUI.trigger(opt.zoombefore, this);
+                opt.zoombefore && _trigger(opt.zoombefore, this);
                 this._zoom(step);
-                opt.zoomafter && $.CUI.trigger(opt.zoomafter, this);
-            }
+                opt.zoomafter && _trigger(opt.zoomafter, this);
+            };
         },
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
-        initAfter: function (context) {
-            var $this = context.$element;
-            var exports = context.exports;
-            exports.setZoom(0);
+        initAfter: function ($this, opt, exportObj) {
+            exportObj.setZoom(0);
             $this.on('click.imgzoom', function () {
-                exports.setZoom();
+                exportObj.setZoom();
             });
         },
-        destroyBefore: function (context) {
-            var $this = context.$element;
+        destroyBefore: function ($this, opt, exportObj) {
+
             $this.off('click.imgzoom');
         }
     };
-    $.CUI.plugin(imgzoomConfig);
+    $.cui.plugin(imgzoomConfig);
     $(document).on('dom.load.imgzoom', function () {
         $('[data-imgzoom]').each(function () {
             var $this = $(this);

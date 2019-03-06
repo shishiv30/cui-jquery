@@ -1,16 +1,13 @@
 //seed code for create a plugin
 //replace all of the "example" with the plugin name. (the plugin name should be same as the js file name);
 
-// import jQuery from 'jquery';
+// import _ from 'lodash';
+import _trigger from '../core/_trigger';
 //(function ($) {
 //     var exampleConfig = {
 //         name: 'example',
 //         defaultOpt: {},
-//         init: function(context) {
-//             var opt = context.opt;
-//             var $this = context.$element;
-//             var $target = context.$target = $(opt.target);
-//
+//         init: function($this, opt, exportObj) {
 //         },
 //         exports: {
 //             show: function() {
@@ -23,18 +20,13 @@
 //         setOptionsBefore: null,
 //         setOptionsAfter: null,
 //         initBefore: null,
-//         initAfter: function(context) {
-//             var $this = context.$element;
-//             var $target = context.$target;
-//             var opt = context.opt;
-//             var exports = context.exports;
-//
+//         initAfter: function($this, opt, exportObj) {
 //         },
-//         destroyBefore: function(context) {
-//             var $this = context.$element;
+//         destroyBefore: function($this, opt, exportObj) {
+//             
 //         }
 //     };
-//     $.CUI.plugin(exampleConfig);
+//     $.cui.plugin(exampleConfig);
 //     $(document).on('dom.load.example', function() {
 //         $('[data-example]').each(function(index, item) {
 //             var $this = $(item);
@@ -45,7 +37,8 @@
 //         });
 //     });
 // })(jQuery);
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     $.fn.webview = function () {
         var $this = $(this);

@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var gsmapConfig = {
         name: 'gsmap',
@@ -20,9 +21,7 @@ import jQuery from 'jquery';
             switchmaptype: 'terrain',
             removedTarget: null
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
             var insertMap = function (mapUrl) {
                 if (!mapUrl) {
                     return;
@@ -87,7 +86,7 @@ import jQuery from 'jquery';
                     insertMap(streetviewUrl);
                 } else {
                     if (opt.onError) {
-                        if ($.isFunction(opt.onError)) {
+                        if (_.isFunction(opt.onError)) {
                             opt.onError($this);
                         } else {
                             $(document).trigger(opt.onError, [$this]);
@@ -105,7 +104,7 @@ import jQuery from 'jquery';
                     }
                 }
             };
-            context._reload = function () {
+            exportObj.reload = function () {
                 if (opt.type === 'streetview') {
                     $.hasStreetView({
                         address: opt.address,
@@ -117,14 +116,9 @@ import jQuery from 'jquery';
                     var url = setGSMapParams();
                     insertMap(url);
                 }
-                opt.onload && $.CUI.trigger(opt.onload);
+                opt.onload && _trigger(opt.onload);
             };
-            context._reload();
-        },
-        exports: {
-            reload: function () {
-                this._reload();
-            }
+            exportObj.reload();
         },
         setOptionsBefore: function (context, options) {
             options.icon = options.icon ? options.icon.split('|') : null;
@@ -132,18 +126,18 @@ import jQuery from 'jquery';
         },
         setOptionsAfter: null,
         initBefore: null,
-        initAfter: function (context) {
-            var opt = context.opt;
-            var exports = context.exports;
+        initAfter: function ($this, opt, exportObj) {
+
+
             if (opt.autoresize) {
                 $(document).on('dom.resize', function () {
-                    exports.reload();
+                    exportObj.reload();
                 });
             }
         },
         destroyBefore: null
     };
-    $.CUI.plugin(gsmapConfig);
+    $.cui.plugin(gsmapConfig);
     $(document).on('dom.load.gsmap', function () {
         $('[data-gsmap]').each(function (index, item) {
             var $this = $(item);

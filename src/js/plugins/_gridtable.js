@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var gridtableConfig = {
         name: 'gridtable',
@@ -8,9 +9,9 @@ import jQuery from 'jquery';
         initBefore: function () {
 
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
+
             var $key = $this.find(opt.key);
             var $list = $this.find('tbody tr');
             var inital = function () {
@@ -52,13 +53,12 @@ import jQuery from 'jquery';
 
             $this.addClass(inital());
         },
-        exports: {},
         setOptionsBefore: null,
         setOptionsAfter: null,
         destroyBefore: null,
         initAfter: null,
     };
-    $.CUI.plugin(gridtableConfig);
+    $.cui.plugin(gridtableConfig);
     $(document).on('dom.load', function () {
         $('[data-gridtable]').each(function (index, item) {
             var data = $(item).data();

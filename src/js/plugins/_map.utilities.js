@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     $.iconType = {
         home: 0,
@@ -19,14 +20,13 @@ import jQuery from 'jquery';
         poiShopping: 117
     };
     $.getIconUrl = function (type) {
-        var fileType = !$.isIE() ? 'svg' : 'png';
         var url = '';
         switch (type * 1) {
             case $.iconType.home:
-                url = 'img/pin/homeicon.' + fileType;
+                url = 'img/pin/homeicon.png';
                 break;
             case $.iconType.school:
-                url = 'img/pin/schoolicon.' + fileType;
+                url = 'img/pin/schoolicon.png';
                 break;
             case $.iconType.schoolred:
                 url = 'img/pin/red_school.png';
@@ -65,61 +65,61 @@ import jQuery from 'jquery';
                 url = 'img/pin/yellow_single.png';
                 break;
             case $.iconType.poiBank:
-                url = 'img/pin/poi-bank.' + fileType;
+                url = 'img/pin/poi-bank.png';
                 break;
             case $.iconType.poiWorship:
-                url = 'img/pin/poi-worship.' + fileType;
+                url = 'img/pin/poi-worship.png';
                 break;
             case $.iconType.poiRecreation:
-                url = 'img/pin/poi-recreation.' + fileType;
+                url = 'img/pin/poi-recreation.png';
                 break;
             case $.iconType.poiTransportHub:
-                url = 'img/pin/poi-train.' + fileType;
+                url = 'img/pin/poi-train.png';
                 break;
             case $.iconType.poiGas:
-                url = 'img/pin/poi-gas.' + fileType;
+                url = 'img/pin/poi-gas.png';
                 break;
             case $.iconType.poiTexi:
-                url = 'img/pin/poi-taxi.' + fileType;
+                url = 'img/pin/poi-taxi.png';
                 break;
             case $.iconType.poiTransportation:
-                url = 'img/pin/poi-transportation.' + fileType;
+                url = 'img/pin/poi-transportation.png';
                 break;
             case $.iconType.poiGrocery:
-                url = 'img/pin/poi-grocery.' + fileType;
+                url = 'img/pin/poi-grocery.png';
                 break;
             case $.iconType.poiCafe:
-                url = 'img/pin/poi-cafe.' + fileType;
+                url = 'img/pin/poi-cafe.png';
                 break;
             case $.iconType.poiRestaurant:
-                url = 'img/pin/poi-restaurant.' + fileType;
+                url = 'img/pin/poi-restaurant.png';
                 break;
             case $.iconType.poiBar:
-                url = 'img/pin/poi-bar.' + fileType;
+                url = 'img/pin/poi-bar.png';
                 break;
             case $.iconType.poiShopping:
-                url = 'img/pin/poi-shopping.' + fileType;
+                url = 'img/pin/poi-shopping.png';
                 break;
             case $.iconType.comericialorange:
-                url = 'img/pin/property_orange_commercial.' + fileType;
+                url = 'img/pin/property_orange_commercial.png';
                 break;
             case $.iconType.condoorange:
-                url = 'img/pin/property_orange_condo.' + fileType;
+                url = 'img/pin/property_orange_condo.png';
                 break;
             case $.iconType.lotlandorange:
-                url = 'img/pin/property_orange_lot_land.' + fileType;
+                url = 'img/pin/property_orange_lot_land.png';
                 break;
             case $.iconType.mobilehomeorange:
-                url = 'img/pin/property_orange_mobile_home.' + fileType;
+                url = 'img/pin/property_orange_mobile_home.png';
                 break;
             case $.iconType.otherorange:
-                url = 'img/pin/property_orange_other.' + fileType;
+                url = 'img/pin/property_orange_other.png';
                 break;
             case $.iconType.singleorange:
-                url = 'img/pin/property_orange_single_family.' + fileType;
+                url = 'img/pin/property_orange_single_family.png';
                 break;
             case $.iconType.multifamilyorange:
-                url = 'img/pin/property_orange_multi_family.' + fileType;
+                url = 'img/pin/property_orange_multi_family.png';
                 break;
             default:
                 url = type;
@@ -171,7 +171,7 @@ import jQuery from 'jquery';
                 break;
         }
 
-        icon.url += $.getIconUrl(type, !$.isIE());
+        icon.url += $.getIconUrl(type);
         if (type === $.iconType.home) {
             icon.zIndex = 998; //cannot large than 999, the pop panel cannot cover the pin
         }

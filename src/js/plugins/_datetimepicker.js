@@ -1,16 +1,15 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var pickerContext = {
-        $element: null,
         name: 'picker',
         defaultOpt: {
             picker: null
         },
         initBefore: null,
-        init: function (context) {
-            var $this = context.$element;
-            var type = context.opt.picker;
-            var opt = {
+        init: function ($this, opt, exportObj) {
+            var type = opt.picker;
+            var setting = {
                 todayBtn: true,
                 autoclose: true,
                 todayHighlight: true,
@@ -18,7 +17,7 @@ import jQuery from 'jquery';
             };
             switch (type) {
                 case 'date':
-                    $.extend(opt, {
+                    _.assignIn(setting, {
                         format: 'yyyy-mm-dd',
                         startView: 2,
                         minView: 2,
@@ -26,7 +25,7 @@ import jQuery from 'jquery';
                     });
                     break;
                 case 'time':
-                    $.extend(opt, {
+                    _.assignIn(setting, {
                         showMeridian: true,
                         format: 'hh:ii',
                         startView: 1,
@@ -36,16 +35,14 @@ import jQuery from 'jquery';
                     });
                     break;
                 default:
-                    $.extend(opt, {
+                    _.assignIn(setting, {
                         format: 'yyyy-mm-dd hh:ii',
                     });
                     break;
             }
-            $this.datetimepicker(opt);
-        },
-        exports: {
-            original: function () {
-                return this.$element.data('datetimepicker');
+            $this.datetimepicker(setting);
+            exportObj.original = function () {
+                return $this.data('datetimepicker');
             }
         },
         isThirdPart: true,
@@ -54,7 +51,7 @@ import jQuery from 'jquery';
         destroyBefore: null,
         initAfter: null,
     };
-    $.CUI.plugin(pickerContext);
+    $.cui.plugin(pickerContext);
     $(document).on('focus', '[data-picker]', function () {
         var $this = $(this);
         var opt = $this.data();

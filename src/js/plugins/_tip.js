@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var animationDuration = 500;
     var tipConfig = {
@@ -19,9 +20,7 @@ import jQuery from 'jquery';
             _timer: null,
             parent: null
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
             var $container = $('<div class="tooltip ' + opt.type + ' ' + opt.placement + '"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>');
             var $parent = opt.parent ? $(opt.parent) : $this;
             if ($parent.css('position') === 'static') {
@@ -31,17 +30,11 @@ import jQuery from 'jquery';
             $container.click(function (e) {
                 e.stopPropagation();
             });
-            context.$container = $container;
+            exportObj.$container = $container;
             $container.hide();
-        },
-        destroy: null,
-        exports: {
-            show: function () {
-                var opt = this.opt;
-                var $this = this.$element;
-                var $container = this.$container;
+            exportObj.show = function () {
                 clearTimeout(opt._timer);
-                opt.showbefore && $.CUI.trigger(opt.showbefore, this);
+                opt.showbefore && _trigger(opt.showbefore, this);
                 $container.find('.tooltip-inner')
                     .html(opt.content);
                 var cWidth = $container.outerWidth();
@@ -105,63 +98,56 @@ import jQuery from 'jquery';
                         break;
                 }
                 if (opt.showafter) {
-                    opt.showafter && $.CUI.trigger(opt.showafter, this);
+                    opt.showafter && _trigger(opt.showafter, this);
                 }
-            },
-            hide: function () {
-                var opt = this.opt;
+            };
+            exportObj.hide = function () {
                 var that = this;
-                var $container = this.$container;
-                var exports = this.exports;
-                opt.hidebefore && $.CUI.trigger(opt.hidebefore, this);
+                opt.hidebefore && _trigger(opt.hidebefore, this);
                 $container.removeClass('in');
                 opt._timer = setTimeout(function () {
                     $container.hide();
-                    opt.hideafter && $.CUI.trigger(opt.hideafter, that);
+                    opt.hideafter && _trigger(opt.hideafter, that);
                     if (opt.once) {
-                        exports.destroy();
+                        exportObj.destroy();
                     }
                 }, animationDuration + 1);
-            }
+            };
         },
+        destroy: null,
         setOptionsBefore: null,
-        setOptionsAfter: function (context) {
-            var opt = context.opt;
-            var $container = context.$container;
+        setOptionsAfter: function ($this, opt, exportObj) {
+            var $container = exportObj.$container;
             $container.find('.tooltip-inner')
                 .html(opt.content);
         },
         initBefore: null,
-        initAfter: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
-            var exports = context.exports;
+        initAfter: function ($this, opt, exportObj) {
             switch (opt.trigger) {
                 case 'click':
-                    $this.on('click.' + exports.name, function () {
-                        exports.show();
+                    $this.on('click.' + exportObj.name, function () {
+                        exportObj.show();
                         $(document)
-                            .one('click', exports.hide);
+                            .one('click', exportObj.hide);
                         return false;
                     });
                     break;
                 case 'focus':
-                    $this.on('focusin.' + exports.name, exports.show);
-                    $this.on('focusout.' + exports.name, exports.hide);
+                    $this.on('focusin.' + exportObj.name, exportObj.show);
+                    $this.on('focusout.' + exportObj.name, exportObj.hide);
                     break;
             }
-            opt.onload && $.CUI.trigger(opt.onload, this);
+            opt.onload && _trigger(opt.onload, this);
         },
-        destroyBefore: function (context) {
-            var exports = context.exports;
+        destroyBefore: function ($this, opt, exportObj) {
             var $this = $(this);
-            $this.off('click.' + exports.name);
-            $this.off('focusin.' + exports.name);
-            $this.off('focusout.' + exports.name);
-            context.$container.remove();
+            $this.off('click.' + exportObj.name);
+            $this.off('focusin.' + exportObj.name);
+            $this.off('focusout.' + exportObj.name);
+            exportObj.$container.remove();
         },
     };
-    $.CUI.plugin(tipConfig);
+    $.cui.plugin(tipConfig);
     $(document)
         .on('dom.load.tip', function () {
             $('[data-tip]')

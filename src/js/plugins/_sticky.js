@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var stickyConfig = {
         name: 'sticky',
@@ -6,23 +7,23 @@ import jQuery from 'jquery';
             breakpoint: 'xs sm md lg',
             top: 0
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
+
             $this.addClass('sticky').addClass(opt.breakpoint);
             $this.css({
                 top: (opt.top + 'px')
             });
             return $this;
         },
-        exports: null,
+
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
         initAfter: null,
         destroyBefore: null
     };
-    $.CUI.plugin(stickyConfig);
+    $.cui.plugin(stickyConfig);
     $(document).on('dom.load.sticky', function () {
         $('[data-sticky]').each(function (index, item) {
             var $this = $(item);

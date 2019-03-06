@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var lockerConfig = {
         name: 'locker',
@@ -8,38 +9,28 @@ import jQuery from 'jquery';
             onbeforeunlock: null,
             onafterunlock: null
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
-            context._lock = function () {
-                opt.onbeforelock && $.CUI.trigger(opt.onbeforelock, $this);
+        init: function ($this, opt, exportObj) {
+            exportObj.lock = function () {
+                opt.onbeforelock && _trigger(opt.onbeforelock, $this);
                 $this.addClass('locked');
-                opt.onafterlock && $.CUI.trigger(opt.onafterlock, $this);
+                opt.onafterlock && _trigger(opt.onafterlock, $this);
             };
-            context._unlock = function () {
-                opt.onbeforeunlock && $.CUI.trigger(opt.onbeforeunlock, $this);
+            exportObj.unlock = function () {
+                opt.onbeforeunlock && _trigger(opt.onbeforeunlock, $this);
                 $this.removeClass('locked');
-                opt.onafterunlock && $.CUI.trigger(opt.onafterunlock, $this);
+                opt.onafterunlock && _trigger(opt.onafterunlock, $this);
             };
-        },
-        exports: {
-            lock: function () {
-                this._lock();
-            },
-            unlock: function () {
-                this._unlock();
-            }
         },
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
-        initAfter: function (context) {
-            var exports = context.exports;
-            exports.lock();
+        initAfter: function ($this, opt, exportObj) {
+
+            exportObj.lock();
         },
         destroyBefore: null
     };
-    $.CUI.plugin(lockerConfig);
+    $.cui.plugin(lockerConfig);
     $(document).on('dom.load.locker', function () {
         $('[data-locker]').each(function (index, item) {
             var $this = $(item);

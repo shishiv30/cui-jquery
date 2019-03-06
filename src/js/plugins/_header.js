@@ -1,4 +1,5 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var headerConfig = {
         name: 'header',
@@ -6,10 +7,8 @@ import jQuery from 'jquery';
             container: 'html',
             autoclose: true,
         },
-        init: function (context) {
-            var opt = context.opt;
+        init: function ($this, opt, exportObj) {
             var $body = $('body');
-            var $this = context.$element;
             var $nav = $this.find('.header-nav');
             var $list = $this.find('.header-menu-list');
             var $dropdown = $list.find('.list');
@@ -45,7 +44,7 @@ import jQuery from 'jquery';
                 }
             };
             //nav-list
-            $list.on('scroll', $.throttle(checkScrollLink, 100));
+            $list.on('scroll', _.throttle(checkScrollLink, 100));
             $(document).on('dom.resize', checkScrollable);
             checkScrollable();
             checkScrollLink();
@@ -103,15 +102,13 @@ import jQuery from 'jquery';
                     scrollLeft: '+=100px'
                 });
             });
-            context = $.extend(context, {
-                _show: _show,
-                _hide: _hide,
-                _close: _close,
-                _open: _open,
-            });
+            exportObj.show = _show;
+            exportObj.hide = _hide;
+            exportObj.close = _close;
+            exportObj.open = _open;
             $(document).on('dom.resize', _hide);
             $(document).on('dom.scroll', function () {
-                var status = $.CUI.status;
+                var status = $.cui.status;
                 if (status.isScrollDown) {
                     _close();
                 } else {
@@ -119,27 +116,13 @@ import jQuery from 'jquery';
                 }
             });
         },
-        exports: {
-            show: function () {
-                this._show();
-            },
-            hide: function () {
-                this._hide();
-            },
-            close: function () {
-                this._close();
-            },
-            open: function () {
-                this._open();
-            },
-        },
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
         initAfter: null,
         destroyBefore: null
     };
-    $.CUI.plugin(headerConfig);
+    $.cui.plugin(headerConfig);
     $(document).on('dom.load.header', function () {
         $('[data-header]').each(function (index, item) {
             var $this = $(item);

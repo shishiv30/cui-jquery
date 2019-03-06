@@ -1,10 +1,11 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var textboxConfig = {
         name: 'textbox',
         defaultOpt: {},
-        init: function (context) {
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
+
             var $input = $this.find('input');
             var _switchLabel = function () {
                 if ($input.val()) {
@@ -28,14 +29,14 @@ import jQuery from 'jquery';
             _switchLabel();
 
         },
-        exports: null,
+
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
         initAfter: null,
         destroyBefore: null,
     };
-    $.CUI.plugin(textboxConfig);
+    $.cui.plugin(textboxConfig);
     $(document).on('dom.load.textbox', function () {
         $('[data-textbox]').each(function (index, item) {
             var $this = $(item);

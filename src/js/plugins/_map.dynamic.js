@@ -1,9 +1,10 @@
-import jQuery from 'jquery';
+import _ from 'lodash';
+import _trigger from '../core/_trigger';
 (function ($) {
     var markManager = function (options) {
         this.markers = [];
         this.map = options.map;
-        this.defaultOpt = $.extend({}, {
+        this.defaultOpt = _.assignIn({}, {
             map: options.map
         }, options.defaultOpt);
         this.create = options.create;
@@ -31,7 +32,7 @@ import jQuery from 'jquery';
             .element;
     };
     markManager.prototype.addMarker = function (option) {
-        var opt = $.extend({}, this.defaultOpt, option);
+        var opt = _.assignIn({}, this.defaultOpt, option);
         var marker = null;
         if (!opt.lat || !opt.lng) {
             return null;
@@ -84,6 +85,119 @@ import jQuery from 'jquery';
         }
         return [];
     };
+    var initalCustomMarker = function () {
+        if (!window.CustomMarker) {
+            window.CustomMarker = function (options) {
+                var defaultOpt = {
+                    latlng: null,
+                    map: null,
+                    html: null,
+                    popData: null,
+                    popTmp: null,
+                    popHeight: null,
+                    onclick: null,
+                    popTheme: 'marker',
+                    zIndex: null
+                };
+                var opt = _.assignIn({}, defaultOpt, options);
+                this.latlng = opt.latlng;
+                this.html = opt.html;
+                this.map = opt.map;
+                this.popData = opt.popData;
+                this.popTmp = opt.popTmp;
+                this.popHeight = opt.popHeight;
+                this.showPop = !!(opt.popData && opt.popTmp);
+                this.onclick = opt.onclick;
+                this.popTheme = opt.popTheme;
+                this.zIndex = opt.zIndex;
+                this.setMap(opt.map);
+            };
+            window.CustomMarker.prototype = new window.google.maps.OverlayView();
+            window.CustomMarker.prototype.poppanel = function (div) {
+                var self = this;
+                if (self.showPop) {
+                    var $pin = $(div);
+                    var html = $.renderHtml(self.popTmp, self.popData);
+                    var $content = $('<div class="pop-content"><div>' + html + '</div></div>');
+                    var tippopover = $pin.find('.pin').tip({
+                        content: $content,
+                        placement: 'top',
+                        trigger: 'click',
+                        html: true,
+                        once: true,
+                        type: self.popTheme,
+                        onload: function () {
+                            // $(document).trigger('dom.load');
+                        },
+
+                    });
+                    setTimeout(function () {
+                        tippopover.show();
+                        window.google.maps.event.addListener(self.map, 'zoom_changed', function () {
+                            tippopover.hide();
+                        });
+                        window.google.maps.event.addListener(self.map, 'dragstart', function () {
+                            tippopover.hide();
+                        });
+                        $(window).one('click', function () {
+                            tippopover.hide();
+                        });
+                    }, 150);
+                } else {
+                    self.onclick(div);
+                }
+            };
+            window.CustomMarker.prototype.draw = function () {
+                var self = this;
+                var div = this.div;
+                if (!div) {
+                    div = this.div = $(this.html)[0];
+                    var panes = this.getPanes();
+                    panes.overlayMouseTarget.appendChild(div);
+                    if (this.showPop || this.onclick) {
+                        if (this.zIndex) {
+                            $(div).css('zIndex', this.zIndex);
+                        }
+                        if ($.isMobile()) {
+                            window.google.maps.event.addDomListener($(div).children()[0], 'touchstart', function () {
+                                if (self.onclick) {
+                                    self.onclick(div);
+                                }
+                                self.poppanel(div);
+                            });
+                        } else {
+                            window.google.maps.event.addDomListener($(div).children()[0], 'click', function () {
+                                if (self.onclick) {
+                                    self.onclick(div);
+                                }
+                                self.poppanel(div);
+                            });
+                        }
+                    }
+                }
+                var point = this.getProjection().fromLatLngToDivPixel(this.latlng);
+                if (point) {
+                    div.style.left = point.x + 'px';
+                    div.style.top = point.y + 'px';
+                }
+            };
+            window.CustomMarker.prototype.remove = function () {
+                if (this.div) {
+                    this.div.parentNode.removeChild(this.div);
+                    this.div = null;
+                }
+            };
+            window.CustomMarker.prototype.getPosition = function () {
+                return this.latlng;
+            };
+            window.CustomMarker.prototype.refreshPop = function (popData, popTmp, onclick) {
+                this.popData = popData;
+                this.popTmp = popTmp;
+                this.showPop = popData && popTmp;
+                this.onclick = onclick;
+            };
+        }
+    }
     var gmapConfig = {
         name: 'gmap',
         dependence: 'googlemap',
@@ -119,9 +233,7 @@ import jQuery from 'jquery';
             distancecontrol: true,
             distancecontrolpos: 'BOTTOM_LEFT',
         },
-        init: function (context) {
-            var opt = context.opt;
-            var $this = context.$element;
+        init: function ($this, opt, exportObj) {
             var mapOptions = {
                 disableDefaultUI: opt.disabledefaultui,
                 gestureHandling: 'greedy',
@@ -146,7 +258,7 @@ import jQuery from 'jquery';
                 distanceControlPos: opt.distancecontrolpos,
             };
             if (opt.inline) {
-                mapOptions = $.extend(mapOptions, {
+                mapOptions = _.assignIn(mapOptions, {
                     scrollwheel: false,
                     navigationControl: false,
                     mapTypeControl: false,
@@ -155,7 +267,7 @@ import jQuery from 'jquery';
                 });
             }
             var map = new window.google.maps.Map($this.get(0), mapOptions);
-            context.map = map;
+            exportObj.ap = map;
             var markers = new markManager({
                 defaultOpt: {
                     draggable: false,
@@ -171,12 +283,13 @@ import jQuery from 'jquery';
                     popHeight: 100,
                     zIndex: null,
                 },
-                map: context.map,
+                map: exportObj.ap,
                 create: function (markerOpt) {
                     var latlng = new window.google.maps.LatLng({
                         lat: markerOpt.lat,
                         lng: markerOpt.lng
                     });
+                    initalCustomMarker();
                     var marker = new window.CustomMarker({
                         latlng: latlng,
                         map: markerOpt.map,
@@ -202,12 +315,12 @@ import jQuery from 'jquery';
                         });
                 }
             });
-            context._setCenter = function (lat, lng) {
+            exportObj.setCenter = function (lat, lng) {
                 var center = new window.google.maps.LatLng(lat, lng);
                 return map.setCenter(center);
             };
             var panorama = null;
-            context._showStreetView = function () {
+            exportObj.showStreetView = function () {
                 var streetViewLocation = new window.google.maps.LatLng(opt.lat, opt.lng);
                 var sv = new window.google.maps.StreetViewService();
                 sv.getPanoramaByLocation(streetViewLocation, 50, function (data, status) {
@@ -221,16 +334,16 @@ import jQuery from 'jquery';
                     }
                 });
             };
-            context._hideStreetView = function () {
+            exportObj.hideStreetView = function () {
                 panorama.setVisible(false);
             };
-            context._changeMaptype = function (id) {
+            exportObj.changeMaptype = function (id) {
                 map.setMapTypeId($.getMapTypeId(id));
             };
-            context._addMarker = function (option) {
+            exportObj.addMarker = function (option) {
                 return markers.addMarker(option);
             };
-            context._findItem = function (id) {
+            exportObj.findItem = function (id) {
                 for (var i = 0; i < markers.length; i++) {
                     if (markers[i].id == id) {
                         return {
@@ -244,39 +357,39 @@ import jQuery from 'jquery';
                     index: -1
                 };
             };
-            context._getMarkerById = function (id) {
+            exportObj.getMarkerById = function (id) {
                 return markers.getMarkerById(id);
             };
-            context._setAllMap = function (map) {
+            exportObj.setAllMap = function (map) {
                 var markerList = markers.getAllMarkers();
                 for (var i = 0; i < markerList.length; i++) {
                     markerList[i].setMap(map);
                 }
             };
-            context._hideMarkers = function () {
-                context._setAllMap(null);
+            exportObj.hideMarkers = function () {
+                exportObj.setAllMap(null);
             };
-            context._showMarkers = function () {
-                context._setAllMap(map);
+            exportObj.showMarkers = function () {
+                exportObj.setAllMap(map);
             };
-            context._deleteMarker = function (id) {
+            exportObj.deleteMarker = function (id) {
                 return markers.deleteMarker(id);
             };
-            context._deleteMarkers = function (ids) {
+            exportObj.deleteMarkers = function (ids) {
                 markers.deleteMarkers(ids);
             };
-            context._getMarkers = function () {
+            exportObj.getMarkers = function () {
                 return markers;
             };
-            context._getBounds = function () {
+            exportObj.getBounds = function () {
                 return map.getBounds();
             };
-            context._setZoom = function (level) {
+            exportObj.setZoom = function (level) {
                 if ($.isNumeric(level)) {
                     map.setZoom(level);
                 }
             };
-            context._fitBounds = function (latlngs) {
+            exportObj.fitBounds = function (latlngs) {
                 var list = [];
                 if (latlngs && latlngs.length) {
                     list = list.concat(latlngs.map(function (e) {
@@ -305,105 +418,55 @@ import jQuery from 'jquery';
                 }
             };
         },
-        exports: {
-            setCenter: function (lat, lng) {
-                this._setCenter(lat, lng);
-            },
-            showStreetView: function () {
-                this._showStreetView();
-            },
-            hideStreetView: function () {
-                this._hideStreetView();
-            },
-            changeMaptype: function (id) {
-                this._changeMaptype(id);
-            },
-            addMarker: function (option) {
-                this._addMarker(option);
-            },
-            findItem: function (id) {
-                this._findItem(id);
-            },
-            getMarkerById: function (id) {
-                this._getMarkerById(id);
-            },
-            setAllMap: function (map) {
-                this._setAllMap(map);
-            },
-            hideMarkers: function () {
-                this._hideMarkers();
-            },
-            showMarkers: function () {
-                this._showMarkers();
-            },
-            deleteMarker: function () {
-                this._deleteMarker();
-            },
-            deleteMarkers: function () {
-                this._deleteMarkers();
-            },
-            getMarkers: function () {
-                this._getMarkers();
-            },
-            getBounds: function () {
-                this._getBounds();
-            },
-            setZoom: function (level) {
-                this._setZoom(level);
-            },
-            fitBounds: function (poiList) {
-                this._fitBounds(poiList);
-            },
-        },
         setOptionsBefore: null,
         setOptionsAfter: null,
         initBefore: null,
-        initAfter: function (context) {
-            var map = context.map;
-            var opt = context.opt;
-            var exports = context.exports;
+        initAfter: function ($this, opt, exportObj) {
+            var map = exportObj.ap;
+
+
             window.google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
                 //click event
-                opt.onclick && $.CUI.trigger(opt.onclick, context);
+                opt.onclick && _trigger(opt.onclick, context);
                 //drag event
                 if (opt.draggable) {
                     if (opt.ondrag) {
                         window.google.maps.event.addListener(map, 'dragstart', function () {
-                            $.CUI.trigger(opt.ondrag, context);
+                            _trigger(opt.ondrag, context);
                         });
                     }
                     if (opt.ondraged) {
                         window.google.maps.event.addListener(map, 'dragend', function () {
-                            $.CUI.trigger(opt.ondraged, context);
+                            _trigger(opt.ondraged, context);
                         });
                     }
                 }
                 if (opt.zoomable && opt.onzoom) {
                     window.google.maps.event.addListener(map, 'zoom_changed', function () {
-                        $.CUI.trigger(opt.onzoom, context);
+                        _trigger(opt.onzoom, context);
                     });
                 }
                 if (opt.onload) {
-                    $.CUI.trigger(opt.onload, context);
+                    _trigger(opt.onload, context);
                 }
             });
             if (opt.onresize) {
                 window.google.maps.event.addListener(map, 'resize', function () {
-                    $.CUI.trigger(opt.onresize, context);
+                    _trigger(opt.onresize, context);
                 });
             }
             if (opt.autoresize) {
                 window.google.maps.event.addDomListener(window, 'resize', function () {
-                    context.reset();
+                    exportObj.eset();
                 });
             }
             if (opt.streetview) {
-                exports.showStreetView();
+                exportObj.showStreetView();
             }
         },
         destroyBefore: null
     };
-    $.CUI.plugin(gmapConfig);
+    $.cui.plugin(gmapConfig);
     $(document)
         .on('dom.load.gmap', function () {
             $('[data-gmap]')
