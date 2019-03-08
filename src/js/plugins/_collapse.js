@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import _trigger from '../core/_trigger';
-var collapseConfig = {
+export default {
     name: 'Collapse',
     defaultOpt: {
         showtext: null,
@@ -113,5 +113,4 @@ var collapseConfig = {
         $this.off('click.collapse');
     }
 };
-export default collapseConfig;
 

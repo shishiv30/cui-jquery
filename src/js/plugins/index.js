@@ -12,10 +12,7 @@ import header from './_header.js'
 import inputformat from './_inputformat.js'
 import links from './_links.js'
 import loadimage from './_loadimage.js'
-import loading from './_loading.js'
 import locker from './_locker.js'
-import maploader from './_map.loader.js'
-import maputilities from './_map.utilities.js'
 import mapdynamic from './_map.dynamic.js'
 import mapstatic from './_map.static.js'
 import measurement from './_measurement.js'
@@ -33,9 +30,38 @@ import tip from './_tip.js'
 import transition from './_transition.js'
 import validate from './_validate.js'
 import view from './_view.js'
-import webview from './_webview.js'
 import zoom from './_zoom.js'
 
 export default {
     collapse,
+    datatable,
+    datetimepicker,
+    dialog,
+    dropdownbutton,
+    form,
+    gridtable,
+    gridview,
+    header,
+    inputformat,
+    links,
+    loadimage,
+    locker,
+    mapdynamic,
+    mapstatic,
+    measurement,
+    onscroll,
+    pin,
+    ranger,
+    request,
+    scrollTo,
+    shifter,
+    slicker,
+    sticky,
+    tabs,
+    textbox,
+    tip,
+    transition,
+    validate,
+    view,
+    zoom,
 }

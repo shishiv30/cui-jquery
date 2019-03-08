@@ -24,7 +24,6 @@ export default function () {
                 type: 'js',
                 callback: 'googlemapcallback',
             }).then(function () {
-                initialCustomMarker();
                 mapLoaded = 2;
                 dfd.resolve(window.google && window.google.map);
                 $(document).trigger('gMapLoaded');

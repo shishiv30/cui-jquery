@@ -126,4 +126,4 @@ import _trigger from '../core/_trigger';
 //         }
 //         $this.removeAttr('data-link');
 //     });
-// })(jQuery);
+// 

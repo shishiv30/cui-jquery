@@ -3,8 +3,7 @@
 
 import _ from 'lodash';
 import _trigger from '../core/_trigger';
-(function ($) {
-    var exampleConfig = {
+export default { 
         name: 'example',
         defaultOpt: {},
         init: function($this, opt, exportObj) {},
@@ -24,4 +23,4 @@ import _trigger from '../core/_trigger';
             $this.attr('data-example-load', '');
         });
     });
-})(jQuery);
+

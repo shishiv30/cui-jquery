@@ -1,6 +1,6 @@
 import inject from './inject';
 import core from './core';
-import collapse from './plugins/_collapse';
+import plugins from './plugins';
 import $ from 'jquery';
 
 window.$ = window.jQuery = $;
@@ -8,11 +8,10 @@ inject.forEach(e => {
     e.call(window, $);
 });
 
-new core.plugin(collapse, $);
-// for (key in plugins) {
-//     var item = plugins[key];
-//     $.cui.register(item);
-// }
+for (var key in plugins) {
+    var config = plugins[key];
+    new core.plugin(config, $);
+}
 // $(document).on('dom.load', function () {
 //     $('[cui]').each(function () {
 //         var $this = $(item);
