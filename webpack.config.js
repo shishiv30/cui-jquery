@@ -39,6 +39,15 @@ module.exports = function (env, argv) {
                 test: /\.scss$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             }, {
+                test: /\.(html)$/,
+                include: path.join(__dirname, './'),
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        interpolate: true
+                    }
+                }
+            }, {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
@@ -57,7 +66,8 @@ module.exports = function (env, argv) {
             new HtmlWebpackPlugin({
                 filename: './index.html',
                 template: './template.html',
-                favicon: 'src/assets/favicon.ico'
+                favicon: 'src/assets/favicon.ico',
+                minify: true
             }),
             new MiniCssExtractPlugin({
                 filename: '[name].css',

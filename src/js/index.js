@@ -1,52 +1,16 @@
-import inject from './inject';
 import core from './core';
+import inject from './inject';
 import plugins from './plugins';
 import $ from 'jquery';
-
 window.$ = window.jQuery = $;
 inject.forEach(e => {
     e.call(window, $);
 });
-
 for (var key in plugins) {
     var config = plugins[key];
     new core.plugin(config, $);
 }
-
-if(core.plugin.records && core.plugin.records.length){
-    core.plugin.records.forEach(function(e){
-        $(document).on('dom.load.datatable', function () {
-            $('[data-datatable]').each(function () {
-                var $this = $(this);
-                var data = $this.data();
-                $this.removeAttr('data-datatable');
-                $this.datatable(data);
-                $this.attr('data-datatable-load', '');
-            });
-        });
-
-    })
-}
-
-$(document).on('dom.load', function () {
-    $('[' + core.namespace + ']').each(function () {
-        var $this = $(item);
-        var data = $this.data();
-        var types = $this.attr('cui');
-        $this.removeAttr('cui');
-        types.split('.').forEach(function (type) {
-            var pluginName = core.namespace + type;
-            $this[pluginName](data);
-        });
-        $this.attr('cui-load', types);
-    });
-});
-
-$(document).ready(function () {
-    $(document).trigger('cui.inital');
-});
-
-var cuiStatus = {};
+var cuiStatus = null;
 var _isMobile = function () {
     var $body = $('body');
     if ($.isMobile()) {
@@ -78,6 +42,17 @@ var _isScrollDown = function () {
     cuiStatus.originalScrollTop = cuiStatus.scrollTop;
 };
 var _updateWindowStatus = function (type) {
+    if (!cuiStatus) {
+        cuiStatus = {
+            originalScrollTop: $(window).scrollTop(),
+            isLandscape: $(window).width() > $(window).height(),
+            scrollTop: $(window).scrollTop(),
+            causeByKeyboard: false,
+            isScrollDown: false,
+            height: $(window).height(),
+            width: $(window).width()
+        };
+    }
     cuiStatus.causeByKeyboard = $('input, select, textarea').is(':focus');
     switch (type) {
         case 'resize':
@@ -110,20 +85,30 @@ var _eventResizeListener = function () {
         $(document).trigger('dom.resize');
     }, 500));
 };
-_updateWindowStatus('inital');
-//dom load
-_isMobile();
-_eventScrollListener();
-_eventResizeListener();
+
 $(document).one('cui.inital', function () {
-    cuiStatus = {
-        originalScrollTop: $(window).scrollTop(),
-        isLandscape: $(window).width() > $(window).height(),
-        scrollTop: $(window).scrollTop(),
-        causeByKeyboard: false,
-        isScrollDown: false,
-        height: $(window).height(),
-        width: $(window).width()
-    };
+    _updateWindowStatus('inital');
+    //dom load
+    _isMobile();
+    _eventScrollListener();
+    _eventResizeListener();
     $(document).trigger('dom.load');
 });
+$(document).on('dom.load', function () {
+    $('[' + core.namespace + ']').each(function () {
+        var $this = $(item);
+        var data = $this.data();
+        var types = $this.attr('cui');
+        $this.removeAttr('cui');
+        types.split('.').forEach(function (type) {
+            var pluginName = core.namespace + type;
+            $this[pluginName](data);
+        });
+        $this.attr('cui-load', types);
+    });
+});
+$(document).ready(function () {
+    $(document).trigger('cui.inital');
+});
+
+export default $;

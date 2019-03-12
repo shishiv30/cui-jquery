@@ -169,12 +169,12 @@ export default {
 };
 // $.cui.plugin(dataTableConfig);
 // $(document).on('dom.load.datatable', function () {
-//     $('[data-datatable]').each(function () {
+//     $('[data-cui="datatable"]').each(function () {
 //         var $this = $(this);
 //         var data = $this.data();
-//         $this.removeAttr('data-datatable');
+//         $this.removeAttr('data-cui="datatable"');
 //         $this.datatable(data);
-//         $this.attr('data-datatable-load', '');
+//         $this.attr('data-cui="datatable"-load', '');
 //     });
 // });
 

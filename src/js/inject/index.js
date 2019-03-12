@@ -11,7 +11,7 @@ import _isprice from '../inject/_extend.isprice';
 import _iszipcode from '../inject/_extend.iszipcode';
 import _renderhtml from '../inject/_extend.renderhtml';
 import _scrollto from '../inject/_extend.scrollto';
-
+import _isMobile from '../inject/_extend.isMobile';
 export default [
     _gesture,
     _draggable,
@@ -25,5 +25,6 @@ export default [
     _isprice,
     _iszipcode,
     _renderhtml,
-    _scrollto
+    _scrollto,
+    _isMobile
 ]

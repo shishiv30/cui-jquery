@@ -1,0 +1,47 @@
+<div data-header class="header">
+    <div class="header-bar">
+        <a  href="javascript:;" class="f2"> <i class="icon-cui"></i></a>
+        <div data-textbox="">
+            <div  class="input right">
+                <label for="headerInput">Search for ...</label>
+                <input id="headerInput" type="text">
+                <a href="javascript:;" class="btn"><i class="icon-search"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="header-nav">
+        <ul class="header-menu-list">
+            <li>
+                <a href="/ch"><%= __('API Document') %></a>
+            </li>
+            <li class="list">
+                <a href="javascript:;"><%= __('Prototype') %></a>
+                <ul>
+                    <li><a href="www.movoto.com"><%= __('Movoto') %></a></li>
+                    <li class="splict"><a href="<%=url + 'demo1.html'%>"><%= __('Educate') %></a></li>
+                    <li>
+                        <a class="hightlight" href="<%=url + 'v-1.html'%>"><%= __('Note') %></a>
+                    </li>
+                    <li>
+                        <a href="<%=url + 'v-2.html'%>"><%= __('regression') %></a>
+                    </li>
+                    <li>
+                        <a href="<%=url + 'v-3.html'%>"><%= __('Q&A') %></a>
+                    </li>
+                    <li>
+                        <a class="hightlight" href="<%=url + 'v-4.html'%>"><%= __('Wild World') %></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="right list">
+                <a href="javascript:;"><%= __('Design Model') %></a>
+                <ul>
+                    <li><a  href="<%=url + 'v-5.html'%>"><%= __('Golden Ratio') %></a></li>
+                    <li><a href="<%=url + 'v-6.html'%>"><%= __('Waterflow') %></a></li>
+                </ul>
+            </li>
+        </ul>
+        <a href="javascript:;" class=" header-switch-link f2"><i class="icon-bars"></i></a>
+    </div>
+
+</div>
