@@ -19,8 +19,6 @@ export default {
         onclick: null
     },
     init: function ($this, opt, exportObj) {
-
-
         var _render = function () {
             var $container = $('<div class="measurement"><div class="measurement-line"></div></div></div>');
             $.each(opt.data, function (index, item) {
@@ -39,7 +37,7 @@ export default {
                     left: position + '%'
                 });
                 if (opt.onclick) {
-                    opt.onclick && _trigger(opt.onclick, context, $item);
+                    opt.onclick && _trigger(opt.onclick, $this, opt, exportObj, $item);
                 }
                 $container.append($item);
             });

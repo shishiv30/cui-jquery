@@ -15,29 +15,29 @@ export default {
             viewSelect: 4,
         };
         switch (type) {
-            case 'date':
-                _.assignIn(setting, {
-                    format: 'yyyy-mm-dd',
-                    startView: 2,
-                    minView: 2,
-                    maxView: 4
-                });
-                break;
-            case 'time':
-                _.assignIn(setting, {
-                    showMeridian: true,
-                    format: 'hh:ii',
-                    startView: 1,
-                    minView: 0,
-                    maxView: 1,
-                    keyboardNavigation: false
-                });
-                break;
-            default:
-                _.assignIn(setting, {
-                    format: 'yyyy-mm-dd hh:ii',
-                });
-                break;
+        case 'date':
+            _.assignIn(setting, {
+                format: 'yyyy-mm-dd',
+                startView: 2,
+                minView: 2,
+                maxView: 4
+            });
+            break;
+        case 'time':
+            _.assignIn(setting, {
+                showMeridian: true,
+                format: 'hh:ii',
+                startView: 1,
+                minView: 0,
+                maxView: 1,
+                keyboardNavigation: false
+            });
+            break;
+        default:
+            _.assignIn(setting, {
+                format: 'yyyy-mm-dd hh:ii',
+            });
+            break;
         }
         $this.datetimepicker(setting);
         exportObj.original = function () {

@@ -13,7 +13,6 @@ export default {
         padding: 0,
         index: 0,
         responsive: true,
-
     },
     init: function ($this, opt, exportObj) {
         if (opt.autoscroll) {

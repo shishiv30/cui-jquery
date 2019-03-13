@@ -10,14 +10,14 @@ export default {
     },
     init: function ($this, opt, exportObj) {
         exportObj.lock = function () {
-            opt.onbeforelock && _trigger(opt.onbeforelock, $this);
+            opt.onbeforelock && _trigger(opt.onbeforelock, $this, opt, exportObj);
             $this.addClass('locked');
-            opt.onafterlock && _trigger(opt.onafterlock, $this);
+            opt.onafterlock && _trigger(opt.onafterlock, $this, opt, exportObj);
         };
         exportObj.unlock = function () {
-            opt.onbeforeunlock && _trigger(opt.onbeforeunlock, $this);
+            opt.onbeforeunlock && _trigger(opt.onbeforeunlock, $this, opt, exportObj);
             $this.removeClass('locked');
-            opt.onafterunlock && _trigger(opt.onafterunlock, $this);
+            opt.onafterunlock && _trigger(opt.onafterunlock, $this, opt, exportObj);
         };
     },
     setOptionsBefore: null,

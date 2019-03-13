@@ -4,7 +4,6 @@ export default {
     name: 'textbox',
     defaultOpt: {},
     init: function ($this, opt, exportObj) {
-
         var $input = $this.find('input');
         var _switchLabel = function () {
             if ($input.val()) {
@@ -28,7 +27,6 @@ export default {
         _switchLabel();
 
     },
-
     setOptionsBefore: null,
     setOptionsAfter: null,
     initBefore: null,

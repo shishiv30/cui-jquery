@@ -66,5 +66,5 @@ export default function (options) {
         });
     }
     return Promise.all(resources);
-};
+}
 

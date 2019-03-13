@@ -200,21 +200,21 @@ var initalCustomMarker = function () {
 var getMapTypeId = function (type) {
     var mapTypeId;
     switch (type * 1) {
-        case 0:
-            mapTypeId = window.google.maps.MapTypeId.ROADMAP;
-            break;
-        case 1:
-            mapTypeId = window.google.maps.MapTypeId.SATELLITE;
-            break;
-        case 2:
-            mapTypeId = window.google.maps.MapTypeId.HYBRID;
-            break;
-        case 3:
-            mapTypeId = window.google.maps.MapTypeId.TERRAIN;
-            break;
-        default:
-            mapTypeId = window.google.maps.MapTypeId.ROADMAP;
-            break;
+    case 0:
+        mapTypeId = window.google.maps.MapTypeId.ROADMAP;
+        break;
+    case 1:
+        mapTypeId = window.google.maps.MapTypeId.SATELLITE;
+        break;
+    case 2:
+        mapTypeId = window.google.maps.MapTypeId.HYBRID;
+        break;
+    case 3:
+        mapTypeId = window.google.maps.MapTypeId.TERRAIN;
+        break;
+    default:
+        mapTypeId = window.google.maps.MapTypeId.ROADMAP;
+        break;
     }
     return mapTypeId;
 };
@@ -445,32 +445,32 @@ export default {
         var map = exportObj.ap;
         window.google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
             //click event
-            opt.onclick && _trigger(opt.onclick, context);
+            opt.onclick && _trigger(opt.onclick, $this, opt, exportObj);
             //drag event
             if (opt.draggable) {
                 if (opt.ondrag) {
                     window.google.maps.event.addListener(map, 'dragstart', function () {
-                        _trigger(opt.ondrag, context);
+                        _trigger(opt.ondrag, $this, opt, exportObj);
                     });
                 }
                 if (opt.ondraged) {
                     window.google.maps.event.addListener(map, 'dragend', function () {
-                        _trigger(opt.ondraged, context);
+                        _trigger(opt.ondraged, $this, opt, exportObj);
                     });
                 }
             }
             if (opt.zoomable && opt.onzoom) {
                 window.google.maps.event.addListener(map, 'zoom_changed', function () {
-                    _trigger(opt.onzoom, context);
+                    _trigger(opt.onzoom, $this, opt, exportObj);
                 });
             }
             if (opt.onload) {
-                _trigger(opt.onload, context);
+                _trigger(opt.onload, $this, opt, exportObj);
             }
         });
         if (opt.onresize) {
             window.google.maps.event.addListener(map, 'resize', function () {
-                _trigger(opt.onresize, context);
+                _trigger(opt.onresize, $this, opt, exportObj);
             });
         }
         if (opt.autoresize) {

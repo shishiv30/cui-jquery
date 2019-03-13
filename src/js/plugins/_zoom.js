@@ -42,9 +42,9 @@ export default {
         };
         exportObj.setZoom = function (step) {
             var opt = this.opt;
-            opt.zoombefore && _trigger(opt.zoombefore, this);
+            opt.zoombefore && _trigger(opt.zoombefore, $this, opt, exportObj);
             this._zoom(step);
-            opt.zoomafter && _trigger(opt.zoomafter, this);
+            opt.zoomafter && _trigger(opt.zoomafter, $this, opt, exportObj);
         };
     },
     setOptionsBefore: null,

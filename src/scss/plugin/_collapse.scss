@@ -55,11 +55,11 @@
     opacity: 1;
 }
 
-[data-collapse] {
+[data-cui^="collapse"], [data-cui*=" collapse"] {
     visibility: hidden;
 }
 
-[data-collapse-load] {
+[data-cui-load^="collapse"], [data-cui-load*=" collapse"] {
     &:before {
         transition: transform ease-in-out 0.1s;
     }

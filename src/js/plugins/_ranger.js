@@ -72,11 +72,11 @@ export default {
             exportObj.set(values);
         });
         exportObj.range.on('update', function (e, t) {
-            opt.changebefore && _trigger(opt.changebefore, this, e, t);
+            opt.changebefore && _trigger(opt.changebefore, $this, opt, exportObj, e, t);
             $input.each(function (index) {
                 $(this).val(e[index]).trigger('input');
             });
-            opt.changeafter && _trigger(opt.changeafter, this, e, t);
+            opt.changeafter && _trigger(opt.changeafter, $this, opt, exportObj, e, t);
         });
     },
 };

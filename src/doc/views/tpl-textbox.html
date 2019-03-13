@@ -1,13 +1,13 @@
 <div class="panel">
-    <a href="javascript:;" class="h2" data-collapse data-target="#texboxPanel">
-        <%= __('textbox') %>
-        <span class="subtitle"> <%= __('new textbox style') %></span>
+    <a href="javascript:;" class="h2" data-cui="collapse" data-target="#texboxPanel">
+        textbox
+        <span class="subtitle"> new textbox style</span>
     </a>
     <div id="texboxPanel">
         <div class="form row" data-form>
             <div class="col-xs-6">
                 <div class="select-textbox">
-                    <label for="selectS"><%=__('textbox select')%></label>
+                    <label for="selectS">textbox select</label>
                     <select id="selectS" name="fequence" data-validate="required">
                         <option value="" selected disabled>select a Option</option>
                         <option value="Weekly">Option 1</option>
@@ -20,7 +20,7 @@
             <div class="col-xs-6">
                 <div data-textbox>
                     <div class="input left right">
-                        <label for="txtReq2"><%=__('textbox iput')%></label>
+                        <label for="txtReq2">textbox iput</label>
                         <i>$</i>
                         <input type="email" id="txtReq2" name='name' value="" data-validate='required,email'>
                         <a href="javascript:;" class="icon-envelope btn black"></a>
@@ -30,8 +30,8 @@
             <div class="col-xs-12">
                 <div data-textbox>
                     <div class="textarea">
-                        <label for="textReq4"><%=__('textbox textarea')%></label>
-                        <textarea name="<%=__('label')%>" id="textReq4" data-validate='required'></textarea>
+                        <label for="textReq4">textbox textarea</label>
+                        <textarea name="label" id="textReq4" data-validate='required'></textarea>
                     </div>
                 </div>
             </div>

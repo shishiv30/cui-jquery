@@ -7,15 +7,12 @@ export default {
         top: 0
     },
     init: function ($this, opt, exportObj) {
-
-
         $this.addClass('sticky').addClass(opt.breakpoint);
         $this.css({
             top: (opt.top + 'px')
         });
         return $this;
     },
-
     setOptionsBefore: null,
     setOptionsAfter: null,
     initBefore: null,

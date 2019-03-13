@@ -27,25 +27,13 @@ export default {
                 }
             }
             params.beforeSend = function () {
-                if (_.isFunction(opt.beforesend)) {
-                    opt.beforesend(opt);
-                } else {
-                    $(document).trigger(opt.beforesend, [opt]);
-                }
+                opt.beforesend && _trigger(opt.beforesend,$this, opt, exportObj);
             };
             params.success = function () {
-                if (_.isFunction(opt.onsuccess)) {
-                    opt.onsuccess(opt);
-                } else {
-                    $(document).trigger(opt.onsuccess, [$this, opt]);
-                }
+                opt.onsuccess && _trigger(opt.onsuccess,$this, opt, exportObj);
             };
             params.error = function () {
-                if (_.isFunction(opt.onerror)) {
-                    opt.onerror(opt);
-                } else {
-                    $(document).trigger(opt.onerror, [$this, opt]);
-                }
+                opt.onerror && _trigger(opt.onerror,$this, opt, exportObj);
             };
             $.ajax(params);
         };

@@ -12,7 +12,8 @@
         padding-bottom: $space-l;
         @extend %singleline;
     }
-    >[data-collapse], >[data-collapse-load] {
+    [data-cui^="collapse"], [data-cui*=" collapse"],
+    [data-cui-load^="collapse"], [data-cui-load*=" collapse"] {
         padding-right: $line-l;
         border-bottom: solid 1px $color-d;
         &:before {

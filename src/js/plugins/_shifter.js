@@ -12,8 +12,6 @@ export default {
         index: 1,
     },
     init: function ($this, opt, exportObj) {
-
-
         var sign_isAuto = false;
         var lastScrollLeft = 0;
         var $list;
@@ -90,11 +88,7 @@ export default {
             }
             if (opt.onchange && lastScrollLeft !== $wrap.scrollLeft()) {
                 var isNext = lastScrollLeft < $wrap.scrollLeft();
-                if (_.isFunction(opt.onchange)) {
-                    opt.onchange($list.find('.active'), sign_isAuto, isNext);
-                } else {
-                    $(document).trigger(opt.onchange, [$list.find('.active'), sign_isAuto, isNext]);
-                }
+                opt.onchange && _trigger(opt.onchange,$this, opt, exportObj, $list.find('.active'), sign_isAuto, isNext);
                 lastScrollLeft = $wrap.scrollLeft();
                 sign_isAuto = false;
             }

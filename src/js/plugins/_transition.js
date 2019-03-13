@@ -36,21 +36,21 @@ export default {
             isIncrease = step > 0;
         };
         var _fresh = exportObj.fresh = function () {
-            opt.freshbefore && _trigger(opt.freshbefore, this);
+            opt.freshbefore && _trigger(opt.freshbefore, $this, opt, exportObj);
             switch (opt.type) {
-                case 'number':
-                    _freshNumber();
-                    format = function (rawNumber) {
-                        return rawNumber.toFixed(opt.fixed);
-                    };
-                    break;
-                case 'date':
-                    _freshDate();
-                    format = function (rawNumber) {
-                        var rawDate = new Date(rawNumber);
-                        return rawDate.format(opt.dateformat);
-                    };
-                    break;
+            case 'number':
+                _freshNumber();
+                format = function (rawNumber) {
+                    return rawNumber.toFixed(opt.fixed);
+                };
+                break;
+            case 'date':
+                _freshDate();
+                format = function (rawNumber) {
+                    var rawDate = new Date(rawNumber);
+                    return rawDate.format(opt.dateformat);
+                };
+                break;
             }
             var interval = setInterval(function () {
                 var rawNumber = isIncrease ? Math.min(start, end) : Math.max(start, end);
@@ -61,7 +61,7 @@ export default {
                     start = rawNumber + step;
                 }
             }, duration);
-            opt.freshafter && _trigger(opt.freshafter, this);
+            opt.freshafter && _trigger(opt.freshafter, $this, opt, exportObj);
         };
         _fresh();
     },

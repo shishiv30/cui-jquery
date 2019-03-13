@@ -38,13 +38,7 @@ export default {
         };
         exportObj.show = function () {
             $(document).trigger('dialog.hidden.except', [opt.id]);
-            if (opt.showbefore) {
-                if (_.isFunction(opt.showbefore)) {
-                    opt.showbefore();
-                } else {
-                    $(document).trigger(opt.showbefore, [opt.trigger]);
-                }
-            }
+            opt.showbefore && _trigger(opt.showbefore,$this, opt, exportObj);
             if (!opt.cache || !$dialogBody.html()) {
                 $dialogBody.html($this.html());
                 _addCloseButton();
@@ -55,18 +49,12 @@ export default {
             setTimeout(function () {
                 $dialog.addClass('dialog-active');
                 _reposition();
-                opt.showafter && _trigger(opt.showafter, context);
+                opt.showafter && _trigger(opt.showafter, $this, opt, exportObj);
             }, 50);
         };
         var _hide = exportObj.hide = function () {
             if ($dialog.hasClass('dialog-active')) {
-                if (opt.hidebefore) {
-                    if (_.isFunction(opt.hidebefore)) {
-                        opt.hidebefore();
-                    } else {
-                        $(document).trigger(opt.hidebefore, [opt.trigger]);
-                    }
-                }
+                opt.hidebefore && _trigger(opt.hidebefore, $this, opt, exportObj);
                 $dialog.removeClass('dialog-active');
                 $dialogPanel.css({
                     marginTop: '0'
@@ -74,13 +62,7 @@ export default {
                 setTimeout(function () {
                     $dialog.hide();
                     $('html').removeClass('model-dialog');
-                    if (opt.hideafter) {
-                        if (_.isFunction(opt.hideafter)) {
-                            opt.hideafter();
-                        } else {
-                            $(document).trigger(opt.hideafter, [opt.trigger]);
-                        }
-                    }
+                    opt.hideafter && _trigger(opt.hidebefore, $this, opt, exportObj);
                 }, 500);
             }
         };

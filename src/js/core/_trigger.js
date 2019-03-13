@@ -9,4 +9,4 @@ export default function (name) {
     } else {
         $(document).trigger(name, params);
     }
-};
+}

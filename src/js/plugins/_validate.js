@@ -65,57 +65,57 @@ var _validate = function ($element, type, errorText, addition) {
     var message = '';
     for (var i = 0; i < type.length; i++) {
         switch (type[i]) {
-            case 'required':
-                if (!value && value === '') {
-                    message = 'This is requried';
-                    _showValidate($element, message);
-                    return false;
-                }
-                break;
-            case 'email':
-                if (value && !$.isEmail(value)) {
-                    message = errorText || 'Please enter a valid email.';
-                    _showValidate($element, message);
-                    return false;
-                }
-                break;
-            case 'phone':
-                if (value && !$.isPhone(value)) {
-                    message = errorText || 'Please enter a valid Phone Number';
-                    _showValidate($element, message);
-                    return false;
-                }
-                break;
-            case 'zipcode':
-                if (value && !$.isZipcode(value)) {
-                    message = errorText || 'Please enter a valid zipcode';
-                    _showValidate($element, message);
-                    return false;
-                }
-                break;
-            case 'price':
-                if (value && !$.isPrice(value)) {
-                    message = errorText || 'Please enter a valid price';
-                    _showValidate($element, message);
-                    return false;
-                }
-                break;
-            case 'int':
-                if (value && !$.isInt(value)) {
-                    message = errorText || 'Only allowed integer number';
-                    _showValidate($element, message);
-                    return false;
-                }
-                break;
-            case 'float':
-                if (value && !$.isFloat(value)) {
-                    message = errorText || 'Only allowed floating number';
-                    _showValidate($element, message);
-                    return false;
-                }
-                break;
-            default:
-                break;
+        case 'required':
+            if (!value && value === '') {
+                message = 'This is requried';
+                _showValidate($element, message);
+                return false;
+            }
+            break;
+        case 'email':
+            if (value && !$.isEmail(value)) {
+                message = errorText || 'Please enter a valid email.';
+                _showValidate($element, message);
+                return false;
+            }
+            break;
+        case 'phone':
+            if (value && !$.isPhone(value)) {
+                message = errorText || 'Please enter a valid Phone Number';
+                _showValidate($element, message);
+                return false;
+            }
+            break;
+        case 'zipcode':
+            if (value && !$.isZipcode(value)) {
+                message = errorText || 'Please enter a valid zipcode';
+                _showValidate($element, message);
+                return false;
+            }
+            break;
+        case 'price':
+            if (value && !$.isPrice(value)) {
+                message = errorText || 'Please enter a valid price';
+                _showValidate($element, message);
+                return false;
+            }
+            break;
+        case 'int':
+            if (value && !$.isInt(value)) {
+                message = errorText || 'Only allowed integer number';
+                _showValidate($element, message);
+                return false;
+            }
+            break;
+        case 'float':
+            if (value && !$.isFloat(value)) {
+                message = errorText || 'Only allowed floating number';
+                _showValidate($element, message);
+                return false;
+            }
+            break;
+        default:
+            break;
         }
     }
 

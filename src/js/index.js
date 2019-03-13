@@ -55,21 +55,21 @@ var _updateWindowStatus = function (type) {
     }
     cuiStatus.causeByKeyboard = $('input, select, textarea').is(':focus');
     switch (type) {
-        case 'resize':
-            _isScrollDown();
-            _isLandscap();
-            break;
-        case 'scroll':
-            _isScrollDown();
-            break;
-        case 'load':
-            break;
-        case 'inital':
-            _isScrollDown();
-            _isLandscap();
-            break;
-        default:
-            break;
+    case 'resize':
+        _isScrollDown();
+        _isLandscap();
+        break;
+    case 'scroll':
+        _isScrollDown();
+        break;
+    case 'load':
+        break;
+    case 'inital':
+        _isScrollDown();
+        _isLandscap();
+        break;
+    default:
+        break;
     }
     return status;
 };
@@ -95,16 +95,17 @@ $(document).one('cui.inital', function () {
     $(document).trigger('dom.load');
 });
 $(document).on('dom.load', function () {
-    $('[' + core.namespace + ']').each(function () {
+    var prefixed = 'data-'+core.plugin.namespace;
+    $(`[${prefixed}]`).each(function (index, item) {
         var $this = $(item);
         var data = $this.data();
-        var types = $this.attr('cui');
-        $this.removeAttr('cui');
+        var types = $this.attr(prefixed);
+        $this.removeAttr(prefixed);
+        $this.attr(`${prefixed}-load`, types);
         types.split('.').forEach(function (type) {
-            var pluginName = core.namespace + type;
+            var pluginName =core.plugin.namespace + '_' + type;
             $this[pluginName](data);
         });
-        $this.attr('cui-load', types);
     });
 });
 $(document).ready(function () {

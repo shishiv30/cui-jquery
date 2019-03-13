@@ -1,5 +1,5 @@
 // import _ from 'lodash';
-import _trigger from '../core/_trigger';
+// import _trigger from '../core/_trigger';
 // (function ($) {
 //     $.fn.facebooklink = function() {
 //         var $this = $(this);

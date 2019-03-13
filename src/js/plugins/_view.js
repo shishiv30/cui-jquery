@@ -60,8 +60,8 @@ export default {
             var animateFrame = opt.direction === 'x' ? {
                 transform: 'translateX(' + distance + 'px)'
             } : {
-                    transform: 'translateY(' + distance + 'px)'
-                };
+                transform: 'translateY(' + distance + 'px)'
+            };
             $wrapper.css(animateFrame);
             if (animation) {
                 isAnimating = true;
@@ -188,13 +188,7 @@ export default {
                 _scroll(currPos, true).then(function () {
                     prePos = currPos;
                     _updateInfo();
-                    if (opt.onchange) {
-                        if (_.isFunction(opt.onchange)) {
-                            opt.onchange(currPos, prePos, info);
-                        } else if (opt.onchange) {
-                            $(document).trigger(opt.onchange, [currPos, prePos, info]);
-                        }
-                    }
+                    opt.onchange && _trigger(opt.onchange,$this, opt, exportObj, currPos, prePos, info);
                 }).always(function () {
                     $(document).trigger('dom.scroll');
                 });
@@ -247,13 +241,7 @@ export default {
         });
         $(document).on('dom.resize', _updateInfo);
         _updateInfo();
-        if (opt.oninital) {
-            if (_.isFunction(opt.oninital)) {
-                opt.oninital(info);
-            } else if (opt.oninital) {
-                $(document).trigger(opt.oninital, [info]);
-            }
-        }
+        opt.oninital && _trigger(opt.oninital,$this, opt, exportObj, [info]);
     },
     setOptionsBefore: null,
     setOptionsAfter: null,

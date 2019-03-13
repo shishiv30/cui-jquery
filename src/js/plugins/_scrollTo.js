@@ -13,9 +13,9 @@ export default {
 
 
         $this.click(function () {
-            opt.scrollbefore && _trigger(opt.scrollbefore, this);
+            opt.scrollbefore && _trigger(opt.scrollbefore, $this, opt, exportObj);
             $.scrollTo(opt.target, $(opt.container), opt.offsettop);
-            opt.scrollafter && _trigger(opt.scrollafter, this);
+            opt.scrollafter && _trigger(opt.scrollafter, $this, opt, exportObj);
         });
     },
 

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import _trigger from '../core/_trigger';
 export default {
-    name: 'Collapse',
+    name: 'collapse',
     defaultOpt: {
         showtext: null,
         hidetext: null,
@@ -43,41 +43,48 @@ export default {
         };
         if (opt.isexpand) {
             exportObj.show = function () {
-                opt.showbefore && _trigger(opt.showbefore, this);
+                opt.showbefore && _trigger(opt.showbefore, $this, opt, exportObj);
                 $this.addClass('shown');
                 $target.addClass('collapse-expand');
                 _showtext();
-                opt.showafter && _trigger(opt.showafter, this);
+                opt.showafter && _trigger(opt.showafter, $this, opt, exportObj);
             };
             exportObj.hide = function () {
-                opt.hidebefore && _trigger(opt.hidebefore, this);
+                opt.hidebefore && _trigger(opt.hidebefore, $this, opt, exportObj);
                 $this.removeClass('shown');
                 $target.removeClass('collapse-expand');
                 if (height && height > 0) {
                     $(window).scrollTop($(window).scrollTop() - $target.prop('scrollHeight') + height);
                 }
                 _hidetext();
-                opt.hideafter && _trigger(opt.hideafter, this);
+                opt.hideafter && _trigger(opt.hideafter, $this, opt, exportObj);
             };
         } else {
             exportObj.show = function () {
-                opt.showbefore && _trigger(opt.showbefore, this);
+                opt.showbefore && _trigger(opt.showbefore, $this, opt, exportObj);
                 $this.addClass('shown');
                 $target.show();
                 _showtext();
                 //todo $(document).trigger('dom.load');
-                opt.showafter && _trigger(opt.showafter, this);
+                opt.showafter && _trigger(opt.showafter, $this, opt, exportObj);
             };
             exportObj.hide = function () {
-                opt.hidebefore && _trigger(opt.hidebefore, this);
+                opt.hidebefore && _trigger(opt.hidebefore, $this, opt, exportObj);
                 $this.removeClass('shown');
                 $target.hide();
                 if (height && height > 0) {
                     $(window).scrollTop($(window).scrollTop() - height);
                 }
                 _hidetext();
-                opt.hideafter && _trigger(opt.hideafter, this);
+                opt.hideafter && _trigger(opt.hideafter, $this, opt, exportObj);
             };
+        }
+        exportObj.toggle =  function () {
+            if ($this.hasClass('shown')) {
+                exportObj.hide();
+            } else {
+                exportObj.show();
+            }
         }
     },
     setOptionsBefore: null,

@@ -1,3 +1,4 @@
+var tmpdiv;
 export default function ($) {
     $ = $ || window.$;
     $.getTextWidth = function (text, fontsize) {

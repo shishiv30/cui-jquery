@@ -30,7 +30,7 @@ var loadImg = function ($img) {
     }
     $img.attr('data-img-load', '');
 }
-var loadimageConfig = {
+export default {
     name: 'loadimage',
     defaultOpt: {
         buffer: 0,

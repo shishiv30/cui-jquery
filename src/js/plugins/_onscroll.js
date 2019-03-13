@@ -9,8 +9,6 @@ export default {
         once: true
     },
     init: function ($this, opt, exportObj) {
-
-
         var eventName = 'dom.scroll.' + $.guid++;
         var _checkScreen = function (force) {
             var status = $.cui.status;
@@ -19,7 +17,7 @@ export default {
                 var wheight = status.height;
                 var offsetTop = $this.offset().top;
                 if (offsetTop >= scrolltop && offsetTop <= (scrolltop + wheight + (force === true ? 0 : opt.reserve))) {
-                    _trigger(opt.callback, [opt.params]);
+                    _trigger(opt.callback, $this, opt, exportObj);
                     if (opt.once) {
                         opt.callback = null;
                         $(document).off(eventName);

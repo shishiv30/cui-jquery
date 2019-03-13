@@ -107,7 +107,7 @@ class Plugin {
         return exportObj;
     };
     register($) {
-        var name = Plugin.namespace + this.setting.name;
+        var name = Plugin.namespace + '_' + this.setting.name;
         var that = this;
         $.fn[name] = function (options) {
             var $this = $(this);

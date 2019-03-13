@@ -13,8 +13,6 @@ export default {
         reloadafter: null,
     },
     init: function ($this, opt, exportObj) {
-
-
         var $container = opt.container ? $(opt.container) : $(window);
         var _getpositionInfo = function () {
             return {
