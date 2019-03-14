@@ -1,18 +1,19 @@
 .table-scroll {
-    overflow-x: auto;
-    min-height: .01%;
-    min-width: .01%;
+  overflow-x: auto;
+  min-height: 0.01%;
+  min-width: 0.01%;
 }
 
 table {
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: collapse;
-    color: $color-3;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  color: $color-3;
 }
 
 table {
-    td, th {
-        padding: $space-m $space-s;
-    }
+  td,
+  th {
+    padding: $g1 $g0;
+  }
 }

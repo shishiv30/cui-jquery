@@ -1,125 +1,167 @@
-[data-textbox], [data-textbox-load] {
-    position: relative;
-    input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-        color: transparent;
+.textbox {
+  position: relative;
+
+  input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  input:-moz-placeholder,
+  textarea:-moz-placeholder {
+    color: transparent;
+  }
+
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .input,
+  .textarea {
+    > label {
+      margin: 0;
+      position: absolute;
+      transform: translateY(-50%);
+      border: none;
+      z-index: 1;
+      opacity: 0.5;
+      text-align: left;
+      @extend %singleline;
+      transition: all 0.2s ease-in-out;
+      pointer-events: none;
     }
-    input:-moz-placeholder, textarea:-moz-placeholder {
-        color: transparent;
+
+    .input-info {
+      font-size: $font-size-7;
+      position: absolute;
+      top: 0;
+      right: 0;
     }
-    input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-        color: transparent;
+  }
+
+  .input {
+    > label {
+      left: $g1;
+      right: auto;
+      top: 50%;
+      width: calc(100% - #{$g1});
     }
-    .input, .textarea {
-        >label {
-            margin: 0;
-            position: absolute;
-            line-height: $gap-1;
-            height: $gap-1;
-            transform: translateY(-50%);
-            // padding: 0 2px;
-            border: none;
-            font-size: $font-size-5;
-            z-index: 1;
-            opacity: 0.5;
-            text-align: left;
-            @extend %singleline;
-            transition: all .2s ease-in-out;
-        }
+
+    > input {
+      padding-top: #{$gxs + $font-size-5};
+      padding-bottom: $gxs;
+    }
+
+    &.small {
+      &.input {
         > input {
-            line-height: 1.5rem;
+          padding-top: $font-size-5;
+          padding-bottom: 0;
         }
-        .tooltip.error {
-            top: 0 !important;
-            right: 0 !important;
-            left: auto !important;
-            .tooltip-inner {
-                text-align: right;
-            }
-            transform: translateY(0) !important;
-        }
-    }
-    .input {
-        >label {
-            left: $gap-0;
-            right: auto;
-            top: 50%;
-            width: calc(100% - #{$gap-0});
-        }
-        &.right, &.left {
-            >label {
-                width: calc(100% - #{$form-size-normal});
-            }
-        }
-        &.right.left {
-            >label {
-                width: calc(100% - #{$form-size-normal*2});
-            }
-        }
-        >input {
-            padding: $gap-2 $gap-0 $gap-0 $gap-0;
-        }
-        >i {
-            line-height: $form-size-normal;
-        }
-        >a {
-            line-height: $form-size-normal;
-        }
+
         &.right {
-            >input {
-                padding-right: $form-size-normal;
-            }
-            >i, >a {
-                width: $form-size-normal;
-            }
+          > input {
+            padding-right: $form-size-small;
+          }
+
+          .input-info {
+            right: $form-size-small;
+          }
         }
+
         &.left {
-            >label {
-                left: $form-size-normal;
-            }
-            >input {
-                padding-left: $form-size-normal;
-            }
-            >i, >a {
-                width: $form-size-normal;
-            }
+          > label {
+            left: $form-size-small;
+          }
+
+          > input {
+            padding-left: $form-size-small;
+          }
         }
+      }
     }
+
+    &.left,
+    &.right {
+      > label {
+        width: calc(100% - #{$form-size-normal});
+      }
+    }
+
+    &.right.left {
+      > label {
+        width: calc(100% - #{$form-size-normal * 2});
+      }
+    }
+
+    &.right {
+      > input {
+        padding-right: $form-size-normal;
+      }
+
+      .input-info {
+        right: $form-size-normal;
+      }
+    }
+
+    &.left {
+      > label {
+        left: $form-size-normal;
+      }
+
+      > input {
+        padding-left: $form-size-normal;
+      }
+    }
+  }
+
+  .textarea {
+    background-color: $color-f;
+    border: 1px solid $color-border;
+
+    label {
+      padding: 0 $g0;
+      left: 0;
+      right: 0;
+      top: $g3;
+    }
+
+    textarea {
+      border: none;
+      margin: $g3 0 $gxs;
+      padding: 0 $g1;
+      min-height: 6.8rem;
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+
+  &.focus {
+    input,
+    textarea {
+      color: inherit;
+    }
+
+    .input,
     .textarea {
-        background-color: $color-f;
-        border: 1px solid $color-border;
-        label {
-            left: $gap-0;
-            right: auto;
-            top: $gap-1;
+      > label {
+        top: $gxs;
+        right: auto;
+        transform: translateY(0);
+        transform-origin: left;
+        font-size: $font-size-6;
+      }
+
+      &.small {
+        > label {
+          top: 0;
+          line-height: 1.2rem;
         }
-        textarea {
-            border: none;
-            margin: $gap-2 0 $gap-0 0;
-            padding:0 $gap-0;
-            min-height: $form-size-large;
-            overflow: hidden;
+
+        > label {
+          top: 0;
         }
+      }
     }
-    &.focus {
-        input, textarea {
-            color: inherit;
-        }
-        .input, .textarea {
-            >label {
-                top: $gap-0;
-                right: auto;
-                transform: translateY(0);
-                transform-origin: left;
-                font-size: $font-size-6;
-            }
-        }
-    }
-    .tooltip.error {
-        top: auto;
-        bottom: 0;
-        .tooltip-inner {
-            background: transparent !important;
-            border: none !important;
-        }
-    }
+  }
 }

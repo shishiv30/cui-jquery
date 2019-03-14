@@ -11,21 +11,12 @@ ol, ul {
     list-style: none;
 }
 
-//CUI Setting
 html {
-
     line-height: 1em;
-    font-family: $font, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-weight: $font-weight-normal;
     font-style: normal;
-    @media(max-width:$screen-xs-max){
-        font-size: 12px;
-    }
-    @media(min-width:$screen-sm-min) and (max-width:$screen-sm-max){
-        font-size: 14px;
-    }
-    @media(min-width:$screen-md-min){
-        font-size: 16px;
-    }
+    font-size: 16px;
 }
 
 body, html {
@@ -39,7 +30,7 @@ fieldset {
 }
 
 legend {
-    color: $color-0;
+    color: inherit;
 }
 
 label[for] {
@@ -49,6 +40,9 @@ label[for] {
 input, select, textarea, button {
     outline: none;
     color: $color-text-default;
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-size: $font-size-5;
+    font-weight: $font-weight-normal;
 }
 
 input::-ms-clear {
@@ -67,7 +61,7 @@ select::-ms-expand {
     display: none;
 }
 
-input, select{
+input, select {
     -o-text-overflow: ellipsis;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
@@ -80,8 +74,9 @@ img {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-    line-height: 1em;
+    line-height: inherit;
     font-size: 1rem;
+    font-weight: normal;
 }
 
 i {
@@ -94,5 +89,5 @@ abbr[title], acronym[title] {
 }
 
 q:after, q:before {
-    content: '';
+    content: "";
 }

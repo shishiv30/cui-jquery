@@ -1,236 +1,317 @@
 @mixin hidescrollbar() {
-    scrollbar-face-color: rgba(255, 255, 255, 0);
-    scrollbar-shadow-color: rgba(255, 255, 255, 0);
-    scrollbar-highlight-color: rgba(255, 255, 255, 0);
-    scrollbar-3dlight-color: rgba(255, 255, 255, 0);
-    scrollbar-darkshadow-color: rgba(255, 255, 255, 0);
-    scrollbar-track-color: rgba(255, 255, 255, 0);
-    scrollbar-arrow-color: rgba(255, 255, 255, 0);
+  scrollbar-face-color: rgba(255, 255, 255, 0);
+  scrollbar-shadow-color: rgba(255, 255, 255, 0);
+  scrollbar-highlight-color: rgba(255, 255, 255, 0);
+  scrollbar-3dlight-color: rgba(255, 255, 255, 0);
+  scrollbar-darkshadow-color: rgba(255, 255, 255, 0);
+  scrollbar-track-color: rgba(255, 255, 255, 0);
+  scrollbar-arrow-color: rgba(255, 255, 255, 0);
 }
 
 @mixin responsive-visibility($parent) {
-    #{$parent} {
-        display: block !important;
-    }
+  #{$parent} {
+    display: block !important;
+  }
 
-    table#{$parent} {
-        display: table;
-    }
+  table#{$parent} {
+    display: table;
+  }
 
-    tr#{$parent} {
-        display: table-row !important;
-    }
+  tr#{$parent} {
+    display: table-row !important;
+  }
 
-    th#{$parent},
-    td#{$parent} {
-        display: table-cell !important;
-    }
+  td#{$parent},
+  th#{$parent} {
+    display: table-cell !important;
+  }
 }
 
 @mixin responsive-invisibility($parent) {
-    #{$parent} {
-        display: none !important;
-    }
+  #{$parent} {
+    display: none !important;
+  }
 }
 
 @mixin clearfix {
-    @if $support-destop {
-        *zoom: 1;
-    }
+  &:after,
+  &:before {
+    content: "";
+    display: table;
+  }
 
-    &:before,
-    &:after {
-        content: "";
-        display: table;
-    }
-
-    &:after {
-        clear: both;
-        overflow: hidden;
-    }
+  &:after {
+    clear: both;
+    overflow: hidden;
+  }
 }
 
 //Border radius
-
 @mixin border-radius($radius) {
-    border-radius: $radius;
+  border-radius: $radius;
 }
 
 @mixin border-top-radius($radius) {
-    border-top-right-radius: $radius;
-    border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
 }
 
 @mixin border-bottom-right-radius($radius) {
-    border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
 }
 
 @mixin border-right-radius($radius) {
-    border-bottom-right-radius: $radius;
-    border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
 }
 
 @mixin border-bottom-radius($radius) {
-    border-bottom-right-radius: $radius;
-    border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
 }
 
 @mixin border-left-radius($radius) {
-    border-bottom-left-radius: $radius;
-    border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  border-top-left-radius: $radius;
 }
 
 @mixin singleline($width: false) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
-    @if $width {
-        width: $width;
-    }
-}
-
-@mixin text-icon($iconSize: 18px, $fontSize: $font-size-5) {
-    .text, i {
-        vertical-align: middle;
-        line-height: 1;
-    }
-
-    .text {
-        font-size: $fontSize;
-    }
-
-    i {
-        padding: 0 3px;
-        vertical-align: middle;
-        font-size: $iconSize;
-    }
-}
-
-@mixin arrow-down($size, $color) {
-    width: 0;
-    height: 0;
-    border-left: $size solid transparent;
-    border-right: $size solid transparent;
-    border-top: $size solid $color;
-}
-
-@mixin arrow-up($size, $color) {
-    width: 0;
-    height: 0;
-    border-left: $size solid transparent;
-    border-right: $size solid transparent;
-    border-bottom: $size solid $color;
+  @if $width {
+    width: $width;
+  }
 }
 
 @mixin only-mobile() {
-    body {
-        &.mobile {
-            @content;
-        }
+  body {
+    &.mobile {
+      @content;
     }
+  }
 }
 
 @mixin only-desktop() {
-    body {
-        &.desktop {
-            @content;
-        }
+  body {
+    &.desktop {
+      @content;
     }
+  }
 }
 
 // Framework grid generation
 @mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
-    @for $i from 1 + 1 through $grid-columns {
-        $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
-    }
-    #{$list} {
-        position: relative;
-        min-height: 1px;
-        padding-left: $grid-gutter-width / 2;
-        padding-right: $grid-gutter-width / 2;
-    }
+  @for $i from 1+1 through $grid-columns {
+    $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+  }
+
+  #{$list} {
+    position: relative;
+    min-height: 1px;
+    padding-left: $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+  }
 }
 
 @mixin float-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
-    @for $i from 1 + 1 through $grid-columns {
-        $list: "#{$list}, .col-#{$class}-#{$i}";
-    }
-    #{$list} {
-        float: left;
-    }
+  @for $i from 1+1 through $grid-columns {
+    $list: "#{$list}, .col-#{$class}-#{$i}";
+  }
+
+  #{$list} {
+    float: left;
+  }
 }
 
 @mixin calc-grid-column($index, $class, $type) {
-    @if $type == width and $index > 0 {
-        .col-#{$class}-#{$index} {
-            width: percentage($index / $grid-columns);
-        }
+  @if $type==width and $index>0 {
+    .col-#{$class}-#{$index} {
+      width: percentage($index / $grid-columns);
     }
-    @if $type == push and $index > 0 {
-        .col-#{$class}-push-#{$index} {
-            left: percentage($index / $grid-columns);
-        }
+  }
+
+  @if $type==push and $index>0 {
+    .col-#{$class}-push-#{$index} {
+      left: percentage($index / $grid-columns);
     }
-    @if $type == push and $index == 0 {
-        .col-#{$class}-push-0 {
-            left: auto;
-        }
+  }
+
+  @if $type==push and $index==0 {
+    .col-#{$class}-push-0 {
+      left: auto;
     }
-    @if $type == pull and $index > 0 {
-        .col-#{$class}-pull-#{$index} {
-            right: percentage($index / $grid-columns);
-        }
+  }
+
+  @if $type==pull and $index>0 {
+    .col-#{$class}-pull-#{$index} {
+      right: percentage($index / $grid-columns);
     }
-    @if $type == pull and $index == 0 {
-        .col-#{$class}-pull-0 {
-            right: auto;
-        }
+  }
+
+  @if $type==pull and $index==0 {
+    .col-#{$class}-pull-0 {
+      right: auto;
     }
-    @if $type == offset {
-        .col-#{$class}-offset-#{$index} {
-            margin-left: percentage($index / $grid-columns);
-        }
+  }
+
+  @if $type==offset {
+    .col-#{$class}-offset-#{$index} {
+      margin-left: percentage($index / $grid-columns);
     }
+  }
 }
 
 @mixin loop-grid-columns($columns, $class, $type) {
-    @for $i from 0 through $columns {
-        @include calc-grid-column($i, $class, $type);
-    }
+  @for $i from 0 through $columns {
+    @include calc-grid-column($i, $class, $type);
+  }
 }
 
 @mixin make-grid($class) {
-    @include float-grid-columns($class);
-    @include loop-grid-columns($grid-columns, $class, width);
-    @include loop-grid-columns($grid-columns, $class, pull);
-    @include loop-grid-columns($grid-columns, $class, push);
-    @include loop-grid-columns($grid-columns, $class, offset);
+  @include float-grid-columns($class);
+  @include loop-grid-columns($grid-columns, $class, width);
+  @include loop-grid-columns($grid-columns, $class, pull);
+  @include loop-grid-columns($grid-columns, $class, push);
+  @include loop-grid-columns($grid-columns, $class, offset);
 }
 
 @mixin container-fixed($gutter: $grid-gutter-width) {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: $gutter / 2;
-    padding-right: $gutter / 2;
-    @include clearfix;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: $gutter / 2;
+  padding-right: $gutter / 2;
+  @include clearfix;
 }
 
 @mixin make-row($gutter: $grid-gutter-width) {
-    margin-left: $gutter / -2;
-    margin-right: $gutter / -2;
-    @include clearfix;
+  margin-left: $gutter / -2;
+  margin-right: $gutter / -2;
+  @include clearfix;
 }
 
 @mixin fonticon() {
-    display: inline-block;
-    font: normal normal normal 14px/1 fonticon;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    &:before {
-        text-align: center;
-        font-style: normal;
+  display: inline-block;
+  font-family: fonticon !important;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    text-align: center;
+    font-style: normal;
+  }
+}
+
+@mixin hover-supported {
+  @media not all and (pointer: coarse) {
+    &:hover {
+      @content;
     }
+  }
+}
+
+@mixin hidden-scrollbar {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin fullscreen {
+  @media (max-width: $screen-xs-max) {
+    #body {
+      &.fullscreen {
+        @content;
+      }
+    }
+  }
+}
+
+$font-color: #ececec;
+$back-color: #fafafa;
+$card-padding: 0.5rem;
+$card-height: 200px;
+$card-skeleton: linear-gradient($back-color $card-height, transparent 0);
+$avatar-size: 1.5rem;
+$avatar-position: right $card-padding top $card-padding;
+$avatar-skeleton: radial-gradient(circle 0.75rem, $font-color 99%, transparent 0);
+$title-height: 1.5rem;
+$title-width: 45%;
+$title-position: $card-padding 125px;
+$title-sub-width: 30%;
+$title-sub-position: $card-padding $card-padding;
+$title-skeleton: linear-gradient($font-color $title-height, transparent 0);
+$desc-line-height: 12px;
+$desc-line-skeleton: linear-gradient($font-color $desc-line-height, transparent 0);
+$desc-line-1-width: 65%;
+$desc-line-1-position: $card-padding 157px;
+$desc-line-2-width: 80%;
+$desc-line-2-position: $card-padding 175px;
+$footer-height: 0;
+$footer-position: 0 $card-height;
+$footer-skeleton: linear-gradient($font-color $footer-height, transparent 0);
+$blur-width: 200px;
+$blur-size: $blur-width $card-height;
+
+@keyframes skeleton_house_loading {
+  to {
+    background-position: 140% 0, $avatar-position, $title-sub-position, $title-position, $desc-line-1-position,
+      $desc-line-2-position, $footer-position, 0 0;
+  }
+}
+
+@mixin skeleton-house {
+  &:empty::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 10px 45px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(
+        90deg,
+        rgba($back-color, 0) 0,
+        rgba($back-color, 0.8) 50%,
+        rgba($back-color, 0) 100%
+      ),
+      $avatar-skeleton, $title-skeleton, $title-skeleton, $desc-line-skeleton, $desc-line-skeleton, $footer-skeleton,
+      $card-skeleton;
+    background-size: $blur-size, $avatar-size $avatar-size, $title-sub-width $title-height, $title-width $title-height,
+      $desc-line-1-width $desc-line-height, $desc-line-2-width $desc-line-height, 100% $footer-height, 100% 100%;
+    background-position: -140% 0, $avatar-position, $title-sub-position, $title-position, $desc-line-1-position,
+      $desc-line-2-position, $footer-position, 0 0;
+    background-repeat: no-repeat;
+    animation: skeleton_house_loading 1.5s infinite;
+  }
+}
+
+/* mixin for multiline */
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white, $offset: 0) {
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: #{$offset + 1};
+
+  &:before {
+    content: "...";
+    position: absolute;
+    right: $offset;
+    bottom: 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    right: $offset;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
 }

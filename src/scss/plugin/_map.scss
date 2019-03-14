@@ -8,10 +8,10 @@
         cursor: pointer;
         position: relative;
         border: 1px solid white;
-        background:$color-5;
+        background: $color-5;
         border-radius: 50%;
         display: block;
-        font-size:$font-size-base;
+        font-size: $font-size-5;
         width: 24px;
         height: 24px;
         line-height: 24px;
@@ -21,9 +21,9 @@
             color: inherit;
         }
     }
-    &.on .pin, .pin:hover{
-        box-shadow: 0 0 0 5px rgba($color-warning, 0.35);
-        background-color:  $color-warning;
+    &.on .pin, .pin:hover {
+        box-shadow: 0 0 0 5px rgba($color-warning, .35);
+        background-color: $color-warning;
         z-index: $ui-pin-hover-index;
     }
 }

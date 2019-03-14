@@ -4,24 +4,24 @@
     font-size: $font-size-4;
     label {
         position: absolute;
-        top: $gap-0;
-        left: $gap-0;
+        top: $g0;
+        left: $g0;
         color: $color-a;
         font-size: $font-size-6;
-        line-height: $gap-1;
+        line-height: $g1;
         pointer-events: none;
     }
     select {
-        padding: $gap-2 $gap-3 $gap-0 $gap-0;
+        padding: #{$gxs + $font-size-5} $form-size-normal $g0 $gxs;
         height: $form-size-normal;
-        line-height: $form-size-normal - $gap-0 * 2 - $gap-1;
+        line-height: #{$form-size-normal - $gxs - $font-size-5 - $g0};
         background: inherit;
         appearance: none;
         font-size: inherit;
     }
     i {
         @extend %block-center-y;
-        right: $gap-1;
+        right: $g1;
         font-size: $font-size-4;
         color: $color-3;
         pointer-events: none;

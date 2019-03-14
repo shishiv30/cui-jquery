@@ -1,5 +1,6 @@
-@import "./base/mixins.scss";
 @import "./base/theme.scss";
+@import "./base/mixins.scss";
+@import "./base/extend.scss";
 @import "./base/font.scss";
 @import "./base/reset.scss";
 @import "./base/text.scss";
@@ -24,7 +25,6 @@
 @import "./plugin/checkboxradio.scss";
 @import "./plugin/groupbutton.scss";
 @import "./plugin/tip.scss";
-@import "./plugin/panel.scss";
 @import "./plugin/datetimepicker.scss";
 @import "./plugin/collapse.scss";
 @import "./plugin/tabs.scss";

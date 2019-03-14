@@ -1,142 +1,169 @@
-
 .input {
-    position: relative;
-    display: block;
-    font-size: $font-size-4;
-    > i {
-        font-style: normal;
+  position: relative;
+  display: block;
+  font-size: $font-size-4;
+
+  > i {
+    font-style: normal;
+  }
+
+  > input,
+  > select {
+    transition: border-color 0.5s ease-in-out;
+    font-size: inherit;
+    width: 100%;
+    height: $form-size-normal;
+    line-height: calc(#{$form-size-normal} - 2px);
+    padding-left: $g1;
+    padding-right: $g1;
+    border: 1px solid $color-border;
+  }
+
+  > .btn {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  > label {
+    color: inherit;
+  }
+
+  > a {
+    border-radius: 0;
+  }
+
+  > i,
+  > a {
+    top: 0;
+    position: absolute;
+    z-index: 1;
+    vertical-align: middle;
+    text-align: center;
+    height: $form-size-normal;
+    line-height: $form-size-normal;
+    font-size: inherit;
+    @extend %singleline;
+    width: $form-size-normal;
+  }
+
+  &.left {
+    > input,
+    > select {
+      padding-left: $form-size-normal;
     }
-    > input, > select {
-        transition: border-color .5s ease-in-out;
-        font-size: inherit;
-        width: 100%;
-        height: $form-size-normal;
-        line-height: calc(#{$form-size-normal} - 2px);
-        padding: 0 $gap-0;
-        border: 1px solid $color-border;
+
+    > label,
+    > i,
+    > a {
+      left: 0;
+      right: auto;
     }
-    > .btn {
-        margin: 0;
-        padding: 0;
-        border:none;
+  }
+
+  &.right {
+    > input,
+    > select {
+      padding-right: $form-size-normal;
+
+      ~ label,
+      ~ i,
+      ~ a {
+        right: 0;
+        left: auto;
+      }
     }
-    > label {
-        color: inherit;
+  }
+
+  > * {
+    line-height: inherit;
+  }
+
+  &.small {
+    font-size: $font-size-5;
+
+    > input,
+    > select {
+      height: $form-size-small;
+      line-height: calc(#{$form-size-small} - 2px);
     }
-    > label, > i, > a {
-        top: 0;
-        position: absolute;
-        z-index: 1;
-        vertical-align: middle;
-        text-align: center;
-        width: $form-size-normal;
-        height: $form-size-normal;
-        line-height: $form-size-normal;
-        font-size: $font-size-4;
-        @extend %singleline;
+
+    > i,
+    > a {
+      height: $form-size-small;
+      line-height: $form-size-small;
+      min-width: initial;
+      font-size: inherit;
+      width: $form-size-small;
     }
-    &.left {
-        > input, > select {
-            padding-left: $form-size-normal;
-        }
-        > label, > i, > a {
-            left: 0;
-            right: auto;
-        }
-    }
+
     &.right {
-        > input, > select {
-            padding-right: $form-size-normal;
-            ~ label, ~ i, ~ a {
-                right: 0;
-                left: auto;
-            }
-        }
+      > input,
+      > select {
+        padding-right: $form-size-small;
+      }
     }
-    &.small {
-        font-size: $font-size-5;
-        > input, > select {
-            height: $form-size-small;
-            line-height: calc(#{$form-size-small} - 2px);
-        }
-        > label, > i, > a {
-            height: $form-size-small;
-            line-height: $form-size-small;
-            width: $form-size-small;
-            font-size: $font-size-5;
-        }
-        &.right {
-            > input, > select {
-                padding-right: $form-size-small;
-            }
-        }
-        &.left {
-            > input, > select {
-                padding-left: $form-size-small;
-            }
-        }
-    }
-    &.plaintext {
-        > input, > select {
-            background-color: transparent !important;
-            border-color: transparent !important;
-            display: inline-block;
-        }
-        > i {
-            color: inherit !important;
-        }
-    }
-    &.has-success {
-        > input, > select {
-            border-color: $color-safe-l1;
-        }
-        > i {
-            color: $color-safe-l1;
-        }
-    }
-    &.has-warning {
-        > input, > select {
-            border-color: $color-warning-l1;
-        }
-        > i {
-            color: $color-warning-l1;
-        }
-    }
-    &.has-error {
-        > input, > select {
-            border-color: $color-danger-l1;
-        }
-        > i {
-            color: $color-danger-l1;
-        }
-        label {
-            color: $color-danger-l1;
-        }
 
+    &.left {
+      > input,
+      > select {
+        padding-left: $form-size-small;
+      }
     }
-    &.has-info {
-        > input, > select {
-            border-color: $color-info-l1;
-        }
-        > i {
-            color: $color-info-l1;
-        }
-    }
-    &.has-error {
-        .tooltip {
-            margin-top: 0;
-            left: 0 !important;
-            right: 0 !important;
-            max-width: initial !important;
-            transform: translateY(50%);
-            padding: 0;
-            .tooltip-inner {
-                border-top: none;
-            }
-            &.error.in {
-                transform: translateY(100%);
-            }
-        }
+  }
 
+  &.plaintext {
+    > input,
+    > select {
+      background-color: transparent !important;
+      border-color: transparent !important;
+      display: inline-block;
     }
+
+    > i {
+      color: inherit !important;
+    }
+  }
+
+  &.has-success {
+    > input,
+    > select {
+      border-color: $color-safe-l1;
+    }
+
+    > i {
+      color: $color-safe-l1;
+    }
+  }
+
+  &.has-error {
+    > input,
+    > select {
+      border-color: $color-danger-l1;
+    }
+
+    > i {
+      color: $color-danger-l1;
+    }
+
+    label {
+      color: $color-danger-l1;
+    }
+
+    .input-info {
+      color: $color-danger-l1;
+    }
+  }
+
+  &.has-error,
+  &.has-info {
+    .input-info {
+      opacity: 1;
+    }
+  }
+
+  .input-info {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
 }

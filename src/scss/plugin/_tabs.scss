@@ -1,31 +1,28 @@
 .tab-panel {
     display: none;
-    border: 1px solid $color-blue;
-    padding: $gap-0;
+    border: 1px solid $color-main;
+    padding: $g0;
 }
 
-[data-tab],[data-tabs-load] {
+[data-tab], [data-tabs-load] {
     &.active {
         margin-bottom: -1px;
     }
     .btn {
         min-width: 100px;
-        margin-right:2px;
+        margin-right: 2px;
         display: inline-block;
-        border-bottom:none;
+        border-bottom: none;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
     }
-    > ul{
+     > ul {
         margin-bottom: -1px;
         display: flex;
-        >li{
-
+         > li {
         }
     }
 }
 
-
-.tab-panel{
-
+.tab-panel {
 }
