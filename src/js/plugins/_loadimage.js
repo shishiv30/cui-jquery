@@ -46,16 +46,16 @@ export default {
             var width = $window.outerWidth();
             var left = $window.scrollLeft() - width * opt.buffer;
             var right = left + width * (1 + opt.buffer);
-            $this.find('[data-img]').each(function (index, item) {
+            $this.find('[data-cui="img"]').each(function (index, item) {
                 var $img = $(item);
                 var offset = $img.offset();
                 var baseY = offset.top;
                 var baseX = offset.left;
                 if (baseY < bottom && (baseY + $img.height()) > top && baseX < right && (baseX + $img.width()) > left && !$img.is(':hidden')) {
                     loadImg($img);
-                } else if (opt.precache && $img.attr('data-img') !== 'precache') {
+                } else if (opt.precache && $img.attr('data-src') !== 'precache') {
                     var x = new Image();
-                    x.src = $img.data('img');
+                    x.src = $img.data('src');
                     $img.attr('data-img', 'precache');
                 }
             });
