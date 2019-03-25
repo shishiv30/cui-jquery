@@ -4,8 +4,8 @@
     }
 
     #flexPanel .flex-fixed {
-        background-color: #FF4500;
-        color: #fff;
+        background-color: #ff4500;
+        color: #ffffff;
     }
 
     .circle-item {
@@ -14,20 +14,20 @@
 
     @media (max-width: 767px) {
         .highlight-mobile {
-            color: #78004E;
+            color: #78004e;
             font-weight: 700;
         }
     }
 
     @media (min-width: 768px) {
         .highlight-desktop {
-            color: #78004E;
+            color: #78004e;
             font-weight: 700;
         }
     }
 
     .girdSystem [class^=col-] {
-        background: #eee;
+        background: #eeeeee;
         border: 2px solid white;
         padding: 10px 0;
         text-align: center;
@@ -35,7 +35,7 @@
 
     .flexSystem .flex>div,
     .flexSystem .flex-gs>[class^=flex-] {
-        background: #eee;
+        background: #eeeeee;
         border: 2px solid white;
         padding: 10px;
         text-align: center;
@@ -54,7 +54,7 @@
     }
 
     .table.responsive .is-hidden {
-        color: #666;
+        color: #666666;
     }
 
     .table.responsive .is-visible {
@@ -71,12 +71,12 @@
 
     .sticky-container {
         min-height: 1000px;
-        background: #eee;
+        background: #eeeeee;
     }
 
     .sticky-box {
         height: 100px;
-        background: #666;
+        background: #666666;
     }
 
     #buttonPanel .btn,
@@ -91,7 +91,7 @@
     h5,
     h6 {
         margin-bottom: 15px;
-        margin-top: 15px
+        margin-top: 15px;
     }
 
     .mapdemo {
@@ -102,12 +102,12 @@
     }
 
     .view-panel {
-        background: #333;
+        background: #333333;
         margin-bottom: 30px;
     }
 
     .view-panel ul {
-        background: #ccc;
+        background: #cccccc;
     }
 
     .view-panel li {
@@ -118,7 +118,7 @@
         width: 100px;
         line-height: 100px;
         height: 100px;
-        border-left: 1px solid #eee;
+        border-left: 1px solid #eeeeee;
     }
 
     [data-direction="x"] li:first-of-type {
@@ -129,7 +129,7 @@
         width: 100%;
         line-height: 100px;
         height: 100px;
-        border-top: 1px solid #eee;
+        border-top: 1px solid #eeeeee;
     }
 
     [data-direction="y"] li:first-of-type {
@@ -139,14 +139,15 @@
     .tab-panel {
         min-height: 300px;
     }
+
 </style>
 <div class="gs-fixed">
     ${require('./views/tpl.html')}
     ${require('./views/plugin.html')}
 </div>
 <script type="text/javascript">
-    setTimeout(function(){
-        var $ = window.$ 
+    setTimeout(function () {
+        var $ = window.$
         function submit() {
             var msg = 'error!';
             var $form = $('#form').data('form');
@@ -161,7 +162,7 @@
             if (startPoint.touches.length) {
                 var start = Array.prototype.slice.call(startPoint.touches);
                 str1 = start.reduce(function (pre, next) {
-        
+
                     return pre + 'Y:' + next.pageY + 'X:' + next.pageX + ' ';
                 }, '(Start) ');
             }
@@ -171,7 +172,7 @@
                     return pre + 'Y:' + next.pageY + 'X:' + next.pageX + ' ';
                 }, '(End) - ');
             }
-        
+
             return str1 + '<br>' + str2;
         };
         $('#eventDiv').on('moving', function (t, start, end) {
@@ -280,5 +281,5 @@
             $(this).toggleClass('active');
         });
         $(document).trigger('cui.inital');
-    },1000);
+    }, 1000);
 </script>
