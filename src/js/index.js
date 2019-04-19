@@ -6,7 +6,6 @@ window.$ = window.jQuery = $;
 inject.forEach(e => {
     e.call(window, $);
 });
-
 for (var key in plugins) {
     var config = plugins[key];
     new core.plugin(config, $);
@@ -96,7 +95,7 @@ $(document).one('cui.inital', function () {
     $(document).trigger('dom.load');
 });
 $(document).on('dom.load', function () {
-    var prefixed = 'data-'+core.plugin.namespace;
+    var prefixed = 'data-' + core.plugin.namespace;
     $(`[${prefixed}]`).each(function (index, item) {
         var $this = $(item);
         var data = $this.data();
@@ -104,7 +103,7 @@ $(document).on('dom.load', function () {
         $this.removeAttr(prefixed);
         $this.attr(`${prefixed}-load`, types);
         types.split('.').forEach(function (type) {
-            var pluginName =core.plugin.namespace + '_' + type;
+            var pluginName = core.plugin.namespace + '_' + type;
             $this[pluginName](data);
         });
     });
