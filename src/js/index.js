@@ -6,6 +6,7 @@ window.$ = window.jQuery = $;
 inject.forEach(e => {
     e.call(window, $);
 });
+
 for (var key in plugins) {
     var config = plugins[key];
     new core.plugin(config, $);
