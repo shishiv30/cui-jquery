@@ -2,14 +2,9 @@ import core from './core';
 import inject from './inject';
 import plugins from './plugins';
 import $ from 'jquery';
-window.$ = window.jQuery = $;
-inject.forEach(e => {
-    e.call(window, $);
-});
-for (var key in plugins) {
-    var config = plugins[key];
-    new core.plugin(config, $);
-}
+import slick_carousel from 'slick-carousel';
+import _ from 'lodash';
+
 var cuiStatus = null;
 var _isMobile = function () {
     var $body = $('body');
@@ -85,31 +80,46 @@ var _eventResizeListener = function () {
         $(document).trigger('dom.resize');
     }, 500));
 };
-
-$(document).one('cui.inital', function () {
-    _updateWindowStatus('inital');
-    //dom load
-    _isMobile();
-    _eventScrollListener();
-    _eventResizeListener();
-    $(document).trigger('dom.load');
-});
-$(document).on('dom.load', function () {
-    var prefixed = 'data-' + core.plugin.namespace;
-    $(`[${prefixed}]`).each(function (index, item) {
-        var $this = $(item);
-        var data = $this.data();
-        var types = $this.attr(prefixed);
-        $this.removeAttr(prefixed);
-        $this.attr(`${prefixed}-load`, types);
-        types.split('.').forEach(function (type) {
-            var pluginName = core.plugin.namespace + '_' + type;
-            $this[pluginName](data);
+//there is only one thing jQuery say to Death
+var notToday = function(window, context){
+    window.$ = window.jQuery = $;
+    $.cuiContext = $.extend({
+        cdnUrl: window.location.hostname + '/',
+        webUrl: window.location.hostname + '/'
+    }, context);
+    inject.forEach(e => {
+        e.call(window, $);
+    });
+    for (var key in plugins) {
+        var config = plugins[key];
+        new core.plugin(config, $);
+    }
+    $(document).one('cui.inital', function () {
+        _updateWindowStatus('inital');
+        //dom load
+        _isMobile();
+        _eventScrollListener();
+        _eventResizeListener();
+        $(document).trigger('dom.load');
+    });
+    $(document).on('dom.load', function () {
+        var prefixed = 'data-' + core.plugin.namespace;
+        $(`[${prefixed}]`).each(function (index, item) {
+            var $this = $(item);
+            var data = $this.data();
+            var types = $this.attr(prefixed);
+            $this.removeAttr(prefixed);
+            $this.attr(`${prefixed}-load`, types);
+            types.split('.').forEach(function (type) {
+                var pluginName = core.plugin.namespace + '_' + type;
+                $this[pluginName](data);
+            });
         });
     });
-});
-$(document).ready(function () {
-    $(document).trigger('cui.inital');
-});
+    $(document).ready(function () {
+        $(document).trigger('cui.inital');
+    });
+};
 
-export default $;
+
+export default notToday;

@@ -16,7 +16,7 @@ export default function () {
             var config = {
                 callback: 'googlemapcallback'
             };
-            var mapUrl = 'https://maps.googleapis.com/maps/api/js?' + window.context.googleMapKey;
+            var mapUrl = 'https://maps.googleapis.com/maps/api/js?' + $.cuiContext.googleMapKey;
             $.each(config, function (key, value) {
                 mapUrl += ('&' + key + '=' + value);
             });

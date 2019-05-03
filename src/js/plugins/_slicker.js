@@ -82,10 +82,10 @@ export default {
         delete opt.autoscroll;
         if (opt.lazyload) {
             $this.on('afterChange', _.debounce(function () {
-                $.loadImage();
+                $(document).trigger('dom.scroll.image');
             }, 100));
             $this.on('setPosition', _.debounce(function () {
-                $.loadImage();
+                $(document).trigger('dom.scroll.image');
             }, 100));
         }
         $this.slick(opt);

@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import _trigger from '../core/_trigger';
 var loadImg = function ($img) {
     var imgsrc = $img.data('img');
     if (!imgsrc) {
@@ -34,8 +33,7 @@ export default {
     name: 'loadimage',
     defaultOpt: {
         buffer: 0,
-        delay: 100,
-        precache: true,
+        delay: 100
     },
     init: function ($this, opt, exportObj) {
         var $window = $(window);
@@ -46,21 +44,18 @@ export default {
             var width = $window.outerWidth();
             var left = $window.scrollLeft() - width * opt.buffer;
             var right = left + width * (1 + opt.buffer);
-            $this.find('[data-cui="img"]').each(function (index, item) {
+            $this.find('[data-img]').each(function (index, item) {
                 var $img = $(item);
                 var offset = $img.offset();
                 var baseY = offset.top;
                 var baseX = offset.left;
                 if (baseY < bottom && (baseY + $img.height()) > top && baseX < right && (baseX + $img.width()) > left && !$img.is(':hidden')) {
                     loadImg($img);
-                } else if (opt.precache && $img.attr('data-src') !== 'precache') {
-                    var x = new Image();
-                    x.src = $img.data('src');
-                    $img.attr('data-img', 'precache');
-                }
+                } 
             });
         };
-        $this.is(document) ? $this.on('dom.scroll', _load) : $this.on('scroll', _.throttle(_load, opt.delay));
+        $(document).on('dom.load.image, dom.resize.image', _load);
+        $this.is('body') ? $this.on('dom.scroll.image', _load) : $this.on('scroll', _.throttle(_load, opt.delay));
     },
     setOptionsBefore: null,
     setOptionsAfter: null,
@@ -68,18 +63,3 @@ export default {
     initAfter: null,
     destroyBefore: null
 };
-// $.cui.plugin(loadimageConfig);
-// $(document).on('dom.load.loadimage', function () {
-//     $('[data-loadimage]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-loadimage');
-//         $this.loadimage(data).load();
-//         $this.attr('data-loadimage-load', '');
-//     });
-// });
-// $.loadImage = $(document).loadimage().load;
-// $(document).on('dom.load dom.resize', function () {
-//     $.loadImage();
-// });
-

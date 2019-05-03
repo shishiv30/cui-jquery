@@ -127,7 +127,7 @@ var getIconUrl = function (type) {
 };
 var getIcon = function (type) {
     var icon = {
-        url: window.context.cdnUrl
+        url: $.cui.context.cdnUrl
     };
     switch (type) {
     case iconType.home:
@@ -186,23 +186,23 @@ var hasStreetView = function (opt) {
     } else {
         return opt.callback(false);
     }
-    if ($.streetViewCheckList[key] !== undefined) {
-        if ($.streetViewCheckList[key] !== 'loading') {
-            return opt.callback(($.streetViewCheckList[key]));
+    if (streetViewCheckList[key] !== undefined) {
+        if (streetViewCheckList[key] !== 'loading') {
+            return opt.callback((streetViewCheckList[key]));
         }
         $(document).one('hasStreetView.' + key, function (e, hasStreetView) {
             opt.callback(hasStreetView);
         });
     } else {
-        $.streetViewCheckList[key] = 'loading';
-        var metaDataUrl = 'https://maps.googleapis.com/maps/api/streetview/metadata?location=' + key + '&' + window.context.googleMapKey;
+        streetViewCheckList[key] = 'loading';
+        var metaDataUrl = 'https://maps.googleapis.com/maps/api/streetview/metadata?location=' + key + '&' + $.cuiContext.googleMapKey;
         var data = {
             url: metaDataUrl
         };
         $.get(data.url, function (res) {
-            $.streetViewCheckList[key] = res && res.status === 'OK';
-            opt.callback($.streetViewCheckList[key]);
-            $(document).trigger('hasStreetView.' + key, [$.streetViewCheckList[key]]);
+            streetViewCheckList[key] = res && res.status === 'OK';
+            opt.callback(streetViewCheckList[key]);
+            $(document).trigger('hasStreetView.' + key, [streetViewCheckList[key]]);
         });
     }
 };
@@ -234,7 +234,7 @@ export default {
             mapUrl = 'https://maps.googleapis.com' + mapUrl;
             if (opt.lazyload) {
                 $this.attr('data-img', mapUrl);
-                $.loadImage();
+                $(document).trigger('dom.load.image');
             } else {
                 $this.is('img') ?
                     $this.attr('src', mapUrl).data('img', mapUrl) :
@@ -273,7 +273,7 @@ export default {
             var _width = opt.width || $this.width();
             var _height = opt.height || $this.height();
             mapUrl += '&size=' + _width + 'x' + _height;
-            mapUrl += '&' + window.context.googleMapKey;
+            mapUrl += '&' + $.cuiContext.googleMapKey;
             return mapUrl;
         };
         var initialGStaticStreetView = function (hasSteetView) {
@@ -287,7 +287,7 @@ export default {
                     streetviewUrl += opt.lat + ',' + opt.lng;
                 }
                 streetviewUrl += '&size=' + _width + 'x' + _height;
-                streetviewUrl += '&' + window.context.googleMapKey;
+                streetviewUrl += '&' + $.cuiContext.googleMapKey;
                 insertMap(streetviewUrl);
             } else {
                 opt.onError && _trigger(opt.onError,$this, opt, exportObj);

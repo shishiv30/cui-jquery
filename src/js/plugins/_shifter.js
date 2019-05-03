@@ -245,7 +245,7 @@ export default {
         _resize();
         _scroll();
         if (opt.lazingload) {
-            $wrap.loadimage();
+            $(document).trigger('dom.scroll.image');
         }
     },
     setOptionsBefore: null,

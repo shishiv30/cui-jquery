@@ -23,18 +23,10 @@
 </head>
 ${require('./src/doc/views/tpl-header.html')}
 
-<body id="body" class="classic">
-
-
+<body id="body" class="classic" data-cui="loadimage">
 </body>
 <script>
-    window.context = {
-        url: '<%=url%>',
-        cdnUrl: '<%=cdnUrl%>',
-        googleMapKey: 'key=AIzaSyBtspK44Jc-DabkyA6knFuQ6LSp_8VXZgc'
-    };
-
-    navigator.serviceWorker.register(window.context.url + 'sw.js')
+    navigator.serviceWorker.register(location.hostname + '/sw.js')
         .then(function (registration) {
             console.log("Service worker registered, scope: " + registration.scope);
         })
