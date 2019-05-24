@@ -44,7 +44,7 @@ export default {
                 _addCloseButton();
             }
             //todo $(document).trigger('dom.load');
-            $('html').addClass('model-dialog');
+            $('html').addClass('dialog-model');
             $dialog.show();
             setTimeout(function () {
                 $dialog.addClass('dialog-active');
@@ -61,7 +61,7 @@ export default {
                 });
                 setTimeout(function () {
                     $dialog.hide();
-                    $('html').removeClass('model-dialog');
+                    $('html').removeClass('dialog-model');
                     opt.hideafter && _trigger(opt.hidebefore, $this, opt, exportObj);
                 }, 500);
             }
@@ -91,6 +91,15 @@ export default {
             }
         };
         _init();
+
+        $this.onclick(function () {
+            var $this = $(this);
+            var data = $this.data();
+            data.trigger = $this;
+            var $target = $(data.target);
+            $target.dialog(data).show();
+            return false;
+        });
     },
     setOptionsBefore: null,
     setOptionsAfter: null,

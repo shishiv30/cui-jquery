@@ -2,9 +2,8 @@ import core from './core';
 import inject from './inject';
 import plugins from './plugins';
 import $ from 'jquery';
-import slick_carousel from 'slick-carousel';
+import 'slick-carousel';
 import _ from 'lodash';
-
 var cuiStatus = null;
 var _isMobile = function () {
     var $body = $('body');
@@ -80,7 +79,6 @@ var _eventResizeListener = function () {
         $(document).trigger('dom.resize');
     }, 500));
 };
-//there is only one thing jQuery say to Death
 var notToday = function(window, context){
     window.$ = window.jQuery = $;
     $.cuiContext = $.extend({
@@ -121,5 +119,5 @@ var notToday = function(window, context){
     });
 };
 
-
+//there is only one thing jQuery say to Death
 export default notToday;
