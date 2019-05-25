@@ -3,28 +3,25 @@ import _trigger from '../core/_trigger';
 export default {
     name: 'dialog',
     defaultOpt: {
-        autoclose: true,
         cache: false,
+        autoclose: true,
         theme: 'default',
-        id: null,
+        target: null,
         trigger: null,
+        renderbefore:null,
+        renderafter:null,
         showbefore: null,
         showafter: null,
         hidebefore: null,
         hideafter: null,
-        html: null
     },
     initBefore: null,
     init: function ($this, opt, exportObj) {
-
-        opt.id = 'dialog' + new Date();
-
-        var $dialog = $('<div class="dialog dialog-' + opt.theme + '" tabIndex="-1"></div>');
-        var $dialogCloseButton = $('<a class="dialog-title-close" dialog-close href="javascript:void(0);"><i class="icon-remove"></i></a>');
-        var $dialogPanel = $('<div class="dialog-panel"></div>');
-        var $dialogBody = $('<div class="dialog-body"></div>');
-        var $dialogOverLay = $('<div class="dialog-overlay"></div>');
-        var _reposition = exportObj._reposition = function () {
+        var $dialog;
+        var $dialogPanel;
+        var $dialogBody;
+        var $dialogOverLay;
+        var _reposition= exportObj.reposition =function(){
             var height = $dialog.height() - $dialogPanel.outerHeight();
             if (height > 0) {
                 $dialogPanel.css({
@@ -32,18 +29,16 @@ export default {
                 });
             } else {
                 $dialogPanel.css({
-                    marginTop: 5
+                    marginTop: 0
                 });
             }
         };
-        exportObj.show = function () {
-            $(document).trigger('dialog.hidden.except', [opt.id]);
-            opt.showbefore && _trigger(opt.showbefore,$this, opt, exportObj);
-            if (!opt.cache || !$dialogBody.html()) {
-                $dialogBody.html($this.html());
-                _addCloseButton();
+        var _show = exportObj.show = function () {
+            if(!$dialog){
+                _render();
             }
-            //todo $(document).trigger('dom.load');
+            $(document).trigger('dialog.hidden.except', [opt.id]);
+            opt.showbefore && _trigger(opt.showbefore, $this, opt, exportObj);
             $('html').addClass('dialog-model');
             $dialog.show();
             setTimeout(function () {
@@ -51,84 +46,77 @@ export default {
                 _reposition();
                 opt.showafter && _trigger(opt.showafter, $this, opt, exportObj);
             }, 50);
+            $(document).on('dialog.hidden.except'+ opt.id, function (e, id) {
+                if (id != opt.id) {
+                    exportObj.hide();
+                }
+            });
+            $(document).on('dom.resize.' + opt.id, function () {
+                exportObj.reposition();
+            });
         };
         var _hide = exportObj.hide = function () {
-            if ($dialog.hasClass('dialog-active')) {
+            if($dialog){
                 opt.hidebefore && _trigger(opt.hidebefore, $this, opt, exportObj);
                 $dialog.removeClass('dialog-active');
-                $dialogPanel.css({
-                    marginTop: '0'
-                });
                 setTimeout(function () {
                     $dialog.hide();
                     $('html').removeClass('dialog-model');
                     opt.hideafter && _trigger(opt.hidebefore, $this, opt, exportObj);
+                    if(!opt.cache){
+                        $dialog.remove();
+                        $dialog = null;
+                        $(document).off('dom.resize.' + opt.id, function () {
+                            exportObj.reposition();
+                        });
+                        $(document).off('dialog.hidden.except'+ opt.id, function (e, id) {
+                            if (id != opt.id) {
+                                exportObj.hide();
+                            }
+                        });
+                    }
                 }, 500);
             }
         };
-        var _addCloseButton = function () {
-            if ($dialogBody && $dialogBody.find('.dialog-title') && $dialogBody.find('.dialog-title').length) {
-                $dialogBody.find('.dialog-title').append($dialogCloseButton);
-            }
-            $dialogBody.on('click', '[dialog-close]', function () {
-                _hide();
-            });
-        };
-        var _init = function () {
+        var _render = exportObj.render = function(){
+            $dialog = $(`<div class="dialog dialog-${opt.theme}" tabIndex="-1"></div>`);
+            $dialogPanel = $('<div class="dialog-panel"></div>');
+            $dialogBody = $('<div class="dialog-body"><a class="dialog-title-close" dialog-close href="javascript:void(0);"><i class="icon-remove"></i></a></div>');
+            $dialogOverLay = $('<div class="dialog-overlay"></div>');
             $dialogPanel.append($dialogBody);
+            $dialogBody.html('<a class="dialog-title-close" dialog-close href="javascript:void(0);"><i class="icon-remove"></i></a>');
+            $dialogBody.append(opt.html);
             $dialog.append($dialogPanel);
             $dialog.prepend($dialogOverLay);
-            $('html').append($dialog);
-            if (opt.theme == 'dropdown') {
-                $dialogBody.on('click', 'a', function () {
-                    setTimeout(function () {
-                        _hide();
-                    }, 10);
+            $dialogBody.find('[dialog-close]').on('click', function () {
+                _hide();
+            });
+            if(opt.autoclose){
+                $dialogOverLay.click(function(){
+                    _hide();
                 });
             }
-            if (opt.autoclose) {
-                $dialogOverLay.click(_hide);
-            }
-        };
-        _init();
-
-        $this.onclick(function () {
+            $dialog.hide();
+            $(document).trigger('dom.load');
+            opt.renderbefore && _trigger(opt.renderbefore, $this, opt, exportObj);
+            $('html').append($dialog);
+            opt.renderafter && _trigger(opt.renderafter,$this, opt, exportObj);
+        }
+        $this.click(function () {
             var $this = $(this);
             var data = $this.data();
-            data.trigger = $this;
             var $target = $(data.target);
-            $target.dialog(data).show();
+            if(!opt.id){
+                opt.id =  'dialog'+ data.target;
+            }
+            opt.html = $target.html();
+            data.trigger = $this;
+            _show();
             return false;
         });
     },
     setOptionsBefore: null,
     setOptionsAfter: null,
     destroyBefore: null,
-    initAfter: function ($this, opt, exportObj) {
-        $(document).on('dialog.hidden.except', function (e, id) {
-            if (id != opt.id) {
-                exportObj.hide();
-            }
-        });
-        $(document).on('dom.resize', function () {
-            exportObj._reposition();
-        });
-    },
+    initAfter: null,
 };
-// $.cui.plugin(dialogConfig);
-// $(document).on('dom.load.dialog', function () {
-//     $('[data-dialog]').each(function () {
-//         var $this = $(this);
-//         $this.removeAttr('data-dialog');
-//         $this.click(function () {
-//             var $this = $(this);
-//             var data = $this.data();
-//             data.trigger = $this;
-//             var $target = $(data.target);
-//             $target.dialog(data).show();
-//             return false;
-//         });
-//         $this.attr('data-dialog-load', '');
-//     });
-// });
-

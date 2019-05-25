@@ -10,6 +10,12 @@
     min-width: $screen-xs-min;
     opacity: 0;
     transition: opacity .5s ease-in-out;
+    display: none;
+    .dialog-title-close{
+        position: absolute;
+        right:5px;
+        top:5px;
+    }
     .dialog-overlay {
         position: fixed;
         top: 0;
@@ -55,7 +61,6 @@
             line-height: 1em;
             margin-bottom: 15px;
             position: relative;
-            padding-right: 20px;
             .dialog-title-close {
                 position: absolute;
                 font-size: 25px;
