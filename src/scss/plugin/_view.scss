@@ -1,4 +1,5 @@
-[data-view], [data-view-load] {
+[data-cui^="view"], [data-cui*=" view"],
+[data-cui-load^="view"], [data-cui-load*=" view"] {
     width: 100%;
     overflow: hidden;
     &[data-direction="x"] {

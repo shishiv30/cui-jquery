@@ -68,7 +68,7 @@
     }
 }
 
-[data-shifter] {
+[data-cui^="shifter"], [data-cui*=" shifter"] {
     ul {
         white-space: nowrap;
     }

@@ -1,4 +1,4 @@
-[data-picker], [data-picker-load]{
+[data-cui^="picker"], [data-cui*=" picker"]{
     cursor: pointer;
 }
 .datetimepicker {

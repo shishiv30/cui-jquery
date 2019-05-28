@@ -4,8 +4,10 @@
     padding: $g0;
 }
 
-[data-tab], [data-tabs-load] {
-    &.active {
+[data-cui^="tabs"], [data-cui*=" tabs"],
+[data-cui-load^="tabs"], [data-cui-load*=" tabs"]
+{
+    [data-tab].active {
         margin-bottom: -1px;
     }
     .btn {

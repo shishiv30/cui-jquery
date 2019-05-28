@@ -2,6 +2,6 @@
     z-index: $ui-pin-index;
 }
 
-[data-pin] {
+[data-cui^="pin"], [data-cui*=" pin"] {
     position: relative;
 }

@@ -188,7 +188,8 @@
     }
 }
 
-[data-slicker] {
+[data-cui^="slicker"], [data-cui*=" slicker"],
+[data-cui-load^="slicker"], [data-cui-load*=" slicker"] {
     ul {
         white-space: nowrap;
     }
