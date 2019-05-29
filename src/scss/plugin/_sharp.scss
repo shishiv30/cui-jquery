@@ -1,53 +1,80 @@
 .circle-item {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   display: block;
   margin: 10px auto;
   color: $color-f;
   border: 1px solid $color-f;
-  line-height: 80px;
+  line-height: 90px;
   text-align: center;
   @extend .text-shadow;
+
   &.color-main {
     background-color: $color-main;
   }
-
-  &.color-main-l1 {
-    background-color: $color-main;
+  &.color-main-1 {
+    background-color: $color-main-l1;
+  }
+  &.color-main-2 {
+    background-color: $color-main-l2;
+  }
+  &.color-main-3 {
+    background-color: $color-main-l3;
   }
 
   &.color-danger {
     background-color: $color-danger;
   }
-
-  &.color-danger-l1 {
-    background-color: $color-danger;
+  &.color-danger-1 {
+    background-color: $color-danger-l1;
+  }
+  &.color-danger-2 {
+    background-color: $color-danger-l2;
+  }
+  &.color-danger-3 {
+    background-color: $color-danger-l3;
   }
 
   &.color-warning {
     background-color: $color-warning;
   }
-
-  &.color-warning-l1 {
+  &.color-warning-1 {
     background-color: $color-warning-l1;
+  }
+  &.color-warning-2 {
+    background-color: $color-warning-l2;
+  }
+  &.color-warning-3 {
+    background-color: $color-warning-l3;
   }
 
   &.color-tip {
     background-color: $color-tip;
   }
-
-  &.color-tip-l1 {
+  &.color-tip-1 {
     background-color: $color-tip-l1;
+  }
+  &.color-tip-2 {
+    background-color: $color-tip-l2;
+  }
+  &.color-tip-3 {
+    background-color: $color-tip-l3;
   }
 
   &.color-safe {
     background-color: $color-safe;
   }
-
-  &.color-safe-l1 {
+  &.color-safe-1 {
     background-color: $color-safe-l1;
   }
+  &.color-safe-2 {
+    background-color: $color-safe-l2;
+  }
+  &.color-safe-3 {
+    background-color: $color-safe-l3;
+  }
+
   &.color-0 {
     background-color: $color-0;
   }
