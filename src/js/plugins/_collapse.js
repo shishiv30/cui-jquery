@@ -72,7 +72,7 @@ export default {
                 opt.hidebefore && _trigger(opt.hidebefore, $this, opt, exportObj);
                 $this.removeClass('shown');
                 $target.hide();
-                if (height && height > 0) {
+                if (height && height > 0 && $target.css('position')==='static') {
                     $(window).scrollTop($(window).scrollTop() - height);
                 }
                 _hidetext();
