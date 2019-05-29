@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    margin:0 $flex-gutter-width/-2;
     &.left {
         justify-content: flex-start;
     }
