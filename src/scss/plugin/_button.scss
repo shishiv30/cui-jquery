@@ -2,36 +2,57 @@
   &.default {
     background-color: $color-f;
     color: $color-3;
-    border-color: $color-border;
+    border-color: transparent;
 
     &.active {
       background-color: $color-3;
       color: $color-f;
     }
   }
-
-  &.orange {
-    background-color: $color-f;
-    border-color: $color-border;
-    color: $color-warning;
-
-    &.active {
-      background-color: $color-warning;
-      color: $color-f;
-      border-color: $color-warning;
-    }
+  &.white {
+      background-color: $color-f;
+      color: $color-3;
+      border-color: $color-3;
   }
-
-  &.link {
-    background-color: $color-f;
-    border-color: $color-e;
-    color: $color-main;
-
-    &.active {
-      background-color: $color-main;
-      color: $color-f;
+  &.black {
+      &.active {
+          background-color: $color-3;
+          color: $color-f;
+      }
+      border-color: $color-3;
+      color: $color-3;
+  }
+  &.warning {
+      &.active {
+          background-color: $color-warning;
+          color: $color-f;
+      }
+      border-color: $color-warning;
+      color: $color-warning;
+  }
+  &.main {
+      &.active {
+          background-color: $color-main;
+          color: $color-f;
+      }
       border-color: $color-main;
-    }
+      color: $color-main;
+  }
+  &.danger {
+      &.active {
+          background-color: $color-danger;
+          color: $color-f;
+      }
+      border-color: $color-danger;
+      color: $color-danger;
+  }
+  &.safe {
+      &.active {
+          background-color: $color-safe;
+          color: $color-f;
+      }
+      border-color: $color-safe;
+      color: $color-safe;
   }
 }
 
@@ -116,5 +137,43 @@
   &.orange {
     background-color: $color-warning !important;
     color: $color-f !important;
+  }
+}
+
+[data-cui^="dropdownbutton"], [data-cui*=" dropdownbutton"],
+[data-cui-load^="dropdownbutton"], [data-cui-load*=" dropdownbutton"] {
+  display: flex;
+  position: relative;
+  a {
+      @extend %btn;
+  }
+  & > a:first-of-type {
+      width: 100%;
+      border-right: none;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+  }
+  & > a:last-of-type {
+      width: $form-size-normal;
+      flex-shrink: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .dropdown-button-list {
+      position: absolute;
+      background: $color-f;
+      top: $form-size-normal;
+      left: $g1;
+      right: $g1;
+      z-index: $ui-buttongroup-index;
+      box-shadow: 0 0 1px $color-0;
+      display: none;
+       > a {
+          color: $color-0;
+          background: $color-f;
+          border-color: $color-e;
+          box-shadow: none;
+          border-top: 0;
+      }
   }
 }

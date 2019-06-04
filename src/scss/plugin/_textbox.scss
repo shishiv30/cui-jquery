@@ -1,4 +1,5 @@
-.textbox {
+[data-cui^="textbox"], [data-cui*=" textbox"],
+[data-cui-load^="textbox"], [data-cui-load*=" textbox"]{
   position: relative;
 
   input::-webkit-input-placeholder,
