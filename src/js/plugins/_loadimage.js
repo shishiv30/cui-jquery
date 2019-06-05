@@ -55,7 +55,7 @@ export default {
             });
         };
         $(document).on('dom.load.image, dom.resize.image', _load);
-        $this.is('body') ? $this.on('dom.scroll.image', _load) : $this.on('scroll', _.throttle(_load, opt.delay));
+        $this.is('body') ? $(document).on('dom.scroll.image', _load) : $this.on('scroll', _.throttle(_load, opt.delay));
     },
     setOptionsBefore: null,
     setOptionsAfter: null,
