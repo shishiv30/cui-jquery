@@ -21,11 +21,8 @@ export default {
         parent: null
     },
     init: function ($this, opt, exportObj) {
-        var $container = $('<div class="tooltip ' + opt.type + ' ' + opt.placement + '"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>');
+        var $container = $('<div class="tip ' + opt.type + ' ' + opt.placement + '"><div class="tip-arrow"></div><div class="tip-inner"></div></div>');
         var $parent = opt.parent ? $(opt.parent) : $this;
-        if ($parent.css('position') === 'static') {
-            $parent.css('position', 'static');
-        }
         $parent.append($container);
         $container.click(function (e) {
             e.stopPropagation();
@@ -35,16 +32,14 @@ export default {
         exportObj.show = function () {
             clearTimeout(opt._timer);
             opt.showbefore && _trigger(opt.showbefore, $this, opt, exportObj);
-            $container.find('.tooltip-inner')
-                .html(opt.content);
+            $container.find('.tip-inner').html(opt.content);
             var cWidth = $container.outerWidth();
             var cHeight = $container.outerHeight();
             var tWidth = $this.outerWidth();
             var tHeight = $this.outerHeight();
             var offset = $this.offset();
             var position = $this.position();
-            var pWidth = $this.parent()
-                .outerWidth(true);
+            var pWidth = $this.parent().outerWidth(true);
             var x = 0;
             var y = 0;
             var css = {};
@@ -55,21 +50,21 @@ export default {
             switch (opt.placement) {
             case 'top':
             case 'bottom':
-                $container.removeClass('{0}-left {0}-right'.format(opt.placement));
+                $container.removeClass(`${opt.placement}-left ${opt.placement}-right`);
                 x = (Math.abs(tWidth - cWidth) / 2);
                 if (x > offset.left) {
                     css = {
                         left: position.left,
                         right: ''
                     };
-                    $container.addClass('{0}-right'.format(opt.placement));
+                    $container.addClass(`${opt.placement}-right`);
                 } else if ((offset.left + (tWidth + cWidth) / 2) > $(window)
                     .width()) {
                     css = {
                         left: '',
                         right: pWidth - tWidth - position.left
                     };
-                    $container.addClass('{0}-left'.format(opt.placement));
+                    $container.addClass(`${opt.placement}-left`);
                 } else {
                     x = x - position.left;
                     css = {
@@ -117,7 +112,7 @@ export default {
     setOptionsBefore: null,
     setOptionsAfter: function ($this, opt, exportObj) {
         var $container = exportObj.$container;
-        $container.find('.tooltip-inner')
+        $container.find('.tip-inner')
             .html(opt.content);
     },
     initBefore: null,

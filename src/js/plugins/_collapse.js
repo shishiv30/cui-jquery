@@ -65,7 +65,7 @@ export default {
                 $this.addClass('shown');
                 $target.show();
                 _showtext();
-                $(document).trigger('dom.load');
+                $(document).trigger('dom.load.image');
                 opt.showafter && _trigger(opt.showafter, $this, opt, exportObj);
             };
             exportObj.hide = function () {
