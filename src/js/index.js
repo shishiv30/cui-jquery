@@ -108,7 +108,7 @@ var notToday = function(window, context){
             var types = $this.attr(prefixed);
             $this.removeAttr(prefixed);
             $this.attr(`${prefixed}-load`, types);
-            types.split('.').forEach(function (type) {
+            types && types.split('.').forEach(function (type) {
                 var pluginName = core.plugin.namespace + '_' + type;
                 $this[pluginName](data);
             });

@@ -25,15 +25,12 @@
     border: none;
   }
 
-  > label {
-    color: inherit;
-  }
-
   > a {
     border-radius: 0;
   }
 
   > i,
+  > label,
   > a {
     top: 0;
     position: absolute;
@@ -42,6 +39,7 @@
     text-align: center;
     height: $form-size-normal;
     line-height: $form-size-normal;
+    color: inherit;
     font-size: inherit;
     @extend %singleline;
     width: $form-size-normal;
@@ -87,8 +85,9 @@
       height: $form-size-small;
       line-height: calc(#{$form-size-small} - 2px);
     }
-
+    
     > i,
+    > label,
     > a {
       height: $form-size-small;
       line-height: $form-size-small;
@@ -130,7 +129,7 @@
     > select {
       border-color: $color-safe-l1;
     }
-
+    > label,
     > i {
       color: $color-safe-l1;
     }
@@ -141,15 +140,10 @@
     > select {
       border-color: $color-danger-l1;
     }
-
+    > label,
     > i {
       color: $color-danger-l1;
     }
-
-    label {
-      color: $color-danger-l1;
-    }
-
     .input-info {
       color: $color-danger-l1;
     }

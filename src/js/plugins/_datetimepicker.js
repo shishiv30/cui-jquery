@@ -3,18 +3,17 @@ import _trigger from '../core/_trigger';
 export default {
     name: 'picker',
     defaultOpt: {
-        picker: null
+        picktype: null
     },
     initBefore: null,
     init: function ($this, opt, exportObj) {
-        var type = opt.picker;
         var setting = {
             todayBtn: true,
             autoclose: true,
             todayHighlight: true,
             viewSelect: 4,
         };
-        switch (type) {
+        switch ( opt.picktype) {
         case 'date':
             _.assignIn(setting, {
                 format: 'yyyy-mm-dd',
