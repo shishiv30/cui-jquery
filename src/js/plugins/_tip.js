@@ -5,9 +5,7 @@ var animationDuration = 500;
 export default {
     name: 'tip',
     defaultOpt: {
-        height: 50,
-        width: 320,
-        type: '',
+        theme: 'defalut',
         placement: 'top',
         trigger: 'click',
         html: true,
@@ -18,10 +16,13 @@ export default {
         hidebefore: null,
         hideafter: null,
         _timer: null,
-        parent: null
+        parent: null,
+        template: '<div class="tip"><div class="tip-arrow"></div><div class="tip-inner"></div></div>'
     },
     init: function ($this, opt, exportObj) {
-        var $container = $('<div class="tip ' + opt.type + ' ' + opt.placement + '"><div class="tip-arrow"></div><div class="tip-inner"></div></div>');
+        var $container = $(opt.template);
+        $container.addClass(opt.theme);
+        $container.addClass(opt.placement);
         var $parent = opt.parent ? $(opt.parent) : $this;
         $parent.append($container);
         $container.click(function (e) {

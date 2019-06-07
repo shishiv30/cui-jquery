@@ -30,7 +30,7 @@
       margin-right: 5px;
     }
   }
-  &.top-right {
+  &.top-right { 
     .tip-arrow {
       left: 5px;
       right: auto;
@@ -139,18 +139,18 @@
       display: none;
     }
   }
+  &.defalut{
+    .tip-inner {
+      padding: 2px 5px;
+      color: $color-f;
+      text-align: center;
+      text-decoration: none;
+      background-color: $color-5;
+      border-radius: 4px;
+      box-shadow: 0 0 2px $color-0;
+    }
+  }
 }
-
-.tip-inner {
-  padding: 2px 5px;
-  color: $color-f;
-  text-align: center;
-  text-decoration: none;
-  background-color: $color-5;
-  border-radius: 4px;
-  box-shadow: 0 0 2px $color-0;
-}
-
 .tip-arrow {
   position: absolute;
   width: 0;
