@@ -19,7 +19,8 @@
 
   .input,
   .textarea {
-    > label {
+    > span {
+      pointer-events: none;
       margin: 0;
       position: absolute;
       transform: translateY(-50%);
@@ -41,7 +42,7 @@
   }
 
   .input {
-    > label {
+    > span {
       left: $g1;
       right: auto;
       top: 50%;
@@ -71,7 +72,7 @@
         }
 
         &.left {
-          > label {
+          > span {
             left: $form-size-small;
           }
 
@@ -84,13 +85,13 @@
 
     &.left,
     &.right {
-      > label {
+      > span {
         width: calc(100% - #{$form-size-normal});
       }
     }
 
     &.right.left {
-      > label {
+      > span {
         width: calc(100% - #{$form-size-normal * 2});
       }
     }
@@ -106,7 +107,7 @@
     }
 
     &.left {
-      > label {
+      > span {
         left: $form-size-normal;
       }
 
@@ -120,7 +121,7 @@
     background-color: $color-f;
     border: 1px solid $color-border;
 
-    label {
+    span {
       padding: 0 $g0;
       left: 0;
       right: 0;
@@ -145,7 +146,7 @@
 
     .input,
     .textarea {
-      > label {
+      > span {
         top: $gxs;
         right: auto;
         transform: translateY(0);
@@ -154,12 +155,12 @@
       }
 
       &.small {
-        > label {
+        > span {
           top: 0;
           line-height: 1.2rem;
         }
 
-        > label {
+        > span {
           top: 0;
         }
       }

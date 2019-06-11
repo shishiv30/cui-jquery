@@ -2,7 +2,7 @@
     position: relative;
     background: $color-f;
     font-size: $font-size-4;
-    label {
+    > span {
         position: absolute;
         top: $g0;
         left: $g0;
