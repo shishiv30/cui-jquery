@@ -3,7 +3,6 @@ import _trigger from './_trigger';
 import loadMap from './_preload.map';
 class Plugin {
     constructor(PluginSetting, $) {
-        $ = $ || window.$;
         this.setting = _.assignIn({
             name: '',
             defaultOpt: null,

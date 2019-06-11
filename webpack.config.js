@@ -55,7 +55,7 @@ module.exports = function (env, argv) {
                     options: {
                         presets: ['@babel/preset-env'],
                         plugins: [
-                            "@babel/plugin-proposal-class-properties",
+                            '@babel/plugin-proposal-class-properties',
                         ]
                     }
                 }
@@ -73,7 +73,10 @@ module.exports = function (env, argv) {
                 filename: '[name].css',
                 chunkFilename: '[id].css'
             }),
-
+            new webpack.ProvidePlugin({
+                '$': 'jquery',
+                'jQuery': 'jquery'
+            })
         ]
     }
 };

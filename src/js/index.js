@@ -1,8 +1,8 @@
+window.$ = window.jQuery = jQuery;
+import './libs'
 import core from './core';
 import inject from './inject';
 import plugins from './plugins';
-import $ from 'jquery';
-import 'slick-carousel';
 import _ from 'lodash';
 var cuiStatus = null;
 var _isMobile = function () {
@@ -80,14 +80,12 @@ var _eventResizeListener = function () {
     }, 500));
 };
 var notToday = function(window, context){
-    window.$ = window.jQuery = $;
+   
     $.cuiContext = $.extend({
         cdnUrl: window.location.hostname + '/',
         webUrl: window.location.hostname + '/'
     }, context);
-    inject.forEach(e => {
-        e.call(window, $);
-    });
+    inject($);
     for (var key in plugins) {
         var config = plugins[key];
         new core.plugin(config, $);

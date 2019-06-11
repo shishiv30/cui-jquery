@@ -12,19 +12,24 @@ import _iszipcode from '../inject/_extend.iszipcode';
 import _renderhtml from '../inject/_extend.renderhtml';
 import _scrollto from '../inject/_extend.scrollto';
 import _isMobile from '../inject/_extend.isMobile';
-export default [
-    _gesture,
-    _draggable,
-    _gettextwidth,
-    _htmldecode,
-    _htmlencode,
-    _isemail,
-    _isfloat,
-    _isint,
-    _isphone,
-    _isprice,
-    _iszipcode,
-    _renderhtml,
-    _scrollto,
-    _isMobile
-]
+export default function($){
+    var injects = [
+        _gesture,
+        _draggable,
+        _gettextwidth,
+        _htmldecode,
+        _htmlencode,
+        _isemail,
+        _isfloat,
+        _isint,
+        _isphone,
+        _isprice,
+        _iszipcode,
+        _renderhtml,
+        _scrollto,
+        _isMobile
+    ];
+    injects.forEach(e => {
+        e.call(window, $);
+    });
+} 

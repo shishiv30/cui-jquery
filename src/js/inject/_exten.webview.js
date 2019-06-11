@@ -1,8 +1,6 @@
 
 import _ from 'lodash';
 import _trigger from '../core/_trigger';
-
-
 export default function ($) {
     $ = $ || window.$;
     $.fn.webview = function () {

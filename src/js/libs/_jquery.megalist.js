@@ -1,4 +1,3 @@
-import jQuery from 'jquery';
 !function ($) {
 
     'use strict';
@@ -669,4 +668,4 @@ import jQuery from 'jquery';
 
     $.fn.megalist.Constructor = Megalist;
 
-}(window.jQuery);
+}(jQuery);
