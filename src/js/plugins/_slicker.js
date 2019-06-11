@@ -13,8 +13,10 @@ export default {
         padding: 0,
         index: 0,
         responsive: true,
+        target: 'ul'
     },
     init: function ($this, opt, exportObj) {
+        var $target = $this.find(opt.target);
         if (opt.autoscroll) {
             opt.autoplay = true;
             opt.autoplaySpeed = opt.autoscroll;
@@ -81,25 +83,25 @@ export default {
         delete opt.width;
         delete opt.autoscroll;
         if (opt.lazyload) {
-            $this.on('afterChange', _.debounce(function () {
+            $target.on('afterChange', _.debounce(function () {
                 $(document).trigger('dom.scroll.image');
             }, 100));
-            $this.on('setPosition', _.debounce(function () {
+            $target.on('setPosition', _.debounce(function () {
                 $(document).trigger('dom.scroll.image');
             }, 100));
         }
-        $this.slick(opt);
+        $target.slick(opt);
         $(document).on('dom.resize.slicker', function () {
-            $this.slick('setPosition');
+            $target.slick('setPosition');
         });
         exportObj.next = function () {
-            $this.slick('slickNext');
+            $target.slick('slickNext');
         };
         exportObj.prev = function () {
-            $this.slick('slickPrev');
+            $target.slick('slickPrev');
         };
         exportObj.go = function (index, noAnimate) {
-            $this.slick('slickGoTo', index, noAnimate);
+            $target.slick('slickGoTo', index, noAnimate);
         };
     }
 };

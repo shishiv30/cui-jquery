@@ -196,8 +196,9 @@
     li {
         display: inline-block;
         width: 320px;
-        max-width: 375px;
-
+        @media(min-width: $screen-sm-min){
+            width: 100%;
+        }
     }
 }
 
