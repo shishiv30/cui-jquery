@@ -74,7 +74,8 @@
     }
   }
 
-  > .paragraph {
+  .paragraph {
+    margin:$g0 0;
     line-height: 1.618em;
     &.singleline-2 {
       @include multiLineEllipsis($lineHeight: 1.618em, $lineCount: 2, $bgColor: white);
@@ -88,7 +89,7 @@
   >[data-cui^="collapse"], >[data-cui*=" collapse"],
   >[data-cui-load^="collapse"], >[data-cui-load*=" collapse"] {
       padding-right: $g2;
-      border-bottom: solid 1px $color-d;
+      border-bottom: solid 1px $color-e;
       &:before {
           position: absolute;
           right: 0;
@@ -109,7 +110,6 @@
       &.shown {
           border-bottom-color: transparent;
           +div {
-              border-bottom-color: $color-d;
               display: block;
           }
       }

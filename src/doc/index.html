@@ -15,14 +15,14 @@
     @media (max-width: 767px) {
         .highlight-mobile {
             color: #78004e;
-            font-weight: 700;
+            font-weight: 500;
         }
     }
 
     @media (min-width: 768px) {
         .highlight-desktop {
             color: #78004e;
-            font-weight: 700;
+            font-weight: 500;
         }
     }
 
@@ -152,15 +152,16 @@
     </div>
 </body>
 <script type="text/javascript">
-    setTimeout(function () {
-        function submit() {
-            var msg = 'error!';
-            var $form = $('#form').data('form');
-            if ($form.isValid()) {
-                msg = JSON.stringify($form.getValue());
-                alert(msg);
-            }
+    function submit() {
+        var msg = 'error!';
+        var $form = $('#form').data('form');
+        if ($form.isValid()) {
+            msg = JSON.stringify($form.getValue());
+            alert(msg);
         }
+    }
+    setTimeout(function () {
+       
         var getMoveText = function (startPoint, endPoint) {
             var str1;
             var str2;

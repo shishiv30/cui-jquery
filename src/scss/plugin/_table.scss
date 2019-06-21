@@ -2,6 +2,10 @@
   overflow-x: auto;
   min-height: 0.01%;
   min-width: 0.01%;
+  &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+  }
 }
 
 table {

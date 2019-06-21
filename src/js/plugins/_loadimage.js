@@ -63,3 +63,86 @@ export default {
     initAfter: null,
     destroyBefore: null
 };
+
+
+var addBinary = function(a, b) {
+    debugger;
+    var i = a.length-1;
+    var j = b.length-1;
+    var plusOne;
+    var result='';
+    while(i>=0||j>=0||plusOne){
+        if(i>=0&&j>=0){
+            if(a[i]===b[j]){
+                if(a[i]==='0'){
+                    if(plusOne){
+                        result = '1'+ result; 
+                        plusOne = false;
+                    }else{
+                        result = '0'+ result; 
+                        plusOne =false;
+                    }
+                }else{
+                    if(plusOne){
+                        result = '1'+ result; 
+                        plusOne = true;
+                    }else{
+                        result = '0'+ result; 
+                        plusOne = true;
+                    }
+                }
+            }else if(plusOne){
+                result = '0'+ result; 
+                plusOne =true;
+            }else{
+                result = '1'+ result; 
+                plusOne =false;
+            }
+            i--;
+            j--;
+        }else if(i>=0){
+            if(a[i]==='1'){
+                if(plusOne){
+                    result = '0'+ result; 
+                    plusOne = true;
+                }else{
+                    result = '1'+ result; 
+                    plusOne =false;
+                }
+            }else{
+                if(plusOne){
+                    result = '1'+ result; 
+                    plusOne = false;
+                }else{
+                    result = '0'+ result; 
+                    plusOne =false;
+                }
+            }
+            i--;
+        }else if(j>=0){
+            if(b[j]==='1'){
+                if(plusOne){
+                    result = '0'+ result; 
+                    plusOne = true;
+                }else{
+                    result = '1'+ result; 
+                    plusOne =false;
+                }
+            }else{
+                if(plusOne){
+                    result = '1'+ result; 
+                    plusOne = false;
+                }else{
+                    result = '0'+ result; 
+                    plusOne =false;
+                }
+            }
+            j--;
+        }else if(plusOne){
+            result = '1' + result;
+            plusOne =false;
+        }
+    }
+    return result;
+};
+addBinary('11', '1')
