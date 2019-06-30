@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const pathsToClean = ['dist'];
+const autoprefixer = require('autoprefixer');
 module.exports = function (env, argv) {
     return {
         entry: './index.js',
@@ -37,7 +38,19 @@ module.exports = function (env, argv) {
                 }]
             }, {
                 test: /\.scss$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+                use: [
+                    MiniCssExtractPlugin.loader, 
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [
+                                autoprefixer
+                            ]
+                        }
+                    },
+                    'sass-loader'
+                ]
             }, {
                 test: /\.(html)$/,
                 include: path.join(__dirname, './'),
