@@ -47,6 +47,7 @@ export default {
                 $this.addClass('shown');
                 $target.addClass('collapse-expand');
                 _showtext();
+                $(document).trigger('dom.scroll.image');
                 opt.showafter && _trigger(opt.showafter, $this, opt, exportObj);
             };
             exportObj.hide = function () {
@@ -57,6 +58,7 @@ export default {
                     $(window).scrollTop($(window).scrollTop() - $target.prop('scrollHeight') + height);
                 }
                 _hidetext();
+                $(document).trigger('dom.scroll');
                 opt.hideafter && _trigger(opt.hideafter, $this, opt, exportObj);
             };
         } else {
@@ -65,7 +67,7 @@ export default {
                 $this.addClass('shown');
                 $target.show();
                 _showtext();
-                $(document).trigger('dom.load.image');
+                $(document).trigger('dom.scroll');
                 opt.showafter && _trigger(opt.showafter, $this, opt, exportObj);
             };
             exportObj.hide = function () {
@@ -76,6 +78,7 @@ export default {
                     $(window).scrollTop($(window).scrollTop() - height);
                 }
                 _hidetext();
+                $(document).trigger('dom.scroll');
                 opt.hideafter && _trigger(opt.hideafter, $this, opt, exportObj);
             };
         }
