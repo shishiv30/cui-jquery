@@ -19,7 +19,7 @@
         transform: rotate(180deg);
     }
     &.icon-caret-left, & > .icon-caret-left {
-        transform: rotate(90deg);
+        transform: rotate(-90deg);
     }
     &.icon-eye-slash:before, & > .icon-eye-slash:before {
         @extend .icon-eye;

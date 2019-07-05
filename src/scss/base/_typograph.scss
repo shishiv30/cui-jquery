@@ -105,13 +105,9 @@
       +div {
           border-bottom: solid 1px transparent;
           padding-bottom: $g1;
-          display: none;
       }
       &.shown {
           border-bottom-color: transparent;
-          +div {
-              display: block;
-          }
       }
   }
 }
