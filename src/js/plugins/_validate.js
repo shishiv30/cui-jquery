@@ -34,19 +34,20 @@ var _showValidate = function ($element, message) {
     $element.closest('.input').removeClass('has-success');
     $element.closest('.input').addClass('has-error');
     if (message) {
-        $element.cui_tip({
+        $element.closest('.input').cui_tip({
             once: true,
             type: 'error',
             content: message,
-            placement: 'bottom',
-            trigger: null
+            placement: 'top',
+            trigger: null,
+            theme: 'default'
         }).show();
     }
 };
 var _passValidate = function ($element, isRequried) {
     $element.closest('.input').removeClass('has-error');
-    if ($element.data('tip')) {
-        $element.data('tip').hide();
+    if ($element.closest('.input').data('tip')) {
+        $element.closest('.input').data('tip').hide();
     }
     if ($element.is('[id]')) {
         $('[for=' + $element.attr('id') + ']').removeClass('error-text');
@@ -74,42 +75,28 @@ var _validate = function ($element, type, errorText, addition) {
             break;
         case 'email':
             if (value && !$.isEmail(value)) {
-                message = errorText || 'Please enter a valid email.';
+                message = errorText || 'Invalid Email.';
                 _showValidate($element, message);
                 return false;
             }
             break;
         case 'phone':
             if (value && !$.isPhone(value)) {
-                message = errorText || 'Please enter a valid Phone Number';
+                message = errorText || 'Invalid Phone Number';
                 _showValidate($element, message);
                 return false;
             }
             break;
         case 'zipcode':
             if (value && !$.isZipcode(value)) {
-                message = errorText || 'Please enter a valid zipcode';
+                message = errorText || 'Invalid Zipcode';
                 _showValidate($element, message);
                 return false;
             }
             break;
         case 'price':
             if (value && !$.isPrice(value)) {
-                message = errorText || 'Please enter a valid price';
-                _showValidate($element, message);
-                return false;
-            }
-            break;
-        case 'int':
-            if (value && !$.isInt(value)) {
-                message = errorText || 'Only allowed integer number';
-                _showValidate($element, message);
-                return false;
-            }
-            break;
-        case 'float':
-            if (value && !$.isFloat(value)) {
-                message = errorText || 'Only allowed floating number';
+                message = errorText || 'Invalid Price';
                 _showValidate($element, message);
                 return false;
             }
@@ -130,7 +117,7 @@ var _validate = function ($element, type, errorText, addition) {
 export default {
     name: 'validate',
     defaultOpt: {
-        errortext: 'Invalid value.',
+        errortext: '',
         addition: null
     },
     initBefore: null,

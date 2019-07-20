@@ -31,6 +31,7 @@
       @extend %singleline;
       transition: all 0.2s ease-in-out;
       pointer-events: none;
+      color: $color-3;
     }
 
     .input-info {

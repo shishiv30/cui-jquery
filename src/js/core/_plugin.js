@@ -68,10 +68,10 @@ class Plugin {
         var that = this;
         return function () {
             //before Plugin destroy event
-            _trigger('cui.before.destroy.' + this.setting.name, $this, opt, exportObj);
+            _trigger('cui.before.destroy.' + that.setting.name, $this, opt, exportObj);
             //before Plugin destroy custom event
             that.setting.destroyBefore && that.setting.destroyBefore($this, opt, exportObj);
-            $this.data(this.setting.name, null);
+            $this.data(that.setting.name, null);
         };
     }
     _handleExports($this, opt, exportObj) {

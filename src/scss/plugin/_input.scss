@@ -117,6 +117,7 @@
       background-color: transparent !important;
       border-color: transparent !important;
       display: inline-block;
+      pointer-events: none;
     }
 
     > i {
@@ -125,39 +126,40 @@
   }
 
   &.has-success {
-    > input,
-    > select {
-      background: $color-safe-l3;
-    }
-    > label,
-    > i {
-      color: $color-safe-l1;
-    }
+      color: $color-0;
   }
 
   &.has-error {
-    > input,
-    > select {
-      background: $color-danger-l3;
-    }
-    > label,
-    > i {
-      color: $color-danger-l1;
-    }
-    .input-info {
-      color: $color-danger-l1;
-    }
+      color: $color-danger;
   }
 
-  &.has-error,
-  &.has-info {
-    .input-info {
-      opacity: 1;
-    }
+  &.has-error, &.has-success {
+      .tip {
+          margin-top: 0;
+          left: 0 !important;
+          right: 0 !important;
+          max-width: initial !important;
+          transform: translateY(50%);
+          padding: 0;
+          .tip-inner {
+              border:none!important;
+              background: transparent!important;
+              border: none!important;
+              box-shadow: none!important;
+              text-align: right!important;
+              margin: 0 0.5rem!important;
+          }
+          .tip-arrow{
+            display: none!important;
+          }
+          &.in {
+              transform: translateY(0);
+          }
+      }
   }
-
-  .input-info {
-    opacity: 0;
-    transition: opacity 0.5s;
+  &.has-error{
+    .tip-inner{
+      color:$color-danger-l1;
+    }
   }
 }
