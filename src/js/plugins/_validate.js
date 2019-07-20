@@ -34,7 +34,7 @@ var _showValidate = function ($element, message) {
     $element.closest('.input').removeClass('has-success');
     $element.closest('.input').addClass('has-error');
     if (message) {
-        $element.tip({
+        $element.cui_tip({
             once: true,
             type: 'error',
             content: message,
@@ -135,12 +135,12 @@ export default {
     },
     initBefore: null,
     init: function ($this, opt, exportObj) {
-        opt.validate = opt.validate ? opt.validate.split(',') : [];
+        opt.type = opt.type ? opt.type.split(',') : [];
         $this.on('change.validate', function () {
-            _validate($this, opt.validate, opt.errortext, opt.addition);
+            _validate($this, opt.type, opt.errortext, opt.addition);
         });
         exportObj.isValid = function () {
-            return _validate($this, opt.validate, opt.errortext, opt.addition);
+            return _validate($this, opt.type, opt.errortext, opt.addition);
         }
     },
     setOptionsBefore: function (e, context, options) {
@@ -148,7 +148,7 @@ export default {
     },
     setOptionsAfter: function ($this, opt, exportObj) {
         $this.off('change.validate').on('change.validate', function () {
-            _validate($this, opt.validate, opt.errortext, opt.addition);
+            _validate($this, opt.type, opt.errortext, opt.addition);
         });
     },
     destroyBefore: function ($this, opt, exportObj) {

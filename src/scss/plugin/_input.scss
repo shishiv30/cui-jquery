@@ -127,7 +127,7 @@
   &.has-success {
     > input,
     > select {
-      border-color: $color-safe-l1;
+      background: $color-safe-l3;
     }
     > label,
     > i {
@@ -138,7 +138,7 @@
   &.has-error {
     > input,
     > select {
-      border-color: $color-danger-l1;
+      background: $color-danger-l3;
     }
     > label,
     > i {

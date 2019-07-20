@@ -9,7 +9,7 @@ export default {
         exportObj.isValid = function () {
             var foucsElement = null;
             var isPassed = true;
-            $this.find('[data-validate-load]').each(function (index, item) {
+            $this.find('[data-cui-load="validate"]').each(function (index, item) {
                 var isValide = $(item).data('validate').isValid();
                 if (!isValide) {
                     isPassed = false;
@@ -26,7 +26,25 @@ export default {
         };
         exportObj.getValue = function () {
             var obj = {};
-            $this.find(':text').each(function (index, item) {
+            $this.find(':input[type="tel"]').each(function (index, item) {
+                var name = $(item).attr('name');
+                if (name) {
+                    obj[name] = $(item).val();
+                }
+            });
+            $this.find(':input[type="email"]').each(function (index, item) {
+                var name = $(item).attr('name');
+                if (name) {
+                    obj[name] = $(item).val();
+                }
+            });
+            $this.find(':input[type="text"]').each(function (index, item) {
+                var name = $(item).attr('name');
+                if (name) {
+                    obj[name] = $(item).val();
+                }
+            });
+            $this.find(':input[type="number"]').each(function (index, item) {
                 var name = $(item).attr('name');
                 if (name) {
                     obj[name] = $(item).val();

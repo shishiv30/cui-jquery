@@ -7,7 +7,7 @@ $screen-xs: 320px;
 $screen-xs-min: 320px;
 $screen-phone: $screen-xs-min;
 // Small screen / tablet
-$screen-sm: 460px;
+$screen-sm: 640px;
 $screen-sm-min: $screen-sm;
 $screen-tablet: $screen-sm-min;
 // Medium screen / desktop
@@ -15,7 +15,7 @@ $screen-md: 992px;
 $screen-md-min: $screen-md;
 $screen-desktop: $screen-md-min;
 // Large screen / wide desktop
-$screen-lg: 1400px;
+$screen-lg: 1200px;
 $screen-lg-min: $screen-lg;
 $screen-lg-desktop: $screen-lg-min;
 $screen-xs-max: $screen-sm-min - 1;
@@ -30,29 +30,29 @@ $font-weight-normal: 300;
 $font-weight-bold: 500;
 //legacy main
 $color-main: #06799f;
-$color-main-l1: lighten($color-main, 10%);
-$color-main-l2: lighten($color-main-l1, 10%);
-$color-main-l3: lighten($color-main-l2, 10%);
+$color-main-l1: lighten($color-main, 13%);
+$color-main-l2: lighten($color-main-l1, 13%);
+$color-main-l3: lighten($color-main-l2, 13%);
 //orange
 $color-warning: #f26122;
-$color-warning-l1: lighten($color-warning, 10%);
-$color-warning-l2: lighten($color-warning-l1, 10%);
-$color-warning-l3: lighten($color-warning-l2, 10%);
+$color-warning-l1: lighten($color-warning, 13%);
+$color-warning-l2: lighten($color-warning-l1, 13%);
+$color-warning-l3: lighten($color-warning-l2, 13%);
 // yellow
 $color-tip: #fac100;
-$color-tip-l1: lighten($color-tip, 10%);
-$color-tip-l2: lighten($color-tip-l1, 10%);
-$color-tip-l3: lighten($color-tip-l2, 10%);
+$color-tip-l1: lighten($color-tip, 13%);
+$color-tip-l2: lighten($color-tip-l1, 13%);
+$color-tip-l3: lighten($color-tip-l2, 13%);
 //green
 $color-safe: #1fcc9d;
-$color-safe-l1: lighten($color-safe, 10%);
-$color-safe-l2: lighten($color-safe-l1, 10%);
-$color-safe-l3: lighten($color-safe-l2, 10%);
+$color-safe-l1: lighten($color-safe, 13%);
+$color-safe-l2: lighten($color-safe-l1, 13%);
+$color-safe-l3: lighten($color-safe-l2, 13%);
 //color for error
 $color-danger: #f03855;
-$color-danger-l1: lighten($color-danger, 10%);
-$color-danger-l2: lighten($color-danger-l1, 10%);
-$color-danger-l3: lighten($color-danger-l2, 10%);
+$color-danger-l1: lighten($color-danger, 13%);
+$color-danger-l2: lighten($color-danger-l1, 13%);
+$color-danger-l3: lighten($color-danger-l2, 13%);
 //gray level
 $color-0: #000000;
 $color-1: #111111;
