@@ -19,6 +19,7 @@ export default {
         snapable: true,
         jumpback: true,
         vitualized: false,
+        index: 0,
     },
     init: function ($this, opt, exportObj) {
         var $wrapper = $this.children('ul');
@@ -28,6 +29,7 @@ export default {
         var info = null;
         var isAnimating = false;
         var animateTime = 0.2;
+        var slidesInfo = [];
         var _updateInfo = exportObj.updateInfo = function () {
             var outerHeight = $this.outerHeight();
             var outerWidth = $this.outerWidth();
@@ -50,6 +52,17 @@ export default {
                 info.index = Math.round(prePos * -1 / info.sheight);
             }
         };
+        //todo here
+        var _updateIndex = exportObj.updateIndex = function(){
+            slidesInfo = $slides.map(function(index,item){
+                return {
+                    index:index,
+                    item:{
+                        
+                    }
+                }
+            });
+        }
         var dfd;
         var _scroll = exportObj.scroll = function (distance, animation) {
             dfd = $.Deferred();
@@ -62,7 +75,6 @@ export default {
             } : {
                 transform: 'translateY(' + distance + 'px)'
             };
-            $wrapper.css(animateFrame);
             if (animation) {
                 isAnimating = true;
                 $wrapper.addClass('animating');
@@ -81,6 +93,19 @@ export default {
         exportObj.geInfo = function () {
             return info;
         };
+        var _go = function(index){
+            opt
+        }
+        var _next = function() {
+            if(opt.index < (opt.length-1){
+                _go(opt.index+1);
+            }
+        }
+        var _prev = function() {
+            if(opt.index > 0){
+                _go(opt.index-1);
+            }
+        }
         var _onMoving = function (moved) {
             var eventName = '';
             if (currPos > 0) {
@@ -138,7 +163,6 @@ export default {
         var _moved = function (direction, distance, time) {
             $wrapper.removeClass('dragging');
             var origin = currPos;
-            var isOutRange = _onMoving(true);
             var width = info.swidth;
             var height = info.sheight;
             if (opt.snapable) {
@@ -175,7 +199,7 @@ export default {
             }
 
             _limitation(direction);
-            if (isOutRange) {
+            if (_onMoving(true)) {
                 if (opt.jumpback) {
                     if (currPos >= 0 || info.max <= 0) {
                         currPos = 0;

@@ -1,6 +1,7 @@
 //draggable
 export default function ($) {
     var hasTouch = 'ontouchstart' in this,
+        isPressing = false,
         startEvent = hasTouch ? 'touchstart' : 'mousedown',
         moveEvent = hasTouch ? 'touchmove' : 'mousemove',
         endEvent = hasTouch ? 'touchend' : 'mouseup';
@@ -56,7 +57,6 @@ export default function ($) {
                 if (_config.start && _config.currPos) {
                     _config.direction = _getDir(_config.start, _config.currPos);
                     _config.trackDistance = _getDist(_config.start, _config.currPos);
-
                     // Run the tracking callback.
                     $this.trigger('dragging', [
                         _config.direction,
@@ -84,6 +84,7 @@ export default function ($) {
             $this.on(startEvent + '.cui.draggable', function (t) {
                 var e = t.originalEvent;
                 if ((e.targetTouches && 1 === e.targetTouches.length) || !hasTouch) {
+                    isPressing= true;
                     var eventObj = hasTouch ? e.targetTouches[0] : e;
                     _config.startTime = Date.now();
                     _config.start = _getPoint(eventObj);
@@ -92,7 +93,7 @@ export default function ($) {
             });
             $this.on(moveEvent + '.cui.draggable', function (t) {
                 var e = t.originalEvent;
-                if (_config.start && ((e.targetTouches && 1 === e.targetTouches.length) || !hasTouch)) {
+                if (isPressing && _config.start && ((e.targetTouches && 1 === e.targetTouches.length) || !hasTouch)) {
                     var eventObj = hasTouch ? e.targetTouches[0] : e;
                     _config.currTime = Date.now();
                     _config.currPos = _getPoint(eventObj);
@@ -102,6 +103,7 @@ export default function ($) {
             });
             $this.on(endEvent + '.cui.draggable mouseleave.cui.draggable', function (t) {
                 var e = t.originalEvent;
+                isPressing = false;
                 var eventObj = hasTouch ? e.changedTouches[0] : e;
                 // Set the end event related properties.
                 _config.endTime = Date.now();
