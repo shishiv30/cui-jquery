@@ -51,17 +51,35 @@ export default {
             } else {
                 info.index = Math.round(prePos * -1 / info.sheight);
             }
+            _updateIndex();
         };
         //todo here
         var _updateIndex = exportObj.updateIndex = function(){
+            var newIndex = null;
+            var position =null;
+            if( opt.direction === 'x'){
+                position = $wrapper.position().left;
+            }else{
+                position = $wrapper.position().top;
+            }
+            var offset=0;
             slidesInfo = $slides.map(function(index,item){
-                return {
-                    index:index,
-                    item:{
-                        
-                    }
+                if( opt.direction === 'x'){
+                    offset +=$(item).outerWidth();
+                }else{
+                    offset += $(item).outerHeight();
                 }
+
+                if(newIndex === null && (offset + position)>0) {
+                    newIndex = index;
+                }
+               return {
+                    index: index,
+                    offset: offset
+                };
             });
+            opt.index = newIndex;
+            console.log(opt.index);
         }
         var dfd;
         var _scroll = exportObj.scroll = function (distance, animation) {
@@ -93,15 +111,20 @@ export default {
         exportObj.geInfo = function () {
             return info;
         };
-        var _go = function(index){
-            opt
+        var _go = exportObj.go = function(index){
+            var item = slidesInfo.find(function(e){
+                return e.index === index;
+            });
+            if(item){
+                _scroll(item.offset, true);
+            }
         }
-        var _next = function() {
-            if(opt.index < (opt.length-1){
+        var _next = exportObj.next = function() {
+            if(opt.index < (opt.length-1)){
                 _go(opt.index+1);
             }
         }
-        var _prev = function() {
+        var _prev = exportObj.prev = function() {
             if(opt.index > 0){
                 _go(opt.index-1);
             }
@@ -233,23 +256,14 @@ export default {
                 return;
             }
 
-            var distance = null;
-            var direction = null;
-            // Webkit
-            if (opt.direction === 'x') {
-                distance = info.swidth * event.deltaX / 120;
-                direction = distance < 0 ? 'left' : 'right';
-            } else {
-                distance = info.sheight * event.deltaY / 120 * -1;
-                direction = distance < 0 ? 'up' : 'down';
-            }
-            _moving(direction, distance, true);
-            if (currPos > info.minLimit && currPos < info.maxLimit) {
-                wheeling && clearTimeout(wheeling);
-                wheeling = setTimeout(function () {
-                    _moved(direction, distance, null);
-                }, 1000);
-            }
+            wheeling && clearTimeout(wheeling);
+            wheeling = setTimeout(function () {
+                if(delta>0){
+                    _next();
+                }else{
+                    _prev();
+                }
+            }, 1000);
             return false;
         });
         $this.on('dragging', function (e, dir, dist) {
