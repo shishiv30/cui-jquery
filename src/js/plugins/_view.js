@@ -23,7 +23,6 @@ export default {
     },
     init: function ($this, opt, exportObj) {
         var $wrapper = $this.children('ul');
-        var $slides = $wrapper.children('li');
         var prePos = 0;
         var currPos = 0;
         var info = null;
@@ -31,40 +30,20 @@ export default {
         var animateTime = 0.2;
         var sliderRange = [];
         var _updateInfo = exportObj.updateInfo = function () {
+            var $slides = $wrapper.children('li');
             var outerHeight = $this.outerHeight();
             var outerWidth = $this.outerWidth();
             var max = opt.direction === 'x' ? $wrapper.outerWidth() - outerWidth : $wrapper.outerHeight() - outerHeight;
             var limitation = (opt.direction === 'x' ? outerWidth : outerHeight) * opt.limitation;
-            info = {
-                max: max,
-                swidth: $slides.outerWidth(),
-                sheight: $slides.outerHeight(),
-                cWidth: outerWidth,
-                cHeight: outerHeight,
-                maxLimit: limitation,
-                minLimit: (limitation * -1) - max,
-                scroll: [0, 0],
-            };
-            if (opt.direction === 'x') {
-                info.scroll = [prePos * -1, 0];
-                info.index = Math.round(prePos * -1 / info.swidth);
-            } else {
-                info.index = Math.round(prePos * -1 / info.sheight);
-            }
-            _updateIndex();
-        };
-        //todo here
-        var _updateIndex = exportObj.updateIndex = function(){
             var newIndex = null;
             var position =null;
+            var offset=0;
             if( opt.direction === 'x'){
                 position = $wrapper.position().left;
             }else{
                 position = $wrapper.position().top;
             }
-            var offset=0;
-            opt.length = $slides.length;
-            sliderRange = $slides.map(function(index,item){
+            var sliderRange = $slides.map(function(index,item){
                 if( opt.direction === 'x'){
                     offset +=$(item).outerWidth();
                 }else{
@@ -76,9 +55,20 @@ export default {
                 }
                 return offset;
             });
-            opt.index = newIndex;
-            console.log(opt.index);
-        }
+            info = {
+                max: max,
+                sliderRange: sliderRange,
+                swidth: $slides.outerWidth(),
+                sheight: $slides.outerHeight(),
+                cWidth: outerWidth,
+                cHeight: outerHeight,
+                maxLimit: limitation,
+                minLimit: (limitation * -1) - max,
+                scroll: opt.direction === 'x' ? [prePos * -1, 0] : [0, prePos * -1],
+                index: newIndex,
+                length: $slides.length
+            };
+        };
         var dfd;
         var _scroll = exportObj.scroll = function (distance, animation) {
             dfd = $.Deferred();
@@ -121,13 +111,13 @@ export default {
             _moved(direction, newPos * -1, 0);
         }
         var _next = exportObj.next = function() {
-            if(opt.index < (opt.length-1)){
-                _go(opt.index+1);
+            if(info.index < (info.length-1)){
+                _go(info.index+1);
             }
         }
         var _prev = exportObj.prev = function() {
-            if(opt.index > 0){
-                _go(opt.index-1);
+            if(info.index > 0){
+                _go(info.index-1);
             }
         }
         var _onMoving = function (moved) {

@@ -116,9 +116,7 @@
     }
 
     [data-direction="x"] li {
-        width: 100px;
-        line-height: 100px;
-        height: 100px;
+        min-width: 300px;
         border-left: 1px solid #eeeeee;
     }
 
@@ -128,7 +126,7 @@
 
     [data-direction="y"] li {
         width: 100%;
-        line-height: 100px;
+       
         height: 100px;
         border-top: 1px solid #eeeeee;
     }
@@ -155,14 +153,95 @@
                         <div id="viewPanel">
                             <div class="view-panel" data-cui="view" data-direction='x'>
                                 <ul>
-                                    <li>1</li>
-                                    <li>2</li>
-                                    <li>3</li>
-                                    <li>4</li>
-                                    <li>5</li>
-                                    <li>6</li>
-                                    <li>7</li>
-                                    <li>8</li>
+                                    <li> 
+                                        <div data-cui="textbox">
+                                            <div class="input right">
+                                                <span>name</span>
+                                                <input type="email" id="txtReq2" name='name' value="" data-validate='required'>
+                                                <a href="javascript:;" class="icon-user btn black"></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div data-cui="textbox">
+                                            <div class="input right">
+                                                <span>password</span>
+                                                <input type="email" id="txtReq2" name='name' value="" data-validate='required'>
+                                                <a href="javascript:;" class="icon-eye btn black"></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="input left right">
+                                            <i class="icon-phone"></i>
+                                            <select id="ddlFequence" name="fequence" data-cui="validate" data-type="required">
+                                                <option value="" selected disabled>select a fequence</option>
+                                                <option value="Weekly">Weekly</option>
+                                                <option value="Daily">Daily</option>
+                                                <option value="Monthly">Monthly</option>
+                                            </select>
+                                            <a class="btn black active icon-check"></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio">
+                                            <label for="chMale">
+                                                <input id="chMale" name="gender" type="radio" checked value="Male">
+                                                <i></i>
+                                                <span>Male</span>
+                                            </label>
+                                            <label for="chkFemal">
+                                                <input id="chkFemal" name="gender" type="radio" value="Female">
+                                                <i></i>
+                                                <span>Female</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="checkbox">
+                                            <label for="rbtnFavor1">
+                                                <input id="rbtnFavor1" name="favor" checked type="checkbox" value="Dance">
+                                                <i></i>
+                                                <span>Dance</span>
+                                            </label>
+                
+                                            <label for="rbtnFavor2">
+                                                <input id="rbtnFavor2" name="favor" type="checkbox" value="Sing">
+                                                <i></i>
+                                                <span>Sing</span>
+                                            </label>
+                
+                                            <label for="rbtnFavor3">
+                                                <input id="rbtnFavor3" name="favor" type="checkbox" value="Paint">
+                                                <i></i>
+                                                <span>Paint</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="btn black" href="javascript:;" onclick="submit()">Submit</a>
+                                    </li>
+                                    <li>
+                                        <div class="select-textbox">
+                                            <span>textbox select</span>
+                                            <select id="selectS" name="fequence" data-validate="required">
+                                                <option value="" selected disabled>select a Option</option>
+                                                <option value="Weekly">Option 1</option>
+                                                <option value="Daily">Option 1</option>
+                                                <option value="Monthly">Option 1</option>
+                                            </select>
+                                            <i class="icon-caret-down"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div data-cui="textbox">
+                                            <div class="input right">
+                                                <span>textbox iput</span>
+                                                <input type="email" id="txtReq2" name='name' value="" data-validate='required,email'>
+                                                <a href="javascript:;" class="icon-envelope btn black"></a>
+                                            </div>
+                                        </div>
+                                    </li>
                                     <li>9</li>
                                     <li>10</li>
                                     <li>11</li>
