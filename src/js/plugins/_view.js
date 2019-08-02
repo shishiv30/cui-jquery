@@ -29,7 +29,7 @@ export default {
         var info = null;
         var isAnimating = false;
         var animateTime = 0.2;
-        var slidesInfo = [];
+        var sliderRange = [];
         var _updateInfo = exportObj.updateInfo = function () {
             var outerHeight = $this.outerHeight();
             var outerWidth = $this.outerWidth();
@@ -63,7 +63,8 @@ export default {
                 position = $wrapper.position().top;
             }
             var offset=0;
-            slidesInfo = $slides.map(function(index,item){
+            opt.length = $slides.length;
+            sliderRange = $slides.map(function(index,item){
                 if( opt.direction === 'x'){
                     offset +=$(item).outerWidth();
                 }else{
@@ -73,10 +74,7 @@ export default {
                 if(newIndex === null && (offset + position)>0) {
                     newIndex = index;
                 }
-               return {
-                    index: index,
-                    offset: offset
-                };
+                return offset;
             });
             opt.index = newIndex;
             console.log(opt.index);
@@ -112,12 +110,15 @@ export default {
             return info;
         };
         var _go = exportObj.go = function(index){
-            var item = slidesInfo.find(function(e){
-                return e.index === index;
-            });
-            if(item){
-                _scroll(item.offset, true);
+            var newPos = index ===0 ? 0 : sliderRange[index - 1];
+            var direction;
+            var distance = currPos + newPos;
+            if(opt.direction === 'x'){
+                direction = distance > 0 ? 'left' : 'right';
+            }else{
+                direction = distance < 0 ?  'up' : 'down';
             }
+            _moved(direction, newPos * -1, 0);
         }
         var _next = exportObj.next = function() {
             if(opt.index < (opt.length-1)){
@@ -188,10 +189,9 @@ export default {
             var origin = currPos;
             var width = info.swidth;
             var height = info.sheight;
-            if (opt.snapable) {
-                if (time) {
+            if (time) {
+                if(opt.snapable){
                     _scrollWithInertia(distance, time);
-
                     if (Math.abs(distance) / time > 0.1) {
                         if (opt.direction === 'x') {
                             offset = currPos % width;
@@ -210,15 +210,9 @@ export default {
                             currPos = Math.abs(offset) > height / 2 ? currPos - (height + offset) : currPos - offset;
                         }
                     }
-                } else {
-                    if (opt.direction === 'x') {
-                        offset = currPos % width;
-                        currPos = direction === 'left' ? currPos - (width + offset) : currPos - offset;
-                    } else {
-                        offset = currPos % height;
-                        currPos = direction === 'up' ? currPos - offset : currPos - (height + offset);
-                    }
-                }
+                } 
+            }else{
+                currPos = distance;
             }
 
             _limitation(direction);
@@ -250,7 +244,7 @@ export default {
         $this.on('mousewheel', function (event) {
             //donot support
             event.preventDefault();
-            var delta = opt.direction === 'x' ? event.deltaX : event.deltaY;
+            var delta = opt.direction === 'x' ? (event.deltaX || event.deltaY) : event.deltaY;
             if (delta === undefined) {
                 $this.off('mousewheel');
                 return;
@@ -258,16 +252,17 @@ export default {
 
             wheeling && clearTimeout(wheeling);
             wheeling = setTimeout(function () {
-                if(delta>0){
-                    _next();
-                }else{
-                    _prev();
+                if(!isAnimating){
+                    if(delta<0){
+                        _next();
+                    }else{
+                        _prev();
+                    }
                 }
-            }, 1000);
+            }, 50);
             return false;
         });
         $this.on('dragging', function (e, dir, dist) {
-
             var distance = opt.direction === 'x' ? dist[0] : dist[1];
             var direction = opt.direction === 'x' ? dir[0] : dir[1];
             _moving(direction, distance, false);
