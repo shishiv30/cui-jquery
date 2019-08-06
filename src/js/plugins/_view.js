@@ -3,7 +3,7 @@ import _trigger from '../core/_trigger';
 export default {
     name: 'view',
     defaultOpt: {
-        direction: 'x',
+        horizontal: true,
         limitation: 0.5,
         onovertop: 'onovertop',
         onoverbottom: 'onoverbottom',
@@ -19,8 +19,7 @@ export default {
         snapable: true,
         jumpback: true,
         vitualized: false,
-        sensitive: 0.1,
-        index: 0,
+        sensitive: 0.1
     },
     init: function ($this, opt, exportObj) {
         var $wrapper = $this.children('div');
@@ -33,20 +32,20 @@ export default {
             var $slides = $wrapper.children();
             var outerHeight = $this.outerHeight();
             var outerWidth = $this.outerWidth();
-            var max = opt.direction === 'x' ? $wrapper.outerWidth() - outerWidth : $wrapper.outerHeight() - outerHeight;
-            var limitation = (opt.direction === 'x' ? outerWidth : outerHeight) * opt.limitation;
+            var max = opt.horizontal ? $wrapper.outerWidth() - outerWidth : $wrapper.outerHeight() - outerHeight;
+            var limitation = (opt.horizontal ? outerWidth : outerHeight) * opt.limitation;
             var newIndex = null;
             var position =null;
             var offset=0;
-            if( opt.direction === 'x'){
+            if( opt.horizontal){
                 position = $wrapper.position().left;
             }else{
                 position = $wrapper.position().top;
             }
             var sliderRange=[];
             $slides.each(function(index,item){
-                if( opt.direction === 'x'){
-                    offset +=$(item).outerWidth();
+                if( opt.horizontal){
+                    offset += $(item).outerWidth();
                 }else{
                     offset += $(item).outerHeight();
                 }
@@ -59,13 +58,11 @@ export default {
             info = {
                 max: max,
                 sliderRange: sliderRange,
-                swidth: $slides.outerWidth(),
-                sheight: $slides.outerHeight(),
                 cWidth: outerWidth,
                 cHeight: outerHeight,
                 maxLimit: limitation,
                 minLimit: (limitation * -1) - max,
-                scroll: opt.direction === 'x' ? [prePos * -1, 0] : [0, prePos * -1],
+                scroll: opt.horizontal ? [prePos * -1, 0] : [0, prePos * -1],
                 index: newIndex,
                 length: $slides.length
             };
@@ -77,11 +74,11 @@ export default {
                 dfd.reject();
                 return dfd;
             }
-            distance = Math.round(distance);
-            var animateFrame = opt.direction === 'x' ? {
-                transform: 'translateX(' + distance + 'px)'
+            var offset = Math.round(distance);
+            var animateFrame = opt.horizontal ? {
+                transform: 'translateX(' + offset + 'px)'
             } : {
-                transform: 'translateY(' + distance + 'px)'
+                transform: 'translateY(' + offset + 'px)'
             };
             if (animation) {
                 isAnimating = true;
@@ -98,14 +95,11 @@ export default {
             }
             return dfd;
         };
-        exportObj.geInfo = function () {
-            return info;
-        };
         var _go = exportObj.go = function(index){
             var newPos = index ===0 ? 0 : info.sliderRange[index - 1];
             var direction;
             var distance = currPos + newPos;
-            if(opt.direction === 'x'){
+            if(opt.horizontal){
                 direction = distance > 0 ? 'left' : 'right';
             }else{
                 direction = distance < 0 ?  'up' : 'down';
@@ -126,27 +120,19 @@ export default {
             var eventName = '';
             if (currPos > 0) {
                 if (moved) {
-                    eventName = opt.direction === 'x' ? opt.onpushleft : opt.onpushtop;
+                    eventName = opt.horizontal ? opt.onpushleft : opt.onpushtop;
                 } else {
-                    eventName = opt.direction === 'x' ? opt.onoverleft : opt.onovertop;
+                    eventName = opt.horizontal ? opt.onoverleft : opt.onovertop;
                 }
-                if (_.isFunction(eventName)) {
-                    eventName(currPos, prePos, info);
-                } else if (eventName) {
-                    $(document).trigger(eventName, [currPos, prePos, info]);
-                }
+                eventName && _trigger(eventName, $this, opt, exportObj, currPos, prePos, info);
                 return true;
             } else if (Math.abs(currPos) > info.max) {
                 if (moved) {
-                    eventName = opt.direction === 'x' ? opt.onpushright : opt.onpushbottom;
+                    eventName = opt.horizontal ? opt.onpushright : opt.onpushbottom;
                 } else {
-                    eventName = opt.direction === 'x' ? opt.onoverright : opt.onoverbottom;
+                    eventName = opt.horizontal ? opt.onoverright : opt.onoverbottom;
                 }
-                if (_.isFunction(eventName)) {
-                    eventName(currPos, prePos, info);
-                } else if (eventName) {
-                    $(document).trigger(eventName, [currPos, prePos, info]);
-                }
+                eventName && _trigger(eventName, $this, opt, exportObj, currPos, prePos, info);
                 return true;
             }
             return false;
@@ -184,7 +170,7 @@ export default {
             var start;
             var isNext;
 
-            if (opt.direction === 'x') {
+            if (opt.horizontal) {
                 isNext = direction !== 'left';
             } else {
                 isNext = direction !== 'up';
@@ -233,14 +219,11 @@ export default {
                 $(document).trigger('dom.scroll');
             });
         };
-        $this.on('drag', function () {
-            info || _updateInfo();
-        });
         var wheeling = null;
         $this.on('mousewheel', function (event) {
             //donot support
             event.preventDefault();
-            var delta = opt.direction === 'x' ? (event.deltaX || event.deltaY) : event.deltaY;
+            var delta = opt.horizontal ? (event.deltaX || event.deltaY) : event.deltaY;
             if (delta === undefined) {
                 $this.off('mousewheel');
                 return;
@@ -259,13 +242,13 @@ export default {
             return false;
         });
         $this.on('dragging', function (e, dir, dist) {
-            var distance = opt.direction === 'x' ? dist[0] : dist[1];
-            var direction = opt.direction === 'x' ? dir[0] : dir[1];
+            var distance = opt.horizontal ? dist[0] : dist[1];
+            var direction = opt.horizontal ? dir[0] : dir[1];
             _moving(direction, distance , false);
         });
         $this.on('dragged', function (e, dir, dist, time) {
-            var distance = opt.direction === 'x' ? dist[0] : dist[1];
-            var direction = opt.direction === 'x' ? dir[0] : dir[1];
+            var distance = opt.horizontal ? dist[0] : dist[1];
+            var direction = opt.horizontal ? dir[0] : dir[1];
             _moved(direction, distance, time);
         });
         $(document).on('dom.resize', _updateInfo);
