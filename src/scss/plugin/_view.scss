@@ -23,6 +23,7 @@
         cursor: ew-resize;
         > ul {
             grid-auto-flow: column;
+            width:fit-content;
         }
     }
     &[data-direction="y"] {
@@ -30,6 +31,7 @@
         cursor: ns-resize;
         > ul {
             grid-auto-flow: row;
+            height:fit-content;
             >li{
                 width:100%;
             }

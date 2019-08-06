@@ -102,22 +102,20 @@
     }
 
     .view-panel {
-        background: #333333;
         margin-bottom: 30px;
         position: relative;
     }
 
     .view-panel ul {
-        background: #cccccc;
     }
 
     .view-panel li {
         text-align: center;
+        padding: 0 5px;
     }
 
     [data-direction="x"] li {
-        min-width: 300px;
-        border-left: 1px solid #eeeeee;
+        min-width: 200px;
     }
 
     [data-direction="x"] li:first-of-type {
@@ -126,9 +124,7 @@
 
     [data-direction="y"] li {
         width: 100%;
-       
         height: 100px;
-        border-top: 1px solid #eeeeee;
     }
 
     [data-direction="y"] li:first-of-type {
@@ -155,126 +151,96 @@
                                 <ul>
                                     <li> 
                                         <div data-cui="textbox">
-                                            <div class="input right">
-                                                <span>name</span>
-                                                <input type="email" id="txtReq2" name='name' value="" data-validate='required'>
-                                                <a href="javascript:;" class="icon-user btn black"></a>
+                                            <div class="input small">
+                                                <span>Filter 1</span>
+                                                <input type="text" id="txtReq2" name='filter1' value="" data-validate='required'>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div data-cui="textbox">
-                                            <div class="input right">
-                                                <span>password</span>
-                                                <input type="email" id="txtReq2" name='name' value="" data-validate='required'>
-                                                <a href="javascript:;" class="icon-eye btn black"></a>
+                                            <div class="input small">
+                                                <span>Filter 2</span>
+                                                <input type="text" id="txtReq2" name='filter2' value="" data-validate='required'>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="input left right">
-                                            <i class="icon-phone"></i>
-                                            <select id="ddlFequence" name="fequence" data-cui="validate" data-type="required">
-                                                <option value="" selected disabled>select a fequence</option>
-                                                <option value="Weekly">Weekly</option>
-                                                <option value="Daily">Daily</option>
-                                                <option value="Monthly">Monthly</option>
-                                            </select>
-                                            <a class="btn black active icon-check"></a>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio">
                                             <label for="chMale">
-                                                <input id="chMale" name="gender" type="radio" checked value="Male">
+                                                <input id="chMale" name="filter3" type="radio" checked value="Male">
                                                 <i></i>
-                                                <span>Male</span>
+                                                <span>Filter 3-a</span>
                                             </label>
                                             <label for="chkFemal">
-                                                <input id="chkFemal" name="gender" type="radio" value="Female">
+                                                <input id="chkFemal" name="filter3" type="radio" value="Female">
                                                 <i></i>
-                                                <span>Female</span>
+                                                <span>Filter 3-b</span>
                                             </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="checkbox">
                                             <label for="rbtnFavor1">
-                                                <input id="rbtnFavor1" name="favor" checked type="checkbox" value="Dance">
+                                                <input id="rbtnFavor1" name="filter4" checked type="checkbox" value="Dance">
                                                 <i></i>
                                                 <span>Dance</span>
                                             </label>
                 
                                             <label for="rbtnFavor2">
-                                                <input id="rbtnFavor2" name="favor" type="checkbox" value="Sing">
+                                                <input id="rbtnFavor2" name="filter4" type="checkbox" value="Sing">
                                                 <i></i>
                                                 <span>Sing</span>
                                             </label>
                 
                                             <label for="rbtnFavor3">
-                                                <input id="rbtnFavor3" name="favor" type="checkbox" value="Paint">
+                                                <input id="rbtnFavor3" name="filter4" type="checkbox" value="Paint">
                                                 <i></i>
                                                 <span>Paint</span>
                                             </label>
                                         </div>
                                     </li>
                                     <li>
-                                        <a class="btn black" href="javascript:;" onclick="submit()">Submit</a>
-                                    </li>
-                                    <li>
-                                        <div class="select-textbox">
-                                            <span>textbox select</span>
-                                            <select id="selectS" name="fequence" data-validate="required">
-                                                <option value="" selected disabled>select a Option</option>
-                                                <option value="Weekly">Option 1</option>
-                                                <option value="Daily">Option 1</option>
-                                                <option value="Monthly">Option 1</option>
-                                            </select>
-                                            <i class="icon-caret-down"></i>
-                                        </div>
-                                    </li>
-                                    <li>
                                         <div data-cui="textbox">
-                                            <div class="input right">
-                                                <span>textbox iput</span>
-                                                <input type="email" id="txtReq2" name='name' value="" data-validate='required,email'>
-                                                <a href="javascript:;" class="icon-envelope btn black"></a>
+                                            <div class="input small right">
+                                                <span>filter 5</span>
+                                                <input type="filter5" id="txtReq2" name='name' value="" data-validate='required'>
                                             </div>
                                         </div>
                                     </li>
-                                    <li>9</li>
-                                    <li>10</li>
-                                    <li>11</li>
-                                    <li>12</li>
-                                    <li>13</li>
-                                    <li>14</li>
-                                    <li>15</li>
-                                    <li>16</li>
-                                    <li>17</li>
-                                    <li>18</li>
-                                    <li>19</li>
-                                    <li>20</li>
+                                    <li>
+                                        <a class="btn default small" href="javascript:;">filter 6</a>
+                                    </li>
+                                    <li>
+                                        <a class="btn default small" href="javascript:;">filter 7</a>
+                                    </li>
+                                    <li>
+                                        <a class="btn default small" href="javascript:;">filter 8</a>
+                                    </li>
+                                    <li>
+                                        <a class="btn default small" href="javascript:;">filter 9</a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="view-panel" data-cui="view" data-direction='y' style="height:300px">
                                 <ul>
                                     <li>1</li>
-                                    <li>2</li>
+                                    <li style="min-height:180px">2</li>
                                     <li>3</li>
-                                    <li>4</li>
+                                    <li style="min-height:160px">4</li>
                                     <li>5</li>
                                     <li>6</li>
                                     <li>7</li>
-                                    <li>8</li>
+                                    <li style="min-height:110px">8</li>
                                     <li>9</li>
                                     <li>10</li>
                                     <li>11</li>
                                     <li>12</li>
-                                    <li>13</li>
+                                    <li style="min-height:140px">13</li>
                                     <li>14</li>
                                     <li>15</li>
                                     <li>16</li>
-                                    <li>17</li>
+                                    <li style="min-height:170px">17</li>
                                     <li>18</li>
                                     <li>19</li>
                                     <li>20</li>

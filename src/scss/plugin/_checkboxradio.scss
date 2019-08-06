@@ -1,5 +1,7 @@
 .checkbox, .radio {
     display: inline-block;
+    white-space: nowrap;
+    min-width: fit-content;
     label {
         display: inline-flex;
         align-items: center;

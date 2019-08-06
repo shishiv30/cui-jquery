@@ -1,11 +1,11 @@
 %btn-color {
   &.default {
-    background-color: $color-f;
-    color: $color-3;
+    background-color: $color-e;
+    color: $color-main;
     border-color: transparent;
 
     &.active {
-      background-color: $color-3;
+      background-color:  $color-main;
       color: $color-f;
     }
   }
