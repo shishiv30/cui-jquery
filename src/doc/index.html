@@ -104,6 +104,7 @@
     .view-panel {
         margin-bottom: 30px;
         position: relative;
+        background:#000;
     }
 
     .view-panel ul {
@@ -112,6 +113,9 @@
     .view-panel li {
         text-align: center;
         padding: 0 5px;
+        background:#333;
+        color:#fff;
+        border:1px solid #666;
     }
 
     [data-direction="x"] li {
@@ -140,115 +144,8 @@
     <div class="gs-fixed">
         <div class="row">
             <div class="col-xs-12">
-                <div class="section">
-                    <div class="panel">
-                        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#viewPanel">
-                            view
-                            <span class="sub"> new view style</span>
-                        </a>
-                        <div id="viewPanel">
-                            <div class="view-panel" data-cui="view" data-direction='x'>
-                                <ul>
-                                    <li> 
-                                        <div data-cui="textbox">
-                                            <div class="input small">
-                                                <span>Filter 1</span>
-                                                <input type="text" id="txtReq2" name='filter1' value="" data-validate='required'>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div data-cui="textbox">
-                                            <div class="input small">
-                                                <span>Filter 2</span>
-                                                <input type="text" id="txtReq2" name='filter2' value="" data-validate='required'>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="radio">
-                                            <label for="chMale">
-                                                <input id="chMale" name="filter3" type="radio" checked value="Male">
-                                                <i></i>
-                                                <span>Filter 3-a</span>
-                                            </label>
-                                            <label for="chkFemal">
-                                                <input id="chkFemal" name="filter3" type="radio" value="Female">
-                                                <i></i>
-                                                <span>Filter 3-b</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <label for="rbtnFavor1">
-                                                <input id="rbtnFavor1" name="filter4" checked type="checkbox" value="Dance">
-                                                <i></i>
-                                                <span>Dance</span>
-                                            </label>
-                
-                                            <label for="rbtnFavor2">
-                                                <input id="rbtnFavor2" name="filter4" type="checkbox" value="Sing">
-                                                <i></i>
-                                                <span>Sing</span>
-                                            </label>
-                
-                                            <label for="rbtnFavor3">
-                                                <input id="rbtnFavor3" name="filter4" type="checkbox" value="Paint">
-                                                <i></i>
-                                                <span>Paint</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div data-cui="textbox">
-                                            <div class="input small right">
-                                                <span>filter 5</span>
-                                                <input type="filter5" id="txtReq2" name='name' value="" data-validate='required'>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="btn default small" href="javascript:;">filter 6</a>
-                                    </li>
-                                    <li>
-                                        <a class="btn default small" href="javascript:;">filter 7</a>
-                                    </li>
-                                    <li>
-                                        <a class="btn default small" href="javascript:;">filter 8</a>
-                                    </li>
-                                    <li>
-                                        <a class="btn default small" href="javascript:;">filter 9</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="view-panel" data-cui="view" data-direction='y' style="height:300px">
-                                <ul>
-                                    <li>1</li>
-                                    <li style="min-height:180px">2</li>
-                                    <li>3</li>
-                                    <li style="min-height:160px">4</li>
-                                    <li>5</li>
-                                    <li>6</li>
-                                    <li>7</li>
-                                    <li style="min-height:110px">8</li>
-                                    <li>9</li>
-                                    <li>10</li>
-                                    <li>11</li>
-                                    <li>12</li>
-                                    <li style="min-height:140px">13</li>
-                                    <li>14</li>
-                                    <li>15</li>
-                                    <li>16</li>
-                                    <li style="min-height:170px">17</li>
-                                    <li>18</li>
-                                    <li>19</li>
-                                    <li>20</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                ${require('./views/tpl.html')}
+                ${require('./views/plugin.html')}
             </div>
         </div>
     </div>
