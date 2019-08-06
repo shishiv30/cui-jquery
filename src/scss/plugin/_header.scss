@@ -250,9 +250,7 @@ $highlight-link: $color-main;
       overflow-x: auto;
       -ms-overflow-style: none;
       overflow: -moz-scrollbars-none;
-      &::-webkit-scrollbar {
-        height: 0;
-      }
+      @include hidden-scrollbar();
       & > li {
         flex-shrink: 0;
         height: fit-content;

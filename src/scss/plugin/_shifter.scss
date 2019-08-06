@@ -7,7 +7,7 @@
     .wrap {
         overflow-x: scroll;
         overflow-y: hidden;
-        @include hidescrollbar();
+        @include hidden-scrollbar();
     }
     ul {
         overflow: hidden;

@@ -1,13 +1,3 @@
-@mixin hidescrollbar() {
-  scrollbar-face-color: rgba(255, 255, 255, 0);
-  scrollbar-shadow-color: rgba(255, 255, 255, 0);
-  scrollbar-highlight-color: rgba(255, 255, 255, 0);
-  scrollbar-3dlight-color: rgba(255, 255, 255, 0);
-  scrollbar-darkshadow-color: rgba(255, 255, 255, 0);
-  scrollbar-track-color: rgba(255, 255, 255, 0);
-  scrollbar-arrow-color: rgba(255, 255, 255, 0);
-}
-
 @mixin responsive-visibility($parent) {
   #{$parent} {
     display: block !important;
@@ -213,10 +203,18 @@
 }
 
 @mixin hidden-scrollbar {
+  scrollbar-face-color: transparent;
+  scrollbar-shadow-color: transparent;
+  scrollbar-highlight-color: transparent;
+  scrollbar-3dlight-color: transparent;
+  scrollbar-darkshadow-color: transparent;
+  scrollbar-track-color: transparent;
+  scrollbar-arrow-color: transparent;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
-
   &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
     display: none;
   }
 }
