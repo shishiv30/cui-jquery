@@ -84,15 +84,10 @@
     vertical-align: middle;
   }
 
-  > i {
-    font-size: $font-size-4;
-  }
-
   &.small {
     height: $form-size-small;
     min-width: $form-size-small;
     line-height: calc(#{$form-size-small} - 2px);
-    font-size: $font-size-5;
   }
 
   &[disabled] {

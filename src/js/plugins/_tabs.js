@@ -12,7 +12,7 @@ export default {
                 var $target = $($item.attr('data-target')).hide();
                 if ($item.hasClass('active')) {
                     $target.show();
-                    //todo $(document).trigger('dom.load');
+                    $(document).trigger('dom.load.tab');
                 } else {
                     $target.hide();
                 }
