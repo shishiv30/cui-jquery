@@ -23,14 +23,14 @@ export default {
         index: 0,
     },
     init: function ($this, opt, exportObj) {
-        var $wrapper = $this.children('ul');
+        var $wrapper = $this.children('div');
         var prePos = 0;
         var currPos = 0;
         var info = null;
         var isAnimating = false;
         var animateTime = 0.2;
         var _updateInfo = exportObj.updateInfo = function () {
-            var $slides = $wrapper.children('li');
+            var $slides = $wrapper.children();
             var outerHeight = $this.outerHeight();
             var outerWidth = $this.outerWidth();
             var max = opt.direction === 'x' ? $wrapper.outerWidth() - outerWidth : $wrapper.outerHeight() - outerHeight;
