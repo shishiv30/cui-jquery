@@ -12,12 +12,11 @@ ol, ul {
 }
 
 html {
-    line-height: 1em;
-    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1;
+    font-family: $font-family, "Helvetica Neue", Arial, sans-serif;
     font-weight: $font-weight-normal;
     font-style: normal;
-    font-size: 16px;
-    color:$color-5;
+    color: $color-text-default;
 }
 
 body, html {
@@ -39,9 +38,11 @@ label[for] {
 }
 
 input, select, textarea, button {
+    line-height: 1;
     outline: none;
     color: $color-text-default;
-    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-family: $font-family, "Helvetica Neue", Arial, sans-serif;
+    font-style: normal;
     font-size: $font-size-5;
     font-weight: $font-weight-normal;
 }
