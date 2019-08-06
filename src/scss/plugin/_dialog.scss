@@ -58,7 +58,7 @@
         .dialog-title {
             @extend %singleline;
             font-size: $font-size-3;
-            line-height: 1em;
+            line-height: 1;
             margin-bottom: 15px;
             position: relative;
             .dialog-title-close {
