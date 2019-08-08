@@ -2,6 +2,8 @@
 [data-cui-load^="view"], [data-cui-load*=" view"] {
     width: 100%;
     overflow: hidden;
+    //the padding must be 0
+    padding: 0!important;
     > div {
         display: grid;
         justify-items: start;

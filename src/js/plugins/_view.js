@@ -38,9 +38,9 @@ export default {
             var position =null;
             var offset=0;
             if( opt.horizontal){
-                position = $wrapper.position().left;
+                position = Math.round($wrapper.position().left);
             }else{
-                position = $wrapper.position().top;
+                position = Math.round($wrapper.position().top);
             }
             var sliderRange=[];
             $slides.each(function(index,item){
@@ -192,7 +192,7 @@ export default {
                     var isSlight = Math.abs(distance) < itemSize / 3;
                     var isRevert = isSlow && isSlight;
                     if (isRevert) {
-                        currPos = isNext ? start * -1 : end * -1;
+                        currPos = prePos;
                     } else {
                         currPos = isNext ?  end * -1 : start * -1;
                     }
@@ -220,10 +220,10 @@ export default {
             });
         };
         var wheeling = null;
-        $this.on('mousewheel', function (event) {
+        $this.on('mousewheel DOMMouseScroll', function (event) {
             //donot support
             event.preventDefault();
-            var delta = opt.horizontal ? (event.deltaX || event.deltaY) : event.deltaY;
+            var delta = event.originalEvent.wheelDelta;
             if (delta === undefined) {
                 $this.off('mousewheel');
                 return;
@@ -232,7 +232,16 @@ export default {
             wheeling && clearTimeout(wheeling);
             wheeling = setTimeout(function () {
                 if(!isAnimating){
-                    if(delta<0){
+                    if(!opt.snapable){
+                        var newPos = currPos + delta;
+                        var direction;
+                        if(opt.horizontal){
+                            direction = newPos > 0 ? 'left' : 'right';
+                        }else{
+                            direction = newPos < 0 ?  'up' : 'down';
+                        }
+                        _moved(direction, newPos, 0);
+                    }else if(delta<0){
                         _next();
                     }else{
                         _prev();
