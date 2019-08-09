@@ -4,7 +4,7 @@ export default {
     name: 'view',
     defaultOpt: {
         horizontal: true,
-        limitation: 0.5,
+        limitation: 0.1,
         onovertop: 'onovertop',
         onoverbottom: 'onoverbottom',
         onoverleft: 'onoverleft',
@@ -33,6 +33,7 @@ export default {
             var outerHeight = $this.outerHeight();
             var outerWidth = $this.outerWidth();
             var max = opt.horizontal ? $wrapper.outerWidth() - outerWidth : $wrapper.outerHeight() - outerHeight;
+            max = Math.max(0, max);
             var limitation = (opt.horizontal ? outerWidth : outerHeight) * opt.limitation;
             var newIndex = null;
             var position =null;
@@ -249,6 +250,9 @@ export default {
                 }
             }, 50);
             return false;
+        });
+        $this.on('drag',function(){
+            _updateInfo();
         });
         $this.on('dragging', function (e, dir, dist) {
             var distance = opt.horizontal ? dist[0] : dist[1];
