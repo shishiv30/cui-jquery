@@ -220,7 +220,6 @@ export default {
                 $(document).trigger('dom.scroll');
             });
         };
-        var wheeling = null;
         $this.on('mousewheel DOMMouseScroll', function (event) {
             //donot support
             event.preventDefault();
@@ -229,9 +228,7 @@ export default {
                 $this.off('mousewheel');
                 return;
             }
-
-            wheeling && clearTimeout(wheeling);
-            wheeling = setTimeout(function () {
+            requestAnimationFrame(function(){
                 if(!isAnimating){
                     if(!opt.snapable){
                         var newPos = currPos + delta;
@@ -248,7 +245,7 @@ export default {
                         _prev();
                     }
                 }
-            }, 50);
+            })
             return false;
         });
         $this.on('drag',function(){
