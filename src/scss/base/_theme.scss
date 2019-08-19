@@ -95,8 +95,8 @@ $g2: .809rem;
 $g3: 1.309rem;
 //grid
 $grid-columns: 12;
-$grid-gutter-width: $gxs;
-$flex-gutter-width: $gxs;
+$grid-gutter-width: 1rem;
+$flex-gutter-width: 1rem;
 //f1 = f3 / 0.618 = f3 + f3 * 0.618
 $font-size-1: 2.618rem;
 //f2 = (f1+f3) / 2
