@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const pathsToClean = ['dist'];
 const autoprefixer = require('autoprefixer');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = function (env, argv) {
     return {
@@ -83,6 +84,20 @@ module.exports = function (env, argv) {
                 template: './template.html',
                 favicon: 'src/assets/favicon.ico',
                 minify: true
+            }),
+            new WebpackPwaManifest({
+                name: 'jQuery CUI',
+                short_name: 'CUI',
+                description: 'UI solution base on jQuery and CUI.',
+                display: 'standalone',
+                theme_color: '#ffffff',
+                background_color: '#ffffff',
+                icons: [
+                    {
+                        src: path.resolve('src/assets/logo.png'),
+                        sizes: [48, 96, 192]
+                    }
+                ]
             }),
             new WorkboxPlugin.GenerateSW({
                 clientsClaim: true,
