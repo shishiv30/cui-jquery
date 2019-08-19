@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const pathsToClean = ['dist'];
 const autoprefixer = require('autoprefixer');
+const WorkboxPlugin = require('workbox-webpack-plugin');
+
 module.exports = function (env, argv) {
     return {
         entry: './index.js',
@@ -81,6 +83,10 @@ module.exports = function (env, argv) {
                 template: './template.html',
                 favicon: 'src/assets/favicon.ico',
                 minify: true
+            }),
+            new WorkboxPlugin.GenerateSW({
+                clientsClaim: true,
+                skipWaiting: true
             }),
             new MiniCssExtractPlugin({
                 filename: '[name].css',
