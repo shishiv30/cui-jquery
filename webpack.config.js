@@ -7,7 +7,6 @@ const pathsToClean = ['dist', 'public'];
 const autoprefixer = require('autoprefixer');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-
 module.exports = function (env, argv) {
     return {
         entry: './index.js',
@@ -96,6 +95,7 @@ module.exports = function (env, argv) {
                 display: 'standalone',
                 theme_color: '#ffffff',
                 background_color: '#ffffff',
+                'start_url': 'https://shishiv30.github.io/cui-jquery/',
                 icons: [
                     {
                         src: path.resolve('src/assets/logo.png'),
