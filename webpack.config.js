@@ -14,7 +14,7 @@ module.exports = function (env, argv) {
         devtool: argv.mode === 'production' ? 'none' : 'source-maps',
         resolve: {
             alias: {
-                '@': path.join(__dirname, 'src')
+                '@': path.resolve(__dirname, 'src/')
             },
             extensions: ['.scss', '.js', '.json']
         },
@@ -52,14 +52,7 @@ module.exports = function (env, argv) {
                             ]
                         }
                     },
-                    'resolve-url-loader',
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                            sourceMapContents: false
-                        }
-                    }
+                    'sass-loader'
                 ]
             }, {
                 test: /\.(html)$/,
