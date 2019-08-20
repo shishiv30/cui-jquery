@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import _trigger from '../core/_trigger';
 export default {
     name: 'header',
     defaultOpt: {
@@ -43,7 +41,7 @@ export default {
             }
         };
         //nav-list
-        $list.on('scroll', _.throttle(checkScrollLink, 100));
+        $list.on('scroll', $.throttle(checkScrollLink, 100));
         $(document).on('dom.resize', checkScrollable);
         checkScrollable();
         checkScrollLink();

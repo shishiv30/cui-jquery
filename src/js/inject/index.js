@@ -13,6 +13,8 @@ import _renderhtml from './_extend.renderhtml';
 import _scrollto from './_extend.scrollto';
 import _isMobile from './_extend.isMobile';
 import _localstorage from './_extend.localstorage';
+import _debounce from './_extend.debounce';
+import _throttle from './_extend.throttle';
 
 export default function($){
     var injects = [
@@ -30,7 +32,9 @@ export default function($){
         _renderhtml,
         _scrollto,
         _isMobile,
-        _localstorage
+        _localstorage,
+        _debounce,
+        _throttle
     ];
     injects.forEach(e => {
         e.call(window, $);

@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import _trigger from '../core/_trigger';
 export default {
     name: 'view',
@@ -160,7 +159,7 @@ export default {
                 currPos = prePos - distance;
             }
             _limitation(direction);
-            _scroll(currPos, false).then(_.throttle(function () {
+            _scroll(currPos, false).then($.throttle(function () {
                 _onMoving(false);
             }, 200));
         };

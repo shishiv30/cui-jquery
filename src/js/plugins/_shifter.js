@@ -176,7 +176,7 @@ export default {
             return _shift(index);
         };
         var _option = function (option) {
-            opt = _.assignIn(opt, option);
+            opt = $.extend(opt, option);
             return opt;
         };
         var _adjust = function () {
@@ -226,7 +226,7 @@ export default {
             _resize();
             _scroll();
         });
-        $wrap.on('scroll', _.throttle(_scroll, 100));
+        $wrap.on('scroll', $.throttle(_scroll, 100));
         if ($.isMobile()) {
             $wrap.on('touchstart', function () {
                 lastScrollLeft = $wrap.scrollLeft();

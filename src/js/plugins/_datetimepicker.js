@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import _trigger from '../core/_trigger';
 export default {
     name: 'picker',
     defaultOpt: {
@@ -15,7 +13,7 @@ export default {
         };
         switch ( opt.picktype) {
         case 'date':
-            _.assignIn(setting, {
+            $.extend(setting, {
                 format: 'yyyy-mm-dd',
                 startView: 2,
                 minView: 2,
@@ -23,7 +21,7 @@ export default {
             });
             break;
         case 'time':
-            _.assignIn(setting, {
+            $.extend(setting, {
                 showMeridian: true,
                 format: 'hh:ii',
                 startView: 1,
@@ -33,7 +31,7 @@ export default {
             });
             break;
         default:
-            _.assignIn(setting, {
+            $.extend(setting, {
                 format: 'yyyy-mm-dd hh:ii',
             });
             break;

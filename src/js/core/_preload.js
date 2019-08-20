@@ -43,14 +43,12 @@ var _loadResource = function (url, filetype, callback) {
     var loader = resource[type];
     if (loader && loader.cache) {
         if (loader.cache[url]) {
-            console.log('cache');
             return true;
         } else {
             loader.cache[url] = true;
             return loader.load(url, callback);
         }
     } else {
-        console.log('do not support load' + type);
         return false;
     }
 };
@@ -58,7 +56,7 @@ export default function (options) {
     var defaultOpt = {
         files: []
     };
-    var opt = _.assignIn(defaultOpt, options);
+    var opt = $.extend(defaultOpt, options);
     var resources = [];
     if (opt.files && opt.files.length) {
         opt.files.forEach(function (item) {

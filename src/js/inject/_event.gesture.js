@@ -36,7 +36,7 @@ export default function ($) {
                 $ele.data('_touchEnd', null);
                 return true;
             });
-            $this.off('touchmove.cui.gesture').on('touchmove.cui.gesture', _.throttle(function (e) {
+            $this.off('touchmove.cui.gesture').on('touchmove.cui.gesture', $.throttle(function (e) {
                 var $ele = $(this);
                 var event = _getInfo(e.originalEvent);
                 if (!$ele.data('_touchStart')) {

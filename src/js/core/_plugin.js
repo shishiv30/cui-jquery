@@ -3,7 +3,7 @@ import _trigger from './_trigger';
 import loadMap from './_preload.map';
 class Plugin {
     constructor(PluginSetting, $) {
-        this.setting = _.assignIn({
+        this.setting = $.extend({
             name: '',
             defaultOpt: null,
             initBefore: null,
@@ -59,7 +59,7 @@ class Plugin {
         return function (options) {
             //before set options
             that.setting.setOptionsBefore && that.setting.setOptionsBefore($this, opt, exportObj);
-            that.setting.opt = _.assignIn(opt, options);
+            that.setting.opt = $.extend(opt, options);
             //after set options
             that.setting.setOptionsAfter && that.setting.setOptionsAfter($this, opt, exportObj);
         };
@@ -76,7 +76,7 @@ class Plugin {
     }
     _handleExports($this, opt, exportObj) {
         if (this.setting.isThirdPart && exportObj.original) {
-            exportObj.original = _.isFunction(exportObj.original) ? exportObj.original($this, opt, exportObj) : exportObj.original;
+            exportObj.original = $.isFunction(exportObj.original) ? exportObj.original($this, opt, exportObj) : exportObj.original;
         }
         //initial get options of Plugin
         exportObj.getOptions = this._handleGetOptions($this, opt, exportObj);
@@ -91,7 +91,7 @@ class Plugin {
         this._beforeInital($this, options)
 
         //#2 initial Plugin input (opt) & output (exportObj)
-        var opt = _.assignIn({}, this.setting.defaultOpt, options);
+        var opt = $.extend({}, this.setting.defaultOpt, options);
         var exportObj = {};
 
         //#3 initial Plugin

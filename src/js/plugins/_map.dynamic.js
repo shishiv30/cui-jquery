@@ -1,9 +1,8 @@
-import _ from 'lodash';
 import _trigger from '../core/_trigger';
 var markManager = function (options) {
     this.markers = [];
     this.map = options.map;
-    this.defaultOpt = _.assignIn({}, {
+    this.defaultOpt = $.extend({}, {
         map: options.map
     }, options.defaultOpt);
     this.create = options.create;
@@ -31,7 +30,7 @@ markManager.prototype.getMarkerById = function (id) {
         .element;
 };
 markManager.prototype.addMarker = function (option) {
-    var opt = _.assignIn({}, this.defaultOpt, option);
+    var opt = $.extend({}, this.defaultOpt, option);
     var marker = null;
     if (!opt.lat || !opt.lng) {
         return null;
@@ -98,7 +97,7 @@ var initalCustomMarker = function () {
                 popTheme: 'marker',
                 zIndex: null
             };
-            var opt = _.assignIn({}, defaultOpt, options);
+            var opt = $.extend({}, defaultOpt, options);
             this.latlng = opt.latlng;
             this.html = opt.html;
             this.map = opt.map;
@@ -278,7 +277,7 @@ export default {
             distanceControlPos: opt.distancecontrolpos,
         };
         if (opt.inline) {
-            mapOptions = _.assignIn(mapOptions, {
+            mapOptions = $.extend(mapOptions, {
                 scrollwheel: false,
                 navigationControl: false,
                 mapTypeControl: false,

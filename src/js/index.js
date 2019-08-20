@@ -3,7 +3,6 @@ import './libs'
 import core from './core';
 import inject from './inject';
 import plugins from './plugins';
-import _ from 'lodash';
 var cuiStatus = null;
 var _isMobile = function () {
     var $body = $('body');
@@ -68,13 +67,13 @@ var _updateWindowStatus = function (type) {
     return status;
 };
 var _eventScrollListener = function () {
-    $(window).on('scroll', _.throttle(function () {
+    $(window).on('scroll', $.throttle(function () {
         _updateWindowStatus('scroll');
         $(document).trigger('dom.scroll');
     }, 200));
 };
 var _eventResizeListener = function () {
-    $(window).on('resize', _.debounce(function () {
+    $(window).on('resize', $.debounce(function () {
         _updateWindowStatus('resize');
         $(document).trigger('dom.resize');
     }, 500));

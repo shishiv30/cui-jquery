@@ -83,10 +83,10 @@ export default {
         delete opt.width;
         delete opt.autoscroll;
         if (opt.lazyload) {
-            $target.on('afterChange', _.debounce(function () {
+            $target.on('afterChange', $.debounce(function () {
                 $(document).trigger('dom.scroll.image');
             }, 100));
-            $target.on('setPosition', _.debounce(function () {
+            $target.on('setPosition', $.debounce(function () {
                 $(document).trigger('dom.scroll.image');
             }, 100));
         }

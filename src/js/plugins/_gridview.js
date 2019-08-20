@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import _trigger from '../core/_trigger';
 export default {
     name: 'gridview',
     defaultOpt: {
@@ -159,7 +157,7 @@ export default {
             }
         };
         _reload(true);
-        $container.on('scroll', _.throttle(function () {
+        $container.on('scroll', $.throttle(function () {
             var currentPositionInfo = _getpositionInfo();
             var isDown = positionInfo.scrollTop < currentPositionInfo.scrollTop;
             positionInfo = currentPositionInfo;
