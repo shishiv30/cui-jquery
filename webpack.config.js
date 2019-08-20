@@ -52,7 +52,14 @@ module.exports = function (env, argv) {
                             ]
                         }
                     },
-                    'sass-loader'
+                    'resolve-url-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                            sourceMapContents: false
+                        }
+                    }
                 ]
             }, {
                 test: /\.(html)$/,
