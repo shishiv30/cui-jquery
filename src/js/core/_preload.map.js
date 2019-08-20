@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import _preload from './_preload';
 var mapLoaded = 0;
-export default function () {
+export default function (googleMapKey) {
     var dfd = $.Deferred();
     //has load
     if (mapLoaded === 2) {
@@ -16,7 +16,7 @@ export default function () {
             var config = {
                 callback: 'googlemapcallback'
             };
-            var mapUrl = 'https://maps.googleapis.com/maps/api/js?' + $.cuiContext.googleMapKey;
+            var mapUrl = 'https://maps.googleapis.com/maps/api/js?' + googleMapKey;
             $.each(config, function (key, value) {
                 mapUrl += ('&' + key + '=' + value);
             });

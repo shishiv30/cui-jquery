@@ -28,7 +28,7 @@ class Plugin {
     };
     static dependenceHandler(key) {
         if (key == 'googlemap') {
-            return loadMap();
+            return loadMap(window.googleMapKey);
         }
     };
 

@@ -10,6 +10,4 @@ if ('serviceWorker' in navigator) {
         });
     });
 }
-cui(window, {
-    googleMapKey: 'key=AIzaSyBtspK44Jc-DabkyA6knFuQ6LSp_8VXZgc'
-});
+cui();

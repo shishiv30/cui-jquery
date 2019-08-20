@@ -127,7 +127,7 @@ var getIconUrl = function (type) {
 };
 var getIcon = function (type) {
     var icon = {
-        url: $.cui.context.cdnUrl
+        url: window.location.hostname
     };
     switch (type) {
     case iconType.home:
@@ -195,7 +195,7 @@ var hasStreetView = function (opt) {
         });
     } else {
         streetViewCheckList[key] = 'loading';
-        var metaDataUrl = 'https://maps.googleapis.com/maps/api/streetview/metadata?location=' + key + '&' + $.cuiContext.googleMapKey;
+        var metaDataUrl = 'https://maps.googleapis.com/maps/api/streetview/metadata?location=' + key + '&' + opt.googleMapKey;
         var data = {
             url: metaDataUrl
         };
@@ -216,17 +216,19 @@ export default {
         type: 'terrain',
         icon: '',
         markers: [],
-        width: null,
-        height: null,
+        width: 300,
+        height: 300,
         lazyload: true,
         autoresize: true,
         onload: null,
         polylinedata: null,
         fillcolor: null,
         switchmaptype: 'terrain',
-        removedTarget: null
+        removedTarget: null,
+        googleMapKey: null
     },
     init: function ($this, opt, exportObj) {
+        opt.googleMapKey = opt.googleMapKey || window.googleMapKey;
         var insertMap = function (mapUrl) {
             if (!mapUrl) {
                 return;
@@ -273,7 +275,7 @@ export default {
             var _width = opt.width || $this.width();
             var _height = opt.height || $this.height();
             mapUrl += '&size=' + _width + 'x' + _height;
-            mapUrl += '&' + $.cuiContext.googleMapKey;
+            mapUrl += '&' + opt.googleMapKey;
             return mapUrl;
         };
         var initialGStaticStreetView = function (hasSteetView) {
@@ -287,7 +289,7 @@ export default {
                     streetviewUrl += opt.lat + ',' + opt.lng;
                 }
                 streetviewUrl += '&size=' + _width + 'x' + _height;
-                streetviewUrl += '&' + $.cuiContext.googleMapKey;
+                streetviewUrl += '&' + opt.googleMapKey;
                 insertMap(streetviewUrl);
             } else {
                 opt.onError && _trigger(opt.onError,$this, opt, exportObj);
