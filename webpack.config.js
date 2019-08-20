@@ -14,7 +14,7 @@ module.exports = function (env, argv) {
         devtool: argv.mode === 'production' ? 'none' : 'source-maps',
         resolve: {
             alias: {
-                '@': path.resolve(__dirname, './src/')
+                '@': path.join(__dirname, 'src')
             },
             extensions: ['.scss', '.js', '.json']
         },
