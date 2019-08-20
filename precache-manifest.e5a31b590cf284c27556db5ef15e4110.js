@@ -93,11 +93,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "images/typograph.png"
   },
   {
-    "revision": "73e5bcf436f26333a77e",
+    "revision": "2cd291ac5b65f51cb825",
     "url": "main.client.min.js"
   },
   {
-    "revision": "73e5bcf436f26333a77e",
+    "revision": "2cd291ac5b65f51cb825",
     "url": "main.css"
   },
   {
