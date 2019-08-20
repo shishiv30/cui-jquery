@@ -1,14 +1,14 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "efacdbf08eb25c1f0116f35913a08e70",
+    "revision": "97d00ac8a5dc6674b1856ffc898421fa",
     "url": "./index.html"
   },
   {
-    "revision": "302e9e11443858059e0f",
+    "revision": "fc7fac308406e14eccdd",
     "url": "cui.min.css"
   },
   {
-    "revision": "302e9e11443858059e0f",
+    "revision": "fc7fac308406e14eccdd",
     "url": "cui.min.js"
   },
   {
