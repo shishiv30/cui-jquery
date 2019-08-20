@@ -20,7 +20,7 @@
   "short_name": "CUI",
   "orientation": "portrait",
   "display": "standalone",
-  "start_url": ".",
+  "start_url": "https://shishiv30.github.io/cui-jquery/",
   "description": "UI solution base on jQuery and CUI.",
   "theme_color": "#ffffff",
   "background_color": "#ffffff"

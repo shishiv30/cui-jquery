@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1a0fc58105d329ff2a37c377f03e24e6",
+    "revision": "af37d82785129504e6ca41509bff1ad7",
     "url": "./index.html"
   },
   {
@@ -101,6 +101,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "main.css"
   },
   {
-    "url": "manifest.bbd435598e7955a393bbb8e2ad6a7293.json"
+    "url": "manifest.6324c6107238b8d54567add9894d7807.json"
   }
 ]);
