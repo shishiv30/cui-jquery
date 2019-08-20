@@ -1,5 +1,5 @@
-import scss from '@/scss/cui.scss';
-import cui from '@/js';
+import scss from '../scss/cui.scss';
+import cui from '../js/index.js';
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {

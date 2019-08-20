@@ -79,6 +79,7 @@ var _eventResizeListener = function () {
         $(document).trigger('dom.resize');
     }, 500));
 };
+//there is only one thing jQuery say to Death
 var notToday = function(window, context){
    
     $.cuiContext = $.extend({

@@ -1,0 +1,42 @@
+//
+// Grid system
+// --------------------------------------------------
+
+.gs-fixed {
+    margin: 0 auto;
+    @include container-fixed;
+    width: 100%;
+    @media (min-width: $screen-sm) {
+        width: 100%;
+    }
+    @media (min-width: $screen-md) {
+        width: $screen-md;
+    }
+    @media (min-width: $screen-lg) {
+        width: $screen-lg;
+    }
+}
+
+.gs {
+    @include container-fixed;
+}
+
+.row {
+    @include make-row;
+}
+
+@include make-grid-columns;
+
+@include make-grid(xs);
+
+@media (min-width: $screen-sm-min) {
+    @include make-grid(sm);
+}
+
+@media (min-width: $screen-md-min) {
+    @include make-grid(md);
+}
+
+@media (min-width: $screen-lg-min) {
+    @include make-grid(lg);
+}
