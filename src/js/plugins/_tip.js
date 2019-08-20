@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import _trigger from '../core/_trigger';
 var animationDuration = 500;
 

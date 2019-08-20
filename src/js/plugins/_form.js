@@ -1,5 +1,4 @@
 //validate for form submit
-import _ from 'lodash';
 import _trigger from '../core/_trigger';
 export default {
     name: 'form',

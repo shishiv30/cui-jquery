@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import moment from 'moment';
 import _trigger from '../core/_trigger';
 export default {
     $element: null,
@@ -8,12 +8,11 @@ export default {
         data: null,
         maxcount: -1,
         nodatatemplate: null,
-        hideText: 'See More'
+        hidetext: 'See More',
+        initafter:null,
     },
     initBefore: null,
     init: function ($this, opt, exportObj) {
-
-
         var $thead = $('<thead></thead>');
         var $colgroup = $('<colgroup></colgroup>');
         var $tbody = $('<tbody></tbody>');
@@ -44,7 +43,7 @@ export default {
                 return $.htmlencode(value);
             case 'date':
                 var time = new Date(value);
-                return time.valueOf() ? time.format(column.format || 'M/D/Y') : '';
+                return time.valueOf() ? moment(time).format(column.format || 'M/D/Y') : '';
             default:
                 return value;
             }
@@ -134,7 +133,7 @@ export default {
             $tfoot.empty();
             if (opt.maxcount > 0 && opt.data.length > opt.maxcount) {
                 var $tr = $('<tr></tr>');
-                var $link = $('<td colspan="' + opt.columns.length + '"><a href="javascript:;" class="btn blue" >' + opt.hideText + '</a></td>');
+                var $link = $('<td colspan="' + opt.columns.length + '"><a href="javascript:;" class="btn blue" >' + opt.hidetext + '</a></td>');
                 $tbody.find('tr').eq(opt.maxcount - 1).nextAll().hide();
                 $link.click(function () {
                     $tbody.find('tr').eq(opt.maxcount - 1).nextAll().show();
@@ -162,19 +161,10 @@ export default {
         exportObj._initTable();
     },
     destroyBefore: function ($this, opt, exportObj) {
-
         $this.remove();
     },
-    initAfter: null
+    initAfter: function ($this, opt, exportObj) {
+        opt.initafter && _trigger(opt.initafter, $this, opt, exportObj);
+    }
 };
-// $.cui.plugin(dataTableConfig);
-// $(document).on('dom.load.datatable', function () {
-//     $('[data-cui="datatable"]').each(function () {
-//         var $this = $(this);
-//         var data = $this.data();
-//         $this.removeAttr('data-cui="datatable"');
-//         $this.datatable(data);
-//         $this.attr('data-cui="datatable"-load', '');
-//     });
-// });
 

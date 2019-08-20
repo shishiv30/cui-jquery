@@ -1,7 +1,6 @@
 //seed code for create a plugin
 //replace all of the "example" with the plugin name. (the plugin name should be same as the js file name);
 
-import _ from 'lodash';
 import _trigger from '../core/_trigger';
 export default { 
         name: 'example',

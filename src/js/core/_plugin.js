@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import _trigger from './_trigger';
 import loadMap from './_preload.map';
 class Plugin {

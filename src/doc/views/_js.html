@@ -8,8 +8,7 @@
             alert(msg);
         }
     }
-    setTimeout(function () {
-       
+   $(document).on('dom.load',function(){
         var getMoveText = function (startPoint, endPoint) {
             var str1;
             var str2;
@@ -53,54 +52,7 @@
         $('#loadingSection').on('click', function () {
             $('.skeleton').html('After Content Loaded, It will show the real content with real height');
         });
-        $(document).one('datatable.inital', function (e, element, obj) {
-            obj.setOptions({
-                columns: [{
-                    key: 'name',
-                    type: 'string',
-                    display: 'Name'
-                }, {
-                    key: 'age',
-                    type: 'number',
-                    display: 'Age',
-                    sortable: true
-                }, {
-                    key: 'birthday',
-                    type: 'date',
-                    format: 'Y-M-D',
-                    display: 'Birthday',
-                    sortable: true
-                }, {
-                    key: 'id',
-                    type: 'number',
-                    display: 'Description',
-                    sortable: true,
-                    template: 'Salary salary per day.name is position'
-                }],
-                data: [{
-                    id: '1',
-                    name: 'Conjee',
-                    age: '30',
-                    birthday: '09/05/1986',
-                    salary: '80',
-                    position: 'Designer'
-                }, {
-                    id: '2',
-                    name: 'Steven',
-                    age: '18',
-                    birthday: '09/05/2001',
-                    salary: '50',
-                    position: 'Engieener'
-                }, {
-                    id: '3',
-                    name: 'Shadow',
-                    age: '33',
-                    birthday: '09/05/1983',
-                    salary: '100',
-                    position: 'S Engieener'
-                }]
-            });
-        });
+        
         $('.circle-item').each(function (index, item) {
             var $item = $(item);
             $item.text($item.css('backgroundColor').replace('rgb', ''));
@@ -134,6 +86,53 @@
         $('.btn').click(function () {
             $(this).toggleClass('active');
         });
-        $(document).trigger('cui.inital');
-    }, 1000);
+   });
+   $(document).one('datatable.inital', function (e, element, opt, obj) {
+        obj.setOptions({
+            columns: [{
+                key: 'name',
+                type: 'string',
+                display: 'Name'
+            }, {
+                key: 'age',
+                type: 'number',
+                display: 'Age',
+                sortable: true
+            }, {
+                key: 'birthday',
+                type: 'date',
+                format: 'Y-M-D',
+                display: 'Birthday',
+                sortable: true
+            }, {
+                key: 'id',
+                type: 'number',
+                display: 'Description',
+                sortable: true,
+                template: 'Salary salary per day.name is position'
+            }],
+            data: [{
+                id: '1',
+                name: 'Conjee',
+                age: '30',
+                birthday: '09/05/1986',
+                salary: '80',
+                position: 'Designer'
+            }, {
+                id: '2',
+                name: 'Steven',
+                age: '18',
+                birthday: '09/05/2001',
+                salary: '50',
+                position: 'Engieener'
+            }, {
+                id: '3',
+                name: 'Shadow',
+                age: '33',
+                birthday: '09/05/1983',
+                salary: '100',
+                position: 'S Engieener'
+            }]
+        });
+    });
 </script>

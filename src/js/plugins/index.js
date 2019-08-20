@@ -13,15 +13,11 @@ import loadimage from './_loadimage.js'
 import locker from './_locker.js'
 import mapdynamic from './_map.dynamic.js'
 import mapstatic from './_map.static.js'
-import measurement from './_measurement.js'
 import onscroll from './_onscroll.js'
 import pin from './_pin.js'
 import ranger from './_ranger.js'
 import request from './_request.js'
 import scrollTo from './_scrollTo.js'
-import shifter from './_shifter.js'
-import slicker from './_slicker.js'
-import sticky from './_sticky.js'
 import tabs from './_tabs.js'
 import textbox from './_textbox.js'
 import tip from './_tip.js'
@@ -45,15 +41,11 @@ export default {
     locker,
     mapdynamic,
     mapstatic,
-    measurement,
     onscroll,
     pin,
     ranger,
     request,
     scrollTo,
-    shifter,
-    slicker,
-    sticky,
     tabs,
     textbox,
     tip,
