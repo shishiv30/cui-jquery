@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const pathsToClean = ['dist'];
+const pathsToClean = ['dist', 'public'];
 const autoprefixer = require('autoprefixer');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -11,6 +11,10 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 module.exports = function (env, argv) {
     return {
         entry: './index.js',
+        output: {
+            filename: '[name].client.min.js',
+            path: path.resolve(__dirname, 'public/')
+        },
         devtool: argv.mode === 'production' ? 'none' : 'source-maps',
         resolve: {
             alias: {
