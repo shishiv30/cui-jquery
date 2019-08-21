@@ -91,7 +91,7 @@
       box-shadow: none;
       &:before {
         @extend %icon;
-        @extend .icon-info-circle;
+        content: $icon-info;
         display: inline-block;
         padding: 0 3px;
       }
@@ -110,7 +110,7 @@
       box-shadow: none;
       &:before {
         @extend %icon;
-        @extend .icon-warning;
+        content: $icon-warning;
         display: inline-block;
         padding: 0 3px;
       }
@@ -129,7 +129,7 @@
       box-shadow: none;
       &:before {
         @extend %icon;
-        @extend .icon-warning;
+        content: $icon-error;
         display: inline-block;
         padding: 0 3px;
       }

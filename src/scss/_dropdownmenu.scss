@@ -20,7 +20,7 @@
             display: block;
             &:before {
                 @extend %icon;
-                @extend .icon-chevron-circle-down;
+                content: $icon-keyboard_arrow_down;
                 vertical-align: baseline;
             }
         }

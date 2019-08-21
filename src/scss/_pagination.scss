@@ -43,11 +43,11 @@
     }
 
     a.prev:before {
-      @extend .icon-angle-left;
+      content: $icon-arrow_back_ios;
     }
 
     a.next:before {
-      @extend .icon-angle-right;
+      content: $icon-arrow_forward_ios;
     }
   }
 }

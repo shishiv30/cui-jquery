@@ -11,17 +11,23 @@
 .datatable-sort {
     position: relative;
     display: block;
-    &.active:before {
+    &:before{
         position: absolute;
-        right: 5px;
-        top: 4px;
-        @extend %icon;
-        @extend .icon-caret-up;
         right: 0;
-        posistion: aboslute;
-        &.desc:before {
-            @extend %icon;
-            @extend .icon-caret-down;
+        top: 0;
+        @extend %icon;
+        display: inline-block;
+    }
+    &.active {
+        &:before{
+            content: $icon-sort;
+        }
+    }
+    
+    &.desc {
+        &:before{
+            content: $icon-sort;
+            transform: rotateX(180deg);
         }
     }
 }

@@ -92,9 +92,8 @@
         transform: translateY(-50%) translateX(-50%);
         animation: rotate 1s infinite steps(8);
         color: $color-f;
-
         @extend %icon;
-        @extend .icon-spinner;
+        content: $icon-refresh;
     }
     &:after {
         position: absolute;

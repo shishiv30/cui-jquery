@@ -182,16 +182,16 @@
 }
 
 @mixin fonticon() {
-  display: inline-block;
-  font-family: fonticon !important;
-  text-rendering: auto;
+  font-family: 'fonticon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  &:before {
-    text-align: center;
-    font-style: normal;
-  }
 }
 
 @mixin hover-supported {

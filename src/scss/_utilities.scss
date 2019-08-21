@@ -9,35 +9,6 @@
     cursor: help;
 }
 
-//blank space
-.blank-xs {
-    height: 5px;
-}
-
-.blank-s {
-    height: 10px;
-}
-
-.blank-m {
-    height: 15px;
-}
-
-.blank-l {
-    height: 20px;
-}
-
-.blank-xl {
-    height: 25px;
-}
-
-.padding-clear {
-    padding: 0 !important;
-}
-
-.margin-clear {
-    margin: 0 !important;
-}
-
 //make element  center & middel
 %block-center {
     display: block;
@@ -134,16 +105,6 @@
 //list disc
 .list-disc {
     list-style: disc inside;
-}
-
-//font icon define
-%icon {
-    @include fonticon();
-}
-
-[class^="icon-"],
-[class*=" icon-"] {
-    @extend %icon;
 }
 
 [disabled] {

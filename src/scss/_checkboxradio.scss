@@ -38,18 +38,18 @@
 
 .checkbox {
     input + i:before {
-        @extend .icon-square-o;
+        content: $icon-check_box_outline_blank;
     }
     input:checked + i:before {
-        @extend .icon-check-square;
+        content: $icon-check_box;
     }
 }
 
 .radio {
     input + i:before {
-        @extend .icon-circle-thin;
+        content: $icon-radio_button_checked;
     }
     input:checked + i:before {
-        @extend .icon-check-circle;
+        content: $icon-radio_button_unchecked;
     }
 }

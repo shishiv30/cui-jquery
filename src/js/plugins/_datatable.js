@@ -133,7 +133,7 @@ export default {
             $tfoot.empty();
             if (opt.maxcount > 0 && opt.data.length > opt.maxcount) {
                 var $tr = $('<tr></tr>');
-                var $link = $('<td colspan="' + opt.columns.length + '"><a href="javascript:;" class="btn blue" >' + opt.hidetext + '</a></td>');
+                var $link = $('<td colspan="' + opt.columns.length + '"><a href="javascript:;" class="link" >' + opt.hidetext + '</a></td>');
                 $tbody.find('tr').eq(opt.maxcount - 1).nextAll().hide();
                 $link.click(function () {
                     $tbody.find('tr').eq(opt.maxcount - 1).nextAll().show();

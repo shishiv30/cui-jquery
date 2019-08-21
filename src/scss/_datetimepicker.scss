@@ -15,7 +15,7 @@
     border-radius: 4px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     background-clip: padding-box;
-    padding: 4px;
+    padding: $g2;
     margin-top: 1px;
     white-space: normal;
     direction: ltr;
@@ -416,10 +416,4 @@
     cursor: pointer;
     width: 14px;
     height: 14px;
-}
-
-.table-condensed {
-    th, td {
-        padding: 4px 5px;
-    }
 }
