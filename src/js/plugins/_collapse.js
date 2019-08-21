@@ -15,10 +15,7 @@ export default {
     init: function ($this, opt, exportObj) {
         var $target = $(opt.target);
         //record the traget's height
-        var height = 0;
-        if ($target.offset() && $target.offset().top < $this.offset().top) {
-            height = $target.height();
-        }
+        var height;
         var _showtext = function () {
             if (opt.showtext) {
                 if ($this.find('span').length > 0) {
@@ -82,6 +79,11 @@ export default {
             };
         }
         exportObj.toggle =  function () {
+            if(typeof height === 'undefined'){
+                if ($target.offset() && $target.offset().top < $this.offset().top) {
+                    height = $target.height();
+                }
+            }
             if ($this.hasClass('shown')) {
                 exportObj.hide();
             } else {
