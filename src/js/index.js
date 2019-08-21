@@ -103,7 +103,7 @@ var notToday = function(){
             $this.attr(`${prefixed}-load`, types);
             types && types.split('.').forEach(function (type) {
                 var pluginName = core.plugin.namespace + '_' + type;
-                $this[pluginName](data);
+                $this[pluginName] && $this[pluginName](data);
             });
         });
     });

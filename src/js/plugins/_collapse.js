@@ -96,8 +96,7 @@ export default {
         if (opt.isexpand) {
             $(document).on('dom.resize.collapse', _resetForExpand);
             _resetForExpand();
-        }
-        if (!opt.isexpand) {
+        } else {
             if ($target.is(':hidden')) {
                 exportObj.hide();
             } else {

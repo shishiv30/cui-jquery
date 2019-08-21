@@ -55,10 +55,6 @@
     opacity: 1;
 }
 
-[data-cui^="collapse"], [data-cui*=" collapse"] {
-    visibility: hidden;
-}
-
 [data-cui-load^="collapse"], [data-cui-load*=" collapse"] {
     &:before {
         transition: transform ease-in-out 0.1s;
