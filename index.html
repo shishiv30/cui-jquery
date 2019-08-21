@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
 <head>
     <title>jQuery CUI</title>
     <meta description="UI solution base on jQuery and CUI">
@@ -595,6 +595,575 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#buttonPanel">
+            buttons
+            <span class="sub"> the basic button style</span>
+        </a>
+        <div id="buttonPanel">
+            <div class="row">
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <div class="dropdown-button" data-cui="dropdownbutton">
+                        <a href="javascript:;" class="black">the first</a>
+                        <a href="javascript:;" class="black"><i class="icon-arrow_drop_down"></i></a>
+                        <div class="dropdown-button-list">
+                            <a href="javascript:;" class="black">the section</a>
+                            <a href="javascript:;" class="black">the third</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:;" class="btn warning"><i class="icon-check"></i> <span>Orange</span></a>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:;" class="btn main"><i class="icon-check"></i> <span>main</span></a>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:;" class="btn danger"><i class="icon-check"></i> <span>danger</span></a>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:;" class="btn safe"><i class="icon-check"></i> <span>small</span></a>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:;" class="btn black"><i class="icon-check"></i> <span>large</span></a>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:;" class="btn black loading"><i class="icon-check"></i> <span>loading...</span></a>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:;" class="btn black" disabled="disabled"><i class="icon-check"></i> <span>disabled</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#tipPanel">
+            tips
+            <span class="sub"> the tip style</span>
+        </a>
+        <div id="tipPanel">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    <a href="javascript:;" data-cui="tip" data-content="show on top side">
+                        top</a>
+                </div>
+                <div class="col-xs-6 col-sm-3 text-right">
+                    <a href="javascript:;" data-cui="tip" data-placement="left" data-content="show on left side">
+                        left</a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+
+                    <a href="javascript:;" data-cui="tip" data-placement="right" data-content="show on right side">
+                        right</a>
+                </div>
+                <div class="col-xs-6 col-sm-3 text-right">
+                    <a href="javascript:;" data-cui="tip" data-placement="bottom" data-content="show on bottom side">
+                        bottom</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#formPanel">
+            forms
+            <span class="sub"> the form style</span>
+        </a>
+        <div id="formPanel">
+            <div id="form" data-cui="form">
+                <div class="form row">
+                    <div class="col-xs-12 col-sm-6">
+                        <label for="txtReq">Required Box</label>
+                        <div class="input left right">
+                            <i class="icon-account_circle"></i>
+                            <input type="text" id="txtReq" name="name" placeholder="name" data-cui="validate" data-type="required">
+                            <i>*</i>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <label for="txtMail">Mail Box</label>
+                        <div class="input right">
+                            <input type="email" id="txtMail" name="email" placeholder="email" data-cui="validate" data-type="email">
+                            <i class="icon-email"></i>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <label for="txtPhone">Phone Box</label>
+                        <div class="input left right">
+                            <i class="icon-phone"></i>
+                            <input type="tel" id="txtPhone" name="phone" value="1234567890" data-cui="validate" data-type="required,phone" data-inputformat data-type="phone">
+                            <i>*</i>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <label for="ddlFequence">Fequence</label>
+                        <div class="input left right">
+                            <i class="icon-phone"></i>
+                            <select id="ddlFequence" name="fequence" data-cui="validate" data-type="required">
+                                <option value="" selected="selected" disabled="disabled">select a fequence</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Daily">Daily</option>
+                                <option value="Monthly">Monthly</option>
+                            </select>
+                            <a class="btn black active icon-check"></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <label for="date">Date picker</label>
+                        <div class="input right">
+                            <input type="text" id="date" name="date" data-cui="picker" data-picktype="date" readonly="readonly" placeholder="select date" data-cui="validate" data-type="required">
+                            <label for="date" class="icon-date_range"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <label for="time">Time picker</label>
+                        <div class="input right">
+                            <input type="text" id="time" name="time" data-cui="picker" data-picktype="time" readonly="readonly" placeholder="select time" data-cui="validate" data-type="required">
+                            <label for="time" class="icon-timer"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <label>Select Gender</label>
+                        <br>
+                        <div class="radio">
+                            <label for="chMale">
+                                <input id="chMale" name="gender" type="radio" checked="checked" value="Male">
+                                <i></i>
+                                <span>Male</span>
+                            </label>
+                            <label for="chkFemal">
+                                <input id="chkFemal" name="gender" type="radio" value="Female">
+                                <i></i>
+                                <span>Female</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <label>Select Favor</label>
+                        <br>
+                        <div class="checkbox">
+                            <label for="rbtnFavor1">
+                                <input id="rbtnFavor1" name="favor" checked="checked" type="checkbox" value="Dance">
+                                <i></i>
+                                <span>Dance</span>
+                            </label>
+
+                            <label for="rbtnFavor2">
+                                <input id="rbtnFavor2" name="favor" type="checkbox" value="Sing">
+                                <i></i>
+                                <span>Sing</span>
+                            </label>
+
+                            <label for="rbtnFavor3">
+                                <input id="rbtnFavor3" name="favor" type="checkbox" value="Paint">
+                                <i></i>
+                                <span>Paint</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <a class="btn black" href="javascript:;" onclick="submit()">Submit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#texboxPanel">
+            textbox
+            <span class="sub"> new textbox style</span>
+        </a>
+        <div id="texboxPanel">
+            <div class="form row" data-cui="form">
+                <div class="col-xs-6">
+                    <div class="select-textbox">
+                        <span>textbox select</span>
+                        <select id="selectS" name="fequence" data-validate="required">
+                            <option value="" selected="selected" disabled="disabled">select a Option</option>
+                            <option value="Weekly">Option 1</option>
+                            <option value="Daily">Option 1</option>
+                            <option value="Monthly">Option 1</option>
+                        </select>
+                        <i class="icon-arrow_down"></i>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div data-cui="textbox">
+                        <div class="input right">
+                            <span>textbox iput</span>
+                            <input type="email" id="txtReq2" name="name" value="" data-validate="required,email">
+                            <a href="javascript:;" class="icon-email btn black"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div data-cui="textbox">
+                        <div class="textarea">
+                            <span>textbox textarea</span>
+                            <textarea name="span" id="textReq4" data-validate="required"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#skeletonPanel">
+            skeleton
+            <span class="sub"> new skeleton style</span>
+        </a>
+        <div id="skeletonPanel">
+            <div class="flex-gs">
+                <div class="flex-xs-12">
+                    <a href="javascript:;" id="loadingSection" class="btn orange">Loading</a>
+                </div>
+                <div class="flex-xs-6 flex-md-3">
+                    <div class="skeleton"></div>
+                </div>
+                <div class="flex-xs-6 flex-md-3">
+                    <div class="skeleton"></div>
+                </div>
+                <div class="flex-xs-6 flex-md-3">
+                    <div class="skeleton"></div>
+                </div>
+                <div class="flex-xs-6 flex-md-3">
+                    <div class="skeleton"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#viewPanel">
+            view
+            <span class="sub"> new view style</span>
+        </a>
+        <div id="viewPanel">
+            <div class="view-panel" data-cui="view" data-horizontal="true">
+                <div>
+                    <div>1</div>
+                    <div style="min-width:180px">2</div>
+                    <div>3</div>
+                    <div style="min-width:160px">4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div style="min-width:110px">8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                    <div style="min-width:140px">13</div>
+                    <div>14</div>
+                    <div>15</div>
+                    <div>16</div>
+                    <div style="min-width:170px">17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <div>20</div>
+                </div>
+            </div>
+            <div class="view-panel" data-cui="view" data-horizontal="false" data-snapable="false" style="height:300px">
+                <div>
+                    <div>1</div>
+                    <div style="min-height:180px">2</div>
+                    <div>3</div>
+                    <div style="min-height:160px">4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div style="min-height:110px">8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                    <div style="min-height:140px">13</div>
+                    <div>14</div>
+                    <div>15</div>
+                    <div>16</div>
+                    <div style="min-height:170px">17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <div>20</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#mapPanel">
+            map
+            <span class="sub"> new map style</span>
+        </a>
+        <div id="mapPanel" style="display:none;">
+            <h3>Dynamic Map</h3>
+            <div data-cui="gmap" data-lat="37.819929" data-lng="-122.478255" data-onload="initialMap" data-inline="false" class="mapdemo"> </div>
+            <h3>Static Map</h3>
+            <div data-cui="gsmap" data-type="terrain" data-lat="37.819929" data-lng="-122.478255" class="mapdemo"> </div>
+            <h3>Static Street Map</h3>
+            <div data-cui="gsmap" data-type="streetview" data-lat="37.819929" data-lng="-122.478255" class="mapdemo"> </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#dialogPanel">
+            dialog
+            <span class="sub"> the dialog plugin</span>
+        </a>
+        <div id="dialogPanel">
+            <p>
+                <a href="javascript:void(0)" data-cui="dialog" data-target="#popupPanel1">open dialog as default</a>
+            </p>
+            <script id="popupPanel1" type="text/template">
+                <div class="dialog-title">Welcome to CUI!</div>
+                <p>
+                    A modal dialog is a window that forces the user to interact with it before they can go back to using the parent application.
+                </p>
+            </script>
+            <p>
+                <a href="javascript:void(0)" data-cui="dialog" data-target="#popupPanel0" data-theme="fullscreen">open dialog as fullscreen</a>
+            </p>
+            <script id="popupPanel0" type="text/template">
+                <div class="block-center text-center" dialog-close>
+                    <div class="text-white">Welcome to CUI!</div>
+                    <p class=" text-white">A modal dialog is a window that forces the user to interact with it before they can go back to using the
+                        parent application.</p>
+                </div>
+            </script>
+            <p>
+                <a href="javascript:void(0)" data-cui="dialog" data-target="#popupPanel" data-theme="dropdown">open dialog as dropdown</a>
+            </p>
+            <script id="popupPanel" type="text/template">
+                <div class="f3">Hello World!</div>
+                <div class="blank-xs"></div>
+                <ul>
+                    <li><a href="javascript:;">Apple</a></li>
+                    <li><a href="javascript:;">Banana</a></li>
+                    <li><a href="javascript:;">Cat</a></li>
+                </ul>
+            </script>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#collapsePanel">
+            collapse
+            <span class="sub"> the collapse plugin</span>
+        </a>
+        <div class="flex" id="collapsePanel">
+            <div class="flex-xs-12 flex-sm-6 flex-md-3">
+                <dl style="position: relative;">
+                    <dt>
+                        <a href="javascript:void(0)" class="collapse-more" data-cui="collapse" data-target="#plusPanel" data-once="true" data-isexpand="true">
+                            <span>... show more</span>
+                        </a>
+                    </dt>
+                    <dd id="plusPanel" style="height: 3.7rem; overflow: hidden;">
+                        jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation,
+                        event handling,
+                        animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination
+                        of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.
+                    </dd>
+                </dl>
+            </div>
+            <div class="flex-xs-12 flex-sm-6 flex-md-3">
+                <dl>
+                    <dd id="anglePanel" style="height: 4em; overflow: hidden;">jQuery is a fast, small, and feature-rich JavaScript library. It makes
+                        things like
+                        HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works
+                        across a multitude
+                        of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write
+                        JavaScript.
+                    </dd>
+                    <dt><a href="javascript:;" data-cui="collapse" data-target="#anglePanel" data-isexpand="true" data-showtext="open" data-hidetext="collapsed"><i class="icon-expand_more"></i> <span>collapsed</span> </a></dt>
+                </dl>
+            </div>
+            <div class="flex-xs-12 flex-sm-6 flex-md-3">
+                <dl>
+                    <dt><a href="javascript:;" data-cui="collapse" data-target="#eyePanel" data-isexpand="true" data-showtext="shown" data-hidetext="hidden"><i class="icon-expand_more"></i> <span>hidden</span></a></dt>
+                    <dd id="eyePanel" style="height: 0; overflow: hidden;">jQuery is a fast, small, and feature-rich JavaScript library. It makes
+                        things like HTML
+                        document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across
+                        a multitude
+                        of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write
+                        JavaScript.
+                    </dd>
+                </dl>
+            </div>
+            <div class="flex-xs-12 flex-sm-6 flex-md-3">
+                <dl style="position: relative;">
+                    <dt>
+                        <a href="javascript:;" data-cui="collapse" data-target="#caretPanel">
+                            <span>dropdown menu</span> <i class="icon-arrow_left"></i>
+                        </a>
+                    </dt>
+                    <dd id="caretPanel" class="collapse-menu">jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML
+                        document
+                        traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a
+                        multitude
+                        of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write
+                        JavaScript.
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#tabsPanel">
+            tabs
+            <span class="sub"> new tabs style</span>
+        </a>
+        <div id="tabsPanel">
+            <div data-cui="tabs" class="tabs">
+                <ul>
+                    <li><a data-tab data-target="#tabA" href="javascript:;" class="active">A</a></li>
+                    <li><a data-tab data-target="#tabB" href="javascript:;">B</a></li>
+                    <li><a data-tab data-target="#tabC" href="javascript:;">C</a></li>
+                </ul>
+                <div id="tabA" class="tab-panel">show content of A panel</div>
+                <div id="tabB" class="tab-panel">show content of B panel</div>
+                <div id="tabC" class="tab-panel">show content of C panel</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#gridtablePanel">
+            grid table
+            <span class="sub"> switch table layout to key-value grid when screen is smaller</span>
+        </a>
+        <div id="gridtablePanel">
+            <table class="gridtable" data-cui="gridtable">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Sex</th>
+                    <th>Phone</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Conjee</td>
+                    <td>30</td>
+                    <td>shishiv30@live.cn</td>
+                    <td>Male</td>
+                    <td>18049****48</td>
+                </tr>
+
+                <tr>
+                    <td>Tom</td>
+                    <td>28</td>
+                    <td>Tom@gmail.com</td>
+                    <td>Male</td>
+                    <td>13696****93</td>
+                </tr>
+                <tr>
+                    <td>Lily</td>
+                    <td>25</td>
+                    <td>Lily@gmail.com</td>
+                    <td>Female</td>
+                    <td>16934****26</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#rangesilderPanel">
+            rangesilder
+            <span class="sub"> the rangesilder plugin</span>
+        </a>
+        <div id="rangesilderPanel">
+            <div class="form">
+                <div class="row" data-ranger data-max="10000" data-min="100" data-decimals="1" data-step="10" data-target="#ranger" data-onupdate="ranger.update" data-onchange="ranger.change">
+                    <div class="col-xs-6">
+                        <div data-cui="textbox">
+                            <div class="input left">
+                                <span for="txtPriceMin">Min price</span>
+                                <i>$</i>
+                                <input type="text" id="txtPriceMin" name="min" value="3000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div data-cui="textbox">
+                            <div class="input left">
+                                <span for="txtPriceMax">Max price</span>
+                                <i>$</i>
+                                <input type="text" id="txtPriceMax" name="max" value="6000">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ranger" class="col-xs-12"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#dataTable">
+            data table
+            <span class="sub"> the table render by standard data</span>
+        </a>
+        <div id="dataTable">
+            <div data-cui="datatable" data-initafter="datatable.inital" data-maxcount="2"></div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#eventPanel">
+            touch event
+            <span class="sub"> The extension of event</span>
+        </a>
+        <div id="eventPanel">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="eventDiv" style="height:300px;padding:100px 50px; text-align:center;background-color:#ddd;">
+                        try to move on the panel with your finger.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
+        <a href="javascript:;" class="h2 shown" data-cui="collapse" data-target="#loadimagePanel">
+            loadimage
+            <span class="sub"> new loadimage style</span>
+        </a>
+        <div id="loadimagePanel">
+            <div><img data-img="images/download-1.jpg" alt="sprit css demo1" style="height:200px;width:300px;"></div>
+            <div><img data-img="images/download-2.jpg" alt="sprit css demo2" style="height:200px;width:300px;"></div>
+            <div><img data-img="images/download-3.jpg" alt="sprit css demo3" style="height:200px;width:300px;"></div>
+            <div><img data-img="images/noimg.gif" alt="sprit css error image" style="height:200px;width:300px;"></div>
         </div>
     </div>
 </div>
