@@ -4,32 +4,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./index.html"
   },
   {
-    "revision": "8d23f69ea473e353e946",
+    "revision": "81fb02985a091805fee1",
     "url": "cui.min.css"
   },
   {
-    "revision": "8d23f69ea473e353e946",
+    "revision": "81fb02985a091805fee1",
     "url": "cui.min.js"
   },
   {
     "revision": "5b98a7c9d81ba110a84c1eb1db6d95fc",
     "url": "favicon.ico"
-  },
-  {
-    "revision": "59d2b4a90adde6e75c21d84730f9c041",
-    "url": "fonts/fonticon.eot"
-  },
-  {
-    "revision": "bfe9736ae427f8fd16161098d9728443",
-    "url": "fonts/fonticon.svg"
-  },
-  {
-    "revision": "b567f3d1fc557a5de064313d4a0b05c9",
-    "url": "fonts/fonticon.ttf"
-  },
-  {
-    "revision": "a2a9afc701fdacb2a93ea1a27162cd93",
-    "url": "fonts/fonticon.woff"
   },
   {
     "url": "icon_192x192.4a2c1eb82c13e3bb87fdf6855e83d4a9.png"
