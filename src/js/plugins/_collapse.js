@@ -14,8 +14,6 @@ export default {
     },
     init: function ($this, opt, exportObj) {
         var $target = $(opt.target);
-        //record the traget's height
-        var height;
         var _showtext = function () {
             if (opt.showtext) {
                 if ($this.find('span').length > 0) {
@@ -50,9 +48,6 @@ export default {
                 opt.hidebefore && _trigger(opt.hidebefore, $this, opt, exportObj);
                 $this.removeClass('shown');
                 $target.removeClass('collapse-expand');
-                if (height && height > 0) {
-                    $(window).scrollTop($(window).scrollTop() - $target.prop('scrollHeight') + height);
-                }
                 _hidetext();
                 $(document).trigger('dom.scroll');
                 opt.hideafter && _trigger(opt.hideafter, $this, opt, exportObj);
@@ -70,20 +65,12 @@ export default {
                 opt.hidebefore && _trigger(opt.hidebefore, $this, opt, exportObj);
                 $this.removeClass('shown');
                 $target.hide();
-                if (height && height > 0 && $target.css('position')==='static') {
-                    $(window).scrollTop($(window).scrollTop() - height);
-                }
                 _hidetext();
                 $(document).trigger('dom.scroll');
                 opt.hideafter && _trigger(opt.hideafter, $this, opt, exportObj);
             };
         }
         exportObj.toggle =  function () {
-            if(typeof height === 'undefined'){
-                if ($target.offset() && $target.offset().top < $this.offset().top) {
-                    height = $target.height();
-                }
-            }
             if ($this.hasClass('shown')) {
                 exportObj.hide();
             } else {
