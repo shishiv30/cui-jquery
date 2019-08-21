@@ -4974,9 +4974,6 @@ select {
   background: linear-gradient(to right, transparent -10%, white 20%);
   opacity: 1; }
 
-[data-cui^="collapse"], [data-cui*=" collapse"] {
-  visibility: hidden; }
-
 [data-cui-load^="collapse"]:before, [data-cui-load*=" collapse"]:before {
   -webkit-transition: -webkit-transform ease-in-out 0.1s;
   transition: -webkit-transform ease-in-out 0.1s;
