@@ -1,5 +1,6 @@
 import _trigger from './_trigger';
 import loadMap from './_preload.map';
+
 class Plugin {
     constructor(PluginSetting, $) {
         this.setting = $.extend({
@@ -33,7 +34,7 @@ class Plugin {
 
     _beforeInital($this, opt) {
         //before Plugin initial event
-        _trigger('init.before.' + this.setting.name, $this, opt);
+        //_trigger('cui.init.before.' + this.setting.name, $this, opt);
         opt.initbefore && _trigger(opt.initbefore, $this, opt);
         //before Plugin initial custom event
         this.setting.initBefore && _trigger(this.setting.initBefore, $this, opt);
@@ -42,7 +43,7 @@ class Plugin {
         this.setting.initAfter && this.setting.initAfter($this, opt, exportObj);
         opt.initafter && _trigger(opt.initafter, $this, opt, exportObj);
         //after Plugin initial event
-        _trigger('cui.init.after.' + this.setting.name, $this, opt, exportObj);
+        //_trigger('cui.init.after.' + this.setting.name, $this, opt, exportObj);
     }
 
     _handleGetOptions($this, opt, exportObj) {
@@ -67,7 +68,7 @@ class Plugin {
         var that = this;
         return function () {
             //before Plugin destroy event
-            _trigger('cui.before.destroy.' + that.setting.name, $this, opt, exportObj);
+            // _trigger('cui.before.destroy.' + that.setting.name, $this, opt, exportObj);
             //before Plugin destroy custom event
             that.setting.destroyBefore && that.setting.destroyBefore($this, opt, exportObj);
             $this.data(that.setting.name, null);
