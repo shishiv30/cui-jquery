@@ -5,16 +5,14 @@
     left: 0;
     right: 0;
     z-index: $ui-dialog-index;
-    overflow-x: hidden;
-    overflow-y: auto;
-    min-width: $screen-xs-min;
+    display: none;
     opacity: 0;
     transition: opacity .5s ease-in-out;
-    display: none;
     .dialog-title-close{
+        font-size: 25px;
+        right: 0;
+        top:0;
         position: absolute;
-        right:5px;
-        top:5px;
     }
     .dialog-overlay {
         position: fixed;
@@ -26,74 +24,49 @@
         z-index: $ui-dialog-overlay;
     }
     .dialog-panel {
+        position: absolute;
+        width:100vw;
+        max-width: $screen-xs-max;
         border-radius: 5px;
         z-index: $ui-dialog-index;
-        position: relative;
-        padding: 0;
-        margin-top: 0;
-        transition: margin-top 0.5s ease-in-out;
-        &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: $color-f;
-            border-radius: 5px;
-        }
+        background-color: $color-f;
+        top:50%;
+        left:50%;
+        transform: translateX(-50%) translateY(-50%);
+        transition: top .5s;
     }
     .dialog-body {
         position: relative;
         z-index: 2;
-        margin: 20px;
-        color: $color-0;
+        color: $color-4;
+        padding:$g2;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 100vh;
     }
     &.dialog-active {
         opacity: 1;
     }
     &.dialog-default {
-        padding-top: 20px;
         .dialog-title {
             @extend %singleline;
             font-size: $font-size-3;
             line-height: 1;
-            margin-bottom: 15px;
             position: relative;
-            .dialog-title-close {
-                position: absolute;
-                font-size: 25px;
-                color: $color-c;
-                right: 0;
-            }
-        }
-        .dialog-body {
-            padding: 20px 0;
+          
         }
     }
     &.dialog-fullscreen {
-        &.dialog-active {
-            .dialog-panel {
-                opacity: 1;
-            }
-        }
-        .dialog-body {
-            margin: 0 !important;
-            min-height: 100%;
-            min-width: 100% !important;
-            padding: 0 !important;
+        .dialog-title-close{
+            display: none;
         }
         .dialog-panel {
-            &:before {
-                background: transparent;
-            }
-            min-width: 100% !important;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            background: transparent;
             color: $color-f;
-            border: none;
-            min-height: 100% !important;
-            padding: 0 !important;
-            margin: 0 auto !important;
         }
     }
     &.dialog-dropdown {
@@ -101,14 +74,12 @@
             display: none;
         }
         .dialog-body {
-            margin: 0;
+            padding: 0;
             >div {
                 padding: 15px 15px 0 15px;
             }
         }
         ul {
-            margin: 0;
-            padding: 0;
             z-index: 10;
             >li {
                 margin: 0;
@@ -118,7 +89,6 @@
                 a {
                     >i {
                         float: left;
-                        margin-right: 10px;
                         font-size: $font-size-3;
                     }
                     display: block;
@@ -137,23 +107,5 @@
         overflow-y: hidden !important;
         overflow-x: hidden !important;
         -webkit-overflow-scrolling: auto !important;
-    }
-}
-
-@media (max-width: $screen-xs-max) {
-    .dialog {
-        .dialog-panel {
-            margin: 0 5px;
-        }
-    }
-}
-
-@media (min-width: $screen-sm-min) {
-    .dialog {
-        .dialog-panel {
-            margin-left: auto;
-            margin-right: auto;
-            max-width: $screen-xs-max;
-        }
     }
 }

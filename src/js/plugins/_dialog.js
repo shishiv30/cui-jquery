@@ -20,18 +20,7 @@ export default {
         var $dialogPanel;
         var $dialogBody;
         var $dialogOverLay;
-        var _reposition= exportObj.reposition =function(){
-            var height = $dialog.height() - $dialogPanel.outerHeight();
-            if (height > 0) {
-                $dialogPanel.css({
-                    marginTop: height / 2 + 'px'
-                });
-            } else {
-                $dialogPanel.css({
-                    marginTop: 0
-                });
-            }
-        };
+       
         var _show = exportObj.show = function () {
             if(!$dialog){
                 _render();
@@ -42,7 +31,6 @@ export default {
             $dialog.show();
             setTimeout(function () {
                 $dialog.addClass('dialog-active');
-                _reposition();
                 opt.showafter && _trigger(opt.showafter, $this, opt, exportObj);
             }, 50);
             $(document).on('dialog.hidden.except'+ opt.id, function (e, id) {
