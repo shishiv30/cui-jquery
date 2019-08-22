@@ -6712,17 +6712,15 @@ table th {
   left: 0;
   right: 0;
   z-index: 10010;
-  overflow-x: hidden;
-  overflow-y: auto;
-  min-width: 320px;
+  display: none;
   opacity: 0;
   -webkit-transition: opacity .5s ease-in-out;
-  transition: opacity .5s ease-in-out;
-  display: none; }
+  transition: opacity .5s ease-in-out; }
   .dialog .dialog-title-close {
-    position: absolute;
-    right: 5px;
-    top: 5px; }
+    font-size: 25px;
+    right: 0;
+    top: 0;
+    position: absolute; }
   .dialog .dialog-overlay {
     position: fixed;
     top: 0;
@@ -6732,69 +6730,50 @@ table th {
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 10000; }
   .dialog .dialog-panel {
+    position: absolute;
+    width: 100vw;
+    max-width: 639px;
     border-radius: 5px;
     z-index: 10010;
-    position: relative;
-    padding: 0;
-    margin-top: 0;
-    -webkit-transition: margin-top 0.5s ease-in-out;
-    transition: margin-top 0.5s ease-in-out; }
-    .dialog .dialog-panel:before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: #ffffff;
-      border-radius: 5px; }
+    background-color: #ffffff;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+    -webkit-transition: top .5s;
+    transition: top .5s; }
   .dialog .dialog-body {
     position: relative;
     z-index: 2;
-    margin: 20px;
-    color: #000000; }
+    color: #444444;
+    padding: 0.809rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 100vh; }
   .dialog.dialog-active {
     opacity: 1; }
-  .dialog.dialog-default {
-    padding-top: 20px; }
-    .dialog.dialog-default .dialog-title {
-      font-size: 1.618rem;
-      line-height: 1;
-      margin-bottom: 15px;
-      position: relative; }
-      .dialog.dialog-default .dialog-title .dialog-title-close {
-        position: absolute;
-        font-size: 25px;
-        color: #cccccc;
-        right: 0; }
-    .dialog.dialog-default .dialog-body {
-      padding: 20px 0; }
-  .dialog.dialog-fullscreen.dialog-active .dialog-panel {
-    opacity: 1; }
-  .dialog.dialog-fullscreen .dialog-body {
-    margin: 0 !important;
-    min-height: 100%;
-    min-width: 100% !important;
-    padding: 0 !important; }
+  .dialog.dialog-default .dialog-title {
+    font-size: 1.618rem;
+    line-height: 1;
+    position: relative; }
+  .dialog.dialog-fullscreen .dialog-title-close {
+    display: none; }
   .dialog.dialog-fullscreen .dialog-panel {
-    min-width: 100% !important;
-    color: #ffffff;
-    border: none;
-    min-height: 100% !important;
-    padding: 0 !important;
-    margin: 0 auto !important; }
-    .dialog.dialog-fullscreen .dialog-panel:before {
-      background: transparent; }
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    color: #ffffff; }
   .dialog.dialog-dropdown .dialog-header {
     display: none; }
   .dialog.dialog-dropdown .dialog-body {
-    margin: 0; }
+    padding: 0; }
     .dialog.dialog-dropdown .dialog-body > div {
       padding: 15px 15px 0 15px; }
   .dialog.dialog-dropdown ul {
-    margin: 0;
-    padding: 0;
     z-index: 10; }
     .dialog.dialog-dropdown ul > li {
       margin: 0;
@@ -6807,7 +6786,6 @@ table th {
         border-top: 1px solid #dddddd; }
         .dialog.dialog-dropdown ul > li a > i {
           float: left;
-          margin-right: 10px;
           font-size: 1.618rem; }
 
 .dialog-model {
@@ -6817,16 +6795,6 @@ table th {
     overflow-y: hidden !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: auto !important; }
-
-@media (max-width: 639px) {
-  .dialog .dialog-panel {
-    margin: 0 5px; } }
-
-@media (min-width: 640px) {
-  .dialog .dialog-panel {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 639px; } }
 
 .datatable {
   width: 100%;
