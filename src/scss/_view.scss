@@ -4,6 +4,14 @@
     overflow: hidden;
     //the padding must be 0
     padding: 0!important;
+    &.original-scroll{
+        &[data-horizontal="true"] {
+            overflow-x: auto;
+        }
+        &[data-horizontal="false"] {
+            overflow-y: auto;
+        }
+    }
     > div {
         display: grid;
         justify-items: start;

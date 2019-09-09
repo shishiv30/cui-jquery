@@ -67,7 +67,7 @@ export default {
                 length: $slides.length
             };
         };
-        var dfd;
+        var dfd; 
         var _scroll = exportObj.scroll = function (distance, animation) {
             dfd = $.Deferred();
             if (isAnimating) {
@@ -219,49 +219,68 @@ export default {
                 $(document).trigger('dom.scroll');
             });
         };
-        $this.on('mousewheel DOMMouseScroll', function (event) {
-            //donot support
-            event.preventDefault();
-            var delta = event.originalEvent.wheelDelta;
-            if (delta === undefined) {
-                $this.off('mousewheel');
-                return;
-            }
-            requestAnimationFrame(function(){
-                if(!isAnimating){
-                    if(!opt.snapable){
-                        var newPos = currPos + delta;
-                        var direction;
-                        if(opt.horizontal){
-                            direction = newPos > 0 ? 'left' : 'right';
-                        }else{
-                            direction = newPos < 0 ?  'up' : 'down';
-                        }
-                        _moved(direction, newPos, 0);
-                    }else if(delta<0){
-                        _next();
-                    }else{
-                        _prev();
-                    }
+        var disable = exportObj.disable = function(){
+            $this.removeClass('view-scroll');
+            $this.addClass('original-scroll');
+            $this.off('mousewheel DOMMouseScroll');
+            $this.off('drag');
+            $this.off('dragging');
+            $this.off('dragged');
+            $(document).off('dom.resize.view');
+        };
+
+        var enable = exportObj.enable = function(){
+            $this.addClass('view-scroll');
+            $this.removeClass('original-scroll');
+            $this.on('mousewheel DOMMouseScroll', function (event) {
+                //donot support
+                event.preventDefault();
+                var delta = event.originalEvent.wheelDelta;
+                if (delta === undefined) {
+                    $this.off('mousewheel');
+                    return;
                 }
-            })
-            return false;
-        });
-        $this.on('drag',function(){
+                requestAnimationFrame(function(){
+                    if(!isAnimating){
+                        if(!opt.snapable){
+                            var newPos = currPos + delta;
+                            var direction;
+                            if(opt.horizontal){
+                                direction = newPos > 0 ? 'left' : 'right';
+                            }else{
+                                direction = newPos < 0 ?  'up' : 'down';
+                            }
+                            _moved(direction, newPos, 0);
+                        }else if(delta<0){
+                            _next();
+                        }else{
+                            _prev();
+                        }
+                    }
+                })
+                return false;
+            });
+            $this.on('drag',function(){
+                _updateInfo();
+            });
+            $this.on('dragging', function (e, dir, dist) {
+                var distance = opt.horizontal ? dist[0] : dist[1];
+                var direction = opt.horizontal ? dir[0] : dir[1];
+                _moving(direction, distance , false);
+            });
+            $this.on('dragged', function (e, dir, dist, time) {
+                var distance = opt.horizontal ? dist[0] : dist[1];
+                var direction = opt.horizontal ? dir[0] : dir[1];
+                _moved(direction, distance, time);
+            });
+            $(document).on('dom.resize.view', _updateInfo);
             _updateInfo();
-        });
-        $this.on('dragging', function (e, dir, dist) {
-            var distance = opt.horizontal ? dist[0] : dist[1];
-            var direction = opt.horizontal ? dir[0] : dir[1];
-            _moving(direction, distance , false);
-        });
-        $this.on('dragged', function (e, dir, dist, time) {
-            var distance = opt.horizontal ? dist[0] : dist[1];
-            var direction = opt.horizontal ? dir[0] : dir[1];
-            _moved(direction, distance, time);
-        });
-        $(document).on('dom.resize', _updateInfo);
-        _updateInfo();
+        }
+        if($.isMobile()){
+            disable();
+        }else{
+            enable();
+        }
         opt.oninital && _trigger(opt.oninital,$this, opt, exportObj, [info]);
     },
     setOptionsBefore: null,
