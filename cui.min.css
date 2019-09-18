@@ -5144,6 +5144,12 @@ body.desktop .hidden-desktop {
   width: 100%;
   overflow: hidden;
   padding: 0 !important; }
+  [data-cui^="view"].original-scroll[data-horizontal="true"], [data-cui*=" view"].original-scroll[data-horizontal="true"],
+  [data-cui-load^="view"].original-scroll[data-horizontal="true"], [data-cui-load*=" view"].original-scroll[data-horizontal="true"] {
+    overflow-x: auto; }
+  [data-cui^="view"].original-scroll[data-horizontal="false"], [data-cui*=" view"].original-scroll[data-horizontal="false"],
+  [data-cui-load^="view"].original-scroll[data-horizontal="false"], [data-cui-load*=" view"].original-scroll[data-horizontal="false"] {
+    overflow-y: auto; }
   [data-cui^="view"] > div, [data-cui*=" view"] > div,
   [data-cui-load^="view"] > div, [data-cui-load*=" view"] > div {
     display: grid;

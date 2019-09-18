@@ -4,11 +4,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./index.html"
   },
   {
-    "revision": "5c9908cd006048a54aa4",
+    "revision": "3fdfc6fe43a598a5c5ee",
     "url": "cui.min.css"
   },
   {
-    "revision": "5c9908cd006048a54aa4",
+    "revision": "3fdfc6fe43a598a5c5ee",
     "url": "cui.min.js"
   },
   {
@@ -53,7 +53,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "images/download-1.jpg"
   },
   {
-    "revision": "15387e6f3afb8572ff1362558c926b4c",
+    "revision": "30e4364a805dc48ba95ee58f8c2e04bc",
     "url": "images/download-2.jpg"
   },
   {
