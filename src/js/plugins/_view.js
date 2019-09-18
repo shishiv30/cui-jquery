@@ -233,13 +233,15 @@ export default {
             $this.removeClass('original-scroll');
 
             $this.on('mousewheel', function(event) {
-                event.preventDefault();
                 var delta;
-                if(opt.horizontal){
+                if(opt.horizontal && event.deltaX){
                     delta = event.deltaX * -1;
-                }else{
+                }else if(!opt.horizontal && event.deltaY){
                     delta = event.deltaY;
+                } else{
+                    return;
                 }
+                event.preventDefault();
                 
                 $.throttle(function(){
                     if(!isAnimating){
