@@ -261,34 +261,6 @@ export default {
                 },50)();
                 return false;
             });
-            // $this.on('mousewheel DOMMouseScroll', function (event) {
-            //     //donot support
-            //     event.preventDefault();
-            //     var delta = event.originalEvent.wheelDelta;
-            //     if (delta === undefined) {
-            //         $this.off('mousewheel');
-            //         return;
-            //     }
-            //     requestAnimationFrame(function(){
-            //         if(!isAnimating){
-            //             if(!opt.snapable){
-            //                 var newPos = currPos + delta;
-            //                 var direction;
-            //                 if(opt.horizontal){
-            //                     direction = newPos > 0 ? 'left' : 'right';
-            //                 }else{
-            //                     direction = newPos < 0 ?  'up' : 'down';
-            //                 }
-            //                 _moved(direction, newPos, 0);
-            //             }else if(delta<0){
-            //                 _next();
-            //             }else{
-            //                 _prev();
-            //             }
-            //         }
-            //     })
-            //     return false;
-            // });
             $this.on('drag',function(){
                 _updateInfo();
             });
