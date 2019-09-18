@@ -1,3 +1,4 @@
+import _mousewheel from './_event.mousewheel';
 import _gesture from './_event.gesture';
 import _draggable from './_event.draggable';
 import _gettextwidth from './_extend.gettextwidth';
@@ -18,6 +19,7 @@ import _throttle from './_extend.throttle';
 
 export default function($){
     var injects = [
+        _mousewheel,
         _gesture,
         _draggable,
         _gettextwidth,

@@ -146,7 +146,7 @@ export default {
         };
         var _limitation = function (direction) {
             if ('left' === direction || 'up' === direction) {
-                currPos = Math.min(currPos, info.maxLimit);
+                currPos =  Math.min(currPos, info.maxLimit);
             } else {
                 currPos = Math.max(currPos, info.minLimit);
             }
@@ -163,7 +163,7 @@ export default {
                 _onMoving(false);
             }, 200));
         };
-        var _moved = function (direction, distance, time) {
+        var _moved = function (direction, distance, animateTime) {
             $wrapper.removeClass('dragging');
             var itemSize;
             var end;
@@ -184,11 +184,11 @@ export default {
                 }
             }
           
-            if (time) {
+            if (animateTime) {
                 if(opt.snapable){
-                    // _scrollWithInertia(distance, time);
+                    // _scrollWithInertia(distance, animateTime);
                     //if too move too slow revert and move less than one third, else snap to next slider
-                    var isSlow = Math.abs(distance) / time < opt.sensitive;
+                    var isSlow = Math.abs(distance) / animateTime < opt.sensitive;
                     var isSlight = Math.abs(distance) < itemSize / 3;
                     var isRevert = isSlow && isSlight;
                     if (isRevert) {
@@ -200,7 +200,6 @@ export default {
             }else{
                 currPos = distance;
             }
-
             _limitation(direction);
             if (_onMoving(true)) {
                 if (opt.jumpback) {
@@ -222,7 +221,7 @@ export default {
         var disable = exportObj.disable = function(){
             $this.removeClass('view-scroll');
             $this.addClass('original-scroll');
-            $this.off('mousewheel DOMMouseScroll');
+            $this.off('mousewheel');
             $this.off('drag');
             $this.off('dragging');
             $this.off('dragged');
@@ -232,18 +231,20 @@ export default {
         var enable = exportObj.enable = function(){
             $this.addClass('view-scroll');
             $this.removeClass('original-scroll');
-            $this.on('mousewheel DOMMouseScroll', function (event) {
-                //donot support
+
+            $this.on('mousewheel', function(event) {
                 event.preventDefault();
-                var delta = event.originalEvent.wheelDelta;
-                if (delta === undefined) {
-                    $this.off('mousewheel');
-                    return;
+                var delta;
+                if(opt.horizontal){
+                    delta = event.deltaX * -1;
+                }else{
+                    delta = event.deltaY;
                 }
-                requestAnimationFrame(function(){
+                
+                $.throttle(function(){
                     if(!isAnimating){
                         if(!opt.snapable){
-                            var newPos = currPos + delta;
+                            var newPos = currPos + delta * 120;
                             var direction;
                             if(opt.horizontal){
                                 direction = newPos > 0 ? 'left' : 'right';
@@ -257,9 +258,37 @@ export default {
                             _prev();
                         }
                     }
-                })
+                },50)();
                 return false;
             });
+            // $this.on('mousewheel DOMMouseScroll', function (event) {
+            //     //donot support
+            //     event.preventDefault();
+            //     var delta = event.originalEvent.wheelDelta;
+            //     if (delta === undefined) {
+            //         $this.off('mousewheel');
+            //         return;
+            //     }
+            //     requestAnimationFrame(function(){
+            //         if(!isAnimating){
+            //             if(!opt.snapable){
+            //                 var newPos = currPos + delta;
+            //                 var direction;
+            //                 if(opt.horizontal){
+            //                     direction = newPos > 0 ? 'left' : 'right';
+            //                 }else{
+            //                     direction = newPos < 0 ?  'up' : 'down';
+            //                 }
+            //                 _moved(direction, newPos, 0);
+            //             }else if(delta<0){
+            //                 _next();
+            //             }else{
+            //                 _prev();
+            //             }
+            //         }
+            //     })
+            //     return false;
+            // });
             $this.on('drag',function(){
                 _updateInfo();
             });
