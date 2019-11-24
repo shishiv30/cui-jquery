@@ -59,9 +59,9 @@
 %btn {
   @include singleline();
   display: block;
+  font-size:$font-size-4;
   height: $form-size-normal;
   min-width: $form-size-normal;
-  line-height: calc(#{$form-size-normal} - 2px);
   padding: 0 $g1;
   text-align: center;
   transition: opacity 0.1s ease-in-out;

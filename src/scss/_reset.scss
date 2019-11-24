@@ -12,11 +12,15 @@ ol, ul {
 }
 
 html {
-    line-height: 1;
+    line-height: 1.618;
     font-family: $font-family, "Helvetica Neue", Arial, sans-serif;
     font-weight: $font-weight-normal;
     font-style: normal;
     color: $color-text-default;
+    font-size: 16px;
+    @media screen and (min-width:$screen-sm-min){
+        font-size: 18px;
+    }
 }
 
 body, html {
@@ -38,7 +42,7 @@ label[for] {
 }
 
 input, select, textarea, button {
-    line-height: 1;
+    line-height: 1.618;
     outline: none;
     color: $color-text-default;
     font-family: $font-family, "Helvetica Neue", Arial, sans-serif;
@@ -76,7 +80,7 @@ img {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-    line-height: 1;
+    line-height: 1.618;
     font-size: 1rem;
     font-weight: normal;
 }
