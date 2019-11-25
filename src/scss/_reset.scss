@@ -18,9 +18,7 @@ html {
     font-style: normal;
     color: $color-text-default;
     font-size: 16px;
-    @media screen and (min-width:$screen-sm-min){
-        font-size: 18px;
-    }
+
 }
 
 body, html {
@@ -83,10 +81,6 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.618;
     font-size: 1rem;
     font-weight: normal;
-}
-
-i {
-    text-align: center;
 }
 
 abbr[title], acronym[title] {

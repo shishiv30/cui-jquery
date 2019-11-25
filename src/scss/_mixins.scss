@@ -1,3 +1,18 @@
+@mixin form-tiny(){
+  font-size:$font-size-5;
+  height: $form-size-tiny;
+  padding:$gxs;
+}
+@mixin form-small(){
+  font-size:$font-size-5;
+  height: $form-size-small;
+  padding: $g1;
+}
+@mixin form-normal(){
+  font-size:$font-size-4;
+  height: $form-size-normal;
+  padding:$g1;
+}
 @mixin responsive-visibility($parent) {
   #{$parent} {
     display: block !important;
@@ -182,6 +197,7 @@
 }
 
 @mixin fonticon() {
+  text-align: center;
   font-family: 'fonticon' !important;
   speak: none;
   font-style: normal;

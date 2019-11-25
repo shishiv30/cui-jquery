@@ -21,7 +21,6 @@
             &:before {
                 @extend %icon;
                 content: $icon-keyboard_arrow_down;
-                vertical-align: baseline;
             }
         }
     }

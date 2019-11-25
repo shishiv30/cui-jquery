@@ -3,53 +3,60 @@
     white-space: nowrap;
     min-width: fit-content;
     label {
-        display: inline-flex;
-        align-items: center;
         cursor: pointer;
-        padding: 0;
         margin-right: $g1;
         user-select: none;
         > input {
             display: none;
         }
-        > i {
-            @extend %icon;
-            display: inline-block;
-            width: $font-size-3;
-            font-size:$font-size-3;
-            color: $color-8;
-            margin-right: $gxs;
+        > span {
+            @include form-normal();
+            display: inline-flex;
+            align-items: center;
+            &:before{
+                @extend %icon;
+                margin-right: $gxs;
+            }
         }
-        input:checked + i {
+        input:checked + span {
         }
-        input:disabled + i {
+        input:disabled + span {
             color: $color-disable;
+        }
+        &:last-of-type{
+            margin-right: 0;
         }
     }
     &.small{
         label{
-            > i{
-                width: $font-size-4;
-                font-size:$font-size-4;
+            > span{
+                @include form-small();
+            }
+        }
+    }
+    &.tiny{
+        label{
+            > span{
+                @include form-tiny();
             }
         }
     }
 }
 
 .checkbox {
-    input + i:before {
+    input + span:before {
         content: $icon-check_box_outline_blank;
     }
-    input:checked + i:before {
+    input:checked + span:before {
         content: $icon-check_box;
     }
 }
 
 .radio {
-    input + i:before {
-        content: $icon-radio_button_checked;
-    }
-    input:checked + i:before {
+    input + span:before {
         content: $icon-radio_button_unchecked;
+    }
+    input:checked + span:before {
+        content: $icon-radio_button_checked;
     }
 }

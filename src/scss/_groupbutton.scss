@@ -1,12 +1,18 @@
 .group-btn {
-  border-radius: 5px;
-  border: 1px solid $color-main;
+  border-radius: 6px;
+  box-shadow: 0 0 2px $color-main;
   margin: 0;
   overflow: hidden;
-
-  > div {
-    margin: -1px;
+  display: flex;
+  flex-wrap: nowrap;
+  > label {
+    flex:1;
     overflow: hidden;
+    margin-right: 0;
+    border-left:1px dashed $color-main;
+    &:first-of-type{
+      border-left: none;
+    }
   }
 
   input {
@@ -14,30 +20,36 @@
   }
 
   label {
-    padding: 0;
-    margin: 0;
-    height: $form-size-normal;
-    line-height: $form-size-normal -2;
-    background: $color-f;
-    color: $color-main;
-    text-align: center;
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    border-right: 1px dotted $color-main;
-    border-top: 1px dotted $color-main;
-    border-bottom: 1px dotted $color-main;
-    margin-top: -1px;
+    span{
+      display: block;
+      @include form-normal();
+      background: $color-f;
+      color: $color-main;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+      &:before{
+        display: none;
+      }
+    }
   }
 
-  input:checked + label {
+  input:checked + span {
     background: $color-main;
     color: $color-f;
   }
+
   &.small {
-    label {
-      height: $form-size-small;
-      line-height: $form-size-small - 2;
+    label span{
+      @include form-small();
+    }
+  }
+
+  &.tiny {
+    label span{
+      @include form-tiny();
     }
   }
 }

@@ -23,7 +23,6 @@ $screen-sm-max: $screen-md-min - 1;
 $screen-md-max: $screen-lg-min - 1;
 //font style
 $font-family: 'Roboto';
-$root-font: 16px;
 $font-weight-light: 100;
 $font-weight-normal: 300;
 $font-weight-bold: 500;
@@ -82,39 +81,46 @@ $color-disable: $color-b;
 $color-bg: $color-e;
 //color for border
 $color-border: $color-d;
-//font line-height
-//~5px
-$gxs: .309rem;
-//~6px
-$g0: .382rem;
-//~8px
-$g1: .5rem;
-//~13px
-$g2: .809rem;
-//~21px
-$g3: 1.309rem;
+
 //grid
 $grid-columns: 12;
 $grid-gutter-width: 1rem;
 $flex-gutter-width: 1rem;
+
 //f1 = f3 / 0.618 = f3 + f3 * 0.618
 $font-size-1: 2.618rem;
-//f2 = (f1+f3) / 2
-$font-size-2: 2.118rem;
+//f2 = f3 + $g0
+$font-size-2: 2rem;
 //f3 = f5 / 0.618 = f5 + f5 * 0.618
 $font-size-3: 1.618rem;
-//f4 = (f3+f5) / 2
+//f4 = f5 + $gxs
 $font-size-4: 1.309rem;
 //f5 =  f7 / 0.618 = f7 + f7 * 0.618
 $font-size-5: 1rem;
 //f6 = f7 + $g0 / 2
-$font-size-6: .809rem;
+$font-size-6: .764rem;
 //0.618 = 1 * 0.618
 $font-size-7: .618rem;
 
+//half of f7
+$gxs: .309rem;
+//f7 - 0.618
+$g0: .382rem;
+//half of f5
+$g1: .5rem;
+//half of f3
+$g2: .809rem;
+//half of f1
+$g3: 1.309rem;
+
 //button & input & select
+//$gxs + h4(f5*1.618) + $gxs
 $form-size-tiny:2.236rem;
+//$g1 + h4(f5*1.618) + $g1
 $form-size-small: 2.618rem;
+//$gxs + h4(f5*1.618) + h5(f7*1.618)  + $gxs
+//$g2 + h4(f5*1.618) + $g2
+//f7+ h3(f4*1.618) +f7
 $form-size-normal: 3.236rem;
 
 //aside
