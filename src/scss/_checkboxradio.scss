@@ -10,12 +10,12 @@
             display: none;
         }
         > span {
-            @include form-normal();
+            @include form-large-1();
             display: inline-flex;
             align-items: center;
             &:before{
                 @extend %icon;
-                margin-right: $gxs;
+                margin-right: $g0;
             }
         }
         input:checked + span {
@@ -30,14 +30,14 @@
     &.small{
         label{
             > span{
-                @include form-small();
+                @include form-default-1();
             }
         }
     }
     &.tiny{
         label{
             > span{
-                @include form-tiny();
+                @include form-small();
             }
         }
     }

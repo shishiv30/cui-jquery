@@ -89,23 +89,25 @@ $flex-gutter-width: 1rem;
 
 //f1 = f3 / 0.618 = f3 + f3 * 0.618
 $font-size-1: 2.618rem;
-//f2 = f3 + $g0
+//f2 = (f1 - f3) * 0.382 + f3
 $font-size-2: 2rem;
 //f3 = f5 / 0.618 = f5 + f5 * 0.618
 $font-size-3: 1.618rem;
-//f4 = f5 + $gxs
-$font-size-4: 1.309rem;
+//f4 = (f3 - f5) * 0.382 + f5
+$font-size-4: 1.236rem;
 //f5 =  f7 / 0.618 = f7 + f7 * 0.618
 $font-size-5: 1rem;
-//f6 = f7 + $g0 / 2
+//f6 = (f5 - f7) * 0.382 + f7
 $font-size-6: .764rem;
 //0.618 = 1 * 0.618
 $font-size-7: .618rem;
 
+//half of gs
+$gxs: .191rem; 
+//f5 - 0.618
+$gs: .382rem;
 //half of f7
-$gxs: .309rem;
-//f7 - 0.618
-$g0: .382rem;
+$g0: .309rem;
 //half of f5
 $g1: .5rem;
 //half of f3
@@ -114,14 +116,14 @@ $g2: .809rem;
 $g3: 1.309rem;
 
 //button & input & select
-//$gxs + h4(f5*1.618) + $gxs
-$form-size-tiny:2.236rem;
-//$g1 + h4(f5*1.618) + $g1
-$form-size-small: 2.618rem;
-//$gxs + h4(f5*1.618) + h5(f7*1.618)  + $gxs
-//$g2 + h4(f5*1.618) + $g2
-//f7+ h3(f4*1.618) +f7
-$form-size-normal: 3.236rem;
+//$g0 + f3(f5*1.618) + $g0
+$form-size-small:2.236rem;
+//$g1 + f3(f5*1.618) + $g1
+$form-size-default: 2.618rem;
+//$g1 + f3(f5*1.618) + $g1
+//f7+ f2(f4*1.618) +f7
+//$g0 + f3(f5*1.618) + f5(f7*1.618)  + $g0
+$form-size-large: 3.236rem;
 
 //aside
 $aside-bg-color: $color-main;

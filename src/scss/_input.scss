@@ -1,8 +1,6 @@
 .input {
   position: relative;
   display: block;
-  font-size: $font-size-5;
-
   > i {
     font-style: normal;
   }
@@ -10,47 +8,38 @@
   > input,
   > select {
     transition: border-color 0.5s ease-in-out;
-    font-size: inherit;
     width: 100%;
-    height: $form-size-normal;
-    line-height: calc(#{$form-size-normal} - 2px);
     padding-left: $g1;
     padding-right: $g1;
-    border: 1px solid $color-border;
+    box-shadow: 0 0 0 1px $color-border;
+    border: none;
+    @include form-default-1();
   }
 
   > .btn {
-    margin: 0;
-    padding: 0;
-    border: none;
-  }
-
-  > a {
     border-radius: 0;
+    box-shadow:none;
+    background-color:transparent;
   }
 
   > i,
-  > label,
+  > span,
   > a {
-    top: 0;
-    position: absolute;
+    @extend %block-center-y;
     z-index: 1;
     text-align: center;
-    height: $form-size-normal;
-    line-height: $form-size-normal;
-    color: inherit;
-    font-size: inherit;
-    @extend %singleline;
-    width: $form-size-normal;
+    height: $form-size-default;
+    line-height: $form-size-default;
+    width: $form-size-default;
   }
 
   &.left {
     > input,
     > select {
-      padding-left: $form-size-normal;
+      padding-left: $form-size-default;
     }
 
-    > label,
+    > span,
     > i,
     > a {
       left: 0;
@@ -61,9 +50,9 @@
   &.right {
     > input,
     > select {
-      padding-right: $form-size-normal;
+      padding-right: $form-size-default;
 
-      ~ label,
+      ~ span,
       ~ i,
       ~ a {
         right: 0;
@@ -72,24 +61,17 @@
     }
   }
 
-  > * {
-    line-height: inherit;
-  }
-
   &.small {
     > input,
     > select {
-      height: $form-size-small;
-      line-height: calc(#{$form-size-small} - 2px);
+      @include form-small();
     }
     
     > i,
-    > label,
+    > span,
     > a {
       height: $form-size-small;
       line-height: $form-size-small;
-      min-width: initial;
-      font-size: inherit;
       width: $form-size-small;
     }
 
@@ -108,11 +90,40 @@
     }
   }
 
+  
+  &.large {
+    > input,
+    > select {
+      @include form-large-1();
+    }
+    
+    > i,
+    > span,
+    > a {
+      height: $form-size-large;
+      line-height: $form-size-large;
+      width: $form-size-large;
+    }
+
+    &.right {
+      > input,
+      > select {
+        padding-right: $form-size-large;
+      }
+    }
+
+    &.left {
+      > input,
+      > select {
+        padding-left: $form-size-large;
+      }
+    }
+  }
+
   &.plaintext {
     > input,
     > select {
       background-color: transparent !important;
-      border-color: transparent !important;
       display: inline-block;
       pointer-events: none;
     }

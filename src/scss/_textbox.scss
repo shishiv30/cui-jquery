@@ -19,7 +19,7 @@
 
   .input,
   .textarea {
-    > span {
+    > label {
       pointer-events: none;
       margin: 0;
       position: absolute;
@@ -43,7 +43,7 @@
   }
 
   .input {
-    > span {
+    > label {
       left: $g1;
       right: auto;
       top: 50%;
@@ -51,8 +51,8 @@
     }
 
     > input {
-      padding-top: #{$gxs + $font-size-5};
-      padding-bottom: $gxs;
+      padding-top: #{$g0 + $font-size-5};
+      padding-bottom: $g0;
     }
 
     &.small {
@@ -64,21 +64,21 @@
 
         &.right {
           > input {
-            padding-right: $form-size-small;
+            padding-right: $form-size-default;
           }
 
           .input-info {
-            right: $form-size-small;
+            right: $form-size-default;
           }
         }
 
         &.left {
-          > span {
-            left: $form-size-small;
+          > label {
+            left: $form-size-default;
           }
 
           > input {
-            padding-left: $form-size-small;
+            padding-left: $form-size-default;
           }
         }
       }
@@ -86,34 +86,34 @@
 
     &.left,
     &.right {
-      > span {
-        width: calc(100% - #{$form-size-normal});
+      > label {
+        width: calc(100% - #{$form-size-large});
       }
     }
 
     &.right.left {
-      > span {
-        width: calc(100% - #{$form-size-normal * 2});
+      > label {
+        width: calc(100% - #{$form-size-large * 2});
       }
     }
 
     &.right {
       > input {
-        padding-right: $form-size-normal;
+        padding-right: $form-size-large;
       }
 
       .input-info {
-        right: $form-size-normal;
+        right: $form-size-large;
       }
     }
 
     &.left {
-      > span {
-        left: $form-size-normal;
+      > label {
+        left: $form-size-large;
       }
 
       > input {
-        padding-left: $form-size-normal;
+        padding-left: $form-size-large;
       }
     }
   }
@@ -122,8 +122,8 @@
     background-color: $color-f;
     border: 1px solid $color-border;
 
-    span {
-      padding: 0 $g0;
+    label {
+      padding: 0 $gs;
       left: 0;
       right: 0;
       top: $g3;
@@ -131,7 +131,7 @@
 
     textarea {
       border: none;
-      margin: $g3 0 $gxs;
+      margin: $g3 0 $g0;
       padding: 0 $g1;
       min-height: 6.8rem;
       overflow: hidden;
@@ -147,22 +147,18 @@
 
     .input,
     .textarea {
-      > span {
+      > label {
         top: $gxs;
         right: auto;
         transform: translateY(0);
         transform-origin: left;
-        font-size: $font-size-6;
+        font-size: $font-size-7;
       }
 
-      &.small {
-        > span {
-          top: 0;
-          line-height: 1.2;
-        }
-
-        > span {
-          top: 0;
+      &.large {
+        > label {
+          top: $g0;
+          left: $g2;
         }
       }
     }

@@ -4,32 +4,30 @@
     > label {
         position: absolute;
         top: $gxs;
-        left: $gxs;
+        left: $g1;
         color: $color-a;
         font-size: $font-size-7;
         pointer-events: none;
     }
     > select {
-        height:$form-size-normal;
-        font-size: $font-size-5;
-        padding: $g3 $gxs $gxs ;
+        @include form-default-2();
         background: transparent;
         appearance: none;
     }
     i {
         @extend %block-center-y;
-        right: $gxs;
+        right: $g0;
         font-size: $font-size-4;
         color: $color-3;
         pointer-events: none;
     }
-    &.small{
+    &.large{
         > label {
-            top:1px;
+            top: $g0;
+            left: $g2;
         }
         > select{
-            height:$form-size-small;
-            padding: $font-size-5 $gxs $gxs;
+           @include form-large-3();
         }
     }
 }

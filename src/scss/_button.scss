@@ -1,23 +1,10 @@
 %btn-color {
   &.default {
-    background-color: $color-e;
-    color: $color-main;
-    &.active {
-      background-color:  $color-main;
-      color: $color-f;
-    }
-  }
-  &.white {
-      background-color: $color-f;
-      color: $color-3;
-      background-color: $color-3;
-  }
-  &.black {
       &.active {
           background-color: $color-3;
           color: $color-f;
       }
-      box-shadow: 0px 0px 2px $color-3;
+      box-shadow: 0 0 0 1px $color-3;
       color: $color-3;
   }
   &.warning {
@@ -25,7 +12,7 @@
           background-color: $color-warning;
           color: $color-f;
       }
-      box-shadow: 0px 0px 2px $color-warning;
+      box-shadow: 0 0 0 1px $color-warning;
       color: $color-warning;
   }
   &.main {
@@ -33,7 +20,7 @@
           background-color: $color-main;
           color: $color-f;
       }
-      box-shadow: 0px 0px 2px $color-main;
+      box-shadow: 0 0 0 1px $color-main;
       color: $color-main;
   }
   &.danger {
@@ -41,7 +28,7 @@
           background-color: $color-danger;
           color: $color-f;
       }
-      box-shadow: 0px 0px 2px $color-danger;
+      box-shadow: 0 0 0 1px $color-danger;
       color: $color-danger;
   }
   &.safe {
@@ -49,7 +36,7 @@
           background-color: $color-safe;
           color: $color-f;
       }
-      box-shadow: 0px 0px 2px $color-safe;
+      box-shadow: 0 0 0 1px $color-safe;
       color: $color-safe;
   }
 }
@@ -61,23 +48,23 @@
   text-align: center;
   transition: opacity 0.1s ease-in-out;
   opacity: 1;
-  border-radius: 6px;
+  border: none;
   cursor: pointer;
   @include hover-supported() {
     opacity: 0.9;
   }
-  @include form-normal();
+  @include form-large-1();
 
   &.tiny {
-    @include form-tiny();
+    @include form-small();
   }
   &.small {
-    @include form-small();
+    @include form-default-1();
   }
 
   &[disabled] {
     background-color: $color-c !important;
-    border-color: $color-7 !important;
+    box-shadow: 0 0 0 1px $color-7 !important;
     color: $color-7 !important;
   }
 
@@ -102,18 +89,18 @@
     color: $color-warning;
   }
 
-  width: $form-size-normal;
-  line-height: $form-size-normal;
-  @include form-normal();
+  width: $form-size-large;
+  height: $form-size-large;
+  @include form-large-1();
   &.tiny{
-    width: $form-size-tiny;
-    line-height: $form-size-tiny;
-    @include form-tiny();
+    width: $form-size-small;
+    height: $form-size-small;
+    @include form-small();
   }
   &.small {
-    width: $form-size-small;
-    line-height: $form-size-small;
-    @include form-small();
+    width: $form-size-default;
+    height: $form-size-default;
+    @include form-default-1();
   }
   &.orange {
     background-color: $color-warning !important;
@@ -135,7 +122,7 @@
       border-top-right-radius: 0;
   }
   & > a:last-of-type {
-      width: $form-size-normal;
+      width: $form-size-large;
       flex-shrink: 0;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
@@ -143,7 +130,7 @@
   .dropdown-button-list {
       position: absolute;
       background: $color-f;
-      top: $form-size-normal;
+      top: $form-size-large;
       left: $g1;
       right: $g1;
       z-index: $ui-buttongroup-index;

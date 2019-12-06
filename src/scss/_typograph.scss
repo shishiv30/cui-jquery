@@ -76,7 +76,7 @@
   }
 
   .paragraph, p {
-    margin:$g0 0;
+    margin:$gs 0;
     line-height: 1.618em;
     &.singleline-2 {
       @include multiLineEllipsis($lineHeight: 1.618em, $lineCount: 2, $bgColor: white);

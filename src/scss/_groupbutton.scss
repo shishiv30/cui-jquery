@@ -22,7 +22,7 @@
   label {
     span{
       display: block;
-      @include form-normal();
+      @include form-large-1();
       background: $color-f;
       color: $color-main;
       text-align: center;
@@ -43,13 +43,13 @@
 
   &.small {
     label span{
-      @include form-small();
+      @include form-default-1();
     }
   }
 
   &.tiny {
     label span{
-      @include form-tiny();
+      @include form-small();
     }
   }
 }
