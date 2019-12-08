@@ -1,55 +1,108 @@
 .group-btn {
   border-radius: 6px;
-  box-shadow: 0 0 2px $color-main;
+  
   margin: 0;
   overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
   > label {
-    flex:1;
+    flex: 1;
     overflow: hidden;
     margin-right: 0;
-    border-left:1px dashed $color-main;
-    &:first-of-type{
+    border-left: 1px dashed transparent;
+    &:first-of-type {
       border-left: none;
     }
-  }
-
-  input {
-    display: none;
-  }
-
-  label {
-    span{
+    span {
       display: block;
-      @include form-large-1();
-      background: $color-f;
+      @include form-default-1();
+      
       color: $color-main;
       text-align: center;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       cursor: pointer;
-      &:before{
+      &:before {
         display: none;
       }
     }
   }
-
-  input:checked + span {
-    background: $color-main;
-    color: $color-f;
+  
+  input {
+    display: none;
   }
 
-  &.small {
-    label span{
-      @include form-default-1();
+  &.large {
+    > label span {
+      @include form-large-1();
     }
   }
 
-  &.tiny {
-    label span{
+  &.small {
+    > label span {
       @include form-small();
+    }
+  }
+
+  &.default {
+    box-shadow: 0 0 0 1px $color-3;
+    > label {
+      border-color: $color-3;
+    }
+    input {
+      &:checked + span {
+        background: $color-3;
+        color: $color-f;
+      }
+    }
+  }
+  &.warning {
+    box-shadow: 0 0 0 1px $color-warning;
+    > label {
+      border-color: $color-warning;
+    }
+    input {
+      &:checked + span {
+        background: $color-warning;
+        color: $color-f;
+      }
+    }
+  }
+  &.main {
+    box-shadow: 0 0 0 1px $color-main;
+    > label {
+      border-color: $color-main;
+    }
+    input {
+      &:checked + span {
+        background: $color-main;
+        color: $color-f;
+      }
+    }
+  }
+  &.danger {
+    box-shadow: 0 0 0 1px $color-danger;
+    > label {
+      border-color: $color-danger;
+    }
+    input {
+      &:checked + span {
+        background: $color-danger;
+        color: $color-f;
+      }
+    }
+  }
+  &.safe {
+    box-shadow: 0 0 0 1px $color-safe;
+    > label {
+      border-color: $color-safe;
+    }
+    input {
+      &:checked + span {
+        background: $color-safe;
+        color: $color-f;
+      }
     }
   }
 }

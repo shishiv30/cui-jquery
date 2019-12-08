@@ -53,13 +53,13 @@
   @include hover-supported() {
     opacity: 0.9;
   }
-  @include form-large-1();
+  @include form-default-1();
 
-  &.tiny {
-    @include form-small();
+  &.large {
+    @include form-large-1();
   }
   &.small {
-    @include form-default-1();
+    @include form-small();
   }
 
   &[disabled] {
