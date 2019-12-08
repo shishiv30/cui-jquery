@@ -9,10 +9,15 @@
     opacity: 0;
     transition: opacity .5s ease-in-out;
     .dialog-title-close{
-        font-size: 25px;
+        font-size: $font-size-3;
+        display: block;
+        height:$form-size-default;
+        width:$form-size-default;
+        text-align: center;
         right: 0;
         top:0;
         position: absolute;
+        z-index: 1;
     }
     .dialog-overlay {
         position: fixed;
