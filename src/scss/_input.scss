@@ -1,16 +1,18 @@
 .input {
   position: relative;
   display: block;
-  > i {
-    font-style: normal;
+
+  >select{
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
   }
 
   > input,
   > select {
-    transition: border-color 0.5s ease-in-out;
     width: 100%;
-    padding-left: $g1;
-    padding-right: $g1;
     box-shadow: 0 0 0 1px $color-border;
     border: none;
     @include form-default-1();

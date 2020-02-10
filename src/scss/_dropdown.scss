@@ -10,9 +10,16 @@
         pointer-events: none;
     }
     > select {
+        width: 100%;
+        box-shadow: 0 0 0 1px $color-border;
+        border: none;
         @include form-default-2();
         background: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         appearance: none;
+        background: transparent;
+        cursor: pointer;
     }
     i {
         @extend %block-center-y;
