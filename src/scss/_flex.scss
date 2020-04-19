@@ -3,7 +3,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    margin:0 $flex-gutter-width/-2;
     &.left {
         justify-content: flex-start;
     }
@@ -38,7 +37,6 @@
     .flex {
         > div {
             width: 100%;
-            padding: 0 $flex-gutter-width/2;
             //we need set min-width:0 to avoid the context overflow.
             min-width: 0px;
             &.flex-fixed {

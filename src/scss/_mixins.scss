@@ -66,11 +66,6 @@
   }
 }
 
-//Border radius
-@mixin border-radius($radius) {
-  border-radius: $radius;
-}
-
 @mixin border-top-radius($radius) {
   border-top-right-radius: $radius;
   border-top-left-radius: $radius;
@@ -225,7 +220,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin hover-supported {
+@mixin hover {
   @media not all and (pointer: coarse) {
     &:hover {
       @content;
@@ -318,7 +313,7 @@ $blur-size: $blur-width $card-height;
 }
 
 /* mixin for multiline */
-@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white, $offset: 0) {
+@mixin multiLineEllipsis($lineHeight: 1.618, $lineCount: 1, $bgColor: white, $offset: 0) {
   overflow: hidden;
   position: relative;
   line-height: $lineHeight;

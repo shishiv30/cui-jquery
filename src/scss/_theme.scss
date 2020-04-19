@@ -89,18 +89,19 @@ $flex-gutter-width: 1rem;
 
 //f1 = f3 / 0.618 = f3 + f3 * 0.618
 $font-size-1: 2.618rem;
-//f2 = (f1 - f3) * 0.382 + f3
+//f2 = f3 + (f1-f3) *0.382
 $font-size-2: 2rem;
 //f3 = f5 / 0.618 = f5 + f5 * 0.618
 $font-size-3: 1.618rem;
-//f4 = (f3 - f5) * 0.382 + f5
+//f4 = f5 + (f3-f5) * 0.382
 $font-size-4: 1.236rem;
 //f5 =  f7 / 0.618 = f7 + f7 * 0.618
 $font-size-5: 1rem;
-//f6 = (f5 - f7) * 0.382 + f7
-$font-size-6: .764rem;
+//f6 = f7 + $g0 / 2
+$font-size-6: 0.764rem;
 //0.618 = 1 * 0.618
-$font-size-7: .618rem;
+$font-size-7: 0.618rem;
+$border-radius: 6px;
 
 //half of gs
 $gxs: .191rem; 
@@ -116,8 +117,10 @@ $g2: .809rem;
 $g3: 1.309rem;
 
 //button & input & select
+//f3(f5*1.618)
+$form-size-tiny: 1.618rem;
 //$g0 + f3(f5*1.618) + $g0
-$form-size-small:2.236rem;
+$form-size-small: 2.236rem;
 //$g1 + f3(f5*1.618) + $g1
 $form-size-default: 2.618rem;
 //$g1 + f3(f5*1.618) + $g1

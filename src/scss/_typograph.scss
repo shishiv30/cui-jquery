@@ -41,7 +41,8 @@
 }
 
 .h5,
-.h6 {
+.h6,
+.h7 {
   @extend %text-bold;
 }
 
@@ -50,11 +51,10 @@
 .h3,
 .h4,
 .h5,
-.h6 {
-  line-height: 1.2;
+.h6,
+.h7 {
   display: inline-block;
   position: relative;
-  margin: $g2 0;
   width: 100%;
   @include singleline();
 }
@@ -76,14 +76,12 @@
   }
 
   .paragraph, p {
-    margin:$gs 0;
-    line-height: 1.618em;
     &.singleline-2 {
-      @include multiLineEllipsis($lineHeight: 1.618em, $lineCount: 2, $bgColor: white);
+      @include multiLineEllipsis($lineCount: 2, $bgColor: white);
     }
   
     &.singleline-3 {
-      @include multiLineEllipsis($lineHeight: 1.618em, $lineCount: 3, $bgColor: white);
+      @include multiLineEllipsis($lineCount: 3, $bgColor: white);
     }
   }
 
@@ -99,7 +97,6 @@
           font-size: $font-size-5;
           width:1rem;
           height:1rem;
-          line-height:1rem;
           margin-top:-0.5rem;
       }
       &.shown {

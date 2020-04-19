@@ -38,7 +38,7 @@
     img {
         transition: width 1s ease-in-out;
     }
-    &:hover {
+    @include hover() {
         img {
             width: 150% !important;
         }

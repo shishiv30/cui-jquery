@@ -6,18 +6,16 @@ a {
     &:link {
         color: inherit;
     }
-    &:hover,
-    &:active {
+    @include hover(){
         opacity: 1;
         color: inherit;
     }
-    &:visited {
+    &:visited, &:active {
         color: inherit;
     }
     &.link {
         color: $color-link-default;
-        &:hover,
-        &:active {
+        @include hover(){
             color: $color-link-default-hover;
         }
     }
