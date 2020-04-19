@@ -132,16 +132,16 @@
   .dropdown-button-list {
       position: absolute;
       background: $color-f;
-      top: $form-size-large;
+      top: $form-size-default;
       left: $g1;
       right: $g1;
       z-index: $ui-buttongroup-index;
-      box-shadow: 0 0 1px $color-0;
+      box-shadow: 0 0 0 1px $color-border;
       display: none;
        > a {
           color: $color-0;
           background: $color-f;
-          border-color: $color-e;
+          border-color: $color-border;
           box-shadow: none;
           border-top: 0;
       }
