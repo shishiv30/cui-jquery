@@ -1,37 +1,17 @@
-%block-center {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+%center {
+    @include center();
 }
 
-%block-center-x {
-    display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+%center-x {
+   @include center-x();
 }
 
-%block-center-y {
-    display: block;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+%center-y {
+    @include center-y();
 }
 
 %img-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    max-width: 100%;
-    max-height: 100%;
-}
-
-//make input select or textarea look like a plain text
-%appearance {
-    appearance: none;
+    @include img-center();
 }
 
 //float layout

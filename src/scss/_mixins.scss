@@ -313,11 +313,11 @@ $blur-size: $blur-width $card-height;
 }
 
 /* mixin for multiline */
-@mixin multiLineEllipsis($lineHeight: 1.618, $lineCount: 1, $bgColor: white, $offset: 0) {
+@mixin multiline($lineHeight: 1.618, $lineCount: 1, $bgColor: white, $offset: 0) {
   overflow: hidden;
   position: relative;
   line-height: $lineHeight;
-  max-height: $lineHeight * $lineCount;
+  max-height: #{$lineHeight * $lineCount};
   text-align: justify;
   margin-right: -1em;
   padding-right: #{$offset + 1};
@@ -338,4 +338,29 @@ $blur-size: $blur-width $card-height;
     margin-top: 0.2em;
     background: $bgColor;
   }
+}
+
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+@mixin center-x(){
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin center-y(){
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin img-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  max-width: 100%;
+  max-height: 100%;
 }

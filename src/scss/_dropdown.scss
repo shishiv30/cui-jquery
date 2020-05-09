@@ -22,7 +22,7 @@
         cursor: pointer;
     }
     i {
-        @extend %block-center-y;
+        @extend %center-y;
         right: $g0;
         font-size: $font-size-4;
         color: $color-3;

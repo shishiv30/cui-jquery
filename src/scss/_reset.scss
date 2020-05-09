@@ -54,17 +54,6 @@ input::-ms-clear {
     height: 0;
 }
 
-select {
-    border: 1px solid $color-border;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-select::-ms-expand {
-    display: none;
-}
-
 input, select {
     -o-text-overflow: ellipsis;
     -ms-text-overflow: ellipsis;

@@ -22,7 +22,7 @@
   > i,
   > span,
   > a {
-    @extend %block-center-y;
+    @extend %center-y;
     z-index: 1;
     text-align: center;
     height: $form-size-default;
@@ -87,7 +87,6 @@
     }
   }
 
-  
   &.large {
     > input,
     > select {
@@ -141,6 +140,7 @@
   &.has-error, &.has-success {
       .tip {
           margin-top: 0;
+          top:0;
           left: 0 !important;
           right: 0 !important;
           max-width: initial !important;

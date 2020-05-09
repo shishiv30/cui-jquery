@@ -76,12 +76,13 @@
   }
 
   .paragraph, p {
+    margin:$gs 0;
     &.singleline-2 {
-      @include multiLineEllipsis($lineCount: 2, $bgColor: white);
+      @include multiline($lineCount: 2, $bgColor: white);
     }
   
     &.singleline-3 {
-      @include multiLineEllipsis($lineCount: 3, $bgColor: white);
+      @include multiline($lineCount: 3, $bgColor: white);
     }
   }
 
