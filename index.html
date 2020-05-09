@@ -10,7 +10,7 @@
     <meta name="Description" content="Author: Conjee Zou, UI solution, Category: Document, Lisence: MIT">
     <meta name="background-color" content="#ffffff">
     <meta name="theme-color" content="#333333">
-<meta name="theme-color" content="#ffffff"><link rel="manifest" href="manifest.a6ce21a1c43c631ea34f3dabc0ffc681.json"><link rel="shortcut icon" href="favicon.ico"><link href="cui.min.css" rel="stylesheet"></head>
+<meta name="theme-color" content="#ffffff"><link rel="manifest" href="manifest.2e271b88928bcc74ac22600cfab36f67.json"><link rel="shortcut icon" href="favicon.ico"><link href="cui.min.css" rel="stylesheet"></head>
 <style type="text/css">
     #loadingSection {
         margin-bottom: 30px;
@@ -303,24 +303,23 @@
         <div id="typographPanel">
             <p>The default web font-size is 16px, we consider <b>16px</b> as a basic measurement And we use <b>0.618</b> as the basic increase/decrease rate. font level, title level, padding, margin are all accroding to the default setting above.</p>
             <img alt="the font typograph demo" data-img="images/typograph.png" style="max-width:100%;">
-            <div class="h0">level 0 title</div>
             <div class="h1">level 1 title</div>
             <div class="h2">level 2 title</div>
             <div class="h3">level 3 title</div>
             <div class="h4">level 4 title</div>
             <div class="h5">level 5 title</div>
             <div class="h6">level 6 title</div>
+            <div class="h7">level 7 title</div>
             <div class="paragraph">
                 <p>$font-size-base: 1rem;</p>
-                <p>$increse: 0.618;</p>
-                <p> $font-size-0: ($font-size-base + $increse*4);</p>
-                <p> $font-size-1: ($font-size-base + $increse*2.5);</p>
-                <p> $font-size-2: ($font-size-base + $increse*1.5);</p>
-                <p> $font-size-3: ($font-size-base + $increse);</p>
-                <p> $font-size-4: ($font-size-base + $increse/2);</p>
-                <p> $font-size-5: $font-size-base;</p>
-                <p> $font-size-6: ($font-size-base - $increse/2);</p>
-                <p> $font-size-7: $font-size-base * $increse;</p>
+                <p>The increase/decrease rate is <b>0.618</b></p>
+                <p>level1: f1 = f3 / <b>0.618</b> = f3 + f3 * <b>0.618</b></p>
+                <p>level2: f2 = (f1 - f3) * 0.382 + f3</p>
+                <p>level3: f3 = f5 / <b>0.618</b> = f5 + f5 * <b>0.618</b></p>
+                <p>level4: f4 = f5 + (f3-f5) * 0.382</p>
+                <p>level5: f5 = $font-size-base</p>
+                <p>level6: f6 = f7 + $g0 / 2</p>
+                <p>level7: f7 = 1 * <b>0.618</b></p>
             </div>
         </div>
     </div>
@@ -626,16 +625,22 @@
                     <a href="javascript:;" class="btn danger"><i class="icon-check"></i> <span>danger</span></a>
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-3">
-                    <a href="javascript:;" class="btn safe"><i class="icon-check"></i> <span>small</span></a>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3">
-                    <a href="javascript:;" class="btn default"><i class="icon-check"></i> <span>large</span></a>
+                    <a href="javascript:;" class="btn safe"><i class="icon-check"></i> <span>Safe</span></a>
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-3">
                     <a href="javascript:;" class="btn default loading"><i class="icon-check"></i> <span>loading...</span></a>
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-3">
                     <a href="javascript:;" class="btn default" disabled="disabled"><i class="icon-check"></i> <span>disabled</span></a>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:;" class="btn default"><i class="icon-check"></i> <span>Default</span></a>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:;" class="btn default large"><i class="icon-check"></i> <span>Large</span></a>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:;" class="btn default small"><i class="icon-check"></i> <span>small</span></a>
                 </div>
             </div>
         </div>
@@ -690,7 +695,7 @@
                     <div class="col-xs-12 col-sm-6">
                         <label for="txtMail">Mail Box</label>
                         <div class="input right">
-                            <input type="email" id="txtMail" name="email" placeholder="email" data-cui="validate" data-type="email">
+                            <input type="text" id="txtMail" name="email" placeholder="email" data-cui="validate" data-type="email">
                             <i class="icon-email"></i>
                         </div>
                     </div>
@@ -698,7 +703,7 @@
                         <label for="txtPhone">Phone Box</label>
                         <div class="input left right">
                             <i class="icon-phone"></i>
-                            <input type="tel" id="txtPhone" name="phone" value="1234567890" data-cui="validate" data-type="required,phone" data-inputformat data-type="phone">
+                            <input type="text" id="txtPhone" name="phone" placeholder="phone" value="1234567890" data-cui="validate" data-type="required,phone" data-inputformat data-type="phone">
                             <i>*</i>
                         </div>
                     </div>
@@ -807,6 +812,69 @@
 </div>
 <div class="section">
     <div class="panel">
+        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#inputPanel">
+            Input
+            <span class="sub"> new Input style</span>
+        </a>
+        <div id="inputPanel">
+            <div class="form row" data-cui="form">
+                <div class="col-xs-6">
+                    <div class="input small">
+                        <select id="select3" name="fequence" data-validate="required">
+                            <option value="" selected="selected" disabled="disabled">small textbox select</option>
+                            <option value="Weekly">Option 1</option>
+                            <option value="Daily">Option 1</option>
+                            <option value="Monthly">Option 1</option>
+                        </select>
+                        <i class="icon-arrow_down"></i>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input right small">
+                        <input type="email" placeholder="small textbox iput" id="txtReq3" name="name" value="" data-validate="required,email">
+                        <a href="javascript:;" class="icon-email"></a>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input large">
+                        <select id="select3" name="fequence" data-validate="required">
+                            <option value="" selected="selected" disabled="disabled">large textbox select</option>
+                            <option value="Weekly">Option 1</option>
+                            <option value="Daily">Option 1</option>
+                            <option value="Monthly">Option 1</option>
+                        </select>
+                        <i class="icon-arrow_down"></i>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input right large">
+                        <input type="email" placeholder="large textbox iput" id="txtReq3" name="name" value="" data-validate="required,email">
+                        <a href="javascript:;" class="icon-email"></a>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input">
+                        <select id="select3" name="fequence" data-validate="required">
+                            <option value="" selected="selected" disabled="disabled">textbox select</option>
+                            <option value="Weekly">Option 1</option>
+                            <option value="Daily">Option 1</option>
+                            <option value="Monthly">Option 1</option>
+                        </select>
+                        <i class="icon-arrow_down"></i>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input right">
+                        <input type="email" placeholder="textbox iput" id="txtReq3" name="name" value="" data-validate="required,email">
+                        <a href="javascript:;" class="icon-email"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="panel">
         <a href="javascript:;" class="h2" data-cui="collapse" data-target="#texboxPanel">
             textbox
             <span class="sub"> new textbox style</span>
@@ -815,8 +883,8 @@
             <div class="form row" data-cui="form">
                 <div class="col-xs-6">
                     <div class="select-textbox">
-                        <label>textbox select</label>
-                        <select id="selectS" name="fequence" data-validate="required">
+                        <label>normal textbox select</label>
+                        <select id="select2" name="fequence" data-validate="required">
                             <option value="" selected="selected" disabled="disabled">select a Option</option>
                             <option value="Weekly">Option 1</option>
                             <option value="Daily">Option 1</option>
@@ -828,8 +896,29 @@
                 <div class="col-xs-6">
                     <div data-cui="textbox">
                         <div class="input right">
-                            <label>textbox iput</label>
+                            <label>normal textbox iput</label>
                             <input type="email" id="txtReq2" name="name" value="" data-validate="required,email">
+                            <a href="javascript:;" class="icon-email"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="select-textbox large">
+                        <label>large textbox select</label>
+                        <select id="select1" name="fequence" data-validate="required">
+                            <option value="" selected="selected" disabled="disabled">select a Option</option>
+                            <option value="Weekly">Option 1</option>
+                            <option value="Daily">Option 1</option>
+                            <option value="Monthly">Option 1</option>
+                        </select>
+                        <i class="icon-arrow_down"></i>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div data-cui="textbox">
+                        <div class="input large right">
+                            <label>large textbox iput</label>
+                            <input type="email" id="txtReq1" name="name" value="" data-validate="required,email">
                             <a href="javascript:;" class="icon-email"></a>
                         </div>
                     </div>
@@ -838,7 +927,7 @@
                     <div data-cui="textbox">
                         <div class="textarea">
                             <label>textbox textarea</label>
-                            <textarea name="span" id="textReq4" data-validate="required"></textarea>
+                            <textarea name="span" id="textReq4" data-cui="validate" data-type="required"></textarea>
                         </div>
                     </div>
                 </div>
