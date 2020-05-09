@@ -1,3 +1,10 @@
+[data-cui^="textbox"], [data-cui*=" textbox"]{
+  .input{
+    input{
+      color: transparent;
+    }
+  }
+}
 [data-cui^="textbox"], [data-cui*=" textbox"],
 [data-cui-load^="textbox"], [data-cui-load*=" textbox"]{
   position: relative;

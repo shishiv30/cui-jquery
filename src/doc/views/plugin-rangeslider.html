@@ -6,22 +6,22 @@
         </a>
         <div id="rangesilderPanel">
             <div class="form">
-                <div class="row" data-ranger data-max="10000" data-min="100" data-decimals="1" data-step="10" data-target="#ranger" data-onupdate="ranger.update" data-onchange="ranger.change">
+                <div class="row"  data-cui="ranger" data-max="10000" data-min="100" data-decimals="1" data-step="10" data-target="#ranger" data-onupdate="ranger.update" data-onchange="ranger.change">
                     <div class="col-xs-6">
                         <div data-cui="textbox">
-                            <div class="input left">
-                                <span for="txtPriceMin">Min price</span>
-                                <i>$</i>
+                            <div class="input right">
+                                <label>Min price</label>
                                 <input type="text" id="txtPriceMin" name="min" value="3000" />
+                                <i>$</i>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div data-cui="textbox">
-                            <div class="input left">
-                                <span for="txtPriceMax">Max price</span>
-                                <i>$</i>
+                            <div class="input right">
+                                <label>Max price</label>
                                 <input type="text" id="txtPriceMax" name="max" value="6000" />
+                                <i>$</i>
                             </div>
                         </div>
                     </div>

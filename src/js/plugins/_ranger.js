@@ -78,15 +78,9 @@ export default {
             opt.changeafter && _trigger(opt.changeafter, $this, opt, exportObj, e, t);
         });
     },
+    setOptionsBefore: null,
+    setOptionsAfter: null,
+    initBefore: null,
+    initAfter: null,
+    destroyBefore: null
 };
-// $.cui.plugin(rangerConfig);
-// $(document).on('dom.load.ranger', function () {
-//     $('[data-ranger]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-ranger');
-//         $this.ranger(data);
-//         $this.attr('data-ranger-load', '');
-//     });
-// });
-
