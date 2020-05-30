@@ -132,3 +132,9 @@
         display: none!important;
     }
 }
+
+@media screen and  (min-width: $screen-lg-min) {
+    html{
+        font-size: 18px;
+    }
+}
