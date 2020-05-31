@@ -9,7 +9,9 @@
       background: transparent;
       cursor: pointer;
   }
-
+  > input::placeholder{
+    color:inherit;
+  }
   > input,
   > select {
     width: 100%;
@@ -25,8 +27,8 @@
     @extend %center-y;
     z-index: 1;
     text-align: center;
-    height: $form-size-default;
-    line-height: $form-size-default;
+    padding-top: $g1;
+    padding-bottom: $g1;
     width: $form-size-default;
   }
 
@@ -67,8 +69,8 @@
     > i,
     > span,
     > a {
-      height: $form-size-small;
-      line-height: $form-size-small;
+      padding-top:$g0;
+      padding-bottom:$g0;
       width: $form-size-small;
     }
 
@@ -96,8 +98,8 @@
     > i,
     > span,
     > a {
-      height: $form-size-large;
-      line-height: $form-size-large;
+      padding-top:$g1;
+      padding-bottom:$g1;
       width: $form-size-large;
     }
 

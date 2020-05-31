@@ -32,14 +32,4 @@ export default {
     initAfter: null,
     destroyBefore: null,
 };
-// $.cui.plugin(textboxConfig);
-// $(document).on('dom.load.textbox', function () {
-//     $('[data-textbox]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-textbox');
-//         $this.textbox(data);
-//         $this.attr('data-textbox-load', '');
-//     });
-// });
 

@@ -292,13 +292,3 @@ export default {
     initAfter: null,
     destroyBefore: null
 };
-// $.cui.plugin(viewConfig);
-// $(document).on('dom.load.view', function () {
-//     $('[data-view]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-view');
-//         $this.attr('data-view-load', '');
-//         $this.view(data);
-//     });
-// });

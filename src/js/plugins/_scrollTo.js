@@ -37,7 +37,7 @@ export default {
 
 
 // $(document).on('dom.scroll.scrollSpy', function () {
-//     var status = $.cui.status;
+//     var status = $.cui_state;
 //     $('[data-scrollspy]').each(function () {
 //         var $item = $(this);
 //         var offset = $($item.attr('data-offsettop'));

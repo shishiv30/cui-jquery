@@ -79,19 +79,3 @@ export default {
     },
     destroyBefore: null,
 };
-// $.cui.plugin(transitionConfig);
-// $(document).on('dom.load.transition', function () {
-//     $('[data-transition]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-transition');
-//         $this.onscroll({
-//             once: true,
-//             callback: function () {
-//                 $this.transition(data);
-//                 $this.attr('data-transition-load', '');
-//             }
-//         });
-//     });
-// });
-

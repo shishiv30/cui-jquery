@@ -43,18 +43,18 @@
 
 .checkbox {
     input + span:before {
-        content: $icon-check_box_outline_blank;
+        content: $icon-square-o;
     }
     input:checked + span:before {
-        content: $icon-check_box;
+        content: $icon-check-square;
     }
 }
 
 .radio {
     input + span:before {
-        content: $icon-radio_button_unchecked;
+        content: $icon-circle-thin;
     }
     input:checked + span:before {
-        content: $icon-radio_button_checked;
+        content: $icon-check-circle;
     }
 }

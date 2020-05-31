@@ -140,14 +140,4 @@ export default {
         exportObj.$container.remove();
     },
 };
-// $.cui.plugin(tipConfig);
-// $(document).on('dom.load.tip', function () {
-//     $('[data-tip]')
-//         .each(function () {
-//             var $this = $(this);
-//             var options = $this.data();
-//             $this.removeAttr('data-tip');
-//             $this.tip(options);
-//         });
-// });
 

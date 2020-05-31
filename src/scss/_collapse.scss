@@ -32,13 +32,13 @@
         &.i, & > i{
             display: inline-block;
         }
-        &.icon-expand_more, & > .icon-expand_more {
+        &.icon-angle-down, & > .icon-angle-down {
             transform: rotate(180deg);
         }
-        &.icon-arrow_left, & > .icon-arrow_left {
+        &.icon-angle-left, & > .icon-angle-left {
             transform: rotate(-90deg);
         }
-        &.icon-arrow_right, & > .icon-arrow_right {
+        &.icon-angle-right, & > .icon-angle-right {
             transform: rotate(90deg);
         }
     }

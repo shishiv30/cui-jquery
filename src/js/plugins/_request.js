@@ -44,14 +44,3 @@ export default {
     initAfter: null,
     destroyBefore: null
 };
-// $.cui.plugin(requestConfig);
-// $(document).on('dom.load.request', function () {
-//     $('[data-request]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-request');
-//         $this.request(data);
-//         $this.attr('data-request-load', '');
-//     });
-// });
-

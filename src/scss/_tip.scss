@@ -128,7 +128,7 @@
       box-shadow: none;
       &:before {
         @extend %icon;
-        content: $icon-error;
+        content: $icon-warning;
         display: inline-block;
         padding: 0 3px;
       }

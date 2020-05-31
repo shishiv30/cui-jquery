@@ -33,14 +33,4 @@ export default {
     initAfter: null,
     destroyBefore: null
 };
-// $.cui.plugin(tabsConfig);
-// $(document).on('dom.load.tabs', function () {
-//     $('[data-tabs]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-tabs');
-//         $this.tabs(data);
-//         $this.attr('data-tabs-load', '');
-//     });
-// });
 

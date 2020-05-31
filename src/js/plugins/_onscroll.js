@@ -10,10 +10,10 @@ export default {
     init: function ($this, opt, exportObj) {
         var eventName = 'dom.scroll.' + $.guid++;
         var _checkScreen = function (force) {
-            var status = $.cui.status;
+            var state = $.cui_state;
             if (opt.callback) {
-                var scrolltop = status.scrollTop;
-                var wheight = status.height;
+                var scrolltop = state.scrollTop;
+                var wheight = state.height;
                 var offsetTop = $this.offset().top;
                 if (offsetTop >= scrolltop && offsetTop <= (scrolltop + wheight + (force === true ? 0 : opt.reserve))) {
                     _trigger(opt.callback, $this, opt, exportObj);
@@ -36,14 +36,3 @@ export default {
     initAfter: null,
     destroyBefore: null
 };
-// $.cui.plugin(onscrollConfig);
-// $(document).on('dom.load.onscroll', function () {
-//     $('[data-onscroll]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-onscroll');
-//         $this.onscroll(data);
-//         $this.attr('data-onscroll-load', '');
-//     });
-// });
-

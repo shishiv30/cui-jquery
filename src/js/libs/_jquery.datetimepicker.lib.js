@@ -47,8 +47,8 @@
         this.zIndex = options.zIndex || this.element.data('z-index') || undefined;
 
         this.icons = {
-            leftArrow:'icon-arrow_left',
-            rightArrow: 'icon-arrow_right'
+            leftArrow: 'icon-arrow-left',
+            rightArrow: 'icon-arrow-right'
         };
         this.icontype = this.fontAwesome ? 'fa' : 'glyphicon';
 

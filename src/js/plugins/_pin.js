@@ -69,14 +69,3 @@ export default {
     initAfter: null,
     destroyBefore: null
 };
-// $.cui.plugin(pinConfig);
-// $(document).on('dom.load.pin', function () {
-//     $('[data-pin]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-pin');
-//         $this.pin(data);
-//         $this.attr('data-pin-load', '');
-//     });
-// });
-

@@ -3,7 +3,7 @@ import './libs'
 import core from './core';
 import inject from './inject';
 import plugins from './plugins';
-var cuiStatus = null;
+var state = {};
 var _isMobile = function () {
     var $body = $('body');
     if ($.isMobile()) {
@@ -14,10 +14,10 @@ var _isMobile = function () {
 };
 var _isLandscap = function () {
     var $body = $('body');
-    cuiStatus.width = $(window).width();
-    cuiStatus.height = $(window).height();
-    cuiStatus.isLandscape = cuiStatus.width > cuiStatus.height;
-    if (cuiStatus.isLandscape) {
+    state.width = $(window).width();
+    state.height = $(window).height();
+    state.isLandscape = state.width > state.height;
+    if (state.isLandscape) {
         $body.addClass('landscape');
         $body.removeClass('portrait');
     } else {
@@ -26,17 +26,17 @@ var _isLandscap = function () {
     }
 };
 var _isScrollDown = function () {
-    cuiStatus.scrollTop = $(window).scrollTop();
-    if (cuiStatus.scrollTop > cuiStatus.originalScrollTop) {
-        cuiStatus.isScrollDown = true;
-    } else if (cuiStatus.scrollTop < cuiStatus.originalScrollTop) {
-        cuiStatus.isScrollDown = false;
+    state.scrollTop = $(window).scrollTop();
+    if (state.scrollTop > state.originalScrollTop) {
+        state.isScrollDown = true;
+    } else if (state.scrollTop < state.originalScrollTop) {
+        state.isScrollDown = false;
     }
-    cuiStatus.originalScrollTop = cuiStatus.scrollTop;
+    state.originalScrollTop = state.scrollTop;
 };
 var _updateWindowStatus = function (type) {
-    if (!cuiStatus) {
-        cuiStatus = {
+    if (!state) {
+        state = {
             originalScrollTop: $(window).scrollTop(),
             isLandscape: $(window).width() > $(window).height(),
             scrollTop: $(window).scrollTop(),
@@ -46,7 +46,7 @@ var _updateWindowStatus = function (type) {
             width: $(window).width()
         };
     }
-    cuiStatus.causeByKeyboard = $('input, select, textarea').is(':focus');
+    state.causeByKeyboard = $('input, select, textarea').is(':focus');
     switch (type) {
     case 'resize':
         _isScrollDown();
@@ -60,11 +60,12 @@ var _updateWindowStatus = function (type) {
     case 'inital':
         _isScrollDown();
         _isLandscap();
+        $.cui_state = state;
         break;
     default:
         break;
     }
-    return status;
+    return state;
 };
 var _eventScrollListener = function () {
     $(window).on('scroll', $.throttle(function () {
