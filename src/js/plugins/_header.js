@@ -6,7 +6,6 @@ export default {
     },
     init: function ($this, opt, exportObj) {
         var $body = $('body');
-        var $nav = $this.find('.header-nav');
         var $list = $this.find('.header-menu-list');
         var $dropdown = $list.find('.list');
         var $overlay = $('<div class="header-overlay"></div>');
@@ -20,10 +19,11 @@ export default {
             $this.removeClass('header-close');
         };
         var _show = function () {
-            $body.addClass('expand');
+            $body.addClass('body-expand-header');
         };
         var _hide = function () {
-            $body.removeClass('expand');
+            $body.removeClass('body-expand-header');
+            $list.find('li').removeClass('hover').css('height', '');
         };
         $overlay.on('click', _hide);
         //nav
@@ -45,7 +45,7 @@ export default {
             $(this).append($arrow);
         });
         $swtichLink.on('click', function () {
-            if ($body.hasClass('expand')) {
+            if ($body.hasClass('body-expand-header')) {
                 _hide();
             } else {
                 _show();
@@ -71,15 +71,3 @@ export default {
     initAfter: null,
     destroyBefore: null
 };
-// $.cui.plugin(headerConfig);
-// $(document).on('dom.load.header', function () {
-//     $('[data-header]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-header');
-//         $this.header(data);
-//         $this.attr('data-header-load', '');
-//     });
-// });
-
-

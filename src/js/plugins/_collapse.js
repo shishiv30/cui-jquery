@@ -41,7 +41,7 @@ export default {
                 $this.addClass('shown');
                 $target.addClass('collapse-expand');
                 _showtext();
-                $(document).trigger('dom.scroll.image');
+                $(document).trigger('dom.load.image');
                 opt.showafter && _trigger(opt.showafter, $this, opt, exportObj);
             };
             exportObj.hide = function () {
@@ -49,7 +49,7 @@ export default {
                 $this.removeClass('shown');
                 $target.removeClass('collapse-expand');
                 _hidetext();
-                $(document).trigger('dom.scroll');
+                $(document).trigger('dom.load');
                 opt.hideafter && _trigger(opt.hideafter, $this, opt, exportObj);
             };
         } else {
@@ -58,7 +58,7 @@ export default {
                 $this.addClass('shown');
                 $target.show();
                 _showtext();
-                $(document).trigger('dom.scroll');
+                $(document).trigger('dom.load');
                 opt.showafter && _trigger(opt.showafter, $this, opt, exportObj);
             };
             exportObj.hide = function () {
@@ -66,7 +66,7 @@ export default {
                 $this.removeClass('shown');
                 $target.hide();
                 _hidetext();
-                $(document).trigger('dom.scroll');
+                $(document).trigger('dom.load');
                 opt.hideafter && _trigger(opt.hideafter, $this, opt, exportObj);
             };
         }
@@ -86,7 +86,7 @@ export default {
 
         var _resetForExpand = function () {
             if (!$this.hasClass('shown')) {
-                if ($target.prop('scrollHeight') > $target.prop('offsetHeight')) {
+                if ($target.prop('loadHeight') > $target.prop('offsetHeight')) {
                     $this.css('visibility', 'visible');
                 } else {
                     $this.css('visibility', 'hidden');
@@ -105,8 +105,7 @@ export default {
         }
         $this.on('click.collapse', exportObj.toggle);
     },
-    destroyBefore: function ($this, opt, exportObj) {
-
+    destroyBefore: function ($this) {
         $this.off('click.collapse');
     }
 };

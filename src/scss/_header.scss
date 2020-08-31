@@ -2,10 +2,12 @@ $header-background: $color-main;
 $header-font: $color-f;
 $highlight-link: $color-main;
 .header {
-  position: sticky;
-  top: 0;
-  left:0;
-  right:0;
+  &.sticky{
+    position: sticky;
+    top: 0;
+    left:0;
+    right:0;
+  }
   width:100%;
   display: flex;
   justify-content: space-between;
@@ -13,16 +15,16 @@ $highlight-link: $color-main;
   color: $header-font;
   transition: transform 0.5s;
   transform: translateY(0%);
-  box-shadow: 0px 1px 1px #eeeeee;
+  box-shadow: 0px 1px 1px $color-7;
   z-index: $ui-header-index;
   &.header-close {
     transform: translateY(-100%);
   }
-  .logo-link{
-    padding: 0;
-    min-width: $form-size-large;
+  .menu-icon{
+    flex-shrink: 0;
   }
   a {
+    height:$form-size-default;
     padding: $g1 $g2;
     display: block;
     text-align: center;
@@ -91,13 +93,9 @@ $highlight-link: $color-main;
   position: relative;
   & > li {
     position: relative;
-    display: inline-block;
     &.list {
       & > a {
         position: relative;
-      }
-      .header-expand {
-        display: none;
       }
       .splict {
         border-bottom: 1px solid $color-border;
@@ -106,14 +104,7 @@ $highlight-link: $color-main;
     &.right {
       margin-left: auto;
     }
-    @include hover() {
-      > ul {
-        display: block;
-      }
-    }
     > ul {
-      display: none;
-     
       background-color: $color-f;
       color: $color-3;
       box-shadow: 0 0 0 1px $color-border;
@@ -127,15 +118,42 @@ $highlight-link: $color-main;
     }
   }
 }
-
+body:not(.body-expand-header){
+  .header-menu-list {
+    .header-expand {
+      display: none;
+    }
+    & > li {
+      > ul {
+        display: none;
+      }
+      @include hover() {
+        > ul {
+          display: block;
+        }
+      }
+    }
+  }
+}
+.body-expand-header{
+  
+}
 // small screen
 @media (max-width: $screen-xs-max) {
-  .expand {
+  .body-expand-header {
     overflow: hidden;
     .header {
       .header-menu-list {
-        display: flex;
+        display: block;
+        overflow: auto;
         transform: translateX(0);
+        >.hover.list {
+          .header-expand {
+            i {
+              transform: rotateZ(-90deg);
+            }
+          }
+        }
       }
       .header-overlay {
         display: block;
@@ -160,7 +178,7 @@ $highlight-link: $color-main;
       flex-direction: column;
       transition: all 0.5s;
       transform: translateX(100%);
-      height: 100vh;
+      height: calc(100vh - #{$form-size-default});
       & > li {
         width: 100%;
         height: $form-size-default;
@@ -172,13 +190,12 @@ $highlight-link: $color-main;
           padding-left: 1.5rem;
           padding-right: 1.5rem;
         }
-        &.list a:first-of-type {
+        &.list > a:first-of-type {
           margin-right: $form-size-default;
         }
         &.list {
           .header-expand {
-            background-color: rgba(255, 255, 255, 0.2);
-            box-shadow:0 0 0 1px $color-border;
+            border-left: 1px solid rgba(255,255,255,0.2);
             width: $form-size-default;
             height: $form-size-default;
             line-height: $form-size-default;
@@ -193,16 +210,6 @@ $highlight-link: $color-main;
               height: $form-size-default;
               line-height: $form-size-default;
               transition: transform 0.25s;
-            }
-          }
-        }
-        &.hover.list {
-          ul{
-            display: block;
-          }
-          .header-expand {
-            i {
-              transform: rotateZ(-90deg);
             }
           }
         }
