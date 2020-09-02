@@ -38,9 +38,6 @@ export default {
                     exportObj.hide();
                 }
             });
-            $(document).on('dom.resize.' + opt.id, function () {
-                exportObj.reposition();
-            });
         };
         var _hide = exportObj.hide = function () {
             if($dialog){
@@ -53,9 +50,6 @@ export default {
                     if(!opt.cache){
                         $dialog.remove();
                         $dialog = null;
-                        $(document).off('dom.resize.' + opt.id, function () {
-                            exportObj.reposition();
-                        });
                         $(document).off('dialog.hidden.except'+ opt.id, function (e, id) {
                             if (id != opt.id) {
                                 exportObj.hide();

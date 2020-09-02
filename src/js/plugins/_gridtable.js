@@ -4,9 +4,7 @@ export default {
     defaultOpt: {
         key: 'thead th',
     },
-    initBefore: function () {
-
-    },
+    initBefore: null,
     init: function ($this, opt, exportObj) {
         var $key = $this.find(opt.key);
         var $list = $this.find('tbody tr');
