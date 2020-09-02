@@ -66,7 +66,7 @@ export default {
                     };
                     $container.addClass(`${opt.placement}-left`);
                 } else {
-                    x = x - position.left;
+                    x = x - position.left/2;
                     css = {
                         left: -1 * x
                     };

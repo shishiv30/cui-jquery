@@ -135,9 +135,6 @@ body:not(.body-expand-header){
     }
   }
 }
-.body-expand-header{
-  
-}
 // small screen
 @media (max-width: $screen-xs-max) {
   .body-expand-header {
@@ -190,10 +187,10 @@ body:not(.body-expand-header){
           padding-left: 1.5rem;
           padding-right: 1.5rem;
         }
-        &.list > a:first-of-type {
-          margin-right: $form-size-default;
-        }
         &.list {
+          > a:first-of-type {
+            margin-right: $form-size-default;
+          }
           .header-expand {
             border-left: 1px solid rgba(255,255,255,0.2);
             width: $form-size-default;
@@ -238,6 +235,7 @@ body:not(.body-expand-header){
           top: $form-size-default;
           left: 0;
           right: auto;
+          width:160px;
           & > li {
             a {
               text-align: left;

@@ -117,7 +117,7 @@ var initalCustomMarker = function () {
                 var $pin = $(div);
                 var html = $.renderHtml(self.popTmp, self.popData);
                 var $content = $('<div class="pop-content"><div>' + html + '</div></div>');
-                var tippopover = $pin.find('.pin').tip({
+                var tippopover = $pin.find('.pin').cui_tip({
                     content: $content,
                     placement: 'top',
                     trigger: 'click',
@@ -286,11 +286,11 @@ export default {
             });
         }
         var map = new window.google.maps.Map($this.get(0), mapOptions);
-        exportObj.ap = map;
+        exportObj.gmap = map;
         var markers = new markManager({
             defaultOpt: {
                 draggable: false,
-                icon: 'icon-home',
+                icon: 'icon-cui',
                 onclick: null,
                 onmouseover: null,
                 onmouseout: null,
@@ -302,7 +302,7 @@ export default {
                 popHeight: 100,
                 zIndex: null,
             },
-            map: exportObj.ap,
+            map: exportObj.gmap,
             create: function (markerOpt) {
                 var latlng = new window.google.maps.LatLng({
                     lat: markerOpt.lat,
@@ -441,7 +441,7 @@ export default {
     setOptionsAfter: null,
     initBefore: null,
     initAfter: function ($this, opt, exportObj) {
-        var map = exportObj.ap;
+        var map = exportObj.gmap;
         window.google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
             //click event
             opt.onclick && _trigger(opt.onclick, $this, opt, exportObj);
