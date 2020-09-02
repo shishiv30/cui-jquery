@@ -151,11 +151,58 @@
 
 </style>
 <body id="body" data-cui="loadimage">
+    <div data-cui="header" class="header sticky">
+    <div class="header-bar">
+        <a href="javascript:;" class="menu-icon"><i class="icon-cui f3"></i></a>
+        <div class="input right">
+            <input id="headerInput" placeholder="Search for ..." type="text">
+            <a href="javascript:;" class="btn"><i class="icon-search"></i></a>
+        </div>
+    </div>
+    <div class="header-nav">
+        <ul class="header-menu-list">
+            <li>
+                <a href="javascript:;" class="hightlight">API Document</a>
+            </li>
+            <li class="list">
+                <a href="javascript:;">Prototype</a>
+                <ul>
+                    <li><a href="www.movoto.com">Movoto</a></li>
+                    <li class="splict"><a href="javascript:;">Educate</a></li>
+                    <li>
+                        <a class="hightlight" href="javascript:;">Note</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">regression</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Q&A</a>
+                    </li>
+                    <li>
+                        <a class="hightlight" href="javascript:;">Wild World</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="right list">
+                <a href="javascript:;">Design Model</a>
+                <ul>
+                    <li><a href="javascript:;">Golden Ratio</a></li>
+                    <li><a href="javascript:;">Waterflow</a></li>
+                </ul>
+            </li>
+        </ul>
+        <a href="javascript:;" class="menu-icon header-switch-link"><i class="icon-bars f3"></i></a>
+    </div>
+
+</div>
+
+
+
+
     <div class="gs-fixed">
         <div class="row">
             <div class="col-xs-12">
-                
-<div class="section">
+                <div class="section">
     <div class="panel">
         <a href="javascript:;" class="h2" data-cui="collapse" data-target="#cssColor">
             color solution
@@ -608,7 +655,7 @@
                 <div class="col-xs-6 col-sm-4 col-md-3">
                     <div class="dropdown-button" data-cui="dropdownbutton">
                         <a href="javascript:;" class="default">the first</a>
-                        <a href="javascript:;" class="default"><i class="icon-arrow_drop_down"></i></a>
+                        <a href="javascript:;" class="default"><i class="icon-caret-down"></i></a>
                         <div class="dropdown-button-list">
                             <a href="javascript:;" class="default">the section</a>
                             <a href="javascript:;" class="default">the third</a>
@@ -687,7 +734,7 @@
                     <div class="col-xs-12 col-sm-6">
                         <label for="txtReq">Required Box</label>
                         <div class="input left right">
-                            <i class="icon-account_circle"></i>
+                            <i class="icon-user-circle-o"></i>
                             <input type="text" id="txtReq" name="name" placeholder="name" data-cui="validate" data-type="required">
                             <i>*</i>
                         </div>
@@ -696,7 +743,7 @@
                         <label for="txtMail">Mail Box</label>
                         <div class="input right">
                             <input type="text" id="txtMail" name="email" placeholder="email" data-cui="validate" data-type="email">
-                            <i class="icon-email"></i>
+                            <i class="icon-envelope"></i>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
@@ -1132,12 +1179,12 @@
                         of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write
                         JavaScript.
                     </dd>
-                    <dt><a href="javascript:;" data-cui="collapse" data-target="#anglePanel" data-isexpand="true" data-showtext="open" data-hidetext="collapsed"><i class="icon-expand_more"></i> <span>collapsed</span> </a></dt>
+                    <dt><a href="javascript:;" data-cui="collapse" data-target="#anglePanel" data-isexpand="true" data-showtext="open" data-hidetext="collapsed"><i class="icon-angle-down"></i> <span>collapsed</span> </a></dt>
                 </dl>
             </div>
             <div class="flex-xs-12 flex-sm-6 flex-md-3">
                 <dl>
-                    <dt><a href="javascript:;" data-cui="collapse" data-target="#eyePanel" data-isexpand="true" data-showtext="shown" data-hidetext="hidden"><i class="icon-expand_more"></i> <span>hidden</span></a></dt>
+                    <dt><a href="javascript:;" data-cui="collapse" data-target="#eyePanel" data-isexpand="true" data-showtext="shown" data-hidetext="hidden"><i class="icon-angle-down"></i> <span>hidden</span></a></dt>
                     <dd id="eyePanel" style="height: 0; overflow: hidden;">jQuery is a fast, small, and feature-rich JavaScript library. It makes
                         things like HTML
                         document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across
@@ -1151,7 +1198,7 @@
                 <dl style="position: relative;">
                     <dt>
                         <a href="javascript:;" data-cui="collapse" data-target="#caretPanel">
-                            <span>dropdown menu</span> <i class="icon-arrow_left"></i>
+                            <span>dropdown menu</span> <i class="icon-angle-left"></i>
                         </a>
                     </dt>
                     <dd id="caretPanel" class="collapse-menu">jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML
@@ -1240,22 +1287,22 @@
         </a>
         <div id="rangesilderPanel">
             <div class="form">
-                <div class="row" data-ranger data-max="10000" data-min="100" data-decimals="1" data-step="10" data-target="#ranger" data-onupdate="ranger.update" data-onchange="ranger.change">
+                <div class="row" data-cui="ranger" data-max="10000" data-min="100" data-decimals="1" data-step="10" data-target="#ranger" data-onupdate="ranger.update" data-onchange="ranger.change">
                     <div class="col-xs-6">
                         <div data-cui="textbox">
-                            <div class="input left">
-                                <span for="txtPriceMin">Min price</span>
-                                <i>$</i>
+                            <div class="input right">
+                                <label>Min price</label>
                                 <input type="text" id="txtPriceMin" name="min" value="3000">
+                                <i>$</i>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div data-cui="textbox">
-                            <div class="input left">
-                                <span for="txtPriceMax">Max price</span>
-                                <i>$</i>
+                            <div class="input right">
+                                <label>Max price</label>
                                 <input type="text" id="txtPriceMax" name="max" value="6000">
+                                <i>$</i>
                             </div>
                         </div>
                     </div>
@@ -1372,36 +1419,38 @@
             var $item = $(item);
             $item.text($item.css('backgroundColor').replace('rgb', ''));
         });
-        var mockPin = function (count) {
-            var list = [];
-            for (var i = 0; i < count; i++) {
-                var pin = {
-                    lat: ('37.8' + Math.floor(Math.random() * 99999)) * 1,
-                    lng: ('122.4' + Math.floor(Math.random() * 99999)) * -1
-                };
-                list.push(pin);
-            }
-            return list;
-        };
-        $(document).one('initialMap', function (d, e, map) {
-            var list = mockPin(100);
-            list.forEach(function (e) {
-                map.addMarker({
-                    lat: e.lat,
-                    lng: e.lng,
-                    html: true,
-                    popTmp: '<div><h1>{{words}}</h1></div>',
-                    popData: {
-                        words: 'hello'
-                    }
-                });
-            });
-            map.fitBounds();
-        });
+     
+  
         $('.btn').click(function () {
             $(this).toggleClass('active');
         });
    });
+   var mockPin = function (count) {
+        var list = [];
+        for (var i = 0; i < count; i++) {
+            var pin = {
+                lat: ('37.8' + Math.floor(Math.random() * 99999)) * 1,
+                lng: ('122.4' + Math.floor(Math.random() * 99999)) * -1
+            };
+            list.push(pin);
+        }
+        return list;
+    };
+   $(document).one('initialMap', function (t, ele, opt, obj) {
+        var list = mockPin(10);
+        list.forEach(function (e) {
+            obj.addMarker({
+                lat: e.lat,
+                lng: e.lng,
+                html: true,
+                popTmp: '<div><h1>{{words}}</h1></div>',
+                popData: {
+                    words: 'hello'
+                }
+            });
+        });
+        obj.fitBounds();
+    });
    $(document).one('datatable.inital', function (e, element, opt, obj) {
         obj.setOptions({
             columns: [{
