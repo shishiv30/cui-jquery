@@ -1,14 +1,14 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9dec7b62aaaa39e78c4bdff0752eaeaf",
+    "revision": "8b999c905b3b070b178a6f902f1646b9",
     "url": "./index.html"
   },
   {
-    "revision": "6e721aa2a939b5e46fb7",
+    "revision": "a903c51ca84cdf74d4c8",
     "url": "cui.min.css"
   },
   {
-    "revision": "6e721aa2a939b5e46fb7",
+    "revision": "a903c51ca84cdf74d4c8",
     "url": "cui.min.js"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "fonts/Roboto-thin.woff2"
   },
   {
-    "revision": "2fcbfa4d81caef42c2dfc118cd640329",
+    "revision": "bbfedd0f78cd77c67d47240195d249f6",
     "url": "fonts/fonticon.svg"
   },
   {
@@ -53,7 +53,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "images/download-1.jpg"
   },
   {
-    "revision": "30e4364a805dc48ba95ee58f8c2e04bc",
+    "revision": "15387e6f3afb8572ff1362558c926b4c",
     "url": "images/download-2.jpg"
   },
   {
