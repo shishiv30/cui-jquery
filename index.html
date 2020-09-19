@@ -10,9 +10,10 @@
     <meta name="Description" content="Author: Conjee Zou, UI solution, Category: Document, Lisence: MIT">
     <meta name="background-color" content="#ffffff">
     <meta name="theme-color" content="#333333">
-    <link rel="stylesheet" href="./fonts/Roboto-Regular.woff2">
-    <link rel="stylesheet" href="./fonts/fonts/fonticon.woff">
-    <link rel="stylesheet" href="/fonts/Roboto-thin.woff2">
+    <link rel="preload" href="fonts/fonticon.woff" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/Roboto-thin.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/Roboto-light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <meta name="theme-color" content="#ffffff"><link rel="manifest" href="manifest.2e271b88928bcc74ac22600cfab36f67.json"><link rel="shortcut icon" href="favicon.ico"><link href="cui.min.css" rel="stylesheet"></head>
 <style type="text/css">
     #loadingSection {
@@ -1068,22 +1069,6 @@
                     <div>20</div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<div class="section">
-    <div class="panel">
-        <a href="javascript:;" class="h2" data-cui="collapse" data-target="#mapPanel">
-            map
-            <span class="sub"> new map style</span>
-        </a>
-        <div id="mapPanel" style="display:none;">
-            <h3>Dynamic Map</h3>
-            <div data-cui="gmap" data-lat="37.819929" data-lng="-122.478255" data-onload="initialMap" data-inline="false" class="mapdemo"> </div>
-            <h3>Static Map</h3>
-            <div data-cui="gsmap" data-type="terrain" data-lat="37.819929" data-lng="-122.478255" class="mapdemo"> </div>
-            <h3>Static Street Map</h3>
-            <div data-cui="gsmap" data-type="streetview" data-lat="37.819929" data-lng="-122.478255" class="mapdemo"> </div>
         </div>
     </div>
 </div>
