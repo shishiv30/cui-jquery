@@ -40,7 +40,6 @@
     "image-webpack-loader": "^4.3.1",
     "jquery": "^3.5.1",
     "mini-css-extract-plugin": "^0.4.2",
-    "moment": "^2.25.3",
     "mustache": "^3.2.1",
     "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
@@ -53,5 +52,8 @@
     "webpack-merge": "^4.2.2",
     "webpack-pwa-manifest": "^4.2.0",
     "workbox-webpack-plugin": "^4.3.1"
+  },
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^3.9.0"
   }
 }

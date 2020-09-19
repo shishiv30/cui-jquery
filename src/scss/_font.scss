@@ -1,7 +1,7 @@
 //font icon base
 @font-face {
   font-family: 'fonticon';
-  src:  url('../assets/fonts/fonticon.woff?b94lvl') format('woff'), url('../assets/fonts/fonticon.ttf?b94lvl') format('truetype'), url('../assets/fonts/fonticon.svg?b94lvl##fonticon') format('svg');
+  src: local('Pacifico Regular'), url('../assets/fonts/fonticon.woff?b94lvl') format('woff'), url('../assets/fonts/fonticon.ttf?b94lvl') format('truetype'), url('../assets/fonts/fonticon.svg?b94lvl##fonticon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -11,14 +11,14 @@
   font-display: auto;
   font-style: normal;
   font-weight: 100;
-  src: url("../assets/fonts/Roboto-thin.woff2") format("woff2");
+  src: local('Pacifico Regular'), url("../assets/fonts/Roboto-thin.woff2") format("woff2");
 }
 @font-face {
   font-family: $font-family;
   font-display: auto;
   font-style: normal;
   font-weight: 300;
-  src: url("../assets/fonts/Roboto-light.woff2") format("woff2");
+  src: local('Pacifico Regular'), url("../assets/fonts/Roboto-light.woff2") format("woff2");
 }
 
 @font-face {
@@ -26,5 +26,5 @@
   font-display: auto;
   font-style: normal;
   font-weight: 400;
-  src: url("../assets/fonts/Roboto-Regular.woff2") format("woff2");
+  src: local('Pacifico Regular'), url("../assets/fonts/Roboto-Regular.woff2") format("woff2");
 }

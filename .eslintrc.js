@@ -7,7 +7,6 @@ module.exports = {
     },
     "globals": {
         "Mustache": true,
-        "moment": true,
         "browser": true,
         "console": true,
         "noUiSlider": true,

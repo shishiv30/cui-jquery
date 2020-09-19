@@ -1,4 +1,3 @@
-import moment from 'moment';
 import _trigger from '../core/_trigger';
 export default {
     $element: null,
@@ -43,7 +42,7 @@ export default {
                 return $.htmlencode(value);
             case 'date':
                 var time = new Date(value);
-                return time.valueOf() ? moment(time).format(column.format || 'M/D/Y') : '';
+                return time.toString();
             default:
                 return value;
             }
