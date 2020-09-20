@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.dev.js --mode=development --open",
-    "build": "webpack-dev-server --config webpack.config.prd.js --mode=production --open",
-    "deploy": "webpack --config webpack.config.prd.js --mode=production && node deploy.js"
+    "make": "webpack-dev-server --config webpack.config.prd.js --mode=production --open",
+    "build": "webpack --config webpack.config.prd.js --mode=production",
+    "deploy": "node deploy"
   },
   "repository": {
     "type": "git",

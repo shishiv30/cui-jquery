@@ -2,7 +2,7 @@ const baseConfig = require('./webpack.base.config.js');
 const merge = require('webpack-merge');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = merge(baseConfig, {
     entry: {
         cui: './src/doc/index.js'
@@ -14,6 +14,6 @@ module.exports = merge(baseConfig, {
     },
     plugins: [
         new CleanWebpackPlugin('public'),
-        new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin()
     ]
 });
