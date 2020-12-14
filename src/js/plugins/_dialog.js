@@ -62,10 +62,10 @@ export default {
         var _render = exportObj.render = function(){
             $dialog = $(`<div class="dialog dialog-${opt.theme}" tabIndex="-1"></div>`);
             $dialogPanel = $('<div class="dialog-panel"></div>');
-            $dialogBody = $('<div class="dialog-body"><a class="dialog-title-close" dialog-close href="javascript:void(0);"><i class="icon-remove"></i></a></div>');
+            $dialogBody = $('<div class="dialog-body"><a class="dialog-title-close" dialog-close href="javascript:void(0);">X</a></div>');
             $dialogOverLay = $('<div class="dialog-overlay"></div>');
             $dialogPanel.append($dialogBody);
-            $dialogBody.html('<a class="dialog-title-close" dialog-close href="javascript:void(0);"><i class="icon-remove"></i></a>');
+            $dialogBody.html('<a class="dialog-title-close" dialog-close href="javascript:void(0);">X</a>');
             $dialogBody.append(opt.html);
             $dialog.append($dialogPanel);
             $dialog.prepend($dialogOverLay);

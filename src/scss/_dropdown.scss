@@ -1,17 +1,17 @@
 .select-textbox {
     position: relative;
-    background: $color-f;
+    background: $color-bg;
     > label {
         position: absolute;
         top: $gxs;
         left: $g1;
-        color: $color-a;
+        color: $color-mid;
         font-size: $font-size-7;
         pointer-events: none;
     }
     > select {
         width: 100%;
-        box-shadow: 0 0 0 1px $color-border;
+        box-shadow: 0 0 0 1px $color-mid;
         border: none;
         @include form-default-2();
         background: transparent;
@@ -25,7 +25,7 @@
         @extend %center-y;
         right: $g0;
         font-size: $font-size-4;
-        color: $color-3;
+        color: $color-font;
         pointer-events: none;
     }
     &.large{

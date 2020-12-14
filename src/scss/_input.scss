@@ -15,7 +15,7 @@
   > input,
   > select {
     width: 100%;
-    box-shadow: 0 0 0 1px $color-border;
+    box-shadow: 0 0 0 1px $color-mid;
     border: none;
     border-radius: $border-radius;
     @include form-default-1();
@@ -132,7 +132,7 @@
   }
 
   &.has-success {
-      color: $color-0;
+      color: $color-font;
   }
 
   &.has-error {

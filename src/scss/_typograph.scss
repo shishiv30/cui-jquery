@@ -53,13 +53,16 @@
 .h5,
 .h6,
 .h7 {
-  display: inline-block;
+  display: block;
   position: relative;
   width: 100%;
   @include singleline();
 }
 .section {
-  margin-top:$g3;
+  margin:$g4 0;
+  .panel{
+    padding: 0 $g2;
+  }
 }
 .panel {
   > .h1,
@@ -76,11 +79,10 @@
   }
 
   .paragraph, p {
-    margin:$gs 0;
+    margin: $g0 0;
     &.singleline-2 {
       @include multiline($lineCount: 2, $bgColor: white);
     }
-  
     &.singleline-3 {
       @include multiline($lineCount: 3, $bgColor: white);
     }
@@ -104,9 +106,6 @@
         &:before{
           transform: rotate(-90deg);
         }
-      }
-      + div {
-          padding:0 $g3;
       }
   }
 }

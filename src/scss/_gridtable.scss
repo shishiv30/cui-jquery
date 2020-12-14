@@ -1,9 +1,9 @@
 .gridtable {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid $color-border;
+  border: 1px solid $color-mid;
   th {
-    background-color: $color-e;
+    background-color: $color-mid;
     text-align: left;
   }
   td,
@@ -19,7 +19,7 @@
   table.gridtable {
     td,
     th {
-      border: 1px solid $color-c;
+      border: 1px solid $color-mid;
       padding: $g1 !important;
     }
     tbody {
@@ -51,7 +51,7 @@
       z-index: -1;
     }
     tr {
-      border-bottom: dashed 1px $color-border;
+      border-bottom: dashed 1px $color-mid;
       overflow: hidden;
       @include clearfix();
       td {
@@ -88,7 +88,7 @@
         position: relative;
       }
       td:before {
-        color: $color-5;
+        color: $color-mid;
         @include singleline();
         display: inline-block;
         width: 6.5rem;

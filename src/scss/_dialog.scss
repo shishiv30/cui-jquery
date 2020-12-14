@@ -34,7 +34,7 @@
         max-width: $screen-xs-max;
         border-radius: 5px;
         z-index: $ui-dialog-index;
-        background-color: $color-f;
+        background-color: $color-bg;
         top:50%;
         left:50%;
         transform: translateX(-50%) translateY(-50%);
@@ -43,7 +43,7 @@
     .dialog-body {
         position: relative;
         z-index: 2;
-        color: $color-4;
+        color: $color-font;
         padding:$g2;
         overflow-x: hidden;
         overflow-y: auto;
@@ -70,7 +70,7 @@
             height: 100%;
             width: 100%;
             background: transparent;
-            color: $color-f;
+            color: $color-bg;
         }
     }
     &.dialog-dropdown {

@@ -1,5 +1,5 @@
 $header-background: $color-main;
-$header-font: $color-f;
+$header-font: $color-bg;
 $highlight-link: $color-main;
 .header {
   &.sticky{
@@ -15,7 +15,7 @@ $highlight-link: $color-main;
   color: $header-font;
   transition: transform 0.5s;
   transform: translateY(0%);
-  box-shadow: 0px 1px 1px $color-7;
+  box-shadow: 0px 1px 1px $color-d;
   z-index: $ui-header-index;
   &.header-close {
     transform: translateY(-100%);
@@ -98,16 +98,16 @@ $highlight-link: $color-main;
         position: relative;
       }
       .splict {
-        border-bottom: 1px solid $color-border;
+        border-bottom: 1px solid $color-mid;
       }
     }
     &.right {
       margin-left: auto;
     }
     > ul {
-      background-color: $color-f;
-      color: $color-3;
-      box-shadow: 0 0 0 1px $color-border;
+      background-color: $color-bg;
+      color: $color-font;
+      box-shadow: 0 0 0 1px $color-mid;
       min-width: 100%;
       position: relative;
       a{

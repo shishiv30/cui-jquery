@@ -16,8 +16,9 @@ html {
     font-family: $font-family, "Helvetica Neue", Arial, sans-serif;
     font-weight: $font-weight-normal;
     font-style: normal;
-    color: $color-text-default;
+    color: $color-font;
     font-size: 16px;
+    background-color: $color-bg;
     @media screen and  (max-width: $screen-xs-max) {
         font-size: calc(12px + 4 * ((100vw - 320px) / 320));
     }
@@ -44,7 +45,7 @@ label[for] {
 input, select, textarea, button {
     line-height: 1.618;
     outline: none;
-    color: $color-text-default;
+    color: $color-font;
     font-family: $font-family, "Helvetica Neue", Arial, sans-serif;
     font-style: normal;
     font-size: $font-size-5;

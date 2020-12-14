@@ -46,14 +46,14 @@
   }
 
   &.default {
-    box-shadow: 0 0 0 1px $color-3;
+    box-shadow: 0 0 0 1px $color-font;
     > label {
-      border-color: $color-3;
+      border-color: $color-font;
     }
     input {
       &:checked + span {
-        background: $color-3;
-        color: $color-f;
+        background: $color-font;
+        color: $color-bg;
       }
     }
   }
@@ -65,7 +65,7 @@
     input {
       &:checked + span {
         background: $color-warning;
-        color: $color-f;
+        color: $color-bg;
       }
     }
   }
@@ -77,7 +77,7 @@
     input {
       &:checked + span {
         background: $color-main;
-        color: $color-f;
+        color: $color-bg;
       }
     }
   }
@@ -89,7 +89,7 @@
     input {
       &:checked + span {
         background: $color-danger;
-        color: $color-f;
+        color: $color-bg;
       }
     }
   }
@@ -101,7 +101,7 @@
     input {
       &:checked + span {
         background: $color-safe;
-        color: $color-f;
+        color: $color-bg;
       }
     }
   }

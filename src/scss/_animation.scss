@@ -90,7 +90,7 @@
         transition: transform .5s ease-in-out;
         transform: translateY(-50%) translateX(-50%);
         animation: rotate 1s infinite steps(8);
-        color: $color-f;
+        color: $color-bg;
         @extend %icon;
         content: $icon-refresh;
     }
@@ -102,6 +102,6 @@
         left: 0;
         content: "";
         opacity: .6;
-        background: $color-0;
+        background: $color-font;
     }
 }

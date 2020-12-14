@@ -53,12 +53,6 @@
             $('.skeleton').html('After Content Loaded, It will show the real content with real height');
         });
         
-        $('.circle-item').each(function (index, item) {
-            var $item = $(item);
-            $item.text($item.css('backgroundColor').replace('rgb', ''));
-        });
-     
-  
         $('.btn').click(function () {
             $(this).toggleClass('active');
         });

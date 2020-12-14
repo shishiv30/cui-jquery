@@ -3,12 +3,12 @@
     &.removed {
         display: none;
     }
-    color: $color-f;
+    color: $color-bg;
     .pin {
         cursor: pointer;
         position: relative;
         border: 1px solid white;
-        background: $color-5;
+        background: $color-mid;
         border-radius: 50%;
         display: block;
         font-size: $font-size-5;

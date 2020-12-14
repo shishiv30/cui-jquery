@@ -364,3 +364,12 @@ $blur-size: $blur-width $card-height;
   max-width: 100%;
   max-height: 100%;
 }
+
+@mixin bar-shadow(){
+  box-shadow: 0px 1px 1px 0px $color-mid;
+}
+
+
+@mixin box-line(){
+  box-shadow: 0px 0px 2px 1px $color-mid;
+}

@@ -1,0 +1,113 @@
+// very small screen / phone
+$screen-xs-min: 320px;
+// Small screen / tablet
+$screen-sm-min: 640px;
+// Medium screen / desktop
+$screen-md-min: 992px;
+// Large screen / wide desktop
+$screen-lg: 1400px;
+$screen-lg-min: $screen-lg;
+$screen-xs-max: $screen-sm-min - 1;
+$screen-sm-max: $screen-md-min - 1;
+$screen-md-max: $screen-lg-min - 1;
+//font style
+$font-family: 'Roboto';
+$font-weight-light: 100;
+$font-weight-normal: 300;
+$font-weight-bold: 500;
+//legacy main
+$color-main: var(--color-main);
+$color-main-l1: var(--color-main-l1);
+//orange
+$color-warning: var(--color-warning);
+$color-warning-l1: var(--color-warning-l1);
+
+// yellow
+$color-tip: var(--color-tip);
+$color-tip-l1: var(--color-tip-l1);
+
+//green
+$color-safe: var(--color-safe);
+$color-safe-l1: var(--color-safe-l1);
+
+//color for error
+$color-danger: var(--color-danger);
+$color-danger-l1: var(--color-danger-l1);
+
+//gray level
+$color-mid:var(--color-mid);
+$color-bg: var(--color-bg);
+$color-font: var(--color-font);
+$color-d: var(--color-bg);
+//color for link
+$color-link-default: $color-main;
+$color-link-default-hover: $color-warning;
+//color for disable
+
+//grid
+$grid-columns: 12;
+$grid-gutter-width: 1rem;
+$flex-gutter-width: 1rem;
+
+//f1 = f3 / 0.618 = f3 + f3 * 0.618
+$font-size-1: 2.618rem;
+//f2 = f3 + (f1-f3) *0.382
+$font-size-2: 2rem;
+//f3 = f5 / 0.618 = f5 + f5 * 0.618
+$font-size-3: 1.618rem;
+//f4 = f5 + (f3-f5) * 0.382
+$font-size-4: 1.236rem;
+//f5 =  f7 / 0.618 = f7 + f7 * 0.618
+$font-size-5: 1rem;
+//f6 = f7 + (f5-f7) * 0.382
+$font-size-6: 0.764rem;
+//0.618 = 1 * 0.618
+$font-size-7: 0.618rem;
+$border-radius: 6px;
+
+//half of gs
+$gxs: .191rem; 
+//f5 - 0.618
+$g0: .382rem;
+//half of f7
+$g0: .309rem;
+//half of f5
+$g1: .5rem;
+//half of f3 or g0 + g1
+$g2: .809rem;
+//half of f1 or g1 + g2
+$g3: 1.309rem;
+//half of f1 or g2 + g3
+$g4: 2.109rem;
+
+//button & input & select
+//f3(f5*1.618)
+$form-size-tiny: 1.618rem;
+//$g0 + f3(f5*1.618) + $g0
+$form-size-small: 2.236rem;
+//$g1 + f3(f5*1.618) + $g1
+$form-size-default: 2.618rem;
+//$g1 + f3(f5*1.618) + $g1
+//f7+ f2(f4*1.618) +f7
+//$g0 + f3(f5*1.618) + f5(f7*1.618)  + $g0
+$form-size-large: 3.236rem;
+
+//z-index
+$ui-tip-index: 1000;
+$ui-popover-index: 1050;
+$ui-buttongroup-index: 1100;
+$ui-pin-index: 1930;
+$ui-pin-hover-index: 1940;
+$ui-map-popover: 1950;
+$ui-sticky-submenu-index: 1950;
+$ui-stick-index: 1960;
+$ui-header-overlay: 1990;
+$ui-header-index: 2000;
+$ui-header-list-index: 2010;
+$ui-datepicker-index: 2100;
+$ui-gautocomplete-index: 3000;
+$ui-dropdown-index: 3100;
+$ui-menu-index: 3200;
+$ui-aside-index: 4000;
+$ui-dialog-overlay: 10000;
+$ui-dialog-index: 10010;

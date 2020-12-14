@@ -20,7 +20,7 @@ a {
         }
     }
     &[disable] {
-        color: $color-disable;
+        color: $color-mid;
         pointer-events: none;
     }
 }

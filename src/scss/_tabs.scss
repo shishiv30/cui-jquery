@@ -1,6 +1,6 @@
 .tab-panel {
     display: none;
-    border: 1px solid $color-border;
+    border: 1px solid $color-mid;
     padding: $g3;
 }
 
@@ -11,10 +11,10 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: 80px;
-    box-shadow: 0 0 0 1px $color-border;
+    box-shadow: 0 0 0 1px $color-mid;
     &.active {
-        background: $color-7;
-        color:$color-f;
+        background: $color-mid;
+        color:$color-bg;
         border-bottom: none;
     }
 }
@@ -23,7 +23,7 @@
     > ul {
         display: flex;
          > li {
-            margin-right: $gs;
+            margin-right: $g0;
         }
     }
 }

@@ -1,12 +1,12 @@
 select {
     width: 100%;
     line-height: 100%;
-    border: 1px solid $color-border;
+    border: 1px solid $color-mid;
     border-radius: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: $color-f;
+    background: $color-bg;
     cursor: pointer;
 }
 select::-ms-expand {

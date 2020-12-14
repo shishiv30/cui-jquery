@@ -33,12 +33,11 @@
       transform: translateY(-50%);
       border: none;
       z-index: 1;
-      opacity: 0.5;
+      opacity: 0.8;
       text-align: left;
       @extend %singleline;
       transition: all 0.2s ease-in-out;
       pointer-events: none;
-      color: $color-7;
     }
   }
 
@@ -111,11 +110,11 @@
   }
 
   .textarea {
-    background-color: $color-f;
-    border: 1px solid $color-border;
+    background-color: $color-bg;
+    border: 1px solid $color-mid;
 
     label {
-      padding: 0 $gs;
+      padding: 0 $g0;
       left: 0;
       right: 0;
       top: $g3;

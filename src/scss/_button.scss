@@ -1,16 +1,16 @@
 %btn-color {
   &.default {
       &.active {
-          background-color: $color-3;
-          color: $color-f;
+          background-color: $color-font;
+          color: $color-bg;
       }
-      box-shadow: 0 0 0 1px $color-3;
-      color: $color-3;
+      box-shadow: 0 0 0 1px $color-font;
+      color: $color-font;
   }
   &.warning {
       &.active {
           background-color: $color-warning;
-          color: $color-f;
+          color: $color-bg;
       }
       box-shadow: 0 0 0 1px $color-warning;
       color: $color-warning;
@@ -18,7 +18,7 @@
   &.main {
       &.active {
           background-color: $color-main;
-          color: $color-f;
+          color: $color-bg;
       }
       box-shadow: 0 0 0 1px $color-main;
       color: $color-main;
@@ -26,7 +26,7 @@
   &.danger {
       &.active {
           background-color: $color-danger;
-          color: $color-f;
+          color: $color-bg;
       }
       box-shadow: 0 0 0 1px $color-danger;
       color: $color-danger;
@@ -34,7 +34,7 @@
   &.safe {
       &.active {
           background-color: $color-safe;
-          color: $color-f;
+          color: $color-bg;
       }
       box-shadow: 0 0 0 1px $color-safe;
       color: $color-safe;
@@ -64,9 +64,9 @@
   }
 
   &[disabled] {
-    background-color: $color-c !important;
-    box-shadow: 0 0 0 1px $color-7 !important;
-    color: $color-7 !important;
+    background-color: $color-mid !important;
+    box-shadow: 0 0 0 1px $color-mid !important;
+    color: $color-font !important;
   }
 
   &.loading {
@@ -83,7 +83,7 @@
   display: inline-block;
   font-size: $font-size-4;
   border-radius: 50%;
-  background-color: $color-e;
+  background-color: $color-mid;
   color: $color-main;
   text-align: center !important;
   @include hover() {
@@ -105,7 +105,7 @@
   }
   &.orange {
     background-color: $color-warning !important;
-    color: $color-f !important;
+    color: $color-bg !important;
   }
 }
 
@@ -131,17 +131,17 @@
   }
   .dropdown-button-list {
       position: absolute;
-      background: $color-f;
+      background: $color-bg;
       top: $form-size-default;
       left: $g1;
       right: $g1;
       z-index: $ui-buttongroup-index;
-      box-shadow: 0 0 0 1px $color-border;
+      box-shadow: 0 0 0 1px $color-mid;
       display: none;
        > a {
-          color: $color-0;
-          background: $color-f;
-          border-color: $color-border;
+          color: $color-font;
+          background: $color-bg;
+          border-color: $color-mid;
           box-shadow: none;
           border-top: 0;
       }

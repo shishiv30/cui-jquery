@@ -9,12 +9,12 @@ table {
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
-  color: $color-3;
+  color: $color-font;
 }
 
 table {
   td,
   th {
-    padding: $g1 $gs;
+    padding: $g1 $g0;
   }
 }
