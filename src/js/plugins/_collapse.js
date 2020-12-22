@@ -70,7 +70,7 @@ export default {
                 opt.hideafter && _trigger(opt.hideafter, $this, opt, exportObj);
             };
         }
-        exportObj.toggle =  function () {
+        exportObj.toggle = function () {
             if ($this.hasClass('shown')) {
                 exportObj.hide();
             } else {
@@ -97,7 +97,7 @@ export default {
             $(document).on('dom.resize.collapse', _resetForExpand);
             _resetForExpand();
         } else {
-            if ($target.is(':hidden')) {
+            if (!$this.hasClass('shown')) {
                 exportObj.hide();
             } else {
                 exportObj.show();

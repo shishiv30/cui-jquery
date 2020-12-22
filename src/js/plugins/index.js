@@ -9,7 +9,7 @@ import gridview from './_gridview.js'
 import header from './_header.js'
 import inputformat from './_inputformat.js'
 import links from './_links.js'
-import loadimage from './_loadimage.js'
+import lazyload from './_lazyload.js'
 import locker from './_locker.js'
 import mapdynamic from './_map.dynamic.js'
 import mapstatic from './_map.static.js'
@@ -37,7 +37,7 @@ export default {
     header,
     inputformat,
     links,
-    loadimage,
+    lazyload,
     locker,
     mapdynamic,
     mapstatic,

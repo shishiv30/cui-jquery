@@ -8,7 +8,11 @@ export default function (googleMapKey) {
         dfd.resolve(window.google && window.google.map);
     } else {
         $(document).one('gMapLoaded', function () {
-            dfd.resolve(window.google && window.google.map);
+            if(window.google && window.google.map){
+                dfd.resolve(window.google.map);
+            }else{
+                dfd.reject();
+            }
         });
         if (mapLoaded === 0) {
             mapLoaded = 1;
@@ -24,11 +28,11 @@ export default function (googleMapKey) {
                 files: [mapUrl],
                 type: 'js',
                 callback: 'googlemapcallback',
-            }).then(function () {
+            })
+            window.googlemapcallback = function() {
                 mapLoaded = 2;
-                dfd.resolve(window.google && window.google.map);
                 $(document).trigger('gMapLoaded');
-            });
+            };
         }
     }
     return dfd;
