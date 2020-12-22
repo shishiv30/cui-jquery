@@ -1,4 +1,36 @@
 import _trigger from '../core/_trigger';
+function loadImg(img) {
+    var $img = $(img);
+    var imgSrc = $img.attr('data-map');
+    if (imgSrc) {
+        $.loadImg($img, imgSrc);
+    }
+    $img.removeAttr('data-map');
+}
+function setImg(img, src) {
+    var $img = $(img);
+    $img.attr('data-map', src);
+    if (window.IntersectionObserver) {
+        if (!window.observerMap) {
+            const options = {
+                rootMargin: '0% 0% 0% 0%',
+                threshold: 0
+            };
+            window.observerMap = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+                    loadImg(entry.target);
+                    window.observer.unobserve(entry.target);
+                });
+            }, options);
+        }
+        window.observerMap.observe(img);
+    } else {
+        loadImg(img);
+    }
+}
 var iconType = {
     home: 0,
     heart: 2,
@@ -20,107 +52,107 @@ var iconType = {
 var getIconUrl = function (type) {
     var url = '';
     switch (type * 1) {
-    case iconType.home:
-        url = 'img/pin/homeicon.png';
-        break;
-    case iconType.school:
-        url = 'img/pin/schoolicon.png';
-        break;
-    case iconType.schoolred:
-        url = 'img/pin/red_school.png';
-        break;
-    case iconType.heart:
-        url = 'img/pin/favorite.png';
-        break;
-    case iconType.condored:
-        url = 'img/pin/red_condo.png';
-        break;
-    case iconType.condoblue:
-        url = 'img/pin/blue_condo.png';
-        break;
-    case iconType.condogreen:
-        url = 'img/pin/green_condo.png';
-        break;
-    case iconType.condogray:
-        url = 'img/pin/black_condo.png';
-        break;
-    case iconType.condoyellow:
-        url = 'img/pin/yellow_condo.png';
-        break;
-    case iconType.singlered:
-        url = 'img/pin/red_single.png';
-        break;
-    case iconType.singleblue:
-        url = 'img/pin/blue_single.png';
-        break;
-    case iconType.singlegreen:
-        url = 'img/pin/green_single.png';
-        break;
-    case iconType.singlegray:
-        url = 'img/pin/black_single.png';
-        break;
-    case iconType.singleyellow:
-        url = 'img/pin/yellow_single.png';
-        break;
-    case iconType.poiBank:
-        url = 'img/pin/poi-bank.png';
-        break;
-    case iconType.poiWorship:
-        url = 'img/pin/poi-worship.png';
-        break;
-    case iconType.poiRecreation:
-        url = 'img/pin/poi-recreation.png';
-        break;
-    case iconType.poiTransportHub:
-        url = 'img/pin/poi-train.png';
-        break;
-    case iconType.poiGas:
-        url = 'img/pin/poi-gas.png';
-        break;
-    case iconType.poiTexi:
-        url = 'img/pin/poi-taxi.png';
-        break;
-    case iconType.poiTransportation:
-        url = 'img/pin/poi-transportation.png';
-        break;
-    case iconType.poiGrocery:
-        url = 'img/pin/poi-grocery.png';
-        break;
-    case iconType.poiCafe:
-        url = 'img/pin/poi-cafe.png';
-        break;
-    case iconType.poiRestaurant:
-        url = 'img/pin/poi-restaurant.png';
-        break;
-    case iconType.poiBar:
-        url = 'img/pin/poi-bar.png';
-        break;
-    case iconType.poiShopping:
-        url = 'img/pin/poi-shopping.png';
-        break;
-    case iconType.comericialorange:
-        url = 'img/pin/property_orange_commercial.png';
-        break;
-    case iconType.condoorange:
-        url = 'img/pin/property_orange_condo.png';
-        break;
-    case iconType.lotlandorange:
-        url = 'img/pin/property_orange_lot_land.png';
-        break;
-    case iconType.mobilehomeorange:
-        url = 'img/pin/property_orange_mobile_home.png';
-        break;
-    case iconType.otherorange:
-        url = 'img/pin/property_orange_other.png';
-        break;
-    case iconType.singleorange:
-        url = 'img/pin/property_orange_single_family.png';
-        break;
-    case iconType.multifamilyorange:
-        url = 'img/pin/property_orange_multi_family.png';
-        break;
-    default:
-        url = type;
+        case iconType.home:
+            url = 'img/pin/homeicon.png';
+            break;
+        case iconType.school:
+            url = 'img/pin/schoolicon.png';
+            break;
+        case iconType.schoolred:
+            url = 'img/pin/red_school.png';
+            break;
+        case iconType.heart:
+            url = 'img/pin/favorite.png';
+            break;
+        case iconType.condored:
+            url = 'img/pin/red_condo.png';
+            break;
+        case iconType.condoblue:
+            url = 'img/pin/blue_condo.png';
+            break;
+        case iconType.condogreen:
+            url = 'img/pin/green_condo.png';
+            break;
+        case iconType.condogray:
+            url = 'img/pin/black_condo.png';
+            break;
+        case iconType.condoyellow:
+            url = 'img/pin/yellow_condo.png';
+            break;
+        case iconType.singlered:
+            url = 'img/pin/red_single.png';
+            break;
+        case iconType.singleblue:
+            url = 'img/pin/blue_single.png';
+            break;
+        case iconType.singlegreen:
+            url = 'img/pin/green_single.png';
+            break;
+        case iconType.singlegray:
+            url = 'img/pin/black_single.png';
+            break;
+        case iconType.singleyellow:
+            url = 'img/pin/yellow_single.png';
+            break;
+        case iconType.poiBank:
+            url = 'img/pin/poi-bank.png';
+            break;
+        case iconType.poiWorship:
+            url = 'img/pin/poi-worship.png';
+            break;
+        case iconType.poiRecreation:
+            url = 'img/pin/poi-recreation.png';
+            break;
+        case iconType.poiTransportHub:
+            url = 'img/pin/poi-train.png';
+            break;
+        case iconType.poiGas:
+            url = 'img/pin/poi-gas.png';
+            break;
+        case iconType.poiTexi:
+            url = 'img/pin/poi-taxi.png';
+            break;
+        case iconType.poiTransportation:
+            url = 'img/pin/poi-transportation.png';
+            break;
+        case iconType.poiGrocery:
+            url = 'img/pin/poi-grocery.png';
+            break;
+        case iconType.poiCafe:
+            url = 'img/pin/poi-cafe.png';
+            break;
+        case iconType.poiRestaurant:
+            url = 'img/pin/poi-restaurant.png';
+            break;
+        case iconType.poiBar:
+            url = 'img/pin/poi-bar.png';
+            break;
+        case iconType.poiShopping:
+            url = 'img/pin/poi-shopping.png';
+            break;
+        case iconType.comericialorange:
+            url = 'img/pin/property_orange_commercial.png';
+            break;
+        case iconType.condoorange:
+            url = 'img/pin/property_orange_condo.png';
+            break;
+        case iconType.lotlandorange:
+            url = 'img/pin/property_orange_lot_land.png';
+            break;
+        case iconType.mobilehomeorange:
+            url = 'img/pin/property_orange_mobile_home.png';
+            break;
+        case iconType.otherorange:
+            url = 'img/pin/property_orange_other.png';
+            break;
+        case iconType.singleorange:
+            url = 'img/pin/property_orange_single_family.png';
+            break;
+        case iconType.multifamilyorange:
+            url = 'img/pin/property_orange_multi_family.png';
+            break;
+        default:
+            url = type;
     }
     return url;
 };
@@ -129,44 +161,44 @@ var getIcon = function (type) {
         url: window.location.hostname
     };
     switch (type) {
-    case iconType.home:
-        icon.size = new window.google.maps.Size(32, 48);
-        icon.origin = new window.google.maps.Point(0, 0);
-        icon.anchor = new window.google.maps.Point(18, 48);
-        break;
-    case iconType.school:
-    case iconType.poiBank:
-    case iconType.poiWorship:
-    case iconType.poiRecreation:
-    case iconType.poiTransportHub:
-    case iconType.poiGas:
-    case iconType.poiTexi:
-    case iconType.poiTransportation:
-    case iconType.poiGrocery:
-    case iconType.poiCafe:
-    case iconType.poiRestaurant:
-    case iconType.poiBar:
-    case iconType.poiShopping:
-        icon.size = new window.google.maps.Size(36, 48);
-        icon.origin = new window.google.maps.Point(0, 0);
-        icon.anchor = new window.google.maps.Point(18, 48);
-        break;
-    case iconType.comericialorange:
-    case iconType.condoorange:
-    case iconType.lotlandorange:
-    case iconType.mobilehomeorange:
-    case iconType.otherorange:
-    case iconType.singleorange:
-    case iconType.multifamilyorange:
-        icon.size = new window.google.maps.Size(48, 64);
-        icon.origin = new window.google.maps.Point(0, 0);
-        icon.anchor = new window.google.maps.Point(24, 64);
-        break;
-    default:
-        icon.size = new window.google.maps.Size(30, 44);
-        icon.origin = new window.google.maps.Point(0, 0);
-        icon.anchor = new window.google.maps.Point(14, 44);
-        break;
+        case iconType.home:
+            icon.size = new window.google.maps.Size(32, 48);
+            icon.origin = new window.google.maps.Point(0, 0);
+            icon.anchor = new window.google.maps.Point(18, 48);
+            break;
+        case iconType.school:
+        case iconType.poiBank:
+        case iconType.poiWorship:
+        case iconType.poiRecreation:
+        case iconType.poiTransportHub:
+        case iconType.poiGas:
+        case iconType.poiTexi:
+        case iconType.poiTransportation:
+        case iconType.poiGrocery:
+        case iconType.poiCafe:
+        case iconType.poiRestaurant:
+        case iconType.poiBar:
+        case iconType.poiShopping:
+            icon.size = new window.google.maps.Size(36, 48);
+            icon.origin = new window.google.maps.Point(0, 0);
+            icon.anchor = new window.google.maps.Point(18, 48);
+            break;
+        case iconType.comericialorange:
+        case iconType.condoorange:
+        case iconType.lotlandorange:
+        case iconType.mobilehomeorange:
+        case iconType.otherorange:
+        case iconType.singleorange:
+        case iconType.multifamilyorange:
+            icon.size = new window.google.maps.Size(48, 64);
+            icon.origin = new window.google.maps.Point(0, 0);
+            icon.anchor = new window.google.maps.Point(24, 64);
+            break;
+        default:
+            icon.size = new window.google.maps.Size(30, 44);
+            icon.origin = new window.google.maps.Point(0, 0);
+            icon.anchor = new window.google.maps.Point(14, 44);
+            break;
     }
 
     icon.url += getIconUrl(type);
@@ -234,12 +266,9 @@ export default {
             }
             mapUrl = 'https://maps.googleapis.com' + mapUrl;
             if (opt.lazyload) {
-                $this.attr('data-img', mapUrl);
-                $(document).trigger('dom.load.image');
+                setImg(mapUrl)
             } else {
-                $this.is('img') ?
-                    $this.attr('src', mapUrl).data('img', mapUrl) :
-                    $this.css('background-image', 'url(' + mapUrl + ')');
+                $.loadImg($this, mapUrl);
             }
         };
         var setGSMapParams = function () {
@@ -291,7 +320,7 @@ export default {
                 streetviewUrl += '&' + opt.googleMapKey;
                 insertMap(streetviewUrl);
             } else {
-                opt.onError && _trigger(opt.onError,$this, opt, exportObj);
+                opt.onError && _trigger(opt.onError, $this, opt, exportObj);
 
                 if (opt.removedTarget) {
                     var $removedTarget = $(opt.removedTarget);
