@@ -1,4 +1,5 @@
 export default function ($) {
+    $ = $ || window.$;
     $.loadImg = function ($img, imgSrc) {
         var tmpImg = new Image();
         tmpImg.src = imgSrc;

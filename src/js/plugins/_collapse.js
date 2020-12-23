@@ -14,6 +14,7 @@ export default {
     },
     init: function ($this, opt, exportObj) {
         var $target = $(opt.target);
+        opt.id = $.guid++;
         var _showtext = function () {
             if (opt.showtext) {
                 if ($this.find('span').length > 0) {
@@ -94,7 +95,7 @@ export default {
             }
         };
         if (opt.isexpand) {
-            $(document).on('dom.resize.collapse', _resetForExpand);
+            $(document).on('dom.resize.collapse' + opt.id, _resetForExpand);
             _resetForExpand();
         } else {
             if (!$this.hasClass('shown')) {
@@ -105,7 +106,8 @@ export default {
         }
         $this.on('click.collapse', exportObj.toggle);
     },
-    destroyBefore: function ($this) {
+    destroyBefore: function ($this, opt) {
+        $(document).off('dom.resize.collapse' + opt.id)
         $this.off('click.collapse');
     }
 };

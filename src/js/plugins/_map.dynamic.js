@@ -156,7 +156,7 @@ var initalCustomMarker = function () {
                     if (this.zIndex) {
                         $(div).css('zIndex', this.zIndex);
                     }
-                    if ($.isMobile()) {
+                    if ($.isTouch) {
                         window.google.maps.event.addDomListener($(div).children()[0], 'touchstart', function () {
                             if (self.onclick) {
                                 self.onclick(div);
@@ -199,21 +199,21 @@ var initalCustomMarker = function () {
 var getMapTypeId = function (type) {
     var mapTypeId;
     switch (type * 1) {
-    case 0:
-        mapTypeId = window.google.maps.MapTypeId.ROADMAP;
-        break;
-    case 1:
-        mapTypeId = window.google.maps.MapTypeId.SATELLITE;
-        break;
-    case 2:
-        mapTypeId = window.google.maps.MapTypeId.HYBRID;
-        break;
-    case 3:
-        mapTypeId = window.google.maps.MapTypeId.TERRAIN;
-        break;
-    default:
-        mapTypeId = window.google.maps.MapTypeId.ROADMAP;
-        break;
+        case 0:
+            mapTypeId = window.google.maps.MapTypeId.ROADMAP;
+            break;
+        case 1:
+            mapTypeId = window.google.maps.MapTypeId.SATELLITE;
+            break;
+        case 2:
+            mapTypeId = window.google.maps.MapTypeId.HYBRID;
+            break;
+        case 3:
+            mapTypeId = window.google.maps.MapTypeId.TERRAIN;
+            break;
+        default:
+            mapTypeId = window.google.maps.MapTypeId.ROADMAP;
+            break;
     }
     return mapTypeId;
 };

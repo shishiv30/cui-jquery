@@ -22,6 +22,7 @@ export default {
     },
     init: function ($this, opt, exportObj) {
         var $wrapper = $this.children('div');
+        opt.id = $.guid++;
         var prePos = 0;
         var currPos = 0;
         var info = null;
@@ -35,25 +36,25 @@ export default {
             max = Math.max(0, max);
             var limitation = (opt.horizontal ? outerWidth : outerHeight) * opt.limitation;
             var newIndex = null;
-            var position =null;
-            var offset=0;
-            if( opt.horizontal){
+            var position = null;
+            var offset = 0;
+            if (opt.horizontal) {
                 position = Math.round($wrapper.position().left);
-            }else{
+            } else {
                 position = Math.round($wrapper.position().top);
             }
-            var sliderRange=[];
-            $slides.each(function(index,item){
-                if( opt.horizontal){
+            var sliderRange = [];
+            $slides.each(function (index, item) {
+                if (opt.horizontal) {
                     offset += $(item).outerWidth();
-                }else{
+                } else {
                     offset += $(item).outerHeight();
                 }
 
-                if(newIndex === null && (offset + position)>0) {
+                if (newIndex === null && (offset + position) > 0) {
                     newIndex = index;
                 }
-                sliderRange.push(offset) ;
+                sliderRange.push(offset);
             });
             info = {
                 max: max,
@@ -67,7 +68,7 @@ export default {
                 length: $slides.length
             };
         };
-        var dfd; 
+        var dfd;
         var _scroll = exportObj.scroll = function (distance, animation) {
             dfd = $.Deferred();
             if (isAnimating) {
@@ -78,8 +79,8 @@ export default {
             var animateFrame = opt.horizontal ? {
                 transform: 'translateX(' + offset + 'px)'
             } : {
-                transform: 'translateY(' + offset + 'px)'
-            };
+                    transform: 'translateY(' + offset + 'px)'
+                };
             if (animation) {
                 isAnimating = true;
                 $wrapper.addClass('animating');
@@ -95,25 +96,25 @@ export default {
             }
             return dfd;
         };
-        var _go = exportObj.go = function(index){
-            var newPos = index ===0 ? 0 : info.sliderRange[index - 1];
+        var _go = exportObj.go = function (index) {
+            var newPos = index === 0 ? 0 : info.sliderRange[index - 1];
             var direction;
             var distance = currPos + newPos;
-            if(opt.horizontal){
+            if (opt.horizontal) {
                 direction = distance > 0 ? 'left' : 'right';
-            }else{
-                direction = distance < 0 ?  'up' : 'down';
+            } else {
+                direction = distance < 0 ? 'up' : 'down';
             }
             _moved(direction, newPos * -1, 0);
         }
-        var _next = exportObj.next = function() {
-            if(info.index < (info.length-1)){
-                _go(info.index+1);
+        var _next = exportObj.next = function () {
+            if (info.index < (info.length - 1)) {
+                _go(info.index + 1);
             }
         }
-        var _prev = exportObj.prev = function() {
-            if(info.index > 0){
-                _go(info.index-1);
+        var _prev = exportObj.prev = function () {
+            if (info.index > 0) {
+                _go(info.index - 1);
             }
         }
         var _onMoving = function (moved) {
@@ -146,7 +147,7 @@ export default {
         };
         var _limitation = function (direction) {
             if ('left' === direction || 'up' === direction) {
-                currPos =  Math.min(currPos, info.maxLimit);
+                currPos = Math.min(currPos, info.maxLimit);
             } else {
                 currPos = Math.max(currPos, info.minLimit);
             }
@@ -175,17 +176,17 @@ export default {
             } else {
                 isNext = direction !== 'up';
             }
-            for(var i=0; i< info.sliderRange.length; i++){
+            for (var i = 0; i < info.sliderRange.length; i++) {
                 end = info.sliderRange[i];
-                if((end + currPos) >=0 ){
-                    start = info.sliderRange[i-1] || 0;
+                if ((end + currPos) >= 0) {
+                    start = info.sliderRange[i - 1] || 0;
                     itemSize = end - start;
                     break;
                 }
             }
-          
+
             if (animateTime) {
-                if(opt.snapable){
+                if (opt.snapable) {
                     // _scrollWithInertia(distance, animateTime);
                     //if too move too slow revert and move less than one third, else snap to next slider
                     var isSlow = Math.abs(distance) / animateTime < opt.sensitive;
@@ -194,10 +195,10 @@ export default {
                     if (isRevert) {
                         currPos = prePos;
                     } else {
-                        currPos = isNext ?  end * -1 : start * -1;
+                        currPos = isNext ? end * -1 : start * -1;
                     }
-                } 
-            }else{
+                }
+            } else {
                 currPos = distance;
             }
             _limitation(direction);
@@ -211,84 +212,85 @@ export default {
                 }
             }
             _scroll(currPos, true).then(function () {
-                opt.onchange && _trigger(opt.onchange,$this, opt, exportObj, currPos, prePos, info);
+                opt.onchange && _trigger(opt.onchange, $this, opt, exportObj, currPos, prePos, info);
                 prePos = currPos;
             }).always(function () {
                 _updateInfo();
                 $(document).trigger('dom.scroll');
             });
         };
-        var disable = exportObj.disable = function(){
+        var disable = exportObj.disable = function () {
             $this.removeClass('view-scroll');
             $this.addClass('original-scroll');
             $this.off('mousewheel');
             $this.off('drag');
             $this.off('dragging');
             $this.off('dragged');
-            $(document).off('dom.resize.view');
         };
 
-        var enable = exportObj.enable = function(){
+        var enable = exportObj.enable = function () {
             $this.addClass('view-scroll');
             $this.removeClass('original-scroll');
 
-            $this.on('mousewheel', function(event) {
+            $this.on('mousewheel', function (event) {
                 var delta;
-                if(opt.horizontal && event.deltaX){
+                if (opt.horizontal && event.deltaX) {
                     delta = event.deltaX * -1;
-                }else if(!opt.horizontal && event.deltaY){
+                } else if (!opt.horizontal && event.deltaY) {
                     delta = event.deltaY;
-                } else{
+                } else {
                     return;
                 }
                 event.preventDefault();
-                
-                $.throttle(function(){
-                    if(!isAnimating){
-                        if(!opt.snapable){
+
+                $.throttle(function () {
+                    if (!isAnimating) {
+                        if (!opt.snapable) {
                             var newPos = currPos + delta * 120;
                             var direction;
-                            if(opt.horizontal){
+                            if (opt.horizontal) {
                                 direction = newPos > 0 ? 'left' : 'right';
-                            }else{
-                                direction = newPos < 0 ?  'up' : 'down';
+                            } else {
+                                direction = newPos < 0 ? 'up' : 'down';
                             }
                             _moved(direction, newPos, 0);
-                        }else if(delta<0){
+                        } else if (delta < 0) {
                             _next();
-                        }else{
+                        } else {
                             _prev();
                         }
                     }
-                },50)();
+                }, 50)();
                 return false;
             });
-            $this.on('drag',function(){
+            $this.on('drag', function () {
                 _updateInfo();
             });
             $this.on('dragging', function (e, dir, dist) {
                 var distance = opt.horizontal ? dist[0] : dist[1];
                 var direction = opt.horizontal ? dir[0] : dir[1];
-                _moving(direction, distance , false);
+                _moving(direction, distance, false);
             });
             $this.on('dragged', function (e, dir, dist, time) {
                 var distance = opt.horizontal ? dist[0] : dist[1];
                 var direction = opt.horizontal ? dir[0] : dir[1];
                 _moved(direction, distance, time);
             });
-            $(document).on('dom.resize.view', _updateInfo);
+            $(document).on('dom.resize.view' + opt.id, _updateInfo);
             _updateInfo();
         }
-        if($.isMobile()){
+        if ($.isTouch) {
             disable();
-        }else{
+        } else {
             enable();
         }
-        opt.oninital && _trigger(opt.oninital,$this, opt, exportObj, [info]);
+        opt.oninital && _trigger(opt.oninital, $this, opt, exportObj, [info]);
     },
     setOptionsBefore: null,
     setOptionsAfter: null,
     initBefore: null,
     initAfter: null,
-    destroyBefore: null
+    destroyBefore: function ($this, opt) {
+        $(document).off('dom.resize.view' + opt.id);
+    }
 };

@@ -6,7 +6,7 @@ import plugins from './plugins';
 var state = {};
 var _isMobile = function () {
     var $body = $('body');
-    if ($.isMobile()) {
+    if ($.isMobile) {
         $body.addClass('mobile');
     } else {
         $body.addClass('desktop');
@@ -48,22 +48,22 @@ var _updateWindowStatus = function (type) {
     }
     state.causeByKeyboard = $('input, select, textarea').is(':focus');
     switch (type) {
-    case 'resize':
-        _isScrollDown();
-        _isLandscap();
-        break;
-    case 'scroll':
-        _isScrollDown();
-        break;
-    case 'load':
-        break;
-    case 'inital':
-        _isScrollDown();
-        _isLandscap();
-        $.cui_state = state;
-        break;
-    default:
-        break;
+        case 'resize':
+            _isScrollDown();
+            _isLandscap();
+            break;
+        case 'scroll':
+            _isScrollDown();
+            break;
+        case 'load':
+            break;
+        case 'inital':
+            _isScrollDown();
+            _isLandscap();
+            $.cui_state = state;
+            break;
+        default:
+            break;
     }
     return state;
 };
@@ -80,7 +80,7 @@ var _eventResizeListener = function () {
     }, 500));
 };
 //there is only one thing jQuery say to Death
-var notToday = function(){
+var notToday = function () {
     inject($);
     for (var key in plugins) {
         var config = plugins[key];

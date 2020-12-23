@@ -10,7 +10,7 @@ export default {
         var $dropdown = $list.find('.list');
         var $overlay = $('<div class="header-overlay"></div>');
         var $swtichLink = $this.find('.header-switch-link');
-       
+        opt.id = $.guid++;
         $this.prepend($overlay);
         var _close = function () {
             $this.addClass('header-close');
@@ -55,8 +55,8 @@ export default {
         exportObj.hide = _hide;
         exportObj.close = _close;
         exportObj.open = _open;
-        $(document).on('dom.resize', _hide);
-        $(document).on('dom.scroll', function () {
+        $(document).on('dom.resize.header' + opt.id, _hide);
+        $(document).on('dom.scroll.header' + opt.id, function () {
             var status = $.cui_state;
             if (status.isScrollDown) {
                 _close();
@@ -69,5 +69,8 @@ export default {
     setOptionsAfter: null,
     initBefore: null,
     initAfter: null,
-    destroyBefore: null
+    destroyBefore: function ($this, opt) {
+        $(document).off('dom.resize.header' + opt.id);
+        $(document).off('dom.scroll.header' + opt.id)
+    }
 };

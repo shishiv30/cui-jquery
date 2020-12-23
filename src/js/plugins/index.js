@@ -24,6 +24,7 @@ import tip from './_tip.js'
 import transition from './_transition.js'
 import validate from './_validate.js'
 import view from './_view.js'
+import shifter from './_shifter.js'
 
 export default {
     collapse,
@@ -52,4 +53,5 @@ export default {
     transition,
     validate,
     view,
+    shifter
 }
