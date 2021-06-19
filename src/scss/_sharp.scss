@@ -8,7 +8,6 @@
   border: 1px solid $color-bg;
   line-height: 90px;
   text-align: center;
-  @extend .text-shadow;
 
   &.color-main {
     color: $color-main;
@@ -36,11 +35,11 @@
   }
   
   &.color-mid {
-    color: $color-font;
-    background-color: $color-mid;
+    color: $color-front;
+    background-color: $color-front-l1;
   }
   &.color-normal {
-    color: $color-font;
+    color: $color-front;
     background-color: $color-bg;
   }
 }

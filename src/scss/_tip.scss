@@ -18,7 +18,7 @@
       bottom: 0;
       left: 50%;
       border-width: 5px 5px 0;
-      border-top-color: $color-mid;
+      border-top-color: $color-front-l1;
     }
   }
   &.top-left {
@@ -43,7 +43,7 @@
       top: 0;
       left: 50%;
       border-width: 0 5px 5px;
-      border-bottom-color: $color-mid;
+      border-bottom-color: $color-front-l1;
     }
   }
   &.bottom-left {
@@ -67,7 +67,7 @@
       right: 0;
       margin-top: -5px;
       border-width: 5px 0 5px 5px;
-      border-left-color: $color-mid;
+      border-left-color: $color-front-l1;
     }
   }
   &.right {
@@ -77,15 +77,15 @@
       left: 0;
       margin-top: -5px;
       border-width: 5px 5px 5px 0;
-      border-right-color: $color-mid;
+      border-right-color: $color-front-l1;
     }
   }
   &.info {
     .tip-inner {
-      color: $color-mid;
-      background-color: $color-mid;
+      color: $color-front-l1;
+      background-color: $color-front-l1;
       text-align: left;
-      border: 1px solid $color-mid;
+      border: 1px solid $color-front-l1;
       @include border-bottom-radius(2px);
       box-shadow: none;
       &:before {
@@ -143,9 +143,9 @@
       color: $color-bg;
       text-align: center;
       text-decoration: none;
-      background-color: $color-mid;
+      background-color: $color-front-l1;
       border-radius: 4px;
-      box-shadow: 0 0 2px $color-font;
+      box-shadow: 0 0 2px $color-front;
     }
   }
 }

@@ -1,6 +1,6 @@
 .tab-panel {
     display: none;
-    border: 1px solid $color-mid;
+    border: 1px solid $color-front-l1;
     padding: $g3;
 }
 
@@ -11,9 +11,9 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: 80px;
-    box-shadow: 0 0 0 1px $color-mid;
+    box-shadow: 0 0 0 1px $color-front-l1;
     &.active {
-        background: $color-mid;
+        background: $color-front-l1;
         color:$color-bg;
         border-bottom: none;
     }

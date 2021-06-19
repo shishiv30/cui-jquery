@@ -17,28 +17,27 @@ $font-weight-normal: 300;
 $font-weight-bold: 500;
 //legacy main
 $color-main: var(--color-main);
-$color-main-bg: var(--color-main-bg);
+$color-main-bg: var(--color-main-l1);
 //orange
 $color-warning: var(--color-warning);
-$color-warning-bg: var(--color-warning-bg);
+$color-warning-bg: var(--color-warning-l1);
 
 // yellow
 $color-tip: var(--color-tip);
-$color-tip-bg: var(--color-tip-bg);
+$color-tip-bg: var(--color-tip-l1);
 
 //green
 $color-safe: var(--color-safe);
-$color-safe-bg: var(--color-safe-bg);
+$color-safe-bg: var(--color-safe-l1);
 
 //color for error
 $color-danger: var(--color-danger);
-$color-danger-bg: var(--color-danger-bg);
+$color-danger-bg: var(--color-danger-l1);
 
 //gray level
-$color-mid:var(--color-mid);
 $color-bg: var(--color-bg);
-$color-font: var(--color-font);
-$color-d: var(--color-mid);
+$color-front: var(--color-front);
+$color-front-l1: var(--color-front-l1);
 //color for link
 $color-link-default: $color-main;
 $color-link-default-hover: $color-warning;

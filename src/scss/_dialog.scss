@@ -43,7 +43,7 @@
     .dialog-body {
         position: relative;
         z-index: 2;
-        color: $color-font;
+        color: $color-front;
         padding:$g2;
         overflow-x: hidden;
         overflow-y: auto;
@@ -97,7 +97,7 @@
                     }
                     display: block;
                     padding: 12px 20px;
-                    border-top: 1px solid $color-d;
+                    border-top: 1px solid $color-front-l1;
                 }
             }
         }

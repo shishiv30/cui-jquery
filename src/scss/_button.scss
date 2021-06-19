@@ -1,11 +1,11 @@
 %btn-color {
   &.default {
       &.active {
-          background-color: $color-font;
+          background-color: $color-front;
           color: $color-bg;
       }
-      box-shadow: 0 0 0 1px $color-mid;
-      color: $color-font;
+      box-shadow: 0 0 0 1px $color-front-l1;
+      color: $color-front;
   }
   &.warning {
       &.active {
@@ -64,9 +64,9 @@
   }
 
   &[disabled] {
-    background-color: $color-mid !important;
-    box-shadow: 0 0 0 1px $color-mid !important;
-    color: $color-font !important;
+    background-color: $color-front-l1 !important;
+    box-shadow: 0 0 0 1px $color-front-l1 !important;
+    color: $color-front !important;
   }
 
   &.loading {
@@ -83,7 +83,7 @@
   display: inline-block;
   font-size: $font-size-4;
   border-radius: 50%;
-  background-color: $color-mid;
+  background-color: $color-front-l1;
   color: $color-main;
   text-align: center !important;
   @include hover() {
@@ -136,12 +136,12 @@
       left: $g1;
       right: $g1;
       z-index: $ui-buttongroup-index;
-      box-shadow: 0 0 0 1px $color-mid;
+      box-shadow: 0 0 0 1px $color-front-l1;
       display: none;
        > a {
-          color: $color-font;
+          color: $color-front;
           background: $color-bg;
-          border-color: $color-mid;
+          border-color: $color-front-l1;
           box-shadow: none;
           border-top: 0;
       }
