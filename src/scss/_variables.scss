@@ -15,12 +15,12 @@ $font-family: 'Roboto';
 $font-weight-light: 100;
 $font-weight-normal: 300;
 $font-weight-bold: 500;
-//legacy main
+//main
 $color-main: var(--color-main);
 $color-main-bg: var(--color-main-l1);
-//orange
-$color-warning: var(--color-warning);
-$color-warning-bg: var(--color-warning-l1);
+//minor
+$color-warning: var(--color-minor);
+$color-warning-bg: var(--color-minor-l1);
 
 // yellow
 $color-tip: var(--color-tip);
@@ -36,17 +36,20 @@ $color-danger-bg: var(--color-danger-l1);
 
 //gray level
 $color-bg: var(--color-bg);
+$color-bg-l1: var(--color-bg-l1);
 $color-front: var(--color-front);
 $color-front-l1: var(--color-front-l1);
+
 //color for link
-$color-link-default: $color-main;
-$color-link-default-hover: $color-warning;
+$color-link-default: var(--color-main);
+$color-link-default-hover: var(--color-minor);
+
 //color for disable
+$color-disabled: var(--color-disabled);
 
 //grid
-$grid-columns: 12;
 $grid-gutter-width: 1rem;
-$flex-gutter-width: 1rem;
+$gs-gutter-width: 1rem;
 
 //f1 = f3 / 0.618 = f3 + f3 * 0.618
 $font-size-1: 2.618rem;
@@ -66,8 +69,6 @@ $border-radius: 6px;
 
 //half of gs
 $gxs: .191rem; 
-//f5 - 0.618
-$g0: .382rem;
 //half of f7
 $g0: .309rem;
 //half of f5
@@ -77,7 +78,9 @@ $g2: .809rem;
 //half of f1 or g1 + g2
 $g3: 1.309rem;
 //half of f1 or g2 + g3
-$g4: 2.109rem;
+$g4: 2.118rem;
+//g3 + g4
+$g5: 3.427rem;
 
 //button & input & select
 //f3(f5*1.618)

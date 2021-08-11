@@ -18,13 +18,9 @@
 ${require('./views/_css.html')}
 <body id="body" data-cui="loadimage">
     ${require('./views/tpl-header.html')}
-    <div class="gs-fixed">
-        <div class="row">
-            <div class="col-xs-12">
-                ${require('./views/tpl.html')}
-                ${require('./views/plugin.html')}
-            </div>
-        </div>
+    <div class="layout-fixed">
+        ${require('./views/tpl.html')}
+        ${require('./views/plugin.html')}
     </div>
 </body>
 ${require('./views/_js.html')}

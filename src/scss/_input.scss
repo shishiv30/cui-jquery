@@ -19,6 +19,8 @@
     border: none;
     border-radius: $border-radius;
     @include form-default-1();
+    padding-left: $g1;
+    padding-right: $g1;
   }
 
   > i,

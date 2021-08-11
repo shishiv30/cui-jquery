@@ -1,0 +1,118 @@
+.gs {
+    --gs-x: center;
+    --gs-y: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: var(--gs-x);
+    align-items: var(--gs-y);
+    width: 100%;
+    > * {
+        //we need set min-width:0 to avoid the context overflow.
+        min-width: 0px;
+        width: 100%;
+    }
+    &.left {
+       --gs-x: flex-start;
+    }
+    &.right {
+       --gs-x: flex-end;
+    }
+    &.between {
+       --gs-x: space-bwtween;
+    }
+    &.around{
+       --gs-x: space-around;
+    }
+    &.center {
+       --gs-x: center;
+    }
+    &.middle {
+        --gs-y: center
+    }
+    &.top {
+        --gs-y: flex-start;
+    }
+    &.bottom {
+        --gs-y: flex-end;
+    }
+}
+
+.gs-xs-12 {
+    max-width: 100%;
+}
+
+.gs-xs-6 {
+    max-width: 50%;
+}
+
+.gs-xs-4 {
+    max-width: 33.333333%;
+
+}
+
+.gs-xs-3 {
+    max-width: 25%;
+}
+
+.gs-xs-2 {
+    max-width: 16.666666%;
+}
+
+@media (min-width: $screen-sm-min) {
+    .gs-sm-12 {
+        max-width: 100%;
+    }
+    .gs-sm-6 {
+        max-width: 50%;
+    }
+    .gs-sm-4 {
+        max-width: 33.333333%;
+    }
+    .gs-sm-3 {
+        max-width: 25%;
+    }
+    .gs-sm-2 {
+        max-width: 16.666666%;
+    }
+}
+
+@media (min-width: $screen-md-min) {
+    .gs-md-12 {
+        max-width: 100%;
+    }
+    .gs-md-6 {
+        max-width: 50%;
+    }
+    .gs-md-4 {
+        max-width: 33.333333%;
+    }
+    .gs-md-3 {
+        max-width: 25%;
+    }
+    .gs-md-2 {
+        max-width: 16.666666%;
+    }
+}
+
+@media (min-width: $screen-lg-min) {
+    .gs-lg-12 {
+        max-width: 100%;
+    }
+    .gs-lg-6 {
+        max-width: 50%;
+    }
+    .gs-lg-4 {
+        max-width: 33.333333%;
+    }
+    .gs-lg-3 {
+        max-width: 25%;
+    }
+    .gs-lg-2 {
+        max-width: 16.666666%;
+    }
+}
