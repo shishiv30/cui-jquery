@@ -20,7 +20,7 @@
         margin-bottom: 30px;
     }
 
-    #flexPanel .flex-fixed {
+    #flexPanel .gs-fixed {
         background-color: #ff4500;
         color: #ffffff;
     }
@@ -51,7 +51,7 @@
     }
 
     .flexSystem .flex>div,
-    .flexSystem .flex-gs>[class^=flex-] {
+    .flexSystem .gs>[class^=gs-] {
         background: #eeeeee;
         border: 2px solid white;
         padding-top: 10px;
@@ -172,7 +172,6 @@
             <li class="list">
                 <a href="javascript:;">Prototype</a>
                 <ul>
-                    <li><a href="www.movoto.com">Movoto</a></li>
                     <li class="splict"><a href="javascript:;">Educate</a></li>
                     <li>
                         <a class="hightlight" href="javascript:;">Note</a>
@@ -204,10 +203,8 @@
 
 
 
-    <div class="gs-fixed">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="section">
+    <div class="layout-fixed">
+        <div class="section">
     <div class="panel">
         <a href="javascript:;" class="h3 shown" data-cui="collapse" data-target="#cssColor">
             color solution
@@ -259,23 +256,23 @@
                     [Use case] low level element or nice to have content.
                 </p>
             </div>
-            <div class="flex-gs colors">
-                <div class="flex-xs-6 flex-sm-4">
+            <div class="gs colors">
+                <div class="gs-xs-6 gs-sm-4">
                     <div class="circle-item color-main">Main</div>
                 </div>
-                <div class="flex-xs-6 flex-sm-4">
+                <div class="gs-xs-6 gs-sm-4">
                     <div class="circle-item color-tip">Tip</div>
                 </div>
-                <div class="flex-xs-6 flex-sm-4">
+                <div class="gs-xs-6 gs-sm-4">
                     <div class="circle-item color-mid">Mid</div>
                 </div>
-                <div class="flex-xs-6 flex-sm-4">
+                <div class="gs-xs-6 gs-sm-4">
                     <div class="circle-item color-safe">Safe</div>
                 </div>
-                <div class="flex-xs-6 flex-sm-4">
+                <div class="gs-xs-6 gs-sm-4">
                     <div class="circle-item color-danger">Danger</div>
                 </div>
-                <div class="flex-xs-6 flex-sm-4">
+                <div class="gs-xs-6 gs-sm-4">
                     <div class="circle-item color-warning">Warning</div>
                 </div>
             </div>
@@ -291,14 +288,7 @@
         <div id="typographPanel">
             <p>The default web font-size is 16px, we consider <b>16px</b> as a basic measurement And we use <b>0.618</b> as the basic increase/decrease rate. font level, title level, padding, margin are all accroding to the default setting above.</p>
             <img alt="the font typograph demo" data-cui="lazyload" data-src="images/typograph.png" style="max-width:100%;">
-            <div class="h1">level 1 title</div>
-            <div class="h2">level 2 title</div>
-            <div class="h3">level 3 title</div>
-            <div class="h4">level 4 title</div>
-            <div class="h5">level 5 title</div>
-            <div class="h6">level 6 title</div>
-            <div class="h7">level 7 title</div>
-            <div class="paragraph">
+            <div class="paragraph f7">
                 <p>$font-size-base: 1rem;</p>
                 <p>The increase/decrease rate is <b>0.618</b></p>
                 <p>level1: f1 = f3 / <b>0.618</b> = f3 + f3 * <b>0.618</b></p>
@@ -309,6 +299,14 @@
                 <p>level6: f6 = f7 + $g0 / 2</p>
                 <p>level7: f7 = 1 * <b>0.618</b></p>
             </div>
+            <div class="h1">level 1 title</div>
+            <div class="h2">level 2 title</div>
+            <div class="h3">level 3 title</div>
+            <div class="h4">level 4 title</div>
+            <div class="h5">level 5 title</div>
+            <div class="h6">level 6 title</div>
+            <div class="h7">level 7 title</div>
+           
         </div>
     </div>
 </div>
@@ -319,74 +317,26 @@
             <span class="sub"> new flex style</span>
         </a>
         <div id="flexPanel" class="flexSystem">
-            <div class="flex middle">
-                <div>Col 1</div>
-                <div>Col 2</div>
-                <div class="flex-fixed" style="height:100px;line-height:76px;">Fixed</div>
-                <div>Col 4</div>
-            </div>
-            <div class="flex-gs">
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">1</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">2</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">3</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">4</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">5</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">6</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">7</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">8</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">9</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">10</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">11</div>
-                <div class="flex-xs-6 flex-sm-3 flex-md-4 flex-lg-2">12</div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="section">
-    <div class="panel">
-        <a href="javascript:;" class="h3" data-target="#girdSystem" data-cui="collapse">
-            grid system
-            <span class="sub"> use grid system to do layout </span>
-        </a>
-        <div id="girdSystem" class="girdSystem collapse-appear">
             <div class="gs">
-                <div class="row">
-                    <div class="col-xs-1">1</div>
-                    <div class="col-xs-1">1</div>
-                    <div class="col-xs-1">1</div>
-                    <div class="col-xs-2">2</div>
-                    <div class="col-xs-1">1</div>
-                    <div class="col-xs-2">2</div>
-                    <div class="col-xs-1">1</div>
-                    <div class="col-xs-3">3</div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-3">3</div>
-                    <div class="col-xs-3">3</div>
-                    <div class="col-xs-3">3</div>
-                    <div class="col-xs-3">3</div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-4">4</div>
-                    <div class="col-xs-4">4</div>
-                    <div class="col-xs-4">4</div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-8">8</div>
-                    <div class="col-xs-4">4</div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-6">6</div>
-                    <div class="col-xs-6">6</div>
-                </div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">1</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">2</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">3</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">4</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">5</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">6</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">7</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">8</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">9</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">10</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">11</div>
+                <div class="gs-xs-6 gs-sm-3 gs-md-4 gs-lg-2">12</div>
             </div>
         </div>
     </div>
 </div>
 <div class="section">
     <div class="panel">
-        <a href="javascript:;" class="h3" data-target="#cssResponsive" data-cui="collapse">
+        <a href="javascript:;" class="h3 shown" data-target="#cssResponsive" data-cui="collapse">
             responsive
             <span class="sub"> use responsive utilities</span>
         </a>
@@ -450,58 +400,8 @@
                                     <td>Desktop or Landscape Pad</td>
                                     <td>Large Desktop</td>
                                 </tr>
-                                <tr>
-                                    <th>Grid behavior</th>
-                                    <td>Horizontal at all times</td>
-                                    <td colspan="3">Collapsed to start, horizontal above breakpoints</td>
-                                </tr>
-                                <tr>
-                                    <th>Class prefix</th>
-                                    <td><code>.col-xs-</code></td>
-                                    <td><code>.col-sm-</code></td>
-                                    <td><code>.col-md-</code></td>
-                                    <td><code>.col-lg-</code></td>
-                                </tr>
-                                <tr>
-                                    <th># of columns</th>
-                                    <td colspan="4">12</td>
-                                </tr>
                             </tbody>
-                            <tbody class="container">
-                                <tr>
-                                    <th><code>.gs-fixed</code></th>
-                                    <td colspan="4">Gutter width: 30px (15px on each side of a column)</td>
-                                </tr>
-                                <tr class="no-topborder">
-                                    <th></th>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>970px</td>
-                                    <td>1170px</td>
-                                </tr>
-                                <tr>
-                                    <th><code>.gs</code></th>
-                                    <td colspan="4">Gutter width: 30px (15px on each side of a column)</td>
-                                </tr>
-                                <tr class="no-topborder">
-                                    <th></th>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                </tr>
-                                <tr>
-                                    <th><code>.gs-sin</code></th>
-                                    <td colspan="4">Gutter width: 0</td>
-                                </tr>
-                                <tr class="no-topborder">
-                                    <th></th>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                    <td>100%</td>
-                                </tr>
-                            </tbody>
+                            
                             <tbody>
                                 <tr>
                                     <th>
@@ -930,27 +830,27 @@
             <span class="sub"> new skeleton style</span>
         </a>
         <div id="skeletonPanel">
-            <div class="flex-gs">
-                <div class="flex-xs-12">
+            <div class="gs">
+                <div class="gs-xs-12">
                     <a href="javascript:;" id="loadingSection" class="btn orange">Loading</a>
                 </div>
-                <div class="flex-xs-6 flex-md-3">
+                <div class="gs-xs-6 gs-md-3">
                     <div class="skeleton"></div>
                 </div>
-                <div class="flex-xs-6 flex-md-3">
+                <div class="gs-xs-6 gs-md-3">
                     <div class="skeleton"></div>
                 </div>
-                <div class="flex-xs-6 flex-md-3">
+                <div class="gs-xs-6 gs-md-3">
                     <div class="skeleton"></div>
                 </div>
-                <div class="flex-xs-6 flex-md-3">
+                <div class="gs-xs-6 gs-md-3">
                     <div class="skeleton"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-                
+        
 <div class="section">
     <div class="panel">
         <a href="javascript:;" class="h3 shown" data-cui="collapse" data-target="#shifterPanel">
@@ -1114,7 +1014,7 @@
             <span class="sub"> the collapse plugin</span>
         </a>
         <div class="flex" id="collapsePanel">
-            <div class="flex-xs-12 flex-sm-6 flex-md-3">
+            <div class="gs-xs-12 gs-sm-6 gs-md-3">
                 <dl style="position: relative;">
                     <dt>
                         <a href="javascript:void(0)" class="collapse-more" data-cui="collapse" data-target="#plusPanel" data-once="true" data-isexpand="true">
@@ -1129,7 +1029,7 @@
                     </dd>
                 </dl>
             </div>
-            <div class="flex-xs-12 flex-sm-6 flex-md-3">
+            <div class="gs-xs-12 gs-sm-6 gs-md-3">
                 <dl>
                     <dd id="anglePanel" style="height: 4em; overflow: hidden;">jQuery is a fast, small, and feature-rich JavaScript library. It makes
                         things like
@@ -1141,7 +1041,7 @@
                     <dt><a href="javascript:;" data-cui="collapse" data-target="#anglePanel" data-isexpand="true" data-showtext="open" data-hidetext="collapsed"><i class="icon-angle-down"></i> <span>collapsed</span> </a></dt>
                 </dl>
             </div>
-            <div class="flex-xs-12 flex-sm-6 flex-md-3">
+            <div class="gs-xs-12 gs-sm-6 gs-md-3">
                 <dl>
                     <dt><a href="javascript:;" data-cui="collapse" data-target="#eyePanel" data-isexpand="true" data-showtext="shown" data-hidetext="hidden"><i class="icon-angle-down"></i> <span>hidden</span></a></dt>
                     <dd id="eyePanel" style="height: 0; overflow: hidden;">jQuery is a fast, small, and feature-rich JavaScript library. It makes
@@ -1153,7 +1053,7 @@
                     </dd>
                 </dl>
             </div>
-            <div class="flex-xs-12 flex-sm-6 flex-md-3">
+            <div class="gs-xs-12 gs-sm-6 gs-md-3">
                 <dl style="position: relative;">
                     <dt>
                         <a href="javascript:;" data-cui="collapse" data-target="#caretPanel">
@@ -1315,8 +1215,6 @@
     </div>
 </div>
 
-            </div>
-        </div>
     </div>
 <script type="text/javascript" src="cui.min.js"></script></body>
 <script type="text/javascript">
