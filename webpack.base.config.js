@@ -1,100 +1,71 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
-const WorkboxPlugin = require('workbox-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
+    entry: {
+        cui: './src/doc/index.js'
+    },
+    output: {
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'dist'),
+        clean: true,
+    },
     module: {
         rules: [{
-            test: /\.(woff2?|svg|ttf|eot)$/,
-            use: [{
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]',
-                    outputPath: 'fonts/'
-                }
-            }]
-        }, {
-            test: /\.(png|jpe?g|gif|ico)$/,
-            use: [{
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]',
-                    outputPath: 'images/'
+                test: /\.(woff2?|ttf|eot)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'font.[name][ext]'
                 }
             }, {
-                loader: 'image-webpack-loader'
-            }]
-        }, {
-            test: /\.scss$/,
-            use: [
-                MiniCssExtractPlugin.loader, 
-                'css-loader',
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        plugins: () => [
-                            autoprefixer
+                test: /\.(svg|png|jpe?g|gif|ico|webp)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'img.[name][ext]'
+                }
+            }, {
+                test: /\.scss$/i,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
+            }, {
+                test: /\.m?js$/i,
+                include: path.resolve(__dirname, 'src'),
+                loader: 'babel-loader'
+            },{
+                test: /\.html$/i,
+                loader: "html-loader",
+                options: {
+                    sources: {
+                        list: [
+                            "...",
+                            {
+                                tag: 'img',
+                                attribute: 'data-src',
+                                type: 'src'
+                            }
                         ]
-                    }
-                },
-                'sass-loader'
-            ]
-        }, {
-            test: /\.(html)$/,
-            use: {
-                loader: 'html-loader',
-                options: {
-                    interpolate: true
+                    },
                 }
             }
-        }, {
-            test: /\.m?js$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env'],
-                    plugins: [
-                        '@babel/plugin-proposal-class-properties',
-                    ]
-                }
-            }
-        }]
+        ]
     },
     plugins: [
+        //todo debug here
         new HtmlWebpackPlugin({
             filename: './index.html',
-            template: './src/doc/template.html',
-            favicon: './src/assets/favicon.ico',
-            minify: true
-        }),
-        new WebpackPwaManifest({
-            name: 'jQuery CUI',
-            short_name: 'CUI',
-            description: 'UI solution base on jQuery and CUI.',
-            display: 'standalone',
-            theme_color: '#ffffff',
-            background_color: '#ffffff',
-            'start_url': 'https://shishiv30.github.io/jquery-cui/',
-            icons: [
-                {
-                    src: path.resolve('./src/assets/logo.png'),
-                    sizes: [48, 96, 192]
-                }
-            ]
-        }),
-        new WorkboxPlugin.GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true
+            template: './src/doc/index.ejs',
+            favicon: './src/assets/favicon.ico'
         }),
         new MiniCssExtractPlugin({
             filename: '[name].min.css',
             chunkFilename: '[id].css'
         }),
         new webpack.ProvidePlugin({
+            'window.jQuery': 'jquery',
             '$': 'jquery',
             'jQuery': 'jquery'
         })

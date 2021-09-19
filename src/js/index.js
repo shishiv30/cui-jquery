@@ -1,3 +1,5 @@
+
+import scss from '../scss/cui.scss';
 window.$ = window.jQuery = jQuery;
 import './libs'
 import core from './core';
@@ -114,4 +116,4 @@ var notToday = function () {
 };
 
 //there is only one thing jQuery say to Death
-export default notToday;
+notToday();

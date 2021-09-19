@@ -1,19 +1,32 @@
 const baseConfig = require('./webpack.base.config.js');
-const merge = require('webpack-merge');
+const {merge} = require('webpack-merge');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+
 module.exports = merge(baseConfig, {
-    entry: {
-        cui: './src/doc/index.js'
-    },
-    devtool: 'none',
-    output: {
-        filename: '[name].min.js',
-        path: path.resolve(__dirname, 'public/')
-    },
+    mode: 'production',
     plugins: [
-        new CleanWebpackPlugin('public'),
-        // new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin(),
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true
+        }),
+        new WebpackPwaManifest({
+            name: 'jQuery CUI',
+            short_name: 'CUI',
+            description: 'UI solution base on jQuery and CUI.',
+            display: 'standalone',
+            theme_color: '#ffffff',
+            background_color: '#ffffff',
+            'start_url': baseConfig.output.publicPath,
+            icons: [
+                {
+                    src: path.resolve('./src/assets/logo.png'),
+                    sizes: [48, 96, 192]
+                }
+            ]
+        }),
     ]
 });

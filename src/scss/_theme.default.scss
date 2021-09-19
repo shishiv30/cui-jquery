@@ -1,22 +1,21 @@
 // very small screen / phone
 html{
     --cui-font: 'Roboto';
-    --color-front: #212121;
-    --color-front-l1: #acacac;
+    --color-front: #2e2e2e;
+    --color-front-l1: #797979;
     --color-bg:#ffffff;
     --color-bg-l1:#fdfdfd;
-    --color-border: #dcdcdc;
-    --color-border-l1: #ececec;
+    --color-border: #ededed;
     --color-disabled: #bdbdbd;
     --color-main: #006c8b;
-    --color-main-l1: #dafdff;
-    --color-minor: #ff7350;
-    --color-minor-l1: #ffe0d9;
+    --color-main-l1: #e6feff;
+    --color-minor: #00baed51;
+    --color-minor-l1: #e8faffa4;
     --color-tip: #ffc941;
-    --color-tip-l1: #fff8e3;
-    --color-safe: #60cc8d;
-    --color-safe-l1: #ceffea;
-    --color-danger: #f70439;
-    --color-danger-l1: #fdb7c6;
-    --color-hover: #18ffd1;
+    --color-tip-l1: #fffaec;
+    --color-safe: #18ffd1;
+    --color-safe-l1: #d5ffed;
+    --color-danger: #ff2252;
+    --color-danger-l1: #ffcbd6;
+    --color-hover: #00baed51;
 }
