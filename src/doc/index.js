@@ -2,9 +2,9 @@ import cui from '../js/index.js';
 import css from './index.scss';
 
 window.googleMapKey = 'key=AIzaSyAdkDAoPsxWOX6M3gSATYh-XOvtfsw0CHk';
-function submit() {
+window.submit = function() {
     var msg = 'error!';
-    var $form = $('#form').data('form');
+    var $form = $('#formPanel').data('form');
     if ($form.isValid()) {
         msg = JSON.stringify($form.getValue());
         alert(msg);
@@ -54,10 +54,9 @@ $(document).on('dom.load',function(){
     $('#loadingSection').on('click', function () {
         $('.skeleton').html('After Content Loaded, It will show the real content with real height');
     });
-    
-    $('.btn').click(function () {
-        $(this).toggleClass('active');
-    });
+});
+$(document).on('click', '.btn', function () {
+    $(this).toggleClass('active');
 });
 var mockPin = function (count) {
     var list = [];

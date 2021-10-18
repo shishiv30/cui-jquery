@@ -2,6 +2,7 @@ $header-background: $color-main;
 $header-font: $color-bg;
 $highlight-link: $color-main;
 .header {
+  --header-split: rgba(200,200,200, .3);
   &.sticky{
     position: sticky;
     top: 0;
@@ -15,7 +16,7 @@ $highlight-link: $color-main;
   color: $header-font;
   transition: transform 0.5s;
   transform: translateY(0%);
-  box-shadow: 0px 1px 1px $color-front-l1;
+  box-shadow: 0px 1px 1px var(--header-split);
   z-index: $ui-header-index;
   &.header-close {
     transform: translateY(-100%);
@@ -25,12 +26,12 @@ $highlight-link: $color-main;
   }
   a {
     height:$form-size-default;
-    padding: $g1 $g2;
+    padding: $g1;
     display: block;
     text-align: center;
     @include singleline();
     @include hover() {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: var(--header-split);
     }
     &.hightlight {
       position: relative;
@@ -98,7 +99,7 @@ $highlight-link: $color-main;
         position: relative;
       }
       .splict {
-        border-bottom: 1px solid $color-front-l1;
+        border-bottom: 1px solid var(--header-split);
       }
     }
     &.right {
@@ -107,7 +108,7 @@ $highlight-link: $color-main;
     > ul {
       background-color: $color-bg;
       color: $color-front;
-      box-shadow: 0 0 0 1px $color-front-l1;
+      box-shadow: 0 0 0 1px var(--header-split);
       min-width: 100%;
       position: relative;
       a{
@@ -181,7 +182,7 @@ body:not(.body-expand-header){
         height: $form-size-default;
         transition: height 0.5s;
         overflow: hidden;
-        border-bottom: 1px solid $color-front-l1;
+        border-bottom: 1px solid var(--header-split);
         a {
           text-align: left;
           padding-left: 1.5rem;

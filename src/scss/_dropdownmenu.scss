@@ -44,7 +44,7 @@
             }
             &.on {
                 a {
-                    @extend %text-bold;
+                    @extend %font-bold;
                 }
             }
             &.fullline {

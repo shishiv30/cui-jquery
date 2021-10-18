@@ -25,13 +25,23 @@
 
   > i,
   > span,
-  > a {
+  > a, >.btn {
     @extend %center-y;
     z-index: 1;
     text-align: center;
     padding-top: $g1;
     padding-bottom: $g1;
     width: $form-size-default;
+  }
+
+  >.btn{
+    --button-bg: transparent;
+    --button-border: transparent;
+    --button-color: inherit;
+    --button-active-bg: transparent;
+    --button-active-border: transparent;
+    --button-active-color: inherit;
+    border-radius: 0;
   }
 
   &.left {
@@ -42,7 +52,7 @@
 
     > span,
     > i,
-    > a {
+    > a, >.btn {
       left: 0;
       right: auto;
     }
@@ -55,7 +65,7 @@
 
       ~ span,
       ~ i,
-      ~ a {
+      ~ a, ~.btn {
         right: 0;
         left: auto;
       }
@@ -70,7 +80,7 @@
     
     > i,
     > span,
-    > a {
+    > a, >.btn {
       padding-top:$g0;
       padding-bottom:$g0;
       width: $form-size-small;
@@ -99,7 +109,7 @@
     
     > i,
     > span,
-    > a {
+    > a, >.btn {
       padding-top:$g1;
       padding-bottom:$g1;
       width: $form-size-large;
@@ -169,7 +179,7 @@
   }
   &.has-error{
     .tip-inner{
-      color:$color-danger-bg;
+      color:$color-danger-l1;
     }
   }
 }

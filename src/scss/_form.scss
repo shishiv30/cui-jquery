@@ -1,15 +1,7 @@
 .form {
-  @extend %clearfix;
-  .input,
-  .select-textbox {
-    width: 100%;
-    margin: $g2 0;
-  }
-  .radio,
-  .checkbox {
-    margin: $g2 0;
-  }
-  .btn {
-    margin: $g2 0;
+  .btn{
+      --button-width: 240px;
+      margin-left: auto;
+      margin-right: auto;
   }
 }

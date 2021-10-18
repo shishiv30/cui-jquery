@@ -10,20 +10,6 @@
     @include center-y();
 }
 
-%img-center {
-    @include img-center();
-}
-
-//float layout
-%clearfix {
-    @include clearfix;
-}
-
-//singline
-%singleline {
-    @include singleline(100%);
-}
-
 %f1 {
     font-size: $font-size-1;
 }
@@ -52,19 +38,29 @@
     font-size: $font-size-7;
 }
 
-%text-light {
+%font-light {
     font-weight: $font-weight-light!important;
 }
 
-%text-normal {
+%font-normal {
     font-weight: $font-weight-normal!important;
 }
 
-%text-bold {
-    font-family: $font-weight-bold !important;
+%font-bold {
+    font-weight: $font-weight-bold !important;
 }
 
 //font icon define
 %icon {
-    @include fonticon();
+    @include icon();
+}
+
+//float layout
+%clearfix {
+    @include clearfix;
+}
+
+//singline
+%singleline {
+    @include singleline(100%);
 }

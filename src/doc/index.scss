@@ -7,8 +7,11 @@
         color: #ffffff;
     }
 
-    .circle-item {
-        font-size: 11px;
+    .colors{
+        .circle-item{
+            float: left;
+            margin-right: .5rem;
+        }
     }
 
     @media (max-width: 767px) {
@@ -77,21 +80,6 @@
     .sticky-box {
         height: 100px;
         background: #666666;
-    }
-
-    #buttonPanel .btn,
-    #buttonPanel .dropdown-button {
-        margin: 5px 0;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-bottom: 15px;
-        margin-top: 15px;
     }
 
     .mapdemo {

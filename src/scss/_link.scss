@@ -1,26 +1,21 @@
 a {
-    text-decoration: none!important;
+    text-decoration: none;
     cursor: pointer;
-    opacity: 0.95;
     outline: none;
-    &:link {
-        color: inherit;
-    }
-    @include hover(){
-        opacity: 1;
-        color: inherit;
-    }
-    &:visited, &:active {
+    &:link, &:visited, &:active, &:hover{
+        text-decoration: none;
+        outline: none;
         color: inherit;
     }
     &.link {
+        opacity: 0.95;
         color: $color-link-default;
         @include hover(){
+            opacity: 1;
             color: $color-link-default-hover;
         }
     }
     &[disable] {
-        color: $color-front-l1;
-        pointer-events: none;
+        color: $color-disabled;
     }
 }

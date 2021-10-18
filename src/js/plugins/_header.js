@@ -58,7 +58,7 @@ export default {
         $(document).on('dom.resize.header' + opt.id, _hide);
         $(document).on('dom.scroll.header' + opt.id, function () {
             var status = $.cui_state;
-            if (status.isScrollDown) {
+            if (status.isScrollDown &&  status.scrollTop > 500) {
                 _close();
             } else {
                 _open();

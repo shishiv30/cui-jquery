@@ -4,6 +4,7 @@ export default {
     defaultOpt: {
         max: 100,
         min: 0,
+        target: null,
         step: 0,
         decimals: 0,
         connect: null,
@@ -12,6 +13,7 @@ export default {
         range: null,
         changebefore: null,
         changeafter: null,
+        input: []
     },
     init: function ($this, opt, exportObj) {
         var $input = $this.find('input');

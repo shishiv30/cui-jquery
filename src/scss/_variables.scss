@@ -17,22 +17,18 @@ $font-weight-normal: 300;
 $font-weight-bold: 500;
 //main
 $color-main: var(--color-main);
-$color-main-bg: var(--color-main-l1);
-//minor
-$color-warning: var(--color-minor);
-$color-warning-bg: var(--color-minor-l1);
-
-// yellow
-$color-tip: var(--color-tip);
-$color-tip-bg: var(--color-tip-l1);
+$color-main-l1: var(--color-main-l1);
+//warning
+$color-warning: var(--color-warning);
+$color-warning-l1: var(--color-warning-l1);
 
 //green
 $color-safe: var(--color-safe);
-$color-safe-bg: var(--color-safe-l1);
+$color-safe-l1: var(--color-safe-l1);
 
 //color for error
 $color-danger: var(--color-danger);
-$color-danger-bg: var(--color-danger-l1);
+$color-danger-l1: var(--color-danger-l1);
 
 //gray level
 $color-bg: var(--color-bg);
@@ -41,15 +37,11 @@ $color-front: var(--color-front);
 $color-front-l1: var(--color-front-l1);
 
 //color for link
-$color-link-default: var(--color-main);
-$color-link-default-hover: var(--color-minor);
+$color-link-default: var(--color-link);
+$color-link-default-hover: var(--color-link-hover);
 
 //color for disable
 $color-disabled: var(--color-disabled);
-
-//grid
-$grid-gutter-width: 1rem;
-$gs-gutter-width: 1rem;
 
 //f1 = f3 / 0.618 = f3 + f3 * 0.618
 $font-size-1: 2.618rem;
@@ -65,7 +57,7 @@ $font-size-5: 1rem;
 $font-size-6: 0.764rem;
 //0.618 = 1 * 0.618
 $font-size-7: 0.618rem;
-$border-radius: 6px;
+$border-radius: var(--border-radius);
 
 //half of gs
 $gxs: .191rem; 
@@ -100,8 +92,6 @@ $ui-popover-index: 1050;
 $ui-buttongroup-index: 1100;
 $ui-pin-index: 1930;
 $ui-pin-hover-index: 1940;
-$ui-map-popover: 1950;
-$ui-sticky-submenu-index: 1950;
 $ui-stick-index: 1960;
 $ui-header-overlay: 1990;
 $ui-header-index: 2000;
@@ -109,7 +99,5 @@ $ui-header-list-index: 2010;
 $ui-datepicker-index: 2100;
 $ui-gautocomplete-index: 3000;
 $ui-dropdown-index: 3100;
-$ui-menu-index: 3200;
-$ui-aside-index: 4000;
 $ui-dialog-overlay: 10000;
 $ui-dialog-index: 10010;

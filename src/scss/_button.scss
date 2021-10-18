@@ -1,61 +1,71 @@
 %btn-color {
-  &.default {
-      &.active {
-          background-color: $color-front;
-          color: $color-bg;
-      }
-      box-shadow: 0 0 0 1px $color-front-l1;
-      color: $color-front;
-  }
   &.warning {
-      &.active {
-          background-color: $color-warning;
-          color: $color-bg;
-      }
-      box-shadow: 0 0 0 1px $color-warning;
-      color: $color-warning;
+    --button-bg: #{$color-warning-l1};
+    --button-border:  #{$color-warning};
+    --button-color:  #{$color-front};
+    --button-active-bg: #{$color-warning};
+    --button-active-border: #{$color-warning-l1};
+    --button-active-color: #{$color-front};
   }
   &.main {
-      &.active {
-          background-color: $color-main;
-          color: $color-bg;
-      }
-      box-shadow: 0 0 0 1px $color-main;
-      color: $color-main;
+    --button-bg: #{$color-main-l1};
+    --button-border:  #{$color-main};
+    --button-color:  #{$color-main};
+    --button-active-bg: #{$color-main};
+    --button-active-border: #{$color-main-l1};
+    --button-active-color: #{$color-bg};
   }
   &.danger {
-      &.active {
-          background-color: $color-danger;
-          color: $color-bg;
-      }
-      box-shadow: 0 0 0 1px $color-danger;
-      color: $color-danger;
+    --button-bg: #{$color-danger-l1};
+    --button-border:  #{$color-danger};
+    --button-color:  #{$color-danger};
+    --button-active-bg: #{$color-danger};
+    --button-active-border: #{$color-danger-l1};
+    --button-active-color: #{$color-bg};
   }
   &.safe {
-      &.active {
-          background-color: $color-safe;
-          color: $color-bg;
-      }
-      box-shadow: 0 0 0 1px $color-safe;
-      color: $color-safe;
+    --button-bg: #{$color-safe-l1};
+    --button-border:  #{$color-safe};
+    --button-color:  #{$color-safe};
+    --button-active-bg: #{$color-safe};
+    --button-active-border: #{$color-safe-l1};
+    --button-active-color: #{$color-bg};
   }
 }
 
 %btn {
-  @include singleline();
+  --button-width: 100%;
+  --button-bg: #{$color-bg};
+  --button-border:  #{$color-front-l1};
+  --button-color:  #{$color-front};
+  --button-active-bg: #{$color-front};
+  --button-active-border: #{$color-front-l1};
+  --button-active-color: #{$color-bg};
+  font-size: $font-size-5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   @extend %btn-color;
   display: block;
   text-align: center;
   transition: opacity 0.1s ease-in-out;
-  opacity: 1;
+  opacity: .75;
   border: none;
   cursor: pointer;
   border-radius: $border-radius;
   @include hover() {
-    opacity: 0.9;
+    opacity: 1;
+  }
+  width:var(--button-width);
+  background-color: var(--button-bg);
+  box-shadow: 0 0 0 1px var(--button-border);
+  color: var(--button-color);
+  &.active{
+    background-color: var(--button-active-bg);
+    box-shadow: 0 0 0 1px var(--button-active-border);;
+    color: var(--button-active-color);
   }
   @include form-default-1();
-
   &.large {
     @include form-large-1();
   }
@@ -103,10 +113,6 @@
     height: $form-size-default;
     @include form-default-1();
   }
-  &.orange {
-    background-color: $color-warning !important;
-    color: $color-bg !important;
-  }
 }
 
 [data-cui^="dropdownbutton"], [data-cui*=" dropdownbutton"],
@@ -133,8 +139,8 @@
       position: absolute;
       background: $color-bg;
       top: $form-size-default;
-      left: $g1;
-      right: $g1;
+      left: 0;
+      right: 0;
       z-index: $ui-buttongroup-index;
       box-shadow: 0 0 0 1px $color-front-l1;
       display: none;

@@ -9,65 +9,14 @@
     cursor: help;
 }
 
-//make element  center & middel
-.center {
-    @extend %center;
-}
-
-.center-x {
-    @extend %center-x;
-}
-
-.center-y {
-    @extend %center-y;
-}
-
-.img-center {
-    @extend %img-center;
-}
-
-//float layout
-%clearfix {
-    @include clearfix;
-}
-
 .clearfix {
     @extend %clearfix;
-}
-
-.pull-left {
-    float: left !important;
-}
-
-.pull-right {
-    float: right !important;
-}
-
-//singline
-%singleline {
-    @include singleline(100%);
 }
 
 .singleline {
     @extend %singleline;
 }
 
-//list disc
-.list-disc {
-    list-style: disc inside;
-}
-
 [disabled] {
     pointer-events: none;
-}
-
-.gs-sin {
-    padding: 0px;
-    .row {
-        margin-left: 0;
-        margin-right: 0;
-    }
-    [class^="col-"], [class*=" col-"] {
-        padding: 0px;
-    }
 }

@@ -101,10 +101,10 @@
   }
   &.warning {
     .tip-inner {
-      color: $color-warning-bg;
+      color: $color-warning-l1;
       background-color: $color-warning;
       text-align: left;
-      border: 1px solid $color-warning-bg;
+      border: 1px solid $color-warning-l1;
       @include border-bottom-radius(2px);
       box-shadow: none;
       &:before {
@@ -121,7 +121,7 @@
   &.error {
     .tip-inner {
       color: $color-danger;
-      background-color: $color-danger-bg;
+      background-color: $color-danger-l1;
       text-align: left;
       border: 1px solid $color-danger;
       @include border-bottom-radius(2px);

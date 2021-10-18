@@ -37,13 +37,13 @@
 .f2,
 .f3,
 .f4 {
-  @extend %text-light;
+  @extend %font-light;
 }
 
 .h5,
 .h6,
 .h7 {
-  @extend %text-bold;
+  line-height: 1.618 rem;
 }
 
 .h1,
@@ -58,54 +58,25 @@
   width: 100%;
   @include singleline();
 }
-.section {
-  margin:$g4 0;
-  .panel{
-    padding: 0 $g2;
+
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-weight: $font-weight-bold;
+  text-transform: capitalize;
+  .sub, .sup {
+    font-size: $font-size-5;
+    text-transform: lowercase;
   }
 }
-.panel {
-  > .h1,
-  > .h2,
-  > .h3,
-  > .h4,
-  > .h5,
-  > .h6 {
-    text-transform: capitalize;
-    .sub {
-      font-size: $font-size-5;
-      text-transform: lowercase;
-    }
-  }
 
-  .paragraph, p {
-    margin: $g0 0;
-    &.singleline-2 {
-      @include multiline($lineCount: 2, $bgColor: white);
-    }
-    &.singleline-3 {
-      @include multiline($lineCount: 3, $bgColor: white);
-    }
+.paragraph, p {
+  margin: $g2 0;
+  &.singleline-2 {
+    @include multiline($lineCount: 2, $bgColor: white);
   }
-
-  >[data-cui^="collapse"], >[data-cui*=" collapse"],
-  >[data-cui-load^="collapse"], >[data-cui-load*=" collapse"] {
-      padding-right: $g2;
-      &:before {
-          position: absolute;
-          right: 0;
-          top: 50%;
-          @extend %icon;
-          content: $icon-caret-left;
-          font-size: $font-size-5;
-          width:1rem;
-          height:1rem;
-          margin-top:-0.5rem;
-      }
-      &.shown {
-        &:before{
-          transform: rotate(-90deg);
-        }
-      }
+  &.singleline-3 {
+    @include multiline($lineCount: 3, $bgColor: white);
   }
 }
