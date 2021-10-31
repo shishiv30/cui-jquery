@@ -1,140 +1,141 @@
-html{
-    @media screen and (max-width:$screen-xs-max){
-        --layout-gap-x:#{$g2};
-        --layout-gap-y:#{$g2};
-    }
-    @media (min-width:$screen-sm-min) and (max-width:$screen-sm-max){
-        --layout-gap-x:#{$g3};
-        --layout-gap-y:#{$g2};
-    }
-    @media(min-width:$screen-md-min) and (max-width:$screen-md-max){
-        --layout-gap-x:#{$g4};
-        --layout-gap-y:#{$g3};
-    }
-    @media screen and (min-width:$screen-lg-min){
-        --layout-gap-x:#{$g5};
-        --layout-gap-y:#{$g3};
-    }
+html {
+	@media screen and (max-width: $screen-xs-max) {
+		--layout-gap-x: #{$g2};
+		--layout-gap-y: #{$g2};
+	}
+	@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+		--layout-gap-x: #{$g3};
+		--layout-gap-y: #{$g2};
+	}
+	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+		--layout-gap-x: #{$g4};
+		--layout-gap-y: #{$g3};
+	}
+	@media screen and (min-width: $screen-lg-min) {
+		--layout-gap-x: #{$g5};
+		--layout-gap-y: #{$g3};
+	}
 }
-.section{
-    --welcome-height: 200px;
-  
-    ~.section{
-        margin-top: var(--layout-gap-y);
-    }
-    &.welcome{
-        position: relative;
-        overflow: hidden;
-        min-height: var( --welcome-height);
-        max-height: 60vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: var(--layout-gap-x);
-        .bg{
-            pointer-events: none;
-            position: absolute;
-            top:0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            z-index: 1;
-            background-color: $color-main;
-            opacity: .9;
-        }
-        .panel{
-            position: relative;
-            z-index: 2;
-            border: $border-radius;
-            background-color: rgba(255,255,255,0.9);
-            @media screen and (max-width:$screen-sm-max) {
-                h1,h2,h3,h4{
-                    text-align: center;
-                }
-            }
-        }
-    }
+.section {
+	--welcome-height: 200px;
+
+	~ .section {
+		margin-top: var(--layout-gap-y);
+	}
+	&.welcome {
+		position: relative;
+		overflow: hidden;
+		min-height: var(--welcome-height);
+		max-height: 60vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--layout-gap-x);
+		.bg {
+			pointer-events: none;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			z-index: 1;
+			background-color: $color-main;
+			opacity: 0.9;
+		}
+		.panel {
+			position: relative;
+			z-index: 2;
+			border: $border-radius;
+			background-color: rgba(255, 255, 255, 0.9);
+			@media screen and (max-width: $screen-sm-max) {
+				h1,
+				h2,
+				h3,
+				h4 {
+					text-align: center;
+				}
+			}
+		}
+	}
 }
-.section-bg{
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
+.section-bg {
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.panel{
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    padding: var(--layout-gap-y) var(--layout-gap-x);
-    row-gap: var(--layout-gap-y);
-    column-gap: var(--layout-gap-x);
-    width:100%;
-    grid-template-columns:100%;
-    &.xs-2{
-        grid-template-columns:repeat(2, minmax(40%, 1fr));
-    }
-    &.xs-3{
-        grid-template-columns:repeat(3, minmax(30%, 1fr));
-    }
-    &.xs-4{
-        grid-template-columns:repeat(4, minmax(20%, 1fr));
-    }
-    @media screen and (min-width:$screen-sm-min){
-        &.sm-2{
-            grid-template-columns:repeat(2, minmax(40%, 1fr));
-        }
-        &.sm-3{
-            grid-template-columns:repeat(3, minmax(30%, 1fr));
-        }
-        &.sm-4{
-            grid-template-columns: repeat(4, minmax(20%, 1fr));
-        }
-    }
-    @media screen and (min-width:$screen-md-min){
-        max-width: $screen-sm-max;
-        &.md-2{
-            grid-template-columns:repeat(2, minmax(40%, 1fr));
-        }
-        &.md-3{
-            grid-template-columns:repeat(3, minmax(30%, 1fr));
-        }
-        &.md-4{
-            grid-template-columns: repeat(4, minmax(20%, 1fr));
-        }
-      
-    }
-    @media screen and (min-width:$screen-lg-min){
-        max-width: $screen-md-max;
-        &.lg-2{
-            grid-template-columns:repeat(2, minmax(40%, 1fr));
-        }
-        &.lg-3{
-            grid-template-columns:repeat(3, minmax(30%, 1fr));
-        }
-        &.lg-4{
-            grid-template-columns: repeat(4, minmax(20%, 1fr));
-        }
-    }
-    .xs-col-1{
-        grid-column: 1/-1;
-    }
-    @media (min-width:$screen-sm-min) and (max-width:$screen-sm-max){
-        .sm-col-1{
-            grid-column: 1/-1;
-        }
-    }
-    @media (min-width:$screen-md-min) and (max-width:$screen-md-max){
-        .md-col-1{
-            grid-column: 1/-1;
-        }
-    }
-    @media screen and (min-width:$screen-lg-min){
-        .lg-col-1{
-            grid-column: 1/-1;
-        }
-    }
-    @media screen and (min-width:$screen-lg-min) {
-    }
+.panel {
+	display: grid;
+	margin-left: auto;
+	margin-right: auto;
+	padding: var(--layout-gap-y) var(--layout-gap-x);
+	row-gap: var(--layout-gap-y);
+	column-gap: var(--layout-gap-x);
+	width: 100%;
+	grid-template-columns: 100%;
+	&.xs-2 {
+		grid-template-columns: repeat(2, minmax(40%, 1fr));
+	}
+	&.xs-3 {
+		grid-template-columns: repeat(3, minmax(30%, 1fr));
+	}
+	&.xs-4 {
+		grid-template-columns: repeat(4, minmax(20%, 1fr));
+	}
+	@media screen and (min-width: $screen-sm-min) {
+		&.sm-2 {
+			grid-template-columns: repeat(2, minmax(40%, 1fr));
+		}
+		&.sm-3 {
+			grid-template-columns: repeat(3, minmax(30%, 1fr));
+		}
+		&.sm-4 {
+			grid-template-columns: repeat(4, minmax(20%, 1fr));
+		}
+	}
+	@media screen and (min-width: $screen-md-min) {
+		max-width: $screen-sm-max;
+		&.md-2 {
+			grid-template-columns: repeat(2, minmax(40%, 1fr));
+		}
+		&.md-3 {
+			grid-template-columns: repeat(3, minmax(30%, 1fr));
+		}
+		&.md-4 {
+			grid-template-columns: repeat(4, minmax(20%, 1fr));
+		}
+	}
+	@media screen and (min-width: $screen-lg-min) {
+		max-width: $screen-md-max;
+		&.lg-2 {
+			grid-template-columns: repeat(2, minmax(40%, 1fr));
+		}
+		&.lg-3 {
+			grid-template-columns: repeat(3, minmax(30%, 1fr));
+		}
+		&.lg-4 {
+			grid-template-columns: repeat(4, minmax(20%, 1fr));
+		}
+	}
+	.xs-col-1 {
+		grid-column: 1/-1;
+	}
+	@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+		.sm-col-1 {
+			grid-column: 1/-1;
+		}
+	}
+	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+		.md-col-1 {
+			grid-column: 1/-1;
+		}
+	}
+	@media screen and (min-width: $screen-lg-min) {
+		.lg-col-1 {
+			grid-column: 1/-1;
+		}
+	}
+	@media screen and (min-width: $screen-lg-min) {
+	}
 }

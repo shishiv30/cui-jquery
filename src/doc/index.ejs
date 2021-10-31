@@ -1,61 +1,98 @@
 <!DOCTYPE html>
 <html lang="en" id="html">
-    <head>
-        <title>jQuery CUI</title>
-        <meta description='UI solution base on jQuery and CUI' />
-        <meta http-equiv="Cache-control" content="public">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta name="Description" content="Author: Conjee Zou, UI solution, Category: Document, Lisence: MIT">
-        <meta name="background-color" content="#ffffff">
-        <meta name="theme-color" content="#333333">
-        <link rel="preload" href="<%= require('../assets/fonts/fonticon.woff') %>" as="font" type="font/woff" crossorigin="anonymous">
-        <link rel="preload" href="<%= require('../assets/fonts/Roboto-Regular.woff2') %>" as="font" type="font/woff2" crossorigin="anonymous">
-        <link rel="preload" href="<%= require('../assets/fonts/Roboto-thin.woff2') %>" as="font" type="font/woff2" crossorigin="anonymous">
-        <link rel="preload" href="<%= require('../assets/fonts/Roboto-light.woff2') %>" as="font" type="font/woff2" crossorigin="anonymous">
-    </head>
-    <body id="body" data-cui="loadimage">
-        <%= require('./tpl-header.html').default %>
-        <div class="section welcome">
-            <div class="panel">
-                <h1 class="h3"> Welcome to CUI</h1>
-                <div>
-                    CUI is high performance Web Page UI framework, which focus on made a standard UI/UX solution with consistent components.
-                    The interface of this UI framework are only html attruibte and class name.
-                    CUI is <b>using css to defensive most of UI status</b>, and <b> will only offensive with js when it's nessary</b>. 
-                    it's seo friendly, even without js, the delivered page could have pefect FCP which exactly same before actived by JS.
-                </div>
-            </div>   
-            <div class="bg"> </div>     
-        </div>
+	<head>
+		<title>jQuery CUI</title>
+		<meta description="UI solution base on jQuery and CUI" />
+		<meta http-equiv="Cache-control" content="public" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="Description"
+			content="Author: Conjee Zou, UI solution, Category: Document, Lisence: MIT"
+		/>
+		<meta name="background-color" content="#ffffff" />
+		<meta name="theme-color" content="#333333" />
+		<link
+			rel="preload"
+			href="<%= require('../assets/fonts/fonticon.woff') %>"
+			as="font"
+			type="font/woff"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="preload"
+			href="<%= require('../assets/fonts/Roboto-Regular.woff2') %>"
+			as="font"
+			type="font/woff2"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="preload"
+			href="<%= require('../assets/fonts/Roboto-thin.woff2') %>"
+			as="font"
+			type="font/woff2"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="preload"
+			href="<%= require('../assets/fonts/Roboto-light.woff2') %>"
+			as="font"
+			type="font/woff2"
+			crossorigin="anonymous"
+		/>
+	</head>
+	<body id="body" data-cui="loadimage">
+		<%= require('./tpl-header.html').default %>
+		<div class="section welcome">
+			<div class="panel">
+				<h1 class="h3">Welcome to CUI</h1>
+				<div>
+					CUI is high performance Web Page UI framework, which focus
+					on made a standard UI/UX solution with consistent
+					components. The interface of this UI framework are only html
+					attruibte and class name. CUI is
+					<b>using css to defensive most of UI status</b>, and
+					<b> will only offensive with js when it's nessary</b>. it's
+					seo friendly, even without js, the delivered page could have
+					pefect FCP which exactly same before actived by JS.
+				</div>
+			</div>
+			<div class="bg"></div>
+		</div>
 
-        <%= require('./tpl-color.html').default %>
-        <%= require('./tpl-typograph.html').default %>
-        <%= require('./tpl-button.html').default %>
-        <!-- <%= require('./plugin-tip.html').default %> -->
-        <%= require('./tpl-form.html').default %>
-        <%= require('./tpl-textbox.html').default %>
-        <%= require('./tpl-skeleton.html').default %>
-        <%= require('./plugin-view.html').default %>
-        <%= require('./plugin-dialog.html').default %>
-        <%= require('./plugin-collapse.html').default %>
-        <%= require('./plugin-tabs.html').default %>
-        <%= require('./plugin-gridtable.html').default %>
-        <%= require('./plugin-rangeslider.html').default %>
-        <%= require('./plugin-datatable.html').default %>
-        <%= require('./plugin-touch.html').default %>
-        <%= require('./plugin-loadimage.html').default %>
-    </body>
-    <script type="text/javascript">
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js').then(registration => {
-                    console.log('SW registered: ', registration);
-                }).catch(registrationError => {
-                    console.log('SW registration failed: ', registrationError);
-                });
-            });
-        }
-    </script>
+		<%= require('./tpl-color.html').default %> <%=
+		require('./tpl-typograph.html').default %> <%=
+		require('./tpl-button.html').default %>
+		<!-- <%= require('./plugin-tip.html').default %> -->
+		<%= require('./tpl-form.html').default %> <%=
+		require('./tpl-textbox.html').default %> <%=
+		require('./tpl-skeleton.html').default %> <%=
+		require('./plugin-view.html').default %> <%=
+		require('./plugin-dialog.html').default %> <%=
+		require('./plugin-collapse.html').default %> <%=
+		require('./plugin-tabs.html').default %> <%=
+		require('./plugin-gridtable.html').default %> <%=
+		require('./plugin-rangeslider.html').default %> <%=
+		require('./plugin-datatable.html').default %> <%=
+		require('./plugin-touch.html').default %> <%=
+		require('./plugin-loadimage.html').default %>
+	</body>
+	<script type="text/javascript">
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () => {
+				navigator.serviceWorker
+					.register('./service-worker.js')
+					.then((registration) => {
+						console.log('SW registered: ', registration);
+					})
+					.catch((registrationError) => {
+						console.log(
+							'SW registration failed: ',
+							registrationError
+						);
+					});
+			});
+		}
+	</script>
 </html>
