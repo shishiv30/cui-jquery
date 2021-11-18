@@ -1,49 +1,49 @@
 .h1,
 .f1 {
-  @extend %f1;
+	@extend %f1;
 }
 
 .h2,
 .f2 {
-  @extend %f2;
+	@extend %f2;
 }
 
 .h3,
 .f3 {
-  @extend %f3;
+	@extend %f3;
 }
 
 .h4,
 .f4 {
-  @extend %f4;
+	@extend %f4;
 }
 
 .h5,
 .f5 {
-  @extend %f5;
+	@extend %f5;
 }
 
 .h6,
 .f6 {
-  @extend %f6;
+	@extend %f6;
 }
 
 .h7,
 .f7 {
-  @extend %f7;
+	@extend %f7;
 }
 
 .f1,
 .f2,
 .f3,
 .f4 {
-  @extend %font-light;
+	@extend %font-light;
 }
 
 .h5,
 .h6,
 .h7 {
-  line-height: 1.618 rem;
+	line-height: 1.618 rem;
 }
 
 .h1,
@@ -53,30 +53,46 @@
 .h5,
 .h6,
 .h7 {
-  display: block;
-  position: relative;
-  width: 100%;
-  @include singleline();
+	display: block;
+	position: relative;
+	width: 100%;
+	@include singleline();
 }
 
 .h1,
 .h2,
 .h3,
 .h4 {
-  font-weight: $font-weight-bold;
-  text-transform: capitalize;
-  .sub, .sup {
-    font-size: $font-size-5;
-    text-transform: lowercase;
-  }
+	font-weight: $font-weight-bold;
+	text-transform: capitalize;
+	.sub,
+	.sup {
+		text-transform: lowercase;
+	}
 }
 
-.paragraph, p {
-  margin: $g2 0;
-  &.singleline-2 {
-    @include multiline($lineCount: 2, $bgColor: white);
-  }
-  &.singleline-3 {
-    @include multiline($lineCount: 3, $bgColor: white);
-  }
+.h1 {
+	.sub,
+	.sup {
+		font-size: $font-size-3;
+	}
+}
+
+.h2 {
+	.sub,
+	.sup {
+		font-size: $font-size-4;
+	}
+}
+.h3 {
+	.sub,
+	.sup {
+		font-size: $font-size-5;
+	}
+}
+.h4 {
+	.sub,
+	.sup {
+		font-size: $font-size-6;
+	}
 }

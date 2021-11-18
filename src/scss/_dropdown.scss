@@ -1,40 +1,41 @@
 .select-textbox {
-    position: relative;
-    background: $color-bg;
-    > label {
-        position: absolute;
-        top: $gxs;
-        left: $g1;
-        color: $color-front-l1;
-        font-size: $font-size-7;
-        pointer-events: none;
-    }
-    > select {
-        width: 100%;
-        box-shadow: 0 0 0 1px $color-front-l1;
-        border: none;
-        @include form-default-2();
-        background: transparent;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background: transparent;
-        cursor: pointer;
-    }
-    i {
-        @extend %center-y;
-        right: $g0;
-        font-size: $font-size-4;
-        color: $color-front;
-        pointer-events: none;
-    }
-    &.large{
-        > label {
-            top: $g0;
-            left: $g2;
-        }
-        > select{
-           @include form-large-3();
-        }
-    }
+	position: relative;
+	background: $color-bg;
+	> label {
+		position: absolute;
+		top: $gxs;
+		left: $g1;
+		color: $color-front-l1;
+		font-size: $font-size-7;
+		pointer-events: none;
+	}
+	> select {
+		width: 100%;
+		box-shadow: 0 0 0 1px $color-front-l1;
+		border: none;
+		padding-left: $g1;
+		padding-right: $g1;
+		@include form-default-2();
+		background: transparent;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: transparent;
+		cursor: pointer;
+	}
+	i {
+		@extend %center-y;
+		right: $g0;
+		font-size: $font-size-4;
+		color: $color-front;
+		pointer-events: none;
+	}
+	&.large {
+		> label {
+			top: $g0;
+		}
+		> select {
+			@include form-large-3();
+		}
+	}
 }

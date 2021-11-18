@@ -1,38 +1,38 @@
-.circle-item {
-  width: $form-size-large;
-  height: $form-size-large;
-  border-radius: 50%;
-  display: block;
-  color: $color-bg;
-  border: 1px solid $color-bg;
-  line-height: $form-size-large;
+.circle {
+	width: $form-size-large;
+	height: $form-size-large;
+	border-radius: 50%;
+	display: block;
+	color: $color-bg;
+	border: 1px solid $color-bg;
+	line-height: $form-size-large;
 
-  &.color-main {
-      color: $color-main-l1;
-      background-color: $color-main;
-  }
+	&.color-major {
+		color: $color-major-l1;
+		background-color: $color-major;
+	}
 
-  &.color-danger {
-      color: $color-danger-l1;
-      background-color: $color-danger;
-  }
+	&.color-danger {
+		color: $color-danger-l1;
+		background-color: $color-danger;
+	}
 
-  &.color-warning {
-      color: $color-warning-l1;
-      background-color: $color-warning;
-  }
+	&.color-minor {
+		color: $color-minor-l1;
+		background-color: $color-minor;
+	}
 
-  &.color-safe {
-      color: $color-safe-l1;
-      background-color: $color-safe;
-  }
-  
-  &.color-mid {
-      color: $color-front;
-      background-color: $color-front;
-  }
-  &.color-normal {
-      color: $color-front;
-      background-color: $color-bg;
-  }
+	&.color-safe {
+		color: $color-safe-l1;
+		background-color: $color-safe;
+	}
+
+	&.color-mid {
+		color: $color-front;
+		background-color: $color-front;
+	}
+	&.color-normal {
+		color: $color-front;
+		background-color: $color-bg;
+	}
 }

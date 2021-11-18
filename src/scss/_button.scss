@@ -1,155 +1,157 @@
 %btn-color {
-  &.warning {
-    --button-bg: #{$color-warning-l1};
-    --button-border:  #{$color-warning};
-    --button-color:  #{$color-front};
-    --button-active-bg: #{$color-warning};
-    --button-active-border: #{$color-warning-l1};
-    --button-active-color: #{$color-front};
-  }
-  &.main {
-    --button-bg: #{$color-main-l1};
-    --button-border:  #{$color-main};
-    --button-color:  #{$color-main};
-    --button-active-bg: #{$color-main};
-    --button-active-border: #{$color-main-l1};
-    --button-active-color: #{$color-bg};
-  }
-  &.danger {
-    --button-bg: #{$color-danger-l1};
-    --button-border:  #{$color-danger};
-    --button-color:  #{$color-danger};
-    --button-active-bg: #{$color-danger};
-    --button-active-border: #{$color-danger-l1};
-    --button-active-color: #{$color-bg};
-  }
-  &.safe {
-    --button-bg: #{$color-safe-l1};
-    --button-border:  #{$color-safe};
-    --button-color:  #{$color-safe};
-    --button-active-bg: #{$color-safe};
-    --button-active-border: #{$color-safe-l1};
-    --button-active-color: #{$color-bg};
-  }
+	&.minor {
+		--button-bg: #{$color-minor-l1};
+		--button-border: #{$color-minor};
+		--button-color: #{$color-front};
+		--button-active-bg: #{$color-minor};
+		--button-active-border: #{$color-minor-l1};
+		--button-active-color: #{$color-front};
+	}
+	&.major {
+		--button-bg: #{$color-major-l1};
+		--button-border: #{$color-major};
+		--button-color: #{$color-major};
+		--button-active-bg: #{$color-major};
+		--button-active-border: #{$color-major-l1};
+		--button-active-color: #{$color-bg};
+	}
+	&.danger {
+		--button-bg: #{$color-danger-l1};
+		--button-border: #{$color-danger};
+		--button-color: #{$color-danger};
+		--button-active-bg: #{$color-danger};
+		--button-active-border: #{$color-danger-l1};
+		--button-active-color: #{$color-bg};
+	}
+	&.safe {
+		--button-bg: #{$color-safe-l1};
+		--button-border: #{$color-safe};
+		--button-color: #{$color-safe};
+		--button-active-bg: #{$color-safe};
+		--button-active-border: #{$color-safe-l1};
+		--button-active-color: #{$color-bg};
+	}
 }
 
 %btn {
-  --button-width: 100%;
-  --button-bg: #{$color-bg};
-  --button-border:  #{$color-front-l1};
-  --button-color:  #{$color-front};
-  --button-active-bg: #{$color-front};
-  --button-active-border: #{$color-front-l1};
-  --button-active-color: #{$color-bg};
-  font-size: $font-size-5;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  @extend %btn-color;
-  display: block;
-  text-align: center;
-  transition: opacity 0.1s ease-in-out;
-  opacity: .75;
-  border: none;
-  cursor: pointer;
-  border-radius: $border-radius;
-  @include hover() {
-    opacity: 1;
-  }
-  width:var(--button-width);
-  background-color: var(--button-bg);
-  box-shadow: 0 0 0 1px var(--button-border);
-  color: var(--button-color);
-  &.active{
-    background-color: var(--button-active-bg);
-    box-shadow: 0 0 0 1px var(--button-active-border);;
-    color: var(--button-active-color);
-  }
-  @include form-default-1();
-  &.large {
-    @include form-large-1();
-  }
-  &.small {
-    @include form-small();
-  }
+	--button-width: 100%;
+	--button-bg: #{$color-bg};
+	--button-border: #{$color-front-l1};
+	--button-color: #{$color-front};
+	--button-active-bg: #{$color-front};
+	--button-active-border: #{$color-front-l1};
+	--button-active-color: #{$color-bg};
+	font-size: $font-size-5;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	@extend %btn-color;
+	display: block;
+	text-align: center;
+	transition: opacity 0.1s ease-in-out;
+	opacity: 0.75;
+	border: none;
+	cursor: pointer;
+	border-radius: $border-radius;
+	@include hover() {
+		opacity: 1;
+	}
+	width: var(--button-width);
+	background-color: var(--button-bg);
+	box-shadow: 0 0 0 1px var(--button-border);
+	color: var(--button-color);
+	&.active {
+		background-color: var(--button-active-bg);
+		box-shadow: 0 0 0 1px var(--button-active-border);
+		color: var(--button-active-color);
+	}
+	@include form-default-1();
+	&.large {
+		@include form-large-1();
+	}
+	&.small {
+		@include form-small();
+	}
 
-  &[disabled] {
-    background-color: $color-front-l1 !important;
-    box-shadow: 0 0 0 1px $color-front-l1 !important;
-    color: $color-front !important;
-  }
+	&[disabled] {
+		background-color: $color-front-l1 !important;
+		box-shadow: 0 0 0 1px $color-front-l1 !important;
+		color: $color-front !important;
+	}
 
-  &.loading {
-    opacity: 0.5 !important;
-    cursor: wait !important;
-  }
+	&.loading {
+		opacity: 0.5 !important;
+		cursor: wait !important;
+	}
 }
 
 .btn {
-  @extend %btn;
+	@extend %btn;
 }
 
 .btn-circle {
-  display: inline-block;
-  font-size: $font-size-4;
-  border-radius: 50%;
-  background-color: $color-front-l1;
-  color: $color-main;
-  text-align: center !important;
-  @include hover() {
-    color: $color-warning;
-  }
+	display: inline-block;
+	font-size: $font-size-4;
+	border-radius: 50%;
+	background-color: $color-front-l1;
+	color: $color-major;
+	text-align: center !important;
+	@include hover() {
+		color: $color-minor;
+	}
 
-  width: $form-size-large;
-  height: $form-size-large;
-  @include form-large-1();
-  &.tiny{
-    width: $form-size-small;
-    height: $form-size-small;
-    @include form-small();
-  }
-  &.small {
-    width: $form-size-default;
-    height: $form-size-default;
-    @include form-default-1();
-  }
+	width: $form-size-large;
+	height: $form-size-large;
+	@include form-large-1();
+	&.tiny {
+		width: $form-size-small;
+		height: $form-size-small;
+		@include form-small();
+	}
+	&.small {
+		width: $form-size-default;
+		height: $form-size-default;
+		@include form-default-1();
+	}
 }
 
-[data-cui^="dropdownbutton"], [data-cui*=" dropdownbutton"],
-[data-cui-load^="dropdownbutton"], [data-cui-load*=" dropdownbutton"] {
-  display: flex;
-  position: relative;
-  a {
-      @extend %btn;
-  }
-  & > a:first-of-type {
-      width: 100%;
-      margin-right: 1px;
-      border-right: none;
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-  }
-  & > a:last-of-type {
-      width: $form-size-large;
-      flex-shrink: 0;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-  }
-  .dropdown-button-list {
-      position: absolute;
-      background: $color-bg;
-      top: $form-size-default;
-      left: 0;
-      right: 0;
-      z-index: $ui-buttongroup-index;
-      box-shadow: 0 0 0 1px $color-front-l1;
-      display: none;
-       > a {
-          color: $color-front;
-          background: $color-bg;
-          border-color: $color-front-l1;
-          box-shadow: none;
-          border-top: 0;
-      }
-  }
+[data-cui^='dropdownbutton'],
+[data-cui*=' dropdownbutton'],
+[data-cui-load^='dropdownbutton'],
+[data-cui-load*=' dropdownbutton'] {
+	display: flex;
+	position: relative;
+	a {
+		@extend %btn;
+	}
+	& > a:first-of-type {
+		width: 100%;
+		margin-right: 1px;
+		border-right: none;
+		border-bottom-right-radius: 0;
+		border-top-right-radius: 0;
+	}
+	& > a:last-of-type {
+		width: $form-size-large;
+		flex-shrink: 0;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.dropdown-button-list {
+		position: absolute;
+		background: $color-bg;
+		top: $form-size-default;
+		left: 0;
+		right: 0;
+		z-index: $ui-buttongroup-index;
+		box-shadow: 0 0 0 1px $color-front-l1;
+		display: none;
+		> a {
+			color: $color-front;
+			background: $color-bg;
+			border-color: $color-front-l1;
+			box-shadow: none;
+			border-top: 0;
+		}
+	}
 }

@@ -1,29 +1,30 @@
 .map-marker {
-    position: absolute;
-    &.removed {
-        display: none;
-    }
-    color: $color-bg;
-    .pin {
-        cursor: pointer;
-        position: relative;
-        border: 1px solid white;
-        background: $color-front-l1;
-        border-radius: 50%;
-        display: block;
-        font-size: $font-size-5;
-        width: 24px;
-        height: 24px;
-        line-height: 24px;
-        text-align: center;
-        transform: translateY(-50%) translateX(-50%);
-        i {
-            color: inherit;
-        }
-    }
-    &.on .pin, .pin:hover {
-        box-shadow: 0 0 0 5px rgba($color-warning, .35);
-        background-color: $color-warning;
-        z-index: $ui-pin-hover-index;
-    }
+	position: absolute;
+	&.removed {
+		display: none;
+	}
+	color: $color-bg;
+	.pin {
+		cursor: pointer;
+		position: relative;
+		border: 1px solid white;
+		background: $color-front-l1;
+		border-radius: 50%;
+		display: block;
+		font-size: $font-size-5;
+		width: 24px;
+		height: 24px;
+		line-height: 24px;
+		text-align: center;
+		transform: translateY(-50%) translateX(-50%);
+		i {
+			color: inherit;
+		}
+	}
+	&.on .pin,
+	.pin:hover {
+		box-shadow: 0 0 0 5px rgba($color-minor, 0.35);
+		background-color: $color-minor;
+		z-index: $ui-pin-hover-index;
+	}
 }

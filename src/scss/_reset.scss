@@ -1,93 +1,122 @@
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-input, div, span, ul, li, ol, p, select, textarea, dl, dt, dd, html, body, select, form {
-    margin: 0;
-    padding: 0;
+input,
+div,
+span,
+ul,
+li,
+ol,
+p,
+select,
+textarea,
+dl,
+dt,
+dd,
+html,
+body,
+select,
+form {
+	margin: 0;
+	padding: 0;
 }
 
-ol, ul {
-    list-style: none;
+ol,
+ul {
+	list-style: none;
 }
 
 html {
-    line-height: 1.618;
-    font-family: $font-family, "Helvetica Neue", Arial, sans-serif;
-    font-weight: $font-weight-normal;
-    font-style: normal;
-    color: $color-front;
-    font-size: 16px;
-    background-color: $color-bg;
-    @media screen and  (max-width: $screen-xs-min) {
-        font-size: 14px;
-    }
+	line-height: 1.618;
+	font-family: $font-family, 'Helvetica Neue', Arial, sans-serif;
+	font-weight: $font-weight-normal;
+	font-style: normal;
+	color: $color-front;
+	font-size: 16px;
+	background-color: $color-bg;
+	@media screen and (max-width: $screen-xs-min) {
+		font-size: 14px;
+	}
 }
 
-html{
-    height:100%;
+html {
+	height: 100%;
 }
 
-body{
-    min-height: 100%;
+body {
+	min-height: 100%;
 }
 
 fieldset {
-    padding: 0;
-    margin: 0;
-    border: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
 }
 
 legend {
-    color: inherit;
+	color: inherit;
 }
 
 label[for] {
-    cursor: pointer;
+	cursor: pointer;
 }
 
-input, select, textarea, button {
-    line-height: 1.618;
-    outline: none;
-    color: $color-front;
-    font-family: $font-family, "Helvetica Neue", Arial, sans-serif;
-    font-style: normal;
-    font-size: $font-size-5;
-    font-weight: $font-weight-normal;
+input,
+select,
+textarea,
+button {
+	line-height: 1.618;
+	outline: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	color: $color-front;
+	font-family: $font-family, 'Helvetica Neue', Arial, sans-serif;
+	font-style: normal;
+	font-size: $font-size-5;
+	font-weight: $font-weight-normal;
 }
-button{
-    background: none;
-    border:none;
+button {
+	background: none;
 }
 
 input::-ms-clear {
-    width: 0;
-    height: 0;
+	width: 0;
+	height: 0;
 }
 
-input, select {
-    -o-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    text-overflow: ellipsis;
+input,
+select {
+	-o-text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
 }
 
 img {
-    border: 0;
+	border: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
-    line-height: 1.618;
-    font-size: $font-size-5;
-    font-weight: normal;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+	line-height: 1.618;
+	font-size: $font-size-5;
+	font-weight: normal;
 }
 
-abbr[title], acronym[title] {
-    border-bottom: 1px dotted;
-    cursor: help;
+abbr[title],
+acronym[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
 }
 
-q:after, q:before {
-    content: "";
+q:after,
+q:before {
+	content: '';
 }

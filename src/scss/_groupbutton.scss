@@ -1,105 +1,105 @@
 .group-btn {
-  border-radius: 6px;
-  
-  margin: 0;
-  overflow: hidden;
-  display: flex;
-  flex-wrap: nowrap;
-  > label {
-    flex: 1;
-    overflow: hidden;
-    margin-right: 0;
-    + label{
-      border-left: 1px dashed transparent;
-    }
-    span {
-      display: block;
-      @include form-default-1();
-      color: $color-front;
-      text-align: center;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      cursor: pointer;
-      &:before {
-        display: none;
-      }
-    }
-  }
-  
-  input {
-    display: none;
-  }
+	border-radius: 6px;
 
-  &.large {
-    > label span {
-      @include form-large-1();
-    }
-  }
+	margin: 0;
+	overflow: hidden;
+	display: flex;
+	flex-wrap: nowrap;
+	> label {
+		flex: 1;
+		overflow: hidden;
+		margin-right: 0;
+		+ label {
+			border-left: 1px dashed transparent;
+		}
+		span {
+			display: block;
+			@include form-default-1();
+			color: $color-front;
+			text-align: center;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			cursor: pointer;
+			&:before {
+				display: none;
+			}
+		}
+	}
 
-  &.small {
-    > label span {
-      @include form-small();
-    }
-  }
+	input {
+		display: none;
+	}
 
-  &.default {
-    box-shadow: 0 0 0 1px $color-front-l1;
-    > label {
-      border-color: $color-front-l1;
-    }
-    input {
-      &:checked + span {
-        background: $color-front-l1;
-      }
-    }
-  }
-  &.warning {
-    box-shadow: 0 0 0 1px $color-warning;
-    > label {
-      border-color: $color-warning;
-    }
-    input {
-      &:checked + span {
-        background: $color-warning;
-        color: $color-bg;
-      }
-    }
-  }
-  &.main {
-    box-shadow: 0 0 0 1px $color-main;
-    > label {
-      border-color: $color-main;
-    }
-    input {
-      &:checked + span {
-        background: $color-main;
-        color: $color-bg;
-      }
-    }
-  }
-  &.danger {
-    box-shadow: 0 0 0 1px $color-danger;
-    > label {
-      border-color: $color-danger;
-    }
-    input {
-      &:checked + span {
-        background: $color-danger;
-        color: $color-bg;
-      }
-    }
-  }
-  &.safe {
-    box-shadow: 0 0 0 1px $color-safe;
-    > label {
-      border-color: $color-safe;
-    }
-    input {
-      &:checked + span {
-        background: $color-safe;
-        color: $color-bg;
-      }
-    }
-  }
+	&.large {
+		> label span {
+			@include form-large-1();
+		}
+	}
+
+	&.small {
+		> label span {
+			@include form-small();
+		}
+	}
+
+	&.default {
+		box-shadow: 0 0 0 1px $color-front-l1;
+		> label {
+			border-color: $color-front-l1;
+		}
+		input {
+			&:checked + span {
+				background: $color-front-l1;
+			}
+		}
+	}
+	&.minor {
+		box-shadow: 0 0 0 1px $color-minor;
+		> label {
+			border-color: $color-minor;
+		}
+		input {
+			&:checked + span {
+				background: $color-minor;
+				color: $color-bg;
+			}
+		}
+	}
+	&.major {
+		box-shadow: 0 0 0 1px $color-major;
+		> label {
+			border-color: $color-major;
+		}
+		input {
+			&:checked + span {
+				background: $color-major;
+				color: $color-bg;
+			}
+		}
+	}
+	&.danger {
+		box-shadow: 0 0 0 1px $color-danger;
+		> label {
+			border-color: $color-danger;
+		}
+		input {
+			&:checked + span {
+				background: $color-danger;
+				color: $color-bg;
+			}
+		}
+	}
+	&.safe {
+		box-shadow: 0 0 0 1px $color-safe;
+		> label {
+			border-color: $color-safe;
+		}
+		input {
+			&:checked + span {
+				background: $color-safe;
+				color: $color-bg;
+			}
+		}
+	}
 }

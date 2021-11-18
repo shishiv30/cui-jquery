@@ -1,157 +1,159 @@
-[data-cui^="textbox"], [data-cui*=" textbox"]{
-  .input{
-    input{
-      color: transparent;
-    }
-  }
+[data-cui^='textbox'],
+[data-cui*=' textbox'] {
+	.input {
+		input {
+			color: transparent;
+		}
+	}
 }
-[data-cui^="textbox"], [data-cui*=" textbox"],
-[data-cui-load^="textbox"], [data-cui-load*=" textbox"]{
-  position: relative;
+[data-cui^='textbox'],
+[data-cui*=' textbox'],
+[data-cui-load^='textbox'],
+[data-cui-load*=' textbox'] {
+	position: relative;
 
-  input::-webkit-input-placeholder,
-  textarea::-webkit-input-placeholder {
-    color: transparent;
-  }
+	input::-webkit-input-placeholder,
+	textarea::-webkit-input-placeholder {
+		color: transparent;
+	}
 
-  input:-moz-placeholder,
-  textarea:-moz-placeholder {
-    color: transparent;
-  }
+	input:-moz-placeholder,
+	textarea:-moz-placeholder {
+		color: transparent;
+	}
 
-  input:-ms-input-placeholder,
-  textarea:-ms-input-placeholder {
-    color: transparent;
-  }
+	input:-ms-input-placeholder,
+	textarea:-ms-input-placeholder {
+		color: transparent;
+	}
 
-  .input,
-  .textarea {
-    > label {
-      pointer-events: none;
-      margin: 0;
-      position: absolute;
-      transform: translateY(-50%);
-      border: none;
-      z-index: 1;
-      opacity: 0.8;
-      text-align: left;
-      @extend %singleline;
-      transition: all 0.2s ease-in-out;
-      pointer-events: none;
-    }
-  }
+	.input,
+	.textarea {
+		> label {
+			pointer-events: none;
+			margin: 0;
+			position: absolute;
+			transform: translateY(-50%);
+			border: none;
+			z-index: 1;
+			opacity: 0.8;
+			text-align: left;
+			@extend %singleline;
+			transition: all 0.2s ease-in-out;
+			pointer-events: none;
+		}
+	}
 
-  .input {
-    > label {
-      left: $g1;
-      right: auto;
-      top: 50%;
-      width: calc(100% - #{$g1});
-    }
+	.input {
+		> label {
+			left: $g1;
+			right: auto;
+			top: 50%;
+			width: calc(100% - #{$g1});
+		}
 
-    > input {
-      padding-top: #{$g0 + $font-size-5};
-      padding-bottom: $g0;
-    }
+		> input {
+			padding-top: #{$g0 + $font-size-5};
+			padding-bottom: $g0;
+		}
 
-    &.small {
-      &.input {
-        > input {
-          padding-top: $font-size-5;
-          padding-bottom: 0;
-        }
+		&.small {
+			&.input {
+				> input {
+					padding-top: $font-size-5;
+					padding-bottom: 0;
+				}
 
-        &.right {
-          > input {
-            padding-right: $form-size-default;
-          }
-        }
+				&.right {
+					> input {
+						padding-right: $form-size-default;
+					}
+				}
 
-        &.left {
-          > label {
-            left: $form-size-default;
-          }
+				&.left {
+					> label {
+						left: $form-size-default;
+					}
 
-          > input {
-            padding-left: $form-size-default;
-          }
-        }
-      }
-    }
+					> input {
+						padding-left: $form-size-default;
+					}
+				}
+			}
+		}
 
-    &.left,
-    &.right {
-      > label {
-        width: calc(100% - #{$form-size-large});
-      }
-    }
+		&.left,
+		&.right {
+			> label {
+				width: calc(100% - #{$form-size-large});
+			}
+		}
 
-    &.right.left {
-      > label {
-        width: calc(100% - #{$form-size-large * 2});
-      }
-    }
+		&.right.left {
+			> label {
+				width: calc(100% - #{$form-size-large * 2});
+			}
+		}
 
-    &.right {
-      > input {
-        padding-right: $form-size-large;
-      }
-    }
+		&.right {
+			> input {
+				padding-right: $form-size-large;
+			}
+		}
 
-    &.left {
-      > label {
-        left: $form-size-large;
-      }
+		&.left {
+			> label {
+				left: $form-size-large;
+			}
 
-      > input {
-        padding-left: $form-size-large;
-      }
-    }
-  }
+			> input {
+				padding-left: $form-size-large;
+			}
+		}
+	}
 
-  .textarea {
-    background-color: $color-bg;
-    border: 1px solid $color-front-l1;
+	.textarea {
+		background-color: $color-bg;
+		border: 1px solid $color-front-l1;
 
-    label {
-      padding: 0 $g0;
-      left: 0;
-      right: 0;
-      top: $g3;
-    }
+		label {
+			padding: 0 $g0;
+			left: 0;
+			right: 0;
+			top: $g3;
+		}
 
-    textarea {
-      border: none;
-      margin: $g3 0 $g0;
-      padding: 0 $g1;
-      min-height: 6.8rem;
-      overflow: hidden;
-      width: 100%;
-    }
-  }
+		textarea {
+			border: none;
+			margin: $g3 0 $g0;
+			padding: 0 $g1;
+			min-height: 6.8rem;
+			overflow: hidden;
+			width: 100%;
+		}
+	}
 
-  &.focus {
-    input,
-    textarea {
-      color: inherit;
-    }
+	&.focus {
+		input,
+		textarea {
+			color: inherit;
+		}
 
-    .input,
-    .textarea {
-      > label {
-        top: $gxs;
-        right: auto;
-        transform: translateY(0);
-        transform-origin: left;
-        font-size: $font-size-7;
-      }
+		.input,
+		.textarea {
+			> label {
+				top: $gxs;
+				right: auto;
+				transform: translateY(0);
+				transform-origin: left;
+				font-size: $font-size-7;
+			}
 
-      &.large {
-        > label {
-          top: $g0;
-          left: $g2;
-        }
-      }
-    }
-  }
+			&.large {
+				> label {
+					top: $g0;
+				}
+			}
+		}
+	}
 }

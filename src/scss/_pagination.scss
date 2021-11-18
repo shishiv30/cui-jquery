@@ -1,66 +1,66 @@
 .pagination {
-  .info {
-    text-align: center;
-    font-size: $font-size-4;
-  }
+	.info {
+		text-align: center;
+		font-size: $font-size-4;
+	}
 
-  .paging {
-    text-align: center;
-    font-size: $font-size-6;
+	.paging {
+		text-align: center;
+		font-size: $font-size-6;
 
-    a {
-      display: inline-block;
-      border: solid 1px $color-main;
-      width: 45px;
-      height: 45px;
-      line-height: 43px;
-      text-align: center;
-      margin-bottom: 3px;
-    }
+		a {
+			display: inline-block;
+			border: solid 1px $color-major;
+			width: 45px;
+			height: 45px;
+			line-height: 43px;
+			text-align: center;
+			margin-bottom: 3px;
+		}
 
-    a.selected,
-    a.prev,
-    a.next {
-      background-color: $color-main;
-      color: $color-bg;
-    }
+		a.selected,
+		a.prev,
+		a.next {
+			background-color: $color-major;
+			color: $color-bg;
+		}
 
-    a.selected {
-      cursor: default;
-    }
+		a.selected {
+			cursor: default;
+		}
 
-    a.disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
+		a.disabled {
+			opacity: 0.5;
+			cursor: default;
+		}
 
-    a.prev,
-    a.next {
-      @extend %icon;
+		a.prev,
+		a.next {
+			@extend %icon;
 
-      line-height: 43px;
-    }
+			line-height: 43px;
+		}
 
-    a.prev:before {
-      content: $icon-arrow_back_ios;
-    }
+		a.prev:before {
+			content: $icon-arrow_back_ios;
+		}
 
-    a.next:before {
-      content: $icon-arrow_forward_ios;
-    }
-  }
+		a.next:before {
+			content: $icon-arrow_forward_ios;
+		}
+	}
 }
 
 .pageIndex {
-  margin: 0 auto;
-  line-height: 20px;
-  height: 20px;
-  text-align: center;
+	margin: 0 auto;
+	line-height: 20px;
+	height: 20px;
+	text-align: center;
 
-  > a,
-  > span {
-    display: inline-block;
-    margin-left: 5px !important;
-    margin-right: 5px !important;
-  }
+	> a,
+	> span {
+		display: inline-block;
+		margin-left: 5px !important;
+		margin-right: 5px !important;
+	}
 }

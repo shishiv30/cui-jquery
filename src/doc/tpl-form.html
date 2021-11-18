@@ -1,131 +1,243 @@
 <div class="section">
-    <div class="panel">
-        <a href="javascript:;" class="h3 shown" data-cui="collapse" data-target="#formPanel">
-            forms
-            <span class="sub"> the form style</span>
-        </a>
-    </div> 
-    <div id="formPanel" class="form panel xs-2" data-cui="form">
-        <div>
-            <label for="txtReq">Required Box</label>
-            <div class="input left right">
-                <i class="icon-user-circle-o"></i>
-                <input type="text" id="txtReq" name='name' placeholder="name" data-cui="validate" data-type='required'>
-                <i>*</i>
-            </div>
-        </div>
-        <div>
-            <label for="txtMail">Mail Box</label>
-            <div class="input right">
-                <input type="text" id="txtMail" name='email' placeholder="email" data-cui="validate" data-type='email'>
-                <i class="icon-envelope"></i>
-            </div>
-        </div>
-        <div>
-            <label for="txtPhone">Phone Box</label>
-            <div class="input left right">
-                <i class="icon-phone"></i>
-                <input type="text" id="txtPhone" name='phone' placeholder="phone" value="1234567890" data-cui="validate" data-type='required,phone' data-inputformat data-type="phone">
-                <i>*</i>
-            </div>
-        </div>
-        <div>
-            <label for="ddlFequence">Fequence</label>
-            <div class="input left right">
-                <i class="icon-phone"></i>
-                <select id="ddlFequence" name="fequence" data-cui="validate" data-type="required">
-                    <option value="" selected disabled>select a fequence</option>
-                    <option value="Weekly">Weekly</option>
-                    <option value="Daily">Daily</option>
-                    <option value="Monthly">Monthly</option>
-                </select>
-                <a class="icon-check"></a>
-            </div>
-        </div>
-        <div>
-            <label for="date">Date picker</label>
-            <div class="input right">
-                <input type="text" id="date" name='date' data-cui="picker" data-picktype="date" readonly placeholder="select date" data-cui="validate" data-type="required">
-                <i for="date" class="icon-date_range"></i>
-            </div>
-        </div>
-        <div>
-            <label for="time">Time picker</label>
-            <div class="input right">
-                <input type="text" id="time" name='time' data-cui="picker" data-picktype="time" readonly placeholder="select time" data-cui="validate" data-type="required">
-                <i for="time" class="icon-timer"></i>
-            </div>
-        </div>
-        <div>
-            <label>Select Gender</label>
-            <br>
-            <div class="radio">
-                <label for="chMale">
-                    <input id="chMale" name="gender" type="radio" checked value="Male">
-                    <span>Male</span>
-                </label>
-                <label for="chkFemal">
-                    <input id="chkFemal" name="gender" type="radio" value="Female">
-                    <span>Female</span>
-                </label>
-            </div>
-        </div>
-        <div>
-            <label>Select Gender</label>
-            <br>
-            <div class="radio group-btn default">
-                <label for="chMale1">
-                    <input id="chMale1" name="gender" type="radio" checked value="Male">
-                    <span>Male</span>
-                </label>
-                <label for="chkFemal1">
-                    <input id="chkFemal1" name="gender" type="radio" value="Female">
-                    <span>Female</span>
-                </label>
-            </div>
-        </div>
-        <div>
-            <label>Select Favor</label>
-            <br>
-            <div class="checkbox">
-                <label for="rbtnFavor1">
-                    <input id="rbtnFavor1" name="favor" checked type="checkbox" value="Dance">
-                    <span>Dance</span>
-                </label>
+	<div class="panel">
+		<a
+			href="javascript:;"
+			class="h4 shown"
+			data-cui="collapse"
+			data-target="#formPanel"
+		>
+			forms
+			<span class="sub"> the form style</span>
+		</a>
+	</div>
+	<div id="formPanel" class="form panel xs-2" data-cui="form">
+		<div>
+			<label for="txtReq">Required Box</label>
+			<div class="input left right">
+				<i class="icon-user-circle-o"></i>
+				<input
+					type="text"
+					id="txtReq"
+					name="name"
+					placeholder="name"
+					data-cui="validate"
+					data-type="required"
+				/>
+				<i>*</i>
+			</div>
+		</div>
+		<div>
+			<label for="txtMail">Mail Box</label>
+			<div class="input right">
+				<input
+					type="text"
+					id="txtMail"
+					name="email"
+					placeholder="email"
+					data-cui="validate"
+					data-type="email"
+				/>
+				<i class="icon-envelope"></i>
+			</div>
+		</div>
+		<div>
+			<label for="txtPhone">Phone Box</label>
+			<div class="input left right">
+				<i class="icon-phone"></i>
+				<input
+					type="text"
+					id="txtPhone"
+					name="phone"
+					placeholder="phone"
+					value="1234567890"
+					data-cui="validate"
+					data-type="required,phone"
+					data-inputformat
+					data-type="phone"
+				/>
+				<i>*</i>
+			</div>
+		</div>
+		<div>
+			<label for="ddlFequence">Fequence</label>
+			<div class="input left right">
+				<i class="icon-phone"></i>
+				<select
+					id="ddlFequence"
+					name="fequence"
+					data-cui="validate"
+					data-type="required"
+				>
+					<option value="" selected disabled>
+						select a fequence
+					</option>
+					<option value="Weekly">Weekly</option>
+					<option value="Daily">Daily</option>
+					<option value="Monthly">Monthly</option>
+				</select>
+				<a class="icon-check"></a>
+			</div>
+		</div>
+		<div>
+			<label for="date">Date picker</label>
+			<div class="input right">
+				<input
+					type="text"
+					id="date"
+					name="date"
+					data-cui="picker"
+					data-picktype="date"
+					readonly
+					placeholder="select date"
+					data-cui="validate"
+					data-type="required"
+				/>
+				<i for="date" class="icon-date_range"></i>
+			</div>
+		</div>
+		<div>
+			<label for="time">Time picker</label>
+			<div class="input right">
+				<input
+					type="text"
+					id="time"
+					name="time"
+					data-cui="picker"
+					data-picktype="time"
+					readonly
+					placeholder="select time"
+					data-cui="validate"
+					data-type="required"
+				/>
+				<i for="time" class="icon-timer"></i>
+			</div>
+		</div>
+		<div>
+			<label>Select Gender</label>
+			<br />
+			<div class="radio">
+				<label for="chMale">
+					<input
+						id="chMale"
+						name="gender"
+						type="radio"
+						checked
+						value="Male"
+					/>
+					<span>Male</span>
+				</label>
+				<label for="chkFemal">
+					<input
+						id="chkFemal"
+						name="gender"
+						type="radio"
+						value="Female"
+					/>
+					<span>Female</span>
+				</label>
+			</div>
+		</div>
+		<div>
+			<label>Select Gender</label>
+			<br />
+			<div class="radio group-btn default">
+				<label for="chMale1">
+					<input
+						id="chMale1"
+						name="gender"
+						type="radio"
+						checked
+						value="Male"
+					/>
+					<span>Male</span>
+				</label>
+				<label for="chkFemal1">
+					<input
+						id="chkFemal1"
+						name="gender"
+						type="radio"
+						value="Female"
+					/>
+					<span>Female</span>
+				</label>
+			</div>
+		</div>
+		<div>
+			<label>Select Favor</label>
+			<br />
+			<div class="checkbox">
+				<label for="rbtnFavor1">
+					<input
+						id="rbtnFavor1"
+						name="favor"
+						checked
+						type="checkbox"
+						value="Dance"
+					/>
+					<span>Dance</span>
+				</label>
 
-                <label for="rbtnFavor2">
-                    <input id="rbtnFavor2" name="favor" type="checkbox" value="Sing">
-                    <span>Sing</span>
-                </label>
+				<label for="rbtnFavor2">
+					<input
+						id="rbtnFavor2"
+						name="favor"
+						type="checkbox"
+						value="Sing"
+					/>
+					<span>Sing</span>
+				</label>
 
-                <label for="rbtnFavor3">
-                    <input id="rbtnFavor3" name="favor" type="checkbox" value="Paint">
-                    <span>Paint</span>
-                </label>
-            </div>
-        </div>
-        <div>
-            <label>Select Favor</label>
-            <br>
-            <div class="checkbox group-btn default">
-                <label for="rbtnFavor4">
-                    <input id="rbtnFavor4" name="favor" checked type="checkbox" value="Dance">
-                    <span>Dance</span>
-                </label>
+				<label for="rbtnFavor3">
+					<input
+						id="rbtnFavor3"
+						name="favor"
+						type="checkbox"
+						value="Paint"
+					/>
+					<span>Paint</span>
+				</label>
+			</div>
+		</div>
+		<div>
+			<label>Select Favor</label>
+			<br />
+			<div class="checkbox group-btn default">
+				<label for="rbtnFavor4">
+					<input
+						id="rbtnFavor4"
+						name="favor"
+						checked
+						type="checkbox"
+						value="Dance"
+					/>
+					<span>Dance</span>
+				</label>
 
-                <label for="rbtnFavor5">
-                    <input id="rbtnFavor5" name="favor" type="checkbox" value="Sing">
-                    <span>Sing</span>
-                </label>
+				<label for="rbtnFavor5">
+					<input
+						id="rbtnFavor5"
+						name="favor"
+						type="checkbox"
+						value="Sing"
+					/>
+					<span>Sing</span>
+				</label>
 
-                <label for="rbtnFavor6">
-                    <input id="rbtnFavor6" name="favor" type="checkbox" value="Paint">
-                    <span>Paint</span>
-                </label>
-            </div>
-        </div>
-        <div class="xs-col-1">
-            <a class="btn default" href="javascript:;" onclick="window.submit()">Submit</a>
-        </div>
-    </div>
+				<label for="rbtnFavor6">
+					<input
+						id="rbtnFavor6"
+						name="favor"
+						type="checkbox"
+						value="Paint"
+					/>
+					<span>Paint</span>
+				</label>
+			</div>
+		</div>
+		<div class="xs-col-1">
+			<a class="btn default" href="javascript:;" onclick="window.submit()"
+				>Submit</a
+			>
+		</div>
+	</div>
 </div>
