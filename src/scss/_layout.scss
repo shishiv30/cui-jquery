@@ -5,15 +5,15 @@ html {
 	}
 	@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
 		--layout-gap-x: #{$g3};
-		--layout-gap-y: #{$g4};
+		--layout-gap-y: #{$g3};
 	}
 	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-		--layout-gap-x: #{$g4};
-		--layout-gap-y: #{$g5};
+		--layout-gap-x: #{$g3};
+		--layout-gap-y: #{$g4};
 	}
 	@media screen and (min-width: $screen-lg-min) {
-		--layout-gap-x: #{$g5};
-		--layout-gap-y: #{$g5};
+		--layout-gap-x: #{$g4};
+		--layout-gap-y: #{$g4};
 	}
 }
 .section {
