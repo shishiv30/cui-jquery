@@ -1,0 +1,51 @@
+.tag {
+	--tag-bg: #{$color-bg};
+	--tag-border: #{$color-front-l1};
+	--tag-color: #{$color-front};
+	--tag-active-bg: #{$color-front};
+	--tag-active-border: #{$color-front-l1};
+	--tag-active-color: #{$color-bg};
+	&.minor {
+		--tag-bg: #{$color-minor-l1};
+		--tag-border: #{$color-minor};
+		--tag-color: #{$color-front};
+		--tag-active-bg: #{$color-minor};
+		--tag-active-border: #{$color-minor-l1};
+		--tag-active-color: #{$color-front};
+	}
+	&.major {
+		--tag-bg: #{$color-major-l1};
+		--tag-border: #{$color-major};
+		--tag-color: #{$color-major};
+		--tag-active-bg: #{$color-major};
+		--tag-active-border: #{$color-major-l1};
+		--tag-active-color: #{$color-bg};
+	}
+	&.danger {
+		--tag-bg: #{$color-danger-l1};
+		--tag-border: #{$color-danger};
+		--tag-color: #{$color-danger};
+		--tag-active-bg: #{$color-danger};
+		--tag-active-border: #{$color-danger-l1};
+		--tag-active-color: #{$color-bg};
+	}
+	&.safe {
+		--tag-bg: #{$color-safe-l1};
+		--tag-border: #{$color-safe};
+		--tag-color: #{$color-safe};
+		--tag-active-bg: #{$color-safe};
+		--tag-active-border: #{$color-safe-l1};
+		--tag-active-color: #{$color-bg};
+	}
+	padding: 0 $g1;
+	font-size: $font-size-7;
+	background-color: var(--tag-bg);
+	color: var(--tag-color);
+	box-shadow: 0 0 0 1px var(--tag-border);
+	border-radius: $g1;
+	&.active {
+		background-color: var(--tag-active-bg);
+		box-shadow: 0 0 0 1px var(--tag-active-border);
+		color: var(--tag-active-color);
+	}
+}

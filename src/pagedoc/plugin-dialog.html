@@ -9,15 +9,16 @@
 			dialog
 			<span class="sub"> the dialog plugin</span>
 		</a>
-		<div id="dialogPanel">
+		<div id="dialogPanel" class="panel xs-3">
 			<div>
 				<a
 					class="btn default"
 					href="javascript:;"
 					data-cui="dialog"
 					data-target="#popupPanel1"
-					>open dialog as default</a
 				>
+					<span class="hidden-xs">Dialog </span>Default
+				</a>
 			</div>
 			<script id="popupPanel1" type="text/template">
 				<div class="dialog-title">Welcome to CUI!</div>
@@ -44,8 +45,9 @@
 					data-cui="dialog"
 					data-target="#popupPanel0"
 					data-theme="fullscreen"
-					>open dialog as fullscreen</a
 				>
+					<span class="hidden-xs">Dialog </span>Fullscreen
+				</a>
 			</div>
 			<script id="popupPanel0" type="text/template">
 				<div dialog-close>
@@ -72,8 +74,9 @@
 					data-cui="dialog"
 					data-target="#popupPanel"
 					data-theme="dropdown"
-					>open dialog as dropdown</a
 				>
+					<span class="hidden-xs">Dialog </span>Dropdown
+				</a>
 			</div>
 			<script id="popupPanel" type="text/template">
 				<div class="f3">Hello World!</div>

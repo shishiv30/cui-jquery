@@ -53,7 +53,10 @@
 .h5,
 .h6,
 .h7 {
-	display: block;
+	display: flex;
+	align-items: center;
+	gap: $g2;
+	margin-bottom: $g1;
 	position: relative;
 	width: 100%;
 	@include singleline();

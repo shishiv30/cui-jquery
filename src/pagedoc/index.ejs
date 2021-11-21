@@ -2,17 +2,8 @@
 <html lang="en" id="html">
 	<head>
 		<title>jQuery CUI</title>
-		<meta description="UI solution base on jQuery and CUI" />
-		<meta http-equiv="Cache-control" content="public" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="Description"
-			content="Author: Conjee Zou, UI solution, Category: Document, Lisence: MIT"
-		/>
-		<meta name="background-color" content="#ffffff" />
-		<meta name="theme-color" content="#333333" />
+		<meta name="Description" content="Author: Conjee Zou, UI solution, Category: Document" />
+		<%= require('../page/meta.html').default %> 
 		<link
 			rel="preload"
 			href="<%= require('../assets/fonts/fonticon.woff') %>"
@@ -42,8 +33,8 @@
 			crossorigin="anonymous"
 		/>
 	</head>
-	<body id="body" data-cui="loadimage">
-		<%= require('./tpl-header.html').default %>
+	<body id="body">
+		<%= require('../page/header.html').default %>
 		<div class="section welcome">
 			<div class="panel">
 				<h1 class="h3">Welcome to CUI</h1>
@@ -78,18 +69,5 @@
 		<%= require('./plugin-touch.html').default %> 
 		<%= require('./plugin-loadimage.html').default %>
 	</body>
-	<script type="text/javascript">
-		if ('serviceWorker' in navigator) {
-			window.addEventListener('load', () => {
-				navigator.serviceWorker
-					.register('./sw.js')
-					.then((registration) => {
-						console.log('SW registered: ', registration);
-					})
-					.catch((registrationError) => {
-						console.log('SW registration failed: ', registrationError);
-					});
-			});
-		}
-	</script>
+	<%= require('../page/sw.html').default %> 
 </html>

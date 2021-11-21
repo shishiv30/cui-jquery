@@ -9,7 +9,7 @@ module.exports = (env) => {
 		: 'http://localhost:8080/';
 	return {
 		entry: {
-			cui: './src/doc/index.js',
+			cui: './src/pagedoc/index.js',
 		},
 		output: {
 			filename: '[name].js',
@@ -67,7 +67,12 @@ module.exports = (env) => {
 		plugins: [
 			new HtmlWebpackPlugin({
 				filename: './index.html',
-				template: './src/doc/index.ejs',
+				template: './src/pagedoc/index.ejs',
+				favicon: './src/assets/favicon.ico',
+			}),
+			new HtmlWebpackPlugin({
+				filename: './about.html',
+				template: './src/pageabout/index.ejs',
 				favicon: './src/assets/favicon.ico',
 			}),
 			new MiniCssExtractPlugin({
