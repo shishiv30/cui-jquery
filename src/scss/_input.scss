@@ -1,185 +1,196 @@
 .input {
-  position: relative;
-  display: block;
+	position: relative;
+	display: block;
 
-  >select{
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background: transparent;
-      cursor: pointer;
-  }
-  > input::placeholder{
-    color:inherit;
-  }
-  > input,
-  > select {
-    width: 100%;
-    box-shadow: 0 0 0 1px $color-front-l1;
-    border: none;
-    border-radius: $border-radius;
-    @include form-default-1();
-    padding-left: $g1;
-    padding-right: $g1;
-  }
+	> select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: transparent;
+		cursor: pointer;
+	}
+	> input::placeholder {
+		color: inherit;
+	}
+	> input,
+	> select {
+		width: 100%;
+		box-shadow: 0 0 0 1px $color-front-l1;
+		border: none;
+		border-radius: $border-radius;
+		@include form-default-1();
+		padding-left: $g1;
+		padding-right: $g1;
+	}
 
-  > i,
-  > span,
-  > a, >.btn {
-    @extend %center-y;
-    z-index: 1;
-    text-align: center;
-    padding-top: $g1;
-    padding-bottom: $g1;
-    width: $form-size-default;
-  }
+	> i,
+	> span,
+	> a,
+	> button,
+	> .btn {
+		@extend %center-y;
+		z-index: 1;
+		text-align: center;
+		padding-top: $g1;
+		padding-bottom: $g1;
+		width: $form-size-default;
+	}
 
-  >.btn{
-    --button-bg: transparent;
-    --button-border: transparent;
-    --button-color: inherit;
-    --button-active-bg: transparent;
-    --button-active-border: transparent;
-    --button-active-color: inherit;
-    border-radius: 0;
-  }
+	> .btn {
+		--button-bg: transparent;
+		--button-border: transparent;
+		--button-color: inherit;
+		--button-active-bg: transparent;
+		--button-active-border: transparent;
+		--button-active-color: inherit;
+		border-radius: 0;
+	}
 
-  &.left {
-    > input,
-    > select {
-      padding-left: $form-size-default;
-    }
+	&.left {
+		> input,
+		> select {
+			padding-left: $form-size-default;
+		}
 
-    > span,
-    > i,
-    > a, >.btn {
-      left: 0;
-      right: auto;
-    }
-  }
+		> span,
+		> i,
+		> a,
+		> button,
+		> .btn {
+			left: 0;
+			right: auto;
+		}
+	}
 
-  &.right {
-    > input,
-    > select {
-      padding-right: $form-size-default;
+	&.right {
+		> input,
+		> select {
+			padding-right: $form-size-default;
 
-      ~ span,
-      ~ i,
-      ~ a, ~.btn {
-        right: 0;
-        left: auto;
-      }
-    }
-  }
+			~ span,
+			~ i,
+			~ a,
+			~ button,
+			~ .btn {
+				right: 0;
+				left: auto;
+			}
+		}
+	}
 
-  &.small {
-    > input,
-    > select {
-      @include form-small();
-    }
-    
-    > i,
-    > span,
-    > a, >.btn {
-      padding-top:$g0;
-      padding-bottom:$g0;
-      width: $form-size-small;
-    }
+	&.small {
+		> input,
+		> select {
+			@include form-small();
+		}
 
-    &.right {
-      > input,
-      > select {
-        padding-right: $form-size-small;
-      }
-    }
+		> i,
+		> span,
+		> a,
+		> button,
+		> .btn {
+			padding-top: $g0;
+			padding-bottom: $g0;
+			width: $form-size-small;
+		}
 
-    &.left {
-      > input,
-      > select {
-        padding-left: $form-size-small;
-      }
-    }
-  }
+		&.right {
+			> input,
+			> select {
+				padding-right: $form-size-small;
+			}
+		}
 
-  &.large {
-    > input,
-    > select {
-      @include form-large-1();
-    }
-    
-    > i,
-    > span,
-    > a, >.btn {
-      padding-top:$g1;
-      padding-bottom:$g1;
-      width: $form-size-large;
-    }
+		&.left {
+			> input,
+			> select {
+				padding-left: $form-size-small;
+			}
+		}
+	}
 
-    &.right {
-      > input,
-      > select {
-        padding-right: $form-size-large;
-      }
-    }
+	&.large {
+		> input,
+		> select {
+			@include form-large-1();
+		}
 
-    &.left {
-      > input,
-      > select {
-        padding-left: $form-size-large;
-      }
-    }
-  }
+		> i,
+		> span,
+		> a,
+		> button,
+		> .btn {
+			padding-top: $g1;
+			padding-bottom: $g1;
+			width: $form-size-large;
+		}
 
-  &.plaintext {
-    > input,
-    > select {
-      background-color: transparent !important;
-      display: inline-block;
-      pointer-events: none;
-    }
+		&.right {
+			> input,
+			> select {
+				padding-right: $form-size-large;
+			}
+		}
 
-    > i {
-      color: inherit !important;
-    }
-  }
+		&.left {
+			> input,
+			> select {
+				padding-left: $form-size-large;
+			}
+		}
+	}
 
-  &.has-success {
-      color: $color-front;
-  }
+	&.plaintext {
+		> input,
+		> select {
+			background-color: transparent !important;
+			display: inline-block;
+			pointer-events: none;
+		}
 
-  &.has-error {
-      color: $color-danger;
-  }
+		> i {
+			color: inherit !important;
+		}
+	}
 
-  &.has-error, &.has-success {
-      .tip {
-          margin-top: 0;
-          top:0;
-          left: 0 !important;
-          right: 0 !important;
-          max-width: initial !important;
-          transform: translateY(50%);
-          padding: 0;
-          top:0;
-          .tip-inner {
-              border:none!important;
-              background: transparent!important;
-              border: none!important;
-              box-shadow: none!important;
-              text-align: right!important;
-              margin: 0 0.5rem!important;
-          }
-          .tip-arrow{
-            display: none!important;
-          }
-          &.in {
-              transform: translateY(0);
-          }
-      }
-  }
-  &.has-error{
-    .tip-inner{
-      color:$color-danger-l1;
-    }
-  }
+	&.has-success {
+		color: $color-front;
+	}
+
+	&.has-error {
+		color: $color-danger;
+	}
+
+	&.has-error,
+	&.has-success {
+		.tip {
+			margin-top: 0;
+			top: 0;
+			left: 0 !important;
+			right: 0 !important;
+			max-width: initial !important;
+			transform: translateY(50%);
+			padding: 0;
+			top: 0;
+			.tip-inner {
+				border: none !important;
+				background: transparent !important;
+				border: none !important;
+				box-shadow: none !important;
+				text-align: right !important;
+				margin: 0 0.5rem !important;
+			}
+			.tip-arrow {
+				display: none !important;
+			}
+			&.in {
+				transform: translateY(0);
+			}
+		}
+	}
+	&.has-error {
+		.tip-inner {
+			color: $color-danger-l1;
+		}
+	}
 }

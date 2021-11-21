@@ -7,6 +7,7 @@
 		url('../assets/fonts/fonticon.svg?b94lvl##fonticon') format('svg');
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 /* latin */
 @font-face {
@@ -16,6 +17,7 @@
 	font-weight: $font-weight-light;
 	src: local('Pacifico Regular'),
 		url('../assets/fonts/Roboto-thin.woff2') format('woff2');
+	font-display: swap;
 }
 @font-face {
 	font-family: $font-family;
@@ -24,6 +26,7 @@
 	font-weight: $font-weight-normal;
 	src: local('Pacifico Regular'),
 		url('../assets/fonts/Roboto-light.woff2') format('woff2');
+	font-display: swap;
 }
 
 @font-face {
@@ -33,4 +36,5 @@
 	font-weight: $font-weight-bold;
 	src: local('Pacifico Regular'),
 		url('../assets/fonts/Roboto-Regular.woff2') format('woff2');
+	font-display: swap;
 }

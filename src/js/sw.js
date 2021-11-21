@@ -14,7 +14,9 @@ import { precacheAndRoute, matchPrecache } from 'workbox-precaching';
 // Cache page navigations (html) with a Network First strategy
 registerRoute(
 	// Check to see if the request is a navigation to a new page
-	({ request }) => request.mode === 'navigate',
+	// we don't user request.destionation==='document' here
+	// 'navigate' is a widly used event which could also handle window.location changes
+	({ request }) => ['navigate'].includes(request.destination) >= 0,
 	// Use a Network First caching strategy
 	new NetworkFirst({
 		// Put all cached files in a cache named 'pages'
@@ -31,14 +33,11 @@ registerRoute(
 // Cache CSS, JS, and Web Worker requests with a Stale While Revalidate strategy
 registerRoute(
 	// Check to see if the request's destination is style for stylesheets, script for JavaScript, or worker for web worker
-	({ request }) =>
-		request.destination === 'style' ||
-		request.destination === 'script' ||
-		request.destination === 'worker',
+	({ request }) => ['style', 'script'].includes(request.destination) >= 0,
 	// Use a Stale While Revalidate caching strategy
 	new StaleWhileRevalidate({
 		// Put all cached files in a cache named 'assets'
-		cacheName: 'assets',
+		cacheName: 'resources',
 		plugins: [
 			// Ensure that only requests that result in a 200 status are cached
 			new CacheableResponsePlugin({
@@ -51,7 +50,7 @@ registerRoute(
 // Cache images with a Cache First strategy
 registerRoute(
 	// Check to see if the request's destination is style for an image
-	({ request }) => request.destination === 'image',
+	({ request }) => ['image'].includes(request.destination) >= 0,
 	// Use a Cache First caching strategy
 	new CacheFirst({
 		// Put all cached files in a cache named 'images'
@@ -70,12 +69,29 @@ registerRoute(
 	})
 );
 
-// Ensure your build step is configured to include /offline.html as part of your precache manifest.
+// Cache  font files with a cache-first strategy for 1 year.
+registerRoute(
+	({ request }) => ['font'].includes(request.destination) >= 0,
+	new CacheFirst({
+		cacheName: 'fonts',
+		plugins: [
+			new CacheableResponsePlugin({
+				statuses: [0, 200],
+			}),
+			new ExpirationPlugin({
+				maxAgeSeconds: 60 * 60 * 24 * 365,
+				maxEntries: 30,
+			}),
+		],
+	})
+);
+
+// Ensure your build step is configured to include /index.html as part of your precache manifest.
 precacheAndRoute(self.__WB_MANIFEST);
 
-// Catch routing errors, like if the user is offline
+// Catch routing errors, like if the user is index
 setCatchHandler(async ({ event }) => {
-	// Return the precached offline page if a document is being requested
+	// Return the precached index page if a document is being requested
 	if (event.request.destination === 'document') {
 		return matchPrecache('/index.html');
 	}

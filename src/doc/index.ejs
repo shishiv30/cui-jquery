@@ -61,22 +61,22 @@
 			<div class="bg"></div>
 		</div>
 
-		<%= require('./tpl-color.html').default %> <%=
-		require('./tpl-typograph.html').default %> <%=
-		require('./tpl-button.html').default %>
+		<%= require('./tpl-color.html').default %> 
+		<%= require('./tpl-typograph.html').default %> 
+		<%= require('./tpl-button.html').default %>
 		<!-- <%= require('./plugin-tip.html').default %> -->
-		<%= require('./tpl-form.html').default %> <%=
-		require('./tpl-textbox.html').default %> <%=
-		require('./tpl-skeleton.html').default %> <%=
-		require('./plugin-view.html').default %> <%=
-		require('./plugin-dialog.html').default %> <%=
-		require('./plugin-collapse.html').default %> <%=
-		require('./plugin-tabs.html').default %> <%=
-		require('./plugin-gridtable.html').default %> <%=
-		require('./plugin-rangeslider.html').default %> <%=
-		require('./plugin-datatable.html').default %> <%=
-		require('./plugin-touch.html').default %> <%=
-		require('./plugin-loadimage.html').default %>
+		<%= require('./tpl-form.html').default %> 
+		<%= require('./tpl-textbox.html').default %> 
+		<%= require('./tpl-skeleton.html').default %> 
+		<%= require('./plugin-view.html').default %> 
+		<%= require('./plugin-dialog.html').default %> 
+		<%= require('./plugin-collapse.html').default %> 
+		<%= require('./plugin-tabs.html').default %> 
+		<%= require('./plugin-gridtable.html').default %> 
+		<%= require('./plugin-rangeslider.html').default %> 
+		<%= require('./plugin-datatable.html').default %> 
+		<%= require('./plugin-touch.html').default %> 
+		<%= require('./plugin-loadimage.html').default %>
 	</body>
 	<script type="text/javascript">
 		if ('serviceWorker' in navigator) {
@@ -87,10 +87,7 @@
 						console.log('SW registered: ', registration);
 					})
 					.catch((registrationError) => {
-						console.log(
-							'SW registration failed: ',
-							registrationError
-						);
+						console.log('SW registration failed: ', registrationError);
 					});
 			});
 		}

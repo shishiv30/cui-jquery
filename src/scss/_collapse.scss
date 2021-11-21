@@ -1,55 +1,47 @@
-
-
 .collapse-expand {
-    height: auto !important;
-    max-height: 999999px !important;
+	height: auto !important;
+	max-height: 999999px !important;
 }
 
 .collapse-menu {
-    display: none;
-    position: absolute;
-    z-index: $ui-dropdown-index;
-    left: 0;
-    right: 0;
-    padding: 5px;
-    border: 1px solid $color-front-l1;
-    background: #fff;
-    box-shadow: 1px 1px 1px $color-front-l1;
+	display: none;
+	position: absolute;
+	z-index: $ui-dropdown-index;
+	left: 0;
+	right: 0;
+	padding: 5px;
+	border: 1px solid $color-front-l1;
+	background: #fff;
+	box-shadow: 1px 1px 1px $color-front-l1;
 }
 
 .collapse-more {
-    position: absolute;
-    padding-left: 30px;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to right, transparent -10%, white 20%);
-    opacity: 1;
+	position: absolute;
+	padding-left: 30px;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(to right, transparent -10%, white 20%);
+	opacity: 1;
 }
 
-[data-cui-load^="collapse"], [data-cui-load*=" collapse"] {
-    &:after{
-        @include icon();
-        content: $icon-lock;
-        opacity: .8;
-        font-size: $font-size-5;
-    }
-    &.shown {
-        &:after{
-            content: $icon-lock;
-            opacity: .8;
-            content: $icon-unlock;
-        }
-        &.i, & > i{
-            display: inline-block;
-        }
-        &.icon-angle-down, & > .icon-angle-down {
-            transform: rotate(180deg);
-        }
-        &.icon-angle-left, & > .icon-angle-left {
-            transform: rotate(-90deg);
-        }
-        &.icon-angle-right, & > .icon-angle-right {
-            transform: rotate(90deg);
-        }
-    }
+[data-cui-load^='collapse'],
+[data-cui-load*=' collapse'] {
+	&.shown {
+		&.i,
+		& > i {
+			display: inline-block;
+		}
+		&.icon-angle-down,
+		& > .icon-angle-down {
+			transform: rotate(180deg);
+		}
+		&.icon-angle-left,
+		& > .icon-angle-left {
+			transform: rotate(-90deg);
+		}
+		&.icon-angle-right,
+		& > .icon-angle-right {
+			transform: rotate(90deg);
+		}
+	}
 }

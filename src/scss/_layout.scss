@@ -17,17 +17,18 @@ html {
 	}
 }
 .section {
-	--welcome-height: 200px;
-
 	~ .section {
 		margin-top: var(--layout-gap-y);
 		margin-bottom: var(--layout-gap-y);
 	}
 	&.welcome {
+		--welcome-height: 200px;
 		position: relative;
 		overflow: hidden;
-		min-height: var(--welcome-height);
-		max-height: 60vh;
+		height: var(--welcome-height);
+		@media screen and (max-width: $screen-xs-max) {
+			--welcome-height: 70vh;
+		}
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -140,7 +141,22 @@ html {
 	@media screen and (min-width: $screen-lg-min) {
 	}
 }
-
+.panel {
+	> [data-cui-load^='collapse'],
+	> [data-cui-load*=' collapse'] {
+		&:after {
+			@include icon();
+			content: $icon-lock;
+			opacity: 0.5;
+		}
+		&.shown {
+			&:after {
+				opacity: 1;
+				content: $icon-unlock;
+			}
+		}
+	}
+}
 .paragraph,
 p {
 	clear: both;
