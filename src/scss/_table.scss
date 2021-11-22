@@ -1,20 +1,29 @@
 .table-scroll {
-  overflow-x: auto;
-  min-height: 0.01%;
-  min-width: 0.01%;
-  @include hidden-scrollbar();
+	overflow-x: auto;
+	min-height: 0.01%;
+	min-width: 0.01%;
+	@include hidden-scrollbar();
+	tbody {
+		> tr:nth-child(odd) {
+			background-color: $color-bg-l1;
+			td {
+				white-space: nowrap;
+			}
+		}
+	}
 }
 
 table {
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
-  color: $color-front;
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+	color: $color-front;
 }
 
 table {
-  td,
-  th {
-    padding: $g1 $g0;
-  }
+	td,
+	th {
+		text-align: left;
+		padding: $g1 $g0;
+	}
 }

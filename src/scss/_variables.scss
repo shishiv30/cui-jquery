@@ -97,10 +97,10 @@ $el-size-3: 2.618rem;
 //$g0 + f3(f5*1.618) + f5(f7*1.618)  + $g0
 $el-size-4: 3.236rem;
 
-$radius-1: #{1.618rem / 2};
-$radius-2: #{2rem / 2};
-$radius-3: #{2.618rem / 2};
-$radius-4: #{3.236rem / 2};
+$radius-1: 0.809rem;
+$radius-2: 1rem;
+$radius-3: 1.309rem;
+$radius-4: 1.618rem;
 
 //z-index
 $ui-tip-index: 1000;

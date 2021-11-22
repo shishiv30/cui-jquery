@@ -1,0 +1,64 @@
+.notes {
+	display: grid;
+	@media screen and (min-width: $screen-lg-min) {
+		grid-template-columns: repeat(4, minmax(0, 25%));
+		justify-content: space-between;
+		> div {
+			> div {
+				padding-top: $el-size-1;
+				padding-right: 10%;
+				border-top: 1px dashed $color-front;
+			}
+			&:last-of-type {
+				> div {
+					padding-right: 0%;
+					border-top: none;
+				}
+			}
+		}
+		.btn {
+			transform: translateY(50%);
+		}
+	}
+	@media screen and (max-width: $screen-md-max) {
+		max-width: fit-content;
+		margin: 0 auto;
+		padding-left: $el-size-1;
+		> div {
+			> div {
+				padding: $g3;
+				border-left: 1px dashed $color-border;
+			}
+			&:last-of-type {
+				> div {
+					border-left: none;
+				}
+			}
+		}
+		.btn {
+			transform: translateX(-23px);
+		}
+	}
+
+	.btn {
+		pointer-events: none;
+		position: relative;
+		z-index: 1;
+		max-width: fit-content;
+		opacity: 1;
+		& > i {
+			color: $color-major;
+			transform: scale(1.5);
+			margin-right: $g0;
+		}
+
+		&.active {
+			& > i {
+				color: $color-bg;
+			}
+			~ div {
+				border-color: $color-front;
+			}
+		}
+	}
+}

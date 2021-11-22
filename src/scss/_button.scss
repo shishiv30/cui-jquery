@@ -66,6 +66,8 @@
 		color: var(--button-active-color);
 	}
 	@include form-default-1();
+	padding-left: $g2;
+	padding-right: $g2;
 	&.large {
 		@include form-large-1();
 	}
