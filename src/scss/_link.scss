@@ -1,21 +1,25 @@
 a {
-    text-decoration: none;
-    cursor: pointer;
-    outline: none;
-    &:link, &:visited, &:active, &:hover{
-        text-decoration: none;
-        outline: none;
-        color: inherit;
-    }
-    &.link {
-        opacity: 0.95;
-        color: $color-link-default;
-        @include hover(){
-            opacity: 1;
-            color: $color-link-default-hover;
-        }
-    }
-    &[disable] {
-        color: $color-disabled;
-    }
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	&:link,
+	&:visited,
+	&:active,
+	&:hover {
+		text-decoration: none;
+		outline: none;
+		color: inherit;
+	}
+	&.link {
+		font-weight: $font-weight-bold;
+		opacity: 0.95;
+		color: $color-link-default;
+		@include hover() {
+			opacity: 1;
+			color: $color-link-default-hover;
+		}
+	}
+	&[disable] {
+		color: $color-disabled;
+	}
 }

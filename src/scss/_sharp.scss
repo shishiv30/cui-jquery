@@ -1,40 +1,46 @@
 .circle {
-	width: $form-size-large;
-	height: $form-size-large;
+	width: $el-size-4;
+	height: $el-size-4;
 	border-radius: 50%;
 	display: block;
 	color: $color-bg;
-	border: 1px solid $color-bg;
-	line-height: $form-size-large;
+	border: 1px solid $color-front-l1;
+	line-height: $el-size-4;
 	&.large {
 		transform: scale(1.5);
 	}
-	&.color-major {
+	&.major {
 		color: $color-major-l1;
 		background-color: $color-major;
+		border: 1px solid $color-major-l1;
 	}
 
-	&.color-danger {
+	&.danger {
 		color: $color-danger-l1;
 		background-color: $color-danger;
+		border: 1px solid $color-danger-l1;
 	}
 
-	&.color-minor {
+	&.minor {
 		color: $color-minor-l1;
 		background-color: $color-minor;
+		border: 1px solid $color-minor-l1;
 	}
 
-	&.color-safe {
+	&.safe {
 		color: $color-safe-l1;
 		background-color: $color-safe;
+		border: 1px solid $color-safe-l1;
 	}
 
-	&.color-mid {
+	&.mid {
 		color: $color-front;
 		background-color: $color-front;
+		border: 1px solid $color-front-l1;
 	}
-	&.color-normal {
+	&.normal {
 		color: $color-front;
 		background-color: $color-bg;
+		border: 1px solid $color-bg-l1;
 	}
 }

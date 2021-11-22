@@ -1,7 +1,7 @@
 .header {
 	--header-font: #{$color-bg};
 	--header-background: #{$color-major};
-	--highlight-link: #{$color-major};
+	--header-link-hover: #{$color-major};
 	--header-split: #{$color-border};
 	&.sticky {
 		position: sticky;
@@ -10,6 +10,7 @@
 		right: 0;
 	}
 	@include box-line();
+	position: relative;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -25,14 +26,15 @@
 		flex-shrink: 0;
 	}
 	a {
-		height: $form-size-default;
+		height: $el-size-3;
 		padding: $g1;
 		display: block;
 		text-align: center;
 		@include singleline();
+		opacity: 0.95;
 		@include hover() {
-			opacity: 0.8;
-			background-color: rgba(var(--header-background), 0.8);
+			opacity: 1;
+			background-color: rgba(255, 255, 255, 0.05);
 		}
 		&.hightlight {
 			position: relative;
@@ -78,7 +80,7 @@
 	opacity: 0.3;
 	display: none;
 	position: fixed;
-	top: $form-size-default;
+	top: $el-size-3;
 	right: 0;
 	left: 0;
 	bottom: 0;
@@ -114,7 +116,7 @@
 			position: relative;
 			a {
 				@include hover() {
-					color: var(--highlight-link);
+					color: var(--header-link-hover);
 				}
 			}
 		}
@@ -166,7 +168,7 @@ body:not(.body-expand-header) {
 		.header-menu-list {
 			display: none;
 			position: fixed;
-			top: $form-size-default;
+			top: $el-size-3;
 			bottom: 0;
 			right: 0;
 			width: 50%;
@@ -177,10 +179,10 @@ body:not(.body-expand-header) {
 			flex-direction: column;
 			transition: all 0.5s;
 			transform: translateX(100%);
-			height: calc(100vh - #{$form-size-default});
+			height: calc(100vh - #{$el-size-3});
 			& > li {
 				width: 100%;
-				height: $form-size-default;
+				height: $el-size-3;
 				transition: height 0.5s;
 				overflow: hidden;
 				border-bottom: 1px solid var(--header-split);
@@ -191,13 +193,13 @@ body:not(.body-expand-header) {
 				}
 				&.list {
 					> a:first-of-type {
-						margin-right: $form-size-default;
+						margin-right: $el-size-3;
 					}
 					.header-expand {
 						border-left: 1px solid rgba(255, 255, 255, 0.2);
-						width: $form-size-default;
-						height: $form-size-default;
-						line-height: $form-size-default;
+						width: $el-size-3;
+						height: $el-size-3;
+						line-height: $el-size-3;
 						text-align: center;
 						position: absolute;
 						padding: 0;
@@ -206,8 +208,8 @@ body:not(.body-expand-header) {
 						display: inline-block;
 						i {
 							display: block;
-							height: $form-size-default;
-							line-height: $form-size-default;
+							height: $el-size-3;
+							line-height: $el-size-3;
 							transition: transform 0.25s;
 						}
 					}
@@ -234,7 +236,7 @@ body:not(.body-expand-header) {
 
 				& > ul {
 					position: absolute;
-					top: $form-size-default;
+					top: $el-size-3;
 					left: 0;
 					right: auto;
 					width: 160px;

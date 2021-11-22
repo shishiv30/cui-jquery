@@ -54,12 +54,14 @@
 .h6,
 .h7 {
 	display: flex;
-	align-items: center;
 	gap: $g2;
-	margin-bottom: $g1;
 	position: relative;
 	width: 100%;
 	@include singleline();
+	align-items: baseline;
+	&.center {
+		align-items: center;
+	}
 }
 
 .h1,

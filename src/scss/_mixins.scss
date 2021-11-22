@@ -4,42 +4,42 @@
 
 @mixin form-small() {
 	font-size: $font-size-5;
-	height: $form-size-small;
+	height: $el-size-2;
 	padding-top: $gxs;
 	padding-bottom: $gxs;
 }
 
 @mixin form-default-1() {
 	font-size: $font-size-5;
-	height: $form-size-default;
+	height: $el-size-3;
 	padding-top: $g1;
 	padding-bottom: $g1;
 }
 
 @mixin form-default-2() {
 	font-size: $font-size-5;
-	height: $form-size-default;
+	height: $el-size-3;
 	padding-top: $font-size-5;
 	padding-bottom: 0;
 }
 
 @mixin form-large-1() {
 	font-size: $font-size-5;
-	height: $form-size-large;
+	height: $el-size-4;
 	padding-top: $g2;
 	padding-bottom: $g2;
 }
 
 @mixin form-large-2() {
 	font-size: $font-size-4;
-	height: $form-size-large;
+	height: $el-size-4;
 	padding-top: $font-size-7;
 	padding-bottom: $font-size-7;
 }
 
 @mixin form-large-3() {
 	font-size: $font-size-5;
-	height: $form-size-large;
+	height: $el-size-4;
 	padding-top: #{$g0 + $font-size-5};
 	padding-bottom: $g0;
 }
@@ -142,6 +142,7 @@
 	scrollbar-arrow-color: transparent;
 	-ms-overflow-style: none;
 	overflow: -moz-scrollbars-none;
+	scrollbar-width: none;
 	&::-webkit-scrollbar {
 		width: 0;
 		height: 0;
@@ -286,9 +287,6 @@ $blur-size: $blur-width $card-height;
 	max-height: 100%;
 }
 
-@mixin bar-shadow() {
-	box-shadow: 0px 1px 1px 0px $color-front-l1;
-}
 @mixin box-line() {
-	box-shadow: 0px 0px 4px 2px $color-front-l1;
+	box-shadow: 0px 0px 5px 1px rgba(100, 100, 100, 0.35);
 }

@@ -13,34 +13,34 @@ import _isphone from './_extend.isphone';
 import _isprice from './_extend.isprice';
 import _iszipcode from './_extend.iszipcode';
 import _renderhtml from './_extend.renderhtml';
-import _scrollto from './_extend.scrollto';
 import _localstorage from './_extend.localstorage';
 import _debounce from './_extend.debounce';
 import _throttle from './_extend.throttle';
+import _scroll from './_extend.scroll';
 
 export default function ($) {
-    var injects = [
-        _context,
-        _mousewheel,
-        _gesture,
-        _draggable,
-        _gettextwidth,
-        _htmldecode,
-        _htmlencode,
-        _loadimg,
-        _isemail,
-        _isfloat,
-        _isint,
-        _isphone,
-        _isprice,
-        _iszipcode,
-        _renderhtml,
-        _scrollto,
-        _localstorage,
-        _debounce,
-        _throttle
-    ];
-    injects.forEach(e => {
-        e.call(window, $);
-    });
-} 
+	var injects = [
+		_context,
+		_mousewheel,
+		_gesture,
+		_draggable,
+		_gettextwidth,
+		_htmldecode,
+		_htmlencode,
+		_loadimg,
+		_isemail,
+		_isfloat,
+		_isint,
+		_isphone,
+		_isprice,
+		_iszipcode,
+		_renderhtml,
+		_localstorage,
+		_debounce,
+		_throttle,
+		_scroll,
+	];
+	injects.forEach((e) => {
+		e.call(window, $);
+	});
+}

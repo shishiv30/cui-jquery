@@ -1,15 +1,24 @@
 export default function ($) {
-    $ = $ || window.$;
-    $.loadImg = function ($img, imgSrc) {
-        var tmpImg = new Image();
-        tmpImg.src = imgSrc;
-        tmpImg.onload = function (e) {
-            if (e) {
-                $img.attr('src', imgSrc).addClass('img-load-success');
-            } else {
-                $img.addClass('data-img-load-error');
-            }
-        };
-    };
-    return $;
+	$ = $ || window.$;
+	$.loadImg = function ($img, imgSrc) {
+		var dfd = $.Deferred();
+		$img.removeClass('img-load-error img-load-success');
+		$img.one('load', function () {
+			$img.addClass('img-load-success');
+			dfd.resolve();
+		});
+		$img.one('error', function () {
+			$img.addClass('img-load-error');
+			$(document).trigger('img.error', [imgSrc]);
+			dfd.resolve();
+		});
+		if (imgSrc) {
+			$img.attr('src', imgSrc);
+		} else {
+			$img.addClass('img-load-error');
+			$(document).trigger('img.error', [imgSrc]);
+		}
+		return dfd;
+	};
+	return $;
 }

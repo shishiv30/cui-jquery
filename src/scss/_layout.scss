@@ -18,8 +18,8 @@ html {
 }
 .section {
 	~ .section {
-		margin-top: var(--layout-gap-y);
-		margin-bottom: var(--layout-gap-y);
+		padding-top: var(--layout-gap-y);
+		padding-bottom: var(--layout-gap-y);
 	}
 	&.welcome {
 		position: relative;
@@ -42,10 +42,10 @@ html {
 		}
 		.panel {
 			overflow: hidden;
-			border-radius: $border-radius;
+			border-radius: $radius-3;
 			position: relative;
 			z-index: 2;
-			border: $border-radius;
+			border: $radius-3;
 			background-color: rgba(255, 255, 255, 0.8);
 			margin-top: var(--layout-gap-y);
 			margin-bottom: var(--layout-gap-y);
@@ -72,10 +72,18 @@ html {
 	margin-left: auto;
 	margin-right: auto;
 	padding: var(--layout-gap-y) var(--layout-gap-x);
-	row-gap: var(--layout-gap-y);
-	column-gap: var(--layout-gap-x);
+	row-gap: $g2;
+	column-gap: $g2;
 	width: 100%;
 	grid-template-columns: 100%;
+	&.tiny {
+		row-gap: $g0;
+		column-gap: $g0;
+	}
+	&.large {
+		row-gap: $g4;
+		column-gap: $g4;
+	}
 	&.xs-2 {
 		grid-template-columns: repeat(2, minmax(40%, 1fr));
 	}
@@ -139,22 +147,6 @@ html {
 		}
 	}
 	@media screen and (min-width: $screen-lg-min) {
-	}
-}
-.panel {
-	> [data-cui-load^='collapse'],
-	> [data-cui-load*=' collapse'] {
-		&:after {
-			@include icon();
-			content: $icon-lock;
-			opacity: 0.5;
-		}
-		&.shown {
-			&:after {
-				opacity: 1;
-				content: $icon-unlock;
-			}
-		}
 	}
 }
 .paragraph,

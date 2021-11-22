@@ -30,6 +30,18 @@ $color-safe-l1: var(--color-safe-l1);
 $color-danger: var(--color-danger);
 $color-danger-l1: var(--color-danger-l1);
 
+//color for rainbow
+$color-l0: var(--color-l0);
+$color-l1: var(--color-l1);
+$color-l2: var(--color-l2);
+$color-l3: var(--color-l3);
+$color-l4: var(--color-l4);
+$color-l5: var(--color-l5);
+$color-l6: var(--color-l6);
+$color-l7: var(--color-l7);
+$color-l8: var(--color-l8);
+$color-l9: var(--color-l9);
+
 //gray level
 $color-bg: var(--color-bg);
 $color-bg-l1: var(--color-bg-l1);
@@ -57,7 +69,6 @@ $font-size-5: 1rem;
 $font-size-6: 0.764rem;
 //0.618 = 1 * 0.618
 $font-size-7: 0.618rem;
-$border-radius: var(--border-radius);
 
 //half of gs
 $gxs: 0.191rem;
@@ -76,15 +87,20 @@ $g5: 3.427rem;
 
 //button & input & select
 //f3(f5*1.618)
-$form-size-tiny: 1.618rem;
+$el-size-1: 1.618rem;
 //$gxs + f3(f5*1.618) + $gxs
-$form-size-small: 2rem;
+$el-size-2: 2rem;
 //$g1 + f3(f5*1.618) + $g1
-$form-size-default: 2.618rem;
+$el-size-3: 2.618rem;
 //$g1 + f3(f5*1.618) + $g1
 //f7+ f2(f4*1.618) +f7
 //$g0 + f3(f5*1.618) + f5(f7*1.618)  + $g0
-$form-size-large: 3.236rem;
+$el-size-4: 3.236rem;
+
+$radius-1: #{1.618rem / 2};
+$radius-2: #{2rem / 2};
+$radius-3: #{2.618rem / 2};
+$radius-4: #{3.236rem / 2};
 
 //z-index
 $ui-tip-index: 1000;

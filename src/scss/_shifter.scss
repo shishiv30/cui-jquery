@@ -1,104 +1,135 @@
-.shifter{
-    --shifter-height: auto;
-    position: relative;
-    .arrow {
-        z-index: 2;
-        display: block;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: $form-size-default;
-        height: $form-size-default;
-        line-height: $form-size-default;
-        text-align: center;
-        color: $color-bg;
-        font-size: 3.5rem;
-        padding: 0;
-        @include text-shadow();
-        cursor: pointer;
-        opacity: 1;
-        &.disable {
-            opacity: 0 !important;
-        }
-        &.prev {
-            left: 15px;
-            transition: opacity, left 0.5s linear;
-        }
-        &.next {
-            right: 15px;
-            transition: opacity, right 0.5s linear;
-        }
-    }
-    &:hover {
-        .prev {
-            left: 5px;
-        }
-        .next {
-            right: 5px;
-        }
-    }
+.shifter {
+	--shifter-height: auto;
+	position: relative;
+	&.hasNext {
+		.arrow.next {
+			display: block;
+		}
+	}
+	&.hasPrev {
+		.arrow.prev {
+			display: block;
+		}
+	}
+	.arrow {
+		z-index: 2;
+		display: none;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: $el-size-2;
+		height: $el-size-2;
+		line-height: $el-size-2;
+		text-align: center;
+		font-size: $el-size-2;
+		padding: 0;
+		background: rgba(255, 255, 255, 0.8);
+		box-shadow: 0 0 0 1px $color-bg-l1;
+		color: $color-major;
+		cursor: pointer;
+		opacity: 1;
+		border-radius: 50%;
+		&.disable {
+			opacity: 0 !important;
+		}
+		&.prev {
+			left: 15px;
+			transition: opacity, left 0.5s linear;
+		}
+		&.next {
+			right: 15px;
+			transition: opacity, right 0.5s linear;
+		}
+	}
+	&:hover {
+		.prev {
+			left: 5px;
+		}
+		.next {
+			right: 5px;
+		}
+	}
 }
-.landscape{
-    @media screen and (max-width:$screen-sm-max){
-        .shifter-list {
-            max-height:80vh;
-        }
-    }
+.landscape {
+	@media screen and (max-width: $screen-sm-max) {
+		[role='scrollbar'] {
+			max-height: 80vh;
+		}
+	}
 }
-.shifter-list:not(.moving){
-    > * {
-        scroll-snap-align: start;
-    }
+[role='scrollbar']:not(.moving) {
+	> * {
+		scroll-snap-align: start;
+	}
 }
-.shifter-list{
-    height: var(--shifter-height);
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    -ms-scroll-snap-type: x mandatory;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;
-    margin: 0;
-    padding: 0;
-    @include hidden-scrollbar();
-    max-height:30vh;
-    >*{
-        flex-shrink: 0;
-    }
-    &[count]{
-        >*{
-            height:100%!important;
-            width:100%!important;
-        }
-    }
-    &[count="1"]{
-        >*{
-            flex:0 0 100%;
-        }
-    }
-    &[count="2"]{
-        >*{
-            flex: 0 0 50%;
-        }
-    }
-    &[count="3"]{
-        >*{
-            flex: 0 0 33.333333%;
-        }
-    }
-    &[count="4"]{
-        >*{
-            flex: 0 0 25%;
-        }
-    }
-    &[count="5"]{
-        > * {
-            flex: 0 0 20%;
-        }
-    }
+@include only-mobile {
+	.shifter {
+		[role='scrollbar'] {
+			-ms-scroll-snap-type: x mandatory;
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
+			-webkit-overflow-scrolling: touch;
+			-ms-overflow-style: none;
+		}
+		&:not(.center) {
+			[role='scrollbar'] {
+				> * {
+					scroll-snap-align: start;
+				}
+			}
+		}
+		&.center {
+			[role='scrollbar'] {
+				> * {
+					scroll-snap-align: center;
+				}
+			}
+		}
+	}
+}
+[role='scrollbar'] {
+	height: var(--shifter-height);
+	width: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	margin: 0;
+	padding: 0;
+	@include hidden-scrollbar();
+	max-height: 30vh;
+	> * {
+		flex-shrink: 0;
+	}
+	&[count] {
+		> * {
+			height: 100% !important;
+			width: 100% !important;
+		}
+	}
+	&[count='1'] {
+		> * {
+			flex: 0 0 100%;
+		}
+	}
+	&[count='2'] {
+		> * {
+			flex: 0 0 50%;
+		}
+	}
+	&[count='3'] {
+		> * {
+			flex: 0 0 33.333333%;
+		}
+	}
+	&[count='4'] {
+		> * {
+			flex: 0 0 25%;
+		}
+	}
+	&[count='5'] {
+		> * {
+			flex: 0 0 20%;
+		}
+	}
 }

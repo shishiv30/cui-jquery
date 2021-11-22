@@ -2,23 +2,33 @@
 html {
 	--cui-font: 'Roboto';
 	--color-front: #1b1b1b;
-	--color-front-l1: rgb(112, 112, 112);
+	--color-front-l1: #acacac;
 	--color-bg: #ffffff;
-	--color-bg-l1: #f5f5f5;
+	--color-bg-l1: #f0f0f0;
 
 	--color-major: #00485c;
-	--color-major-l1: #c8d9dd;
-	--color-minor: #ffe96c;
-	--color-minor-l1: #fcf8df;
-	--color-safe: #00c288;
+	--color-major-l1: #{lighten(#00485c, 80%)};
+	--color-minor: #ffcb22;
+	--color-minor-l1: #{lighten(#ffcb22, 40%)};
+
+	--color-l0: #ff0062;
+	--color-l1: #ee0083;
+	--color-l2: #d900e0;
+	--color-l3: #9500eb;
+	--color-l4: #5800e6;
+	--color-l5: #003de4;
+	--color-l6: #008ae6;
+	--color-l7: #00d0df;
+	--color-l8: #00e6da;
+	--color-l9: #00c59a;
+
+	--color-safe: var(--color-l9);
 	--color-safe-l1: #dcfff5;
-	--color-danger: #fd3560;
+	--color-danger: var(--color-l0);
 	--color-danger-l1: #fff0f3;
 
 	--color-disabled: var(--color-front-l1);
-	--color-hover: var(--color-minor-l1);
 	--color-border: var(--color-front-l1);
 	--color-link: var(--color-major);
-	--color-link-hover: var(--color-minor);
-	--border-radius: 1rem;
+	--color-link-hover: #{darken(#00485c, 5%)};
 }

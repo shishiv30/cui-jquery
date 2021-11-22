@@ -1,28 +1,28 @@
 import _trigger from '../core/_trigger';
 export default {
-    name: 'scrollto',
-    defaultOpt: {
-        target: null,
-        offsettop: null,
-        scrollbefore: null,
-        container: null,
-        scrollafter: null
-    },
-    init: function ($this, opt, exportObj) {
+	name: 'scrollto',
+	defaultOpt: {
+		target: null,
+		offsettop: null,
+		scrollbefore: null,
+		container: null,
+		scrollafter: null,
+	},
+	init: function ($this, opt, exportObj) {
+		$this.click(function (e) {
+			opt.scrollbefore &&
+				_trigger(opt.scrollbefore, $this, opt, exportObj);
+			$.scrollTo(opt.target || $this.attr('href'), opt.position);
+			opt.scrollafter && _trigger(opt.scrollafter, $this, opt, exportObj);
+			return e.preventDefault();
+		});
+	},
 
-
-        $this.click(function () {
-            opt.scrollbefore && _trigger(opt.scrollbefore, $this, opt, exportObj);
-            $.scrollTo(opt.target, $(opt.container), opt.offsettop);
-            opt.scrollafter && _trigger(opt.scrollafter, $this, opt, exportObj);
-        });
-    },
-
-    setOptionsBefore: null,
-    setOptionsAfter: null,
-    initBefore: null,
-    initAfter: null,
-    destroyBefore: null
+	setOptionsBefore: null,
+	setOptionsAfter: null,
+	initBefore: null,
+	initAfter: null,
+	destroyBefore: null,
 };
 // $.cui.plugin(scrolltoConfig);
 // $(document).on('dom.load.scrollto', function () {
@@ -34,7 +34,6 @@ export default {
 //         $this.attr('data-scrollto-load', '');
 //     });
 // });
-
 
 // $(document).on('dom.scroll.scrollSpy', function () {
 //     var status = $.cui_state;
@@ -52,4 +51,3 @@ export default {
 //         }
 //     });
 // });
-

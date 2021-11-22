@@ -1,115 +1,114 @@
 .dialog {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: $ui-dialog-index;
-    display: none;
-    opacity: 0;
-    transition: opacity .5s ease-in-out;
-    .dialog-title-close{
-        font-size: $font-size-3;
-        display: block;
-        height:$form-size-default;
-        width:$form-size-default;
-        text-align: center;
-        right: 0;
-        top:0;
-        position: absolute;
-        z-index: 1;
-    }
-    .dialog-overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.8);
-        z-index: $ui-dialog-overlay;
-    }
-    .dialog-panel {
-        position: absolute;
-        width:100vw;
-        max-width: $screen-xs-max;
-        border-radius: 5px;
-        z-index: $ui-dialog-index;
-        background-color: $color-bg;
-        top:50%;
-        left:50%;
-        transform: translateX(-50%) translateY(-50%);
-        transition: top .5s;
-    }
-    .dialog-body {
-        position: relative;
-        z-index: 2;
-        color: $color-front;
-        padding:$g2;
-        overflow-x: hidden;
-        overflow-y: auto;
-        max-height: 100vh;
-    }
-    &.dialog-active {
-        opacity: 1;
-    }
-    &.dialog-default {
-        .dialog-title {
-            @extend %singleline;
-            font-size: $font-size-3;
-            position: relative;
-          
-        }
-    }
-    &.dialog-fullscreen {
-        .dialog-title-close{
-            display: none;
-        }
-        .dialog-panel {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-            background: transparent;
-            color: $color-bg;
-        }
-    }
-    &.dialog-dropdown {
-        .dialog-header {
-            display: none;
-        }
-        .dialog-body {
-            padding: 0;
-            >div {
-                padding: 15px 15px 0 15px;
-            }
-        }
-        ul {
-            z-index: 10;
-            >li {
-                margin: 0;
-                padding: 0;
-                text-align: left;
-                font-size: $font-size-4;
-                a {
-                    >i {
-                        float: left;
-                        font-size: $font-size-3;
-                    }
-                    display: block;
-                    padding: 12px 20px;
-                    border-top: 1px solid $color-front-l1;
-                }
-            }
-        }
-    }
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: $ui-dialog-index;
+	display: none;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+	.dialog-title-close {
+		font-size: $font-size-3;
+		display: block;
+		height: $el-size-3;
+		width: $el-size-3;
+		text-align: center;
+		right: 0;
+		top: 0;
+		position: absolute;
+		z-index: 1;
+	}
+	.dialog-overlay {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: $ui-dialog-overlay;
+	}
+	.dialog-panel {
+		position: absolute;
+		width: 100vw;
+		max-width: $screen-xs-max;
+		border-radius: 5px;
+		z-index: $ui-dialog-index;
+		background-color: $color-bg;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		transition: top 0.5s;
+	}
+	.dialog-body {
+		position: relative;
+		z-index: 2;
+		color: $color-front;
+		padding: $g2;
+		overflow-x: hidden;
+		overflow-y: auto;
+		max-height: 100vh;
+	}
+	&.dialog-active {
+		opacity: 1;
+	}
+	&.dialog-default {
+		.dialog-title {
+			@extend %singleline;
+			font-size: $font-size-3;
+			position: relative;
+		}
+	}
+	&.dialog-fullscreen {
+		.dialog-title-close {
+			display: none;
+		}
+		.dialog-panel {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+			background: transparent;
+			color: $color-bg;
+		}
+	}
+	&.dialog-dropdown {
+		.dialog-header {
+			display: none;
+		}
+		.dialog-body {
+			padding: 0;
+			> div {
+				padding: 15px 15px 0 15px;
+			}
+		}
+		ul {
+			z-index: 10;
+			> li {
+				margin: 0;
+				padding: 0;
+				text-align: left;
+				font-size: $font-size-4;
+				a {
+					> i {
+						float: left;
+						font-size: $font-size-3;
+					}
+					display: block;
+					padding: 12px 20px;
+					border-top: 1px solid $color-front-l1;
+				}
+			}
+		}
+	}
 }
 
 .dialog-model {
-    overflow-y: hidden !important;
-    overflow-x: hidden !important;
-    body {
-        overflow-y: hidden !important;
-        overflow-x: hidden !important;
-        -webkit-overflow-scrolling: auto !important;
-    }
+	overflow-y: hidden !important;
+	overflow-x: hidden !important;
+	body {
+		overflow-y: hidden !important;
+		overflow-x: hidden !important;
+		-webkit-overflow-scrolling: auto !important;
+	}
 }

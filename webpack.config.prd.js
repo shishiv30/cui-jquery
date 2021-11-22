@@ -19,8 +19,8 @@ module.exports = (env) => {
 			// }),
 			//todo https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin  InjectManifest  vs webpack-pwa-manifest  https://www.youtube.com/watch?v=e-fgUJ4Qcf0
 			new WebpackPwaManifest({
-				name: 'jQuery CUI',
-				short_name: 'CUI',
+				name: 'CUI',
+				short_name: 'CUI framework',
 				description: 'UI solution base on jQuery and CUI.',
 				display: 'standalone',
 				theme_color: '#ffffff',

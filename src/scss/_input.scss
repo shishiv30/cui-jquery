@@ -32,7 +32,7 @@
 		text-align: center;
 		padding-top: $g1;
 		padding-bottom: $g1;
-		width: $form-size-default;
+		width: $el-size-3;
 	}
 
 	> .btn {
@@ -48,7 +48,7 @@
 	&.left {
 		> input,
 		> select {
-			padding-left: $form-size-default;
+			padding-left: $el-size-3;
 		}
 
 		> span,
@@ -64,7 +64,7 @@
 	&.right {
 		> input,
 		> select {
-			padding-right: $form-size-default;
+			padding-right: $el-size-3;
 
 			~ span,
 			~ i,
@@ -90,20 +90,20 @@
 		> .btn {
 			padding-top: $g0;
 			padding-bottom: $g0;
-			width: $form-size-small;
+			width: $el-size-2;
 		}
 
 		&.right {
 			> input,
 			> select {
-				padding-right: $form-size-small;
+				padding-right: $el-size-2;
 			}
 		}
 
 		&.left {
 			> input,
 			> select {
-				padding-left: $form-size-small;
+				padding-left: $el-size-2;
 			}
 		}
 	}
@@ -121,20 +121,20 @@
 		> .btn {
 			padding-top: $g1;
 			padding-bottom: $g1;
-			width: $form-size-large;
+			width: $el-size-4;
 		}
 
 		&.right {
 			> input,
 			> select {
-				padding-right: $form-size-large;
+				padding-right: $el-size-4;
 			}
 		}
 
 		&.left {
 			> input,
 			> select {
-				padding-left: $form-size-large;
+				padding-left: $el-size-4;
 			}
 		}
 	}

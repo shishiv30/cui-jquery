@@ -1,0 +1,23 @@
+.nav {
+	@include box-line();
+	&.sticky {
+		position: sticky;
+		top: 0;
+		background-color: $color-bg;
+		z-index: $ui-header-index;
+	}
+	a {
+		border-bottom: 2px solid transparent;
+		font-size: $font-size-6;
+		padding: $g0 $g2;
+		color: $color-front;
+		display: inline-block;
+		font-weight: $font-weight-bold;
+		@include hover() {
+			color: $color-major;
+		}
+		&.scrolled {
+			border-bottom-color: $color-major;
+		}
+	}
+}

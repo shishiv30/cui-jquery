@@ -52,7 +52,7 @@
 	opacity: 0.75;
 	border: none;
 	cursor: pointer;
-	border-radius: $border-radius;
+	border-radius: $radius-3;
 	@include hover() {
 		opacity: 1;
 	}
@@ -100,17 +100,17 @@
 		color: $color-minor;
 	}
 
-	width: $form-size-large;
-	height: $form-size-large;
+	width: $el-size-4;
+	height: $el-size-4;
 	@include form-large-1();
 	&.tiny {
-		width: $form-size-small;
-		height: $form-size-small;
+		width: $el-size-2;
+		height: $el-size-2;
 		@include form-small();
 	}
 	&.small {
-		width: $form-size-default;
-		height: $form-size-default;
+		width: $el-size-3;
+		height: $el-size-3;
 		@include form-default-1();
 	}
 }
@@ -132,7 +132,7 @@
 		border-top-right-radius: 0;
 	}
 	& > a:last-of-type {
-		width: $form-size-large;
+		width: $el-size-4;
 		flex-shrink: 0;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
@@ -140,7 +140,7 @@
 	.dropdown-button-list {
 		position: absolute;
 		background: $color-bg;
-		top: $form-size-default;
+		top: $el-size-3;
 		left: 0;
 		right: 0;
 		z-index: $ui-buttongroup-index;

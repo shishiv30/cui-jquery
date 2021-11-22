@@ -66,17 +66,17 @@
 
 				&.right {
 					> input {
-						padding-right: $form-size-default;
+						padding-right: $el-size-3;
 					}
 				}
 
 				&.left {
 					> label {
-						left: $form-size-default;
+						left: $el-size-3;
 					}
 
 					> input {
-						padding-left: $form-size-default;
+						padding-left: $el-size-3;
 					}
 				}
 			}
@@ -85,29 +85,29 @@
 		&.left,
 		&.right {
 			> label {
-				width: calc(100% - #{$form-size-large});
+				width: calc(100% - #{$el-size-4});
 			}
 		}
 
 		&.right.left {
 			> label {
-				width: calc(100% - #{$form-size-large * 2});
+				width: calc(100% - #{$el-size-4 * 2});
 			}
 		}
 
 		&.right {
 			> input {
-				padding-right: $form-size-large;
+				padding-right: $el-size-4;
 			}
 		}
 
 		&.left {
 			> label {
-				left: $form-size-large;
+				left: $el-size-4;
 			}
 
 			> input {
-				padding-left: $form-size-large;
+				padding-left: $el-size-4;
 			}
 		}
 	}
