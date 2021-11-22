@@ -145,11 +145,14 @@ export default {
 			$this.append($prevLink);
 			$this.append($nextLink);
 		}
-		if (opt.size !== 'auto') {
-			$(document).on('dom.resize.shifter' + opt._id, function () {
+
+		$(document).on('dom.resize.shifter' + opt._id, function () {
+			if (opt.size !== 'auto') {
 				_updateWidth($this, opt);
-			});
-		}
+			} else {
+				_checkArraow($this);
+			}
+		});
 		$scroller.on(
 			'scroll',
 			$.throttle(function () {

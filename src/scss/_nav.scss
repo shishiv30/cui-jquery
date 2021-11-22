@@ -6,9 +6,13 @@
 		background-color: $color-bg;
 		z-index: $ui-header-index;
 	}
+	> ul {
+		margin: 0 auto;
+		max-width: fit-content;
+	}
 	a {
 		border-bottom: 2px solid transparent;
-		font-size: $font-size-6;
+		font-size: $font-size-5;
 		padding: $g0 $g2;
 		color: $color-front;
 		display: inline-block;

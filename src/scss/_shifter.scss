@@ -1,6 +1,10 @@
 .shifter {
 	--shifter-height: auto;
 	position: relative;
+	--arrow-size: #{$el-size-2};
+	&.tiny {
+		--arrow-size: #{$el-size-1};
+	}
 	&.hasNext {
 		.arrow.next {
 			display: block;
@@ -17,11 +21,11 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		width: $el-size-2;
-		height: $el-size-2;
-		line-height: $el-size-2;
+		width: var(--arrow-size);
+		height: var(--arrow-size);
+		line-height: var(--arrow-size);
 		text-align: center;
-		font-size: $el-size-2;
+		font-size: var(--arrow-size);
 		padding: 0;
 		background: rgba(255, 255, 255, 0.8);
 		box-shadow: 0 0 0 1px $color-bg-l1;
