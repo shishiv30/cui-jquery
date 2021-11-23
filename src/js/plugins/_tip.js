@@ -13,6 +13,18 @@ function generateTip($parent, opt) {
 	return $container;
 }
 
+function updateTip($this, opt, exportObj) {
+	if (!exportObj.$parent) {
+		exportObj.$parent = opt.parent ? $(opt.parent) : $this;
+	}
+	var $parent = exportObj.$parent;
+	if (!exportObj.$container) {
+		exportObj.$container = generateTip($parent, opt);
+	}
+	var $container = exportObj.$container;
+	$container.find('.tip-inner').html(opt.content);
+}
+
 export default {
 	name: 'tip',
 	defaultOpt: {
@@ -33,16 +45,7 @@ export default {
 	},
 	init: function ($this, opt, exportObj) {
 		exportObj.show = function () {
-			if (!exportObj.$parent) {
-				exportObj.$parent = opt.parent ? $(opt.parent) : $this.parent();
-			}
-			var $parent = exportObj.$parent;
-			if ($parent.css('position') === 'static') {
-				$parent.css('position', 'relative');
-			}
-			if (!exportObj.$container) {
-				exportObj.$container = generateTip($parent, opt);
-			}
+			updateTip($this, opt, exportObj);
 			var $container = exportObj.$container;
 
 			if (opt._timer) {
@@ -54,10 +57,8 @@ export default {
 			var tWidth = $this.outerWidth();
 			var tHeight = $this.outerHeight();
 			var offset = $this.offset();
-			var position = $this.position();
-			var pWidth = $parent.outerWidth(true);
+			var wWidth = $(window).width();
 			var x = 0;
-			var y = 0;
 			var css = {};
 			$container.show();
 			setTimeout(function () {
@@ -72,23 +73,20 @@ export default {
 					x = Math.abs(tWidth - cWidth) / 2;
 					if (x > offset.left) {
 						css = {
-							left: position.left,
+							left: 0,
 							right: '',
 						};
-						$container.addClass(`${opt.placement}-right`);
-					} else if (
-						offset.left + (tWidth + cWidth) / 2 >
-						$(window).width()
-					) {
+						$container.addClass(`${opt.placement}-left`);
+					} else if (offset.left + tWidth + x > wWidth) {
 						css = {
 							left: '',
-							right: pWidth - tWidth - position.left,
+							right: 0,
 						};
-						$container.addClass(`${opt.placement}-left`);
+						$container.addClass(`${opt.placement}-right`);
 					} else {
-						x = x - position.left / 2;
 						css = {
-							left: -1 * x,
+							left: (tWidth - cWidth) / 2,
+							right: '',
 						};
 						$container.addClass(opt.placement);
 					}
@@ -98,13 +96,12 @@ export default {
 				case 'right':
 					$container.removeClass(opt.placement);
 					if (opt.placement === 'left') {
-						x = cWidth * -1 + position.left - 5;
+						x = cWidth * -1;
 					} else {
-						x = tWidth + position.left + 5;
+						x = tWidth;
 					}
-					y = Math.abs(tHeight - cHeight) / 2;
 					css = {
-						top: -1 * y,
+						top: (tHeight - cHeight) / 2,
 						left: x,
 						right: '',
 					};
@@ -117,25 +114,23 @@ export default {
 			}
 		};
 		exportObj.hide = function () {
-			var $container = exportObj.$container;
-			var $parent = exportObj.$parent;
-			$parent.css('position', '');
+			if (!exportObj.$container) return;
+			updateTip($this, opt, exportObj);
+			exportObj.$parent.css('position', '');
 			opt.hidebefore && _trigger(opt.hidebefore, $this, opt, exportObj);
-			$container.removeClass('in');
+			exportObj.$container.removeClass('in');
 			opt._timer = setTimeout(function () {
-				$container.hide();
+				exportObj.$container.hide();
 				opt.hideafter && _trigger(opt.hideafter, $this, opt, exportObj);
 				if (opt.once) {
-					exportObj.destroy();
+					exportObj.$container.remove();
+					exportObj.$container = null;
 				}
 			}, animationDuration + 1);
 		};
 	},
 	setOptionsBefore: null,
-	setOptionsAfter: function ($this, opt, exportObj) {
-		var $container = exportObj.$container;
-		$container.find('.tip-inner').html(opt.content);
-	},
+	setOptionsAfter: function ($this, opt, exportObj) {},
 	initBefore: null,
 	initAfter: function ($this, opt, exportObj) {
 		switch (opt.trigger) {

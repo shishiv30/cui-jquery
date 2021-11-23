@@ -10,6 +10,8 @@
 	--tip-color: #{$color-bg};
 	--tip-color-bg: #{$color-front};
 	--tip-color-border: #{$color-front};
+	--tip-arrow-size: 5px;
+	--tip-arrow-gap: calc(var(--tip-arrow-size) * 2);
 	.tip-inner {
 		color: var(--tip-color);
 		background-color: var(--tip-color-bg);
@@ -22,60 +24,61 @@
 	&.top {
 		padding: 5px 0;
 		transform: translateY(-100%);
-		top: 5px;
+		top: var(--tip-arrow-size);
 		.tip-arrow {
 			bottom: 0;
 			left: 50%;
-			border-width: 5px 5px 0;
+			border-width: var(--tip-arrow-size) var(--tip-arrow-size) 0;
 			border-top-color: var(--tip-color-border);
-		}
-	}
-	&.top-left {
-		.tip-arrow {
-			right: 5px;
-			left: auto;
-			margin-right: 5px;
 		}
 	}
 	&.top-right {
 		.tip-arrow {
-			left: 5px;
+			right: var(--tip-arrow-size);
+			left: auto;
+			margin-right: var(--tip-arrow-size);
+		}
+	}
+	&.top-left {
+		.tip-arrow {
+			left: var(--tip-arrow-size);
 			right: auto;
-			margin-left: 5px;
+			margin-left: var(--tip-arrow-size);
 		}
 	}
 	&.bottom {
-		padding: 5px 0;
+		padding: var(--tip-arrow-gap) 0 0 0;
 		transform: translateY(100%);
-		bottom: 5px;
+		bottom: var(--tip-arrow-size);
 		.tip-arrow {
-			top: 0;
+			top: var(--tip-arrow-size);
 			left: 50%;
-			border-width: 0 5px 5px;
+			border-width: 0 var(--tip-arrow-size) var(--tip-arrow-size);
 			border-bottom-color: var(--tip-color-border);
 		}
 	}
 	&.bottom-left {
 		.tip-arrow {
-			left: auto;
-			right: 5px;
-			margin-right: 5px;
+			right: auto;
+			left: var(--tip-arrow-size);
+			margin-right: var(--tip-arrow-size);
 		}
 	}
 	&.bottom-right {
 		.tip-arrow {
-			left: 5px;
-			right: auto;
-			margin-left: 5px;
+			right: var(--tip-arrow-size);
+			left: auto;
+			margin-left: var(--tip-arrow-size);
 		}
 	}
 	&.left {
-		padding: 0 5px;
+		padding: 0 var(--tip-arrow-size);
 		.tip-arrow {
 			top: 50%;
 			right: 0;
 			margin-top: -5px;
-			border-width: 5px 0 5px 5px;
+			border-width: var(--tip-arrow-size) 0 var(--tip-arrow-size)
+				var(--tip-arrow-size);
 			border-left-color: var(--tip-color-border);
 		}
 	}
@@ -85,7 +88,8 @@
 			top: 50%;
 			left: 0;
 			margin-top: -5px;
-			border-width: 5px 5px 5px 0;
+			border-width: var(--tip-arrow-size) var(--tip-arrow-size)
+				var(--tip-arrow-size) 0;
 			border-right-color: var(--tip-color-border);
 		}
 	}

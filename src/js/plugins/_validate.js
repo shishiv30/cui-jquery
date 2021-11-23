@@ -41,7 +41,7 @@ var _showValidate = function ($element, message) {
 				content: message,
 				placement: 'top',
 				trigger: null,
-				theme: 'default',
+				theme: 'error',
 			})
 			.show();
 	}
