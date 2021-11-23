@@ -22,6 +22,7 @@
 		padding-right: $g1;
 	}
 
+	> label,
 	> i,
 	> span,
 	> a,
@@ -50,7 +51,7 @@
 		> select {
 			padding-left: $el-size-3;
 		}
-
+		> label,
 		> span,
 		> i,
 		> a,
@@ -65,7 +66,7 @@
 		> input,
 		> select {
 			padding-right: $el-size-3;
-
+			~ label,
 			~ span,
 			~ i,
 			~ a,
@@ -83,6 +84,7 @@
 			@include form-small();
 		}
 
+		> label,
 		> i,
 		> span,
 		> a,
@@ -114,6 +116,7 @@
 			@include form-large-1();
 		}
 
+		> label,
 		> i,
 		> span,
 		> a,

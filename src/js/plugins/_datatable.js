@@ -44,7 +44,7 @@ export default {
 					return $.htmlencode(value);
 				case 'date':
 					var time = new Date(value);
-					return time.toString();
+					return time.toLocaleDateString('en-US');
 				default:
 					return value;
 			}
