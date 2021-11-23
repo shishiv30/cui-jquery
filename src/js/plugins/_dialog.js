@@ -84,7 +84,7 @@ export default {
 				_hide();
 			});
 			if (opt.autoclose) {
-				$dialogOverLay.click(function () {
+				$dialogOverLay.on('click', function () {
 					_hide();
 				});
 			}
@@ -95,7 +95,7 @@ export default {
 			$('html').append($dialog);
 			opt.renderafter && _trigger(opt.renderafter, $this, opt, exportObj);
 		});
-		$this.click(function () {
+		$this.on('click', function () {
 			var $this = $(this);
 			var data = $this.data();
 			var $target = $(data.target);

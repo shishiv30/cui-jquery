@@ -9,7 +9,7 @@ export default {
 		scrollafter: null,
 	},
 	init: function ($this, opt, exportObj) {
-		$this.click(function (e) {
+		$this.on('click', function (e) {
 			opt.scrollbefore &&
 				_trigger(opt.scrollbefore, $this, opt, exportObj);
 			$.scrollTo(opt.target || $this.attr('href'), opt.position);

@@ -163,7 +163,7 @@ export default {
 					.eq(opt.maxcount - 1)
 					.nextAll()
 					.hide();
-				$link.click(function () {
+				$link.on('click', function () {
 					$tbody
 						.find('tr')
 						.eq(opt.maxcount - 1)

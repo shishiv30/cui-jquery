@@ -2,23 +2,32 @@
 	position: absolute;
 	z-index: $ui-tip-index;
 	display: block;
-	font-size: $font-size-7;
+	font-size: $font-size-6;
 	opacity: 0;
 	min-width: 150px;
-	max-width: 320px;
-	transition: opacity 0.5s ease-in-out;
+	max-width: 280px;
+	transition: opacity 0.2s ease-in-out;
+	--tip-color: #{$color-bg};
+	--tip-color-bg: #{$color-front};
+	--tip-color-border: #{$color-front};
+	.tip-inner {
+		color: var(--tip-color);
+		background-color: var(--tip-color-bg);
+		box-shadow: 0 0 0 1px var(--tip-color-border);
+		border-radius: 4px;
+	}
 	&.in {
 		opacity: 1;
 	}
 	&.top {
 		padding: 5px 0;
 		transform: translateY(-100%);
-		top: 3px;
+		top: 5px;
 		.tip-arrow {
 			bottom: 0;
 			left: 50%;
 			border-width: 5px 5px 0;
-			border-top-color: $color-front-l1;
+			border-top-color: var(--tip-color-border);
 		}
 	}
 	&.top-left {
@@ -38,12 +47,12 @@
 	&.bottom {
 		padding: 5px 0;
 		transform: translateY(100%);
-		bottom: 3px;
+		bottom: 5px;
 		.tip-arrow {
 			top: 0;
 			left: 50%;
 			border-width: 0 5px 5px;
-			border-bottom-color: $color-front-l1;
+			border-bottom-color: var(--tip-color-border);
 		}
 	}
 	&.bottom-left {
@@ -67,7 +76,7 @@
 			right: 0;
 			margin-top: -5px;
 			border-width: 5px 0 5px 5px;
-			border-left-color: $color-front-l1;
+			border-left-color: var(--tip-color-border);
 		}
 	}
 	&.right {
@@ -77,17 +86,16 @@
 			left: 0;
 			margin-top: -5px;
 			border-width: 5px 5px 5px 0;
-			border-right-color: $color-front-l1;
+			border-right-color: var(--tip-color-border);
 		}
 	}
 	&.info {
+		color: var(--tip-color);
+		background-color: var(--tip-color-bg);
+		border: 1px solid var(--tip-color-bg);
 		.tip-inner {
-			color: $color-front-l1;
-			background-color: $color-front-l1;
 			text-align: left;
-			border: 1px solid $color-front-l1;
 			@include border-bottom-radius(2px);
-			box-shadow: none;
 			&:before {
 				@extend %icon;
 				content: $icon-info;
@@ -106,7 +114,6 @@
 			text-align: left;
 			border: 1px solid $color-minor-l1;
 			@include border-bottom-radius(2px);
-			box-shadow: none;
 			&:before {
 				@extend %icon;
 				content: $icon-minor;
@@ -125,7 +132,6 @@
 			text-align: left;
 			border: 1px solid $color-danger;
 			@include border-bottom-radius(2px);
-			box-shadow: none;
 			&:before {
 				@extend %icon;
 				content: $icon-minor;
@@ -139,13 +145,9 @@
 	}
 	&.defalut {
 		.tip-inner {
-			padding: 2px 5px;
-			color: $color-bg;
+			padding: $g0 $g1;
 			text-align: center;
 			text-decoration: none;
-			background-color: $color-front-l1;
-			border-radius: 4px;
-			box-shadow: 0 0 2px $color-front;
 		}
 	}
 }
