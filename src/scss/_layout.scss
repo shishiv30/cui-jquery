@@ -152,9 +152,7 @@ html {
 .paragraph,
 p {
 	clear: both;
-	~ p {
-		margin-top: $g2;
-	}
+	margin: $g2 0;
 	&.singleline-2 {
 		@include multiline($lineCount: 2, $bgColor: white);
 	}

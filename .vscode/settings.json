@@ -3,5 +3,7 @@
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"editor.formatOnSave": true
+	"editor.formatOnSave": true,
+	"html.autoClosingTags": false,
+	"html.format.enable": false
 }
