@@ -1,5 +1,5 @@
 export default {
-	name: 'picker',
+	name: 'datetimepicker',
 	defaultOpt: {
 		picktype: null,
 	},

@@ -2,6 +2,13 @@
 	text-shadow: 1px 0px 5px rgba(129, 129, 129, 0.5);
 }
 
+@mixin form-tiny() {
+	font-size: $font-size-5;
+	height: $el-size-1;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
 @mixin form-small() {
 	font-size: $font-size-5;
 	height: $el-size-2;

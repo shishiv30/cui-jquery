@@ -20,11 +20,11 @@ import request from './_request.js';
 import scrollTo from './_scrollTo.js';
 import tabs from './_tabs.js';
 import textbox from './_textbox.js';
-import tip from './_tip.js';
+import tooltip from './_tooltip.js';
 import transition from './_transition.js';
 import validate from './_validate.js';
 import view from './_view.js';
-import shifter from './_shifter.js';
+import carousel from './_carousel.js';
 import scrollspy from './_scrollspy.js';
 
 export default {
@@ -50,10 +50,10 @@ export default {
 	scrollTo,
 	tabs,
 	textbox,
-	tip,
+	tooltip,
 	transition,
 	validate,
 	view,
-	shifter,
+	carousel,
 	scrollspy,
 };

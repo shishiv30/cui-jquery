@@ -103,21 +103,29 @@ var notToday = function () {
 		$(document).trigger('dom.load');
 	});
 	$(document).on('dom.load', function () {
-		var prefixed = 'data-' + core.plugin.namespace;
-		$(`[${prefixed}]`).each(function (index, item) {
+		// the interface wil be follow ARIA which is nice for more accessibility
+		$('[role]').each(function (index, item) {
 			var $this = $(item);
+			if ($this.is('[loaded]')) {
+				return;
+			}
+
 			var data = $this.data();
-			var types = $this.attr(prefixed);
-			$this.removeAttr(prefixed);
-			$this.attr(`${prefixed}-load`, types);
-			types &&
-				types.split('.').forEach(function (type) {
-					var pluginName = core.plugin.namespace + '_' + type;
-					$this[pluginName] && $this[pluginName](data);
-				});
+			var types = $this.attr('role');
+			if (!types) {
+				return;
+			}
+			$this.attr('loaded', true);
+			types = types.trim(' ').split(/\s+/g);
+
+			types.forEach((type) => {
+				var pluginName = core.plugin.namespace + '_' + type;
+				$this[pluginName] && $this[pluginName](data);
+			});
 		});
 	});
-	$(document).ready(function () {
+	//entry point
+	$(function () {
 		$(document).trigger('cui.inital');
 	});
 };

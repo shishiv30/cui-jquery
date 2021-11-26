@@ -1,15 +1,15 @@
-[data-cui^='textbox'],
-[data-cui*=' textbox'] {
-	.input {
-		input {
-			color: transparent;
+[role^='textbox'],
+[role*=' textbox'] {
+	&:not([loaded]) {
+		.input {
+			input {
+				color: transparent;
+			}
 		}
 	}
 }
-[data-cui^='textbox'],
-[data-cui*=' textbox'],
-[data-cui-load^='textbox'],
-[data-cui-load*=' textbox'] {
+[role^='textbox'],
+[role*=' textbox'] {
 	position: relative;
 
 	input::-webkit-input-placeholder,

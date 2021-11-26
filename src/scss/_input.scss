@@ -165,7 +165,7 @@
 
 	&.has-error,
 	&.has-success {
-		.tip {
+		.tooltip {
 			margin-top: 0;
 			top: 0;
 			left: 0 !important;
@@ -174,7 +174,7 @@
 			transform: translateY(50%);
 			padding: 0;
 			top: 0;
-			.tip-inner {
+			.tooltip-inner {
 				border: none !important;
 				background: transparent !important;
 				border: none !important;
@@ -182,7 +182,7 @@
 				text-align: right !important;
 				margin: 0 0.5rem !important;
 			}
-			.tip-arrow {
+			.tooltip-arrow {
 				display: none !important;
 			}
 			&.in {
@@ -191,7 +191,7 @@
 		}
 	}
 	&.has-error {
-		.tip-inner {
+		.tooltip-inner {
 			color: $color-danger-l1;
 		}
 	}

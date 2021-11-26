@@ -5,7 +5,7 @@ function generateTip($parent, opt) {
 	var $container = $(opt.template);
 	$container.addClass(opt.theme);
 	$container.addClass(opt.placement);
-	$container.find('.tip-inner').html(opt.content);
+	$container.find('.tooltip-inner').html(opt.content);
 	$parent.append($container);
 	$container.on('click', function (e) {
 		e.stopPropagation();
@@ -21,16 +21,19 @@ function updateTip($this, opt, exportObj) {
 	if (!exportObj.$container) {
 		exportObj.$container = generateTip($parent, opt);
 	}
+	if ($parent.css('position') === 'static') {
+		$parent.css('position', 'relative');
+	}
 	var $container = exportObj.$container;
-	$container.find('.tip-inner').html(opt.content);
+	$container.find('.tooltip-inner').html(opt.content);
 }
 
 export default {
-	name: 'tip',
+	name: 'tooltip',
 	defaultOpt: {
 		theme: 'defalut',
 		placement: 'top',
-		trigger: 'click',
+		trigger: 'hover',
 		html: true,
 		once: false,
 		onload: null,
@@ -41,7 +44,7 @@ export default {
 		_timer: null,
 		parent: null,
 		template:
-			'<div class="tip"><div class="tip-arrow"></div><div class="tip-inner"></div></div>',
+			'<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
 	},
 	init: function ($this, opt, exportObj) {
 		exportObj.show = function () {
@@ -145,6 +148,10 @@ export default {
 				$this.on('focusin.' + exportObj.name, exportObj.show);
 				$this.on('focusout.' + exportObj.name, exportObj.hide);
 				break;
+			case 'hover':
+				$this.on('mouseenter.' + exportObj.name, exportObj.show);
+				$this.on('mouseleave.' + exportObj.name, exportObj.hide);
+				break;
 		}
 		opt.onload && _trigger(opt.onload, $this, opt, exportObj);
 	},
@@ -152,6 +159,8 @@ export default {
 		$this.off('click.' + exportObj.name);
 		$this.off('focusin.' + exportObj.name);
 		$this.off('focusout.' + exportObj.name);
+		$this.off('mouseenter.' + exportObj.name);
+		$this.off('mouseleave.' + exportObj.name);
 		exportObj.$container.remove();
 	},
 };

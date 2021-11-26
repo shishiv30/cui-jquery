@@ -1,118 +1,119 @@
 //validate for form submit
 import _trigger from '../core/_trigger';
 export default {
-    name: 'form',
-    defaultOpt: null,
-    initBefore: null,
-    init: function ($this, opt, exportObj) {
-        exportObj.isValid = function () {
-            var foucsElement = null;
-            var isPassed = true;
-            $this.find('[data-cui-load="validate"]').each(function (index, item) {
-                var isValide = $(item).data('validate').isValid();
-                if (!isValide) {
-                    isPassed = false;
-                    if (!foucsElement) {
-                        foucsElement = $(item);
-                    }
-                    return false;
-                }
-            });
-            if (foucsElement) {
-                foucsElement.focus();
-            }
-            return isPassed;
-        };
-        exportObj.getValue = function () {
-            var obj = {};
-            $this.find(':input[type="tel"]').each(function (index, item) {
-                var name = $(item).attr('name');
-                if (name) {
-                    obj[name] = $(item).val();
-                }
-            });
-            $this.find(':input[type="email"]').each(function (index, item) {
-                var name = $(item).attr('name');
-                if (name) {
-                    obj[name] = $(item).val();
-                }
-            });
-            $this.find(':input[type="text"]').each(function (index, item) {
-                var name = $(item).attr('name');
-                if (name) {
-                    obj[name] = $(item).val();
-                }
-            });
-            $this.find(':input[type="number"]').each(function (index, item) {
-                var name = $(item).attr('name');
-                if (name) {
-                    obj[name] = $(item).val();
-                }
-            });
-            $this.find(':password').each(function (index, item) {
-                var name = $(item).attr('name');
-                if (name) {
-                    obj[name] = $(item).val();
-                }
-            });
-            $this.find(':hidden').each(function (index, item) {
-                var name = $(item).attr('name');
-                if (name) {
-                    obj[name] = $(item).val();
-                }
-            });
-            $this.find('textarea').each(function (index, item) {
-                var name = $(item).attr('name');
-                if (name) {
-                    obj[name] = $(item).val();
-                }
-            });
-            $this.find('select').each(function (index, item) {
-                var name = $(item).attr('name');
-                if (name) {
-                    obj[name] = $(item).val();
-                }
-            });
-            $this.find('.checkbox').each(function (index, item) {
-                var name;
-                var checkbox;
-                var checkboxList;
-                if ($(item).data('type') == 'single') {
-                    checkbox = $(item).find(':checkbox').eq(0);
-                    if (checkbox.length) {
-
-                        name = checkbox.attr('name');
-                        if (checkbox.is(':checked')) {
-                            obj[name] = checkbox.attr('value') ? checkbox.attr('value') : true;
-                        } else {
-                            obj[name] = checkbox.attr('value') ? '' : false;
-                        }
-                    }
-                } else {
-                    checkboxList = $(item).find(':checkbox:checked');
-                    name = checkboxList.attr('name');
-                    if (name) {
-                        obj[name] = $.map(checkboxList, function (item) {
-                            return $(item).val();
-                        });
-                    }
-                }
-            });
-            $this.find('.radio').each(function (index, item) {
-                var radioItem = $(item).find(':radio:checked');
-                var name = radioItem.attr('name');
-                if (name) {
-                    obj[name] = $(radioItem).val();
-                }
-            });
-            return obj;
-        };
-        return exportObj;
-    },
-    setOptionsBefore: null,
-    setOptionsAfter: null,
-    destroyBefore: null,
-    initAfter: null,
+	name: 'form',
+	defaultOpt: null,
+	initBefore: null,
+	init: function ($this, opt, exportObj) {
+		exportObj.isValid = function () {
+			var foucsElement = null;
+			var isPassed = true;
+			$this.find('[role*="validate"]').each(function (index, item) {
+				var isValide = $(item).data('validate').isValid();
+				if (!isValide) {
+					isPassed = false;
+					if (!foucsElement) {
+						foucsElement = $(item);
+					}
+					return false;
+				}
+			});
+			if (foucsElement) {
+				foucsElement.focus();
+			}
+			return isPassed;
+		};
+		exportObj.getValue = function () {
+			var obj = {};
+			$this.find(':input[type="tel"]').each(function (index, item) {
+				var name = $(item).attr('name');
+				if (name) {
+					obj[name] = $(item).val();
+				}
+			});
+			$this.find(':input[type="email"]').each(function (index, item) {
+				var name = $(item).attr('name');
+				if (name) {
+					obj[name] = $(item).val();
+				}
+			});
+			$this.find(':input[type="text"]').each(function (index, item) {
+				var name = $(item).attr('name');
+				if (name) {
+					obj[name] = $(item).val();
+				}
+			});
+			$this.find(':input[type="number"]').each(function (index, item) {
+				var name = $(item).attr('name');
+				if (name) {
+					obj[name] = $(item).val();
+				}
+			});
+			$this.find(':password').each(function (index, item) {
+				var name = $(item).attr('name');
+				if (name) {
+					obj[name] = $(item).val();
+				}
+			});
+			$this.find(':hidden').each(function (index, item) {
+				var name = $(item).attr('name');
+				if (name) {
+					obj[name] = $(item).val();
+				}
+			});
+			$this.find('textarea').each(function (index, item) {
+				var name = $(item).attr('name');
+				if (name) {
+					obj[name] = $(item).val();
+				}
+			});
+			$this.find('select').each(function (index, item) {
+				var name = $(item).attr('name');
+				if (name) {
+					obj[name] = $(item).val();
+				}
+			});
+			$this.find('.checkbox').each(function (index, item) {
+				var name;
+				var checkbox;
+				var checkboxList;
+				if ($(item).data('type') == 'single') {
+					checkbox = $(item).find(':checkbox').eq(0);
+					if (checkbox.length) {
+						name = checkbox.attr('name');
+						if (checkbox.is(':checked')) {
+							obj[name] = checkbox.attr('value')
+								? checkbox.attr('value')
+								: true;
+						} else {
+							obj[name] = checkbox.attr('value') ? '' : false;
+						}
+					}
+				} else {
+					checkboxList = $(item).find(':checkbox:checked');
+					name = checkboxList.attr('name');
+					if (name) {
+						obj[name] = $.map(checkboxList, function (item) {
+							return $(item).val();
+						});
+					}
+				}
+			});
+			$this.find('.radio').each(function (index, item) {
+				var radioItem = $(item).find(':radio:checked');
+				var name = radioItem.attr('name');
+				if (name) {
+					obj[name] = $(radioItem).val();
+				}
+			});
+			return obj;
+		};
+		return exportObj;
+	},
+	setOptionsBefore: null,
+	setOptionsAfter: null,
+	destroyBefore: null,
+	initAfter: null,
 };
 // $.cui.plugin(formConfig);
 // $(document).on('dom.load', function () {
@@ -124,4 +125,3 @@ export default {
 //         $this.attr('data-form-load', '');
 //     });
 // });
-

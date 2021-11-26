@@ -90,17 +90,17 @@
 }
 
 .view-panel,
-.shifter {
+.carousel {
 	margin-bottom: 30px;
 	position: relative;
 }
-.shifter > div > div {
+.carousel > div > div {
 	width: 320px;
 	height: 200px;
 }
 
 .view-panel > div > div,
-.shifter > div > div {
+.carousel > div > div {
 	text-align: center;
 	padding: 0 5px;
 	background: #333;

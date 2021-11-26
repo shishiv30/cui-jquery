@@ -1,7 +1,5 @@
-[data-cui^='lazyload'],
-[data-cui*=' lazyload'],
-[data-cui-load^='lazyload'],
-[data-cui-load*=' lazyload'] {
+[role^='lazyload'],
+[role*=' lazyload'] {
 	transition: opacity 0.5s ease-in-out;
 	opacity: 0.1;
 }

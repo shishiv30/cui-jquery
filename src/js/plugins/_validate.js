@@ -35,7 +35,7 @@ var _showValidate = function ($element, message) {
 	if (message) {
 		$element
 			.closest('.input')
-			.cui_tip({
+			.cui_tooltip({
 				once: true,
 				type: 'error',
 				content: message,
@@ -47,10 +47,10 @@ var _showValidate = function ($element, message) {
 	}
 };
 var _passValidate = function ($element, isRequried) {
-	$element.closest('.input').removeClass('has-error');
-	if ($element.closest('.input').data('tip')) {
-		$element.closest('.input').data('tip').hide();
+	if ($element.closest('.input').data('tooltip')) {
+		$element.closest('.input').data('tooltip').hide();
 	}
+	$element.closest('.input').removeClass('has-error');
 	if ($element.is('[id]')) {
 		$('[for=' + $element.attr('id') + ']').removeClass('error-text');
 	}

@@ -1,40 +1,39 @@
-<div class="section" id="formPanel" data-cui="form">
+<section class="section" id="formPanel" role="form">
 	<div class="form panel sm-2">
 		<h4 class="h4 xs-col-1">
 			Forms
 			<span class="sub">the form style</span>
 		</h4>
 		<div>
-			<label for="txtReq">Required Box</label>
-			<div class="input left right">
+			<label for="txtReq">Name (Required)</label>
+			<div class="input left ">
 				<i class="icon-user-circle-o"></i>
 				<input
 					type="text"
 					id="txtReq"
 					name="name"
 					placeholder="name"
-					data-cui="validate"
+					role="validate"
 					data-type="required"
 				/>
-				<i>*</i>
 			</div>
 		</div>
 		<div>
-			<label for="txtMail">Mail Box</label>
-			<div class="input right">
+			<label for="txtMail">Mail</label>
+			<div class="input left">
+				<i class="icon-envelope"></i>
 				<input
 					type="text"
 					id="txtMail"
 					name="email"
 					placeholder="email"
-					data-cui="validate"
+					role="validate"
 					data-type="email"
 				/>
-				<i class="icon-envelope"></i>
 			</div>
 		</div>
 		<div>
-			<label for="txtPhone">Phone Box</label>
+			<label for="txtPhone">Phone (Required)</label>
 			<div class="input left right">
 				<i class="icon-phone"></i>
 				<input
@@ -43,22 +42,21 @@
 					name="phone"
 					placeholder="phone"
 					value="1234567890"
-					data-cui="validate"
+					role="validate"
 					data-type="required,phone"
 					data-inputformat
 					data-type="phone"
 				/>
-				<i>*</i>
 			</div>
 		</div>
 		<div>
-			<label for="ddlFequence">Fequence</label>
+			<label for="ddlFequence">Fequence (Required)</label>
 			<div class="input left right">
 				<i class="icon-ellipsis-v"></i>
 				<select
 					id="ddlFequence"
 					name="fequence"
-					data-cui="validate"
+					role="validate"
 					data-type="required"
 				>
 					<option value="" selected disabled>
@@ -72,37 +70,35 @@
 			</div>
 		</div>
 		<div>
-			<label for="date">Date picker</label>
-			<div class="input right">
+			<label for="date">Date (Required)</label>
+			<div class="input left">
+				<label for="date" class="icon-calendar"></label>
 				<input
 					type="text"
 					id="date"
 					name="date"
-					data-cui="picker"
+					role="datetimepicker validate"
 					data-picktype="date"
 					readonly
 					placeholder="select date"
-					data-cui="validate"
 					data-type="required"
 				/>
-				<label for="date" class="icon-calendar"></label>
 			</div>
 		</div>
 		<div>
-			<label for="time">Time picker</label>
-			<div class="input right">
+			<label for="time">Time (Required)</label>
+			<div class="input left">
+				<label for="time" class="icon-clock-o"></label>
 				<input
 					type="text"
 					id="time"
 					name="time"
-					data-cui="picker"
+					role="datetimepicker validate"
 					data-picktype="time"
 					readonly
 					placeholder="select time"
-					data-cui="validate"
 					data-type="required"
 				/>
-				<label for="time" class="icon-clock-o"></label>
 			</div>
 		</div>
 		<div>
@@ -130,31 +126,7 @@
 				</label>
 			</div>
 		</div>
-		<div>
-			<label>Select Gender</label>
-			<br />
-			<div class="radio group-btn default">
-				<label for="chMale1">
-					<input
-						id="chMale1"
-						name="gender"
-						type="radio"
-						checked
-						value="Male"
-					/>
-					<span>Male</span>
-				</label>
-				<label for="chkFemal1">
-					<input
-						id="chkFemal1"
-						name="gender"
-						type="radio"
-						value="Female"
-					/>
-					<span>Female</span>
-				</label>
-			</div>
-		</div>
+		
 		<div>
 			<label>Select Favor</label>
 			<br />
@@ -192,38 +164,109 @@
 			</div>
 		</div>
 		<div>
-			<label>Select Favor</label>
+			<label>Rating</label>
+			<br />
+			<div class="radio group-btn default">
+				<label for="rate0">
+					<input
+						id="rate0"
+						name="rating"
+						type="radio"
+						checked
+						value="0"
+					/>
+					<span>0</span>
+				</label>
+				<label for="rate1">
+					<input
+						id="rate1"
+						name="rating"
+						type="radio"
+						value="1"
+					/>
+					<span>1</span>
+				</label>
+				<label for="rate2">
+					<input
+						id="rate2"
+						name="rating"
+						type="radio"
+						value="2"
+					/>
+					<span>2</span>
+				</label>
+				<label for="rate3">
+					<input
+						id="rate3"
+						name="rating"
+						type="radio"
+						value="3"
+					/>
+					<span>3</span>
+				</label>
+				<label for="rate4">
+					<input
+						id="rate4"
+						name="rating"
+						type="radio"
+						value="4"
+					/>
+					<span>4</span>
+				</label>
+				<label for="rate5">
+					<input
+						id="rate5"
+						name="rating"
+						type="radio"
+						value="5"
+					/>
+					<span>5</span>
+				</label>
+			</div>
+		</div>
+		<div>
+			<label>Skills</label>
 			<br />
 			<div class="checkbox group-btn default">
-				<label for="rbtnFavor4">
+				<label for="tag4">
 					<input
-						id="rbtnFavor4"
-						name="favor"
+						id="tag4"
+						name="skill"
 						checked
 						type="checkbox"
-						value="Dance"
+						value="C#"
 					/>
-					<span>Dance</span>
+					<span>C#</span>
 				</label>
 
-				<label for="rbtnFavor5">
+				<label for="tag5">
 					<input
-						id="rbtnFavor5"
-						name="favor"
+						id="tag5"
+						name="skill"
 						type="checkbox"
-						value="Sing"
+						value="css"
 					/>
-					<span>Sing</span>
+					<span>CSS</span>
 				</label>
 
-				<label for="rbtnFavor6">
+				<label for="tag6">
 					<input
-						id="rbtnFavor6"
-						name="favor"
+						id="tag6"
+						name="skill"
 						type="checkbox"
-						value="Paint"
+						value="javascript"
 					/>
-					<span>Paint</span>
+					<span>Javascript</span>
+				</label>
+
+				<label for="tag7">
+					<input
+						id="tag7"
+						name="skill"
+						type="checkbox"
+						value="nodejs"
+					/>
+					<span>Node Js</span>
 				</label>
 			</div>
 		</div>
@@ -233,4 +276,4 @@
 			>
 		</div>
 	</div>
-</div>
+</section>

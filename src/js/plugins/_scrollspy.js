@@ -7,10 +7,10 @@ function activeLink($this, key) {
 			$this.find('.scrolled').removeClass('scrolled');
 			$target.addClass('scrolled');
 			var $list;
-			if ($this.is('[role="scrollbar"]')) {
+			if ($this.is('[role*="scrollbar"]')) {
 				$list = $this;
 			} else {
-				$list = $this.find('[role="scrollbar"]');
+				$list = $this.find('[role*="scrollbar"]');
 			}
 			if ($list && $list.length) {
 				var scrollLeft = $list.scrollLeft();

@@ -1,5 +1,6 @@
-.shifter {
-	--shifter-height: auto;
+//todo carousel change to [role='scrollbar'], [role='scrollbar']change to .carousel>div
+[role*='carousel'] {
+	--carousel-height: auto;
 	position: relative;
 	--arrow-size: #{$el-size-2};
 	&.tiny {
@@ -27,15 +28,12 @@
 		text-align: center;
 		font-size: var(--arrow-size);
 		padding: 0;
-		background: rgba(255, 255, 255, 0.8);
+		background: rgba(255, 255, 255);
+		opacity: 0.9;
 		box-shadow: 0 0 0 1px $color-bg-l1;
 		color: $color-major;
 		cursor: pointer;
-		opacity: 1;
 		border-radius: 50%;
-		&.disable {
-			opacity: 0 !important;
-		}
 		&.prev {
 			left: 15px;
 			transition: opacity, left 0.5s linear;
@@ -46,6 +44,9 @@
 		}
 	}
 	&:hover {
+		.arrow {
+			opacity: 1;
+		}
 		.prev {
 			left: 5px;
 		}
@@ -56,19 +57,19 @@
 }
 .landscape {
 	@media screen and (max-width: $screen-sm-max) {
-		[role='scrollbar'] {
+		[role*='scrollbar'] {
 			max-height: 80vh;
 		}
 	}
 }
-[role='scrollbar']:not(.moving) {
+[role*='scrollbar']:not(.moving) {
 	> * {
 		scroll-snap-align: start;
 	}
 }
 @include only-mobile {
-	.shifter {
-		[role='scrollbar'] {
+	[role*='carousel'] {
+		[role*='scrollbar'] {
 			-ms-scroll-snap-type: x mandatory;
 			scroll-snap-type: x mandatory;
 			scroll-behavior: smooth;
@@ -76,14 +77,14 @@
 			-ms-overflow-style: none;
 		}
 		&:not(.center) {
-			[role='scrollbar'] {
+			[role*='scrollbar'] {
 				> * {
 					scroll-snap-align: start;
 				}
 			}
 		}
 		&.center {
-			[role='scrollbar'] {
+			[role*='scrollbar'] {
 				> * {
 					scroll-snap-align: center;
 				}
@@ -91,8 +92,8 @@
 		}
 	}
 }
-[role='scrollbar'] {
-	height: var(--shifter-height);
+[role*='scrollbar'] {
+	height: var(--carousel-height);
 	width: 100%;
 	display: flex;
 	flex-wrap: nowrap;

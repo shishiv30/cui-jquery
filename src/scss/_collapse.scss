@@ -24,8 +24,8 @@
 	opacity: 1;
 }
 
-[data-cui-load^='collapse'],
-[data-cui-load*=' collapse'] {
+[role^='collapse'],
+[role*=' collapse'] {
 	&.shown {
 		&.i,
 		& > i {

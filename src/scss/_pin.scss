@@ -1,7 +1,8 @@
 .pin {
-    z-index: $ui-pin-index;
+	z-index: $ui-pin-index;
 }
 
-[data-cui^="pin"], [data-cui*=" pin"] {
-    position: relative;
+[role^='pin'],
+[role*=' pin'] {
+	position: relative;
 }

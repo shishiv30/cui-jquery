@@ -117,10 +117,8 @@
 	}
 }
 
-[data-cui^='dropdownbutton'],
-[data-cui*=' dropdownbutton'],
-[data-cui-load^='dropdownbutton'],
-[data-cui-load*=' dropdownbutton'] {
+[role^='dropdownbutton'],
+[role*=' dropdownbutton'] {
 	display: flex;
 	position: relative;
 	a {
