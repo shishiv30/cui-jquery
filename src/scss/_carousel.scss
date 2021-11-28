@@ -1,5 +1,5 @@
-//todo carousel change to [role='scrollbar'], [role='scrollbar']change to .carousel>div
-[role*='carousel'] {
+//todo carousel change to [data-role='scrollbar'], [data-role='scrollbar']change to .carousel>div
+[data-role*='carousel'] {
 	--carousel-height: auto;
 	position: relative;
 	--arrow-size: #{$el-size-2};
@@ -57,19 +57,19 @@
 }
 .landscape {
 	@media screen and (max-width: $screen-sm-max) {
-		[role*='scrollbar'] {
+		[data-role*='scrollbar'] {
 			max-height: 80vh;
 		}
 	}
 }
-[role*='scrollbar']:not(.moving) {
+[data-role*='scrollbar']:not(.moving) {
 	> * {
 		scroll-snap-align: start;
 	}
 }
 @include only-mobile {
-	[role*='carousel'] {
-		[role*='scrollbar'] {
+	[data-role*='carousel'] {
+		[data-role*='scrollbar'] {
 			-ms-scroll-snap-type: x mandatory;
 			scroll-snap-type: x mandatory;
 			scroll-behavior: smooth;
@@ -77,14 +77,14 @@
 			-ms-overflow-style: none;
 		}
 		&:not(.center) {
-			[role*='scrollbar'] {
+			[data-role*='scrollbar'] {
 				> * {
 					scroll-snap-align: start;
 				}
 			}
 		}
 		&.center {
-			[role*='scrollbar'] {
+			[data-role*='scrollbar'] {
 				> * {
 					scroll-snap-align: center;
 				}
@@ -92,7 +92,7 @@
 		}
 	}
 }
-[role*='scrollbar'] {
+[data-role*='scrollbar'] {
 	height: var(--carousel-height);
 	width: 100%;
 	display: flex;

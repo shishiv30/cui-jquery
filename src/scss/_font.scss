@@ -12,28 +12,16 @@
 /* latin */
 @font-face {
 	font-family: $font-family;
-	font-display: auto;
 	font-style: normal;
 	font-weight: $font-weight-light;
-	src: local('Pacifico Regular'),
-		url('../assets/fonts/Roboto-thin.woff2') format('woff2');
-	font-display: swap;
-}
-@font-face {
-	font-family: $font-family;
-	font-display: auto;
-	font-style: normal;
-	font-weight: $font-weight-normal;
 	src: local('Pacifico Regular'),
 		url('../assets/fonts/Roboto-light.woff2') format('woff2');
 	font-display: swap;
 }
-
 @font-face {
 	font-family: $font-family;
-	font-display: auto;
 	font-style: normal;
-	font-weight: $font-weight-bold;
+	font-weight: $font-weight-normal;
 	src: local('Pacifico Regular'),
 		url('../assets/fonts/Roboto-Regular.woff2') format('woff2');
 	font-display: swap;

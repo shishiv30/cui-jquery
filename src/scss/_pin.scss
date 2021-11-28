@@ -2,7 +2,6 @@
 	z-index: $ui-pin-index;
 }
 
-[role^='pin'],
-[role*=' pin'] {
+[data-role*='pin'] {
 	position: relative;
 }

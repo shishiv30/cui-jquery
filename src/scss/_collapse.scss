@@ -24,8 +24,7 @@
 	opacity: 1;
 }
 
-[role^='collapse'],
-[role*=' collapse'] {
+[data-role*='collapse'] {
 	&.shown {
 		&.i,
 		& > i {

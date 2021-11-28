@@ -1,13 +1,13 @@
 <section class="section" id="mapPanel">
 	<div class="panel">
-		<h4 class="h4 xs-col-1">
+		<div class="h4 xs-col-1">
 			Map
 			<span class="sub"> new map style</span>
-		</h4>
+		</div>
 		<div>
 			<h5>Dynamic Map</h5>
 			<div
-				role="gmap"
+				data-role="gmap"
 				data-lat="37.819929"
 				data-lng="-122.478255"
 				data-onload="initialMap"
@@ -16,7 +16,7 @@
 			></div>
 			<h5>Static Map</h5>
 			<div
-				role="gsmap"
+				data-role="gsmap"
 				data-type="terrain"
 				data-lat="37.819929"
 				data-lng="-122.478255"
@@ -24,7 +24,7 @@
 			></div>
 			<h5>Static Street Map</h5>
 			<div
-				role="gsmap"
+				data-role="gsmap"
 				data-type="streetview"
 				data-lat="37.819929"
 				data-lng="-122.478255"

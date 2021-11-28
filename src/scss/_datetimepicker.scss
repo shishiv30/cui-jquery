@@ -1,5 +1,4 @@
-[role^='datetimepicker'],
-[role*=' datetimepicker'] {
+[data-role*='datetimepicker'] {
 	cursor: pointer;
 }
 .datetimepicker {

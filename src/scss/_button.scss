@@ -49,7 +49,8 @@
 	display: block;
 	text-align: center;
 	transition: opacity 0.1s ease-in-out;
-	opacity: 0.75;
+	opacity: 0.95;
+	font-weight: $font-weight-bold;
 	border: none;
 	cursor: pointer;
 	border-radius: $radius-3;
@@ -117,8 +118,7 @@
 	}
 }
 
-[role^='dropdownbutton'],
-[role*=' dropdownbutton'] {
+[data-role*='dropdownbutton'] {
 	display: flex;
 	position: relative;
 	a {

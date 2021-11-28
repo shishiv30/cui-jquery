@@ -1,9 +1,9 @@
 <section class="section" id="inputPanel">
 	<div class="form panel sm-2" role="form">
-		<h4 class="h4 xs-col-1">
+		<div class="h4 xs-col-1">
 			Input
 			<span class="sub"> new Input style</span>
-		</h4>
+		</div>
 		<div>
 			<div class="input small right">
 				<select id="select1" name="fequence" data-validate="required">
@@ -27,7 +27,32 @@
 					value=""
 					data-validate="required,email"
 				/>
-				<a href="javascript:;" class="icon-check"></a>
+				<a href="javascript:;" aria-label="submit" class="icon-check"></a>
+			</div>
+		</div>
+		
+		<div>
+			<div class="input right">
+				<select id="select3" name="fequence" data-validate="required">
+					<option value="" selected disabled>textbox select</option>
+					<option value="Weekly">Option 1</option>
+					<option value="Daily">Option 1</option>
+					<option value="Monthly">Option 1</option>
+				</select>
+				<i class="icon-angle-down"></i>
+			</div>
+		</div>
+		<div>
+			<div class="input right">
+				<input
+					type="email"
+					placeholder="textbox input"
+					id="txtReq5"
+					name="name"
+					value=""
+					data-validate="required,email"
+				/>
+				<a href="javascript:;"  aria-label="submit" class="icon-check"></a>
 			</div>
 		</div>
 		<div>
@@ -53,41 +78,17 @@
 					value=""
 					data-validate="required,email"
 				/>
-				<a href="javascript:;" class="icon-check"></a>
-			</div>
-		</div>
-		<div>
-			<div class="input right">
-				<select id="select3" name="fequence" data-validate="required">
-					<option value="" selected disabled>textbox select</option>
-					<option value="Weekly">Option 1</option>
-					<option value="Daily">Option 1</option>
-					<option value="Monthly">Option 1</option>
-				</select>
-				<i class="icon-angle-down"></i>
-			</div>
-		</div>
-		<div>
-			<div class="input right">
-				<input
-					type="email"
-					placeholder="textbox input"
-					id="txtReq5"
-					name="name"
-					value=""
-					data-validate="required,email"
-				/>
-				<a href="javascript:;" class="icon-check"></a>
+				<a href="javascript:;"  aria-label="submit" class="icon-check"></a>
 			</div>
 		</div>
 	</div>
 </section>
 <section class="section" id="texboxPanel">
 	<div class="form panel sm-2" role="form">
-		<h4 class="h4 xs-col-1">
+		<div class="h4 xs-col-1">
 			Textbox
 			<span class="sub"> new textbox style</span>
-		</h4>
+		</div>
 		<div>
 			<div class="select-textbox">
 				<label for="select22">normal textbox select</label>
@@ -101,7 +102,7 @@
 			</div>
 		</div>
 		<div>
-			<div role="textbox">
+			<div data-role="textbox">
 				<div class="input right">
 					<label for="txtReq2">normal textbox input</label>
 					<input
@@ -111,7 +112,7 @@
 						value=""
 						data-validate="required,email"
 					/>
-					<a href="javascript:;" class="icon-check"></a>
+					<a href="javascript:;"  aria-label="submit" class="icon-check"></a>
 				</div>
 			</div>
 		</div>
@@ -128,7 +129,7 @@
 			</div>
 		</div>
 		<div>
-			<div role="textbox">
+			<div data-role="textbox">
 				<div class="input large right">
 					<label for="txtReq1">large textbox input</label>
 					<input
@@ -138,18 +139,18 @@
 						value=""
 						data-validate="required,email"
 					/>
-					<a href="javascript:;" class="icon-check"></a>
+					<a href="javascript:;"  aria-label="submit" class="icon-check"></a>
 				</div>
 			</div>
 		</div>
 		<div class="xs-col-1">
-			<div role="textbox">
+			<div data-role="textbox">
 				<div class="textarea">
 					<label for="textReq4">textbox textarea</label>
 					<textarea
 						name="span"
 						id="textReq4"
-						role="validate"
+						data-role="validate"
 						data-type="required"
 					></textarea>
 				</div>

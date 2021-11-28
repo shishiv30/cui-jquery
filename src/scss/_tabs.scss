@@ -13,13 +13,12 @@
 	min-width: 80px;
 	box-shadow: 0 0 0 1px $color-front-l1;
 	&.active {
-		background: $color-front-l1;
+		background: $color-front;
 		color: $color-bg;
 		border-bottom: none;
 	}
 }
-[role^='tabs'],
-[role*=' tabs'] {
+[data-role*='tabs'] {
 	> ul {
 		display: flex;
 		> li {

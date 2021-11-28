@@ -8,7 +8,7 @@ export default {
 		exportObj.isValid = function () {
 			var foucsElement = null;
 			var isPassed = true;
-			$this.find('[role*="validate"]').each(function (index, item) {
+			$this.find('[data-role*="validate"]').each(function (index, item) {
 				var isValide = $(item).data('validate').isValid();
 				if (!isValide) {
 					isPassed = false;

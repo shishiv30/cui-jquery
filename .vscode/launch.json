@@ -1,10 +1,15 @@
 {
 	"configurations": [
 		{
-			"name": "Launch Microsoft Edge and open the Edge DevTools",
+			"type": "chrome",
+			"skipFiles": ["${workspaceFolder}/js/libs/*.js"],
+			"preLaunchTask": "npm run dev",
 			"request": "launch",
-			"type": "vscode-edge-devtools.debug",
-			"url": "http://localhost:8080/"
+			"name": "Debug CUI",
+			"url": "http://localhost:8080",
+			"webRoot": "${workspaceRoot}/src",
+			"sourceMaps": true,
+			"trace": true
 		}
 	]
 }

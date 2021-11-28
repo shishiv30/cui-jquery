@@ -104,14 +104,14 @@ var notToday = function () {
 	});
 	$(document).on('dom.load', function () {
 		// the interface wil be follow ARIA which is nice for more accessibility
-		$('[role]').each(function (index, item) {
+		$('[data-role]').each(function (index, item) {
 			var $this = $(item);
 			if ($this.is('[loaded]')) {
 				return;
 			}
 
 			var data = $this.data();
-			var types = $this.attr('role');
+			var types = $this.attr('data-role');
 			if (!types) {
 				return;
 			}

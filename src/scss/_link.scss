@@ -11,10 +11,10 @@ a {
 		color: inherit;
 	}
 	&.link {
-		font-weight: $font-weight-bold;
 		opacity: 0.95;
 		color: $color-link-default;
 		@include hover() {
+			font-weight: $font-weight-bold;
 			opacity: 1;
 			color: $color-link-default-hover;
 		}

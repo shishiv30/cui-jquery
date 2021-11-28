@@ -4,7 +4,7 @@
 		position: sticky;
 		top: 0;
 		background-color: $color-bg;
-		z-index: $ui-header-index;
+		z-index: $ui-stick-index;
 	}
 	> ul {
 		margin: 0 auto;
@@ -16,12 +16,13 @@
 		padding: $g0 $g2;
 		color: $color-front;
 		display: inline-block;
-		font-weight: $font-weight-bold;
 		@include hover() {
+			font-weight: $font-weight-bold;
 			color: $color-major;
 		}
-		&.scrolled {
-			border-bottom-color: $color-major;
+		&.active {
+			font-weight: $font-weight-bold;
+			border-bottom-color: $color-front;
 		}
 	}
 }

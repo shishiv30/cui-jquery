@@ -4,36 +4,8 @@
 		<title>About Me - Chao Zou</title>
 		<meta name="Description" content="Frontend Engineer - Web Framework Developer - UI/UX Designer" />
 		<%= require('../page/meta.html').default %> 
-		<link
-			rel="preload"
-			href="<%= require('../assets/fonts/fonticon.woff') %>"
-			as="font"
-			type="font/woff"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="preload"
-			href="<%= require('../assets/fonts/Roboto-Regular.woff2') %>"
-			as="font"
-			type="font/woff2"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="preload"
-			href="<%= require('../assets/fonts/Roboto-thin.woff2') %>"
-			as="font"
-			type="font/woff2"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="preload"
-			href="<%= require('../assets/fonts/Roboto-light.woff2') %>"
-			as="font"
-			type="font/woff2"
-			crossorigin="anonymous"
-		/>
 	</head>
-	<body id="body" role="loadimage">
+	<body id="body" data-role="loadimage">
 		<%= require('../page/header.html').default %>
 		<%= require('./about-welcome.html').default %> 
 		<%= require('./about-nav.html').default %> 

@@ -74,7 +74,7 @@ export default {
 		ratio: 0.6,
 	},
 	init: function ($this, opt, exportObj) {
-		var $scroller = $this.find('[role*="scrollbar"]');
+		var $scroller = $this.find('[data-role*="scrollbar"]');
 		exportObj.$scroller = $scroller;
 		opt._id = $.guid++;
 		if (opt.size !== 'auto') {

@@ -29,7 +29,8 @@ module.exports = (env) => {
 				icons: [
 					{
 						src: path.resolve('./src/assets/logo.png'),
-						sizes: [48, 96, 192],
+						sizes: [48, 96, 192, 256, 384, 512],
+						purpose: 'any maskable',
 					},
 				],
 			}),

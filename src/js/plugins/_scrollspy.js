@@ -3,14 +3,14 @@ var spyobserver = null;
 function activeLink($this, key) {
 	var $target = $this.find(`[href="#${key}"]`);
 	if ($target[0]) {
-		if (!$target.hasClass('scrolled')) {
-			$this.find('.scrolled').removeClass('scrolled');
-			$target.addClass('scrolled');
+		if (!$target.hasClass('active')) {
+			$this.find('.active').removeClass('active');
+			$target.addClass('active');
 			var $list;
-			if ($this.is('[role*="scrollbar"]')) {
+			if ($this.is('[data-role*="scrollbar"]')) {
 				$list = $this;
 			} else {
-				$list = $this.find('[role*="scrollbar"]');
+				$list = $this.find('[data-role*="scrollbar"]');
 			}
 			if ($list && $list.length) {
 				var scrollLeft = $list.scrollLeft();

@@ -1,5 +1,4 @@
-[role^='lazyload'],
-[role*=' lazyload'] {
+[data-role*='lazyload'] {
 	transition: opacity 0.5s ease-in-out;
 	opacity: 0.1;
 }

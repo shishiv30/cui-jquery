@@ -1,5 +1,4 @@
-[role^='view'],
-[role*=' view'] {
+[data-role*='view'] {
 	width: 100%;
 	overflow: hidden;
 	//the padding must be 0
