@@ -5,7 +5,6 @@ import dialog from './_dialog.js';
 import dropdownbutton from './_dropdownbutton.js';
 import form from './_form.js';
 import gridtable from './_gridtable.js';
-import gridview from './_gridview.js';
 import header from './_header.js';
 import inputformat from './_inputformat.js';
 import links from './_links.js';
@@ -26,6 +25,7 @@ import validate from './_validate.js';
 import view from './_view.js';
 import carousel from './_carousel.js';
 import scrollspy from './_scrollspy.js';
+import flow from './_flow.js';
 
 export default {
 	collapse,
@@ -35,7 +35,6 @@ export default {
 	dropdownbutton,
 	form,
 	gridtable,
-	gridview,
 	header,
 	inputformat,
 	links,
@@ -56,4 +55,5 @@ export default {
 	view,
 	carousel,
 	scrollspy,
+	flow,
 };

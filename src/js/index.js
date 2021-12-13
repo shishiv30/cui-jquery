@@ -1,5 +1,4 @@
 import scss from '../scss/cui.scss';
-
 window.$ = window.jQuery = jQuery;
 import './libs';
 import core from './core';
@@ -88,7 +87,7 @@ var _eventResizeListener = function () {
 	);
 };
 //there is only one thing jQuery say to Death
-var notToday = function () {
+(function ($) {
 	inject($);
 	for (var key in plugins) {
 		var config = plugins[key];
@@ -128,7 +127,5 @@ var notToday = function () {
 	$(function () {
 		$(document).trigger('cui.inital');
 	});
-};
-
+})(window.$);
 //there is only one thing jQuery say to Death
-notToday();

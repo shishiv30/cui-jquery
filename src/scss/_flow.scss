@@ -1,0 +1,43 @@
+.flow {
+	@extend %clearfix;
+	> ul {
+		float: left;
+		transition: transform 0.5s ease-in-out;
+		> li {
+			transition: background 1s ease-in-out;
+			background: transparent;
+			display: block;
+			position: relative;
+			overflow: hidden;
+		}
+	}
+
+	img {
+		width: 100%;
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		transition: transform 0.5s 0.5s ease-in-out;
+		transform: translateY(100%);
+	}
+
+	&.scrollUP {
+		img {
+			transform: translateY(-100%);
+		}
+	}
+
+	.flow-loading {
+		background: $color-front-l1;
+	}
+	.flow-loaded {
+		img {
+			transform: translateY(0);
+		}
+	}
+	.flow-error {
+	}
+}
