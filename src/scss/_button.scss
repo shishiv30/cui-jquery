@@ -41,7 +41,7 @@
 	--button-active-bg: #{$color-front};
 	--button-active-border: #{$color-front-l1};
 	--button-active-color: #{$color-bg};
-	font-size: $font-size-5;
+	font-size: $font-size-4;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -50,7 +50,6 @@
 	text-align: center;
 	transition: opacity 0.1s ease-in-out;
 	opacity: 0.95;
-	font-weight: $font-weight-bold;
 	border: none;
 	cursor: pointer;
 	border-radius: $radius-3;

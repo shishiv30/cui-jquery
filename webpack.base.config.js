@@ -66,12 +66,12 @@ module.exports = (env) => {
 		},
 		plugins: [
 			new HtmlWebpackPlugin({
-				filename: './index.html',
+				filename: 'index.html',
 				template: './src/pagedoc/index.ejs',
 				favicon: './src/assets/logo.png',
 			}),
 			new HtmlWebpackPlugin({
-				filename: './about.html',
+				filename: 'about.html',
 				template: './src/pageabout/index.ejs',
 				favicon: './src/assets/logo.png',
 			}),

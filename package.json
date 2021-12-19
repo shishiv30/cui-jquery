@@ -7,7 +7,7 @@
 		"dev": "webpack-dev-server --config webpack.config.dev.js --open",
 		"make": "webpack --config webpack.config.prd.js && node server.js",
 		"score": "lighthouse --config-path=./lighthouse.config.js --output html --output-path ./report.html --view http://localhost:8080/index.html",
-		"scoreprd": "lighthouse --output html --output-path ./report.html --view https://shishiv30.github.io/jquery-cui/about.html",
+		"scoreprd": "lighthouse --output html --output-path ./report.html --view https://shishiv30.github.io/jquery-cui/index.html",
 		"build": "webpack --config webpack.config.prd.js --env deploy",
 		"deploy": "node deploy"
 	},
