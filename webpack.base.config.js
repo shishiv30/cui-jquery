@@ -2,21 +2,28 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const pageSettings = require('./webpack.base.page.config.js');
+
+const entry = { cui: './src/js/index.js' };
+const plugins = [
+	new MiniCssExtractPlugin({
+		filename: '[name].min.css',
+		chunkFilename: '[id].css',
+	}),
+	new webpack.ProvidePlugin({
+		'window.jQuery': 'jquery',
+		$: 'jquery',
+		jQuery: 'jquery',
+	}),
+];
+
+pageSettings.pages.forEach((page) => {
+	plugins.push(new HtmlWebpackPlugin(page));
+});
 
 module.exports = (env) => {
-	const publicPath = env.deploy
-		? 'https://shishiv30.github.io/jquery-cui/'
-		: 'http://localhost:8080/';
 	return {
-		entry: {
-			cui: './src/pagedoc/index.js',
-		},
-		output: {
-			filename: '[name].js',
-			path: path.resolve(__dirname, 'dist'),
-			clean: true,
-			publicPath: publicPath,
-		},
+		entry: entry,
 		module: {
 			rules: [
 				{
@@ -64,26 +71,6 @@ module.exports = (env) => {
 				},
 			],
 		},
-		plugins: [
-			new HtmlWebpackPlugin({
-				filename: 'index.html',
-				template: './src/pagedoc/index.ejs',
-				favicon: './src/assets/logo.png',
-			}),
-			new HtmlWebpackPlugin({
-				filename: 'about.html',
-				template: './src/pageabout/index.ejs',
-				favicon: './src/assets/logo.png',
-			}),
-			new MiniCssExtractPlugin({
-				filename: '[name].min.css',
-				chunkFilename: '[id].css',
-			}),
-			new webpack.ProvidePlugin({
-				'window.jQuery': 'jquery',
-				$: 'jquery',
-				jQuery: 'jquery',
-			}),
-		],
+		plugins: plugins,
 	};
 };

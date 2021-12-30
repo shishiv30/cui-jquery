@@ -6,9 +6,18 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = (env) => {
+	const publicPath = env.deploy
+		? 'https://shishiv30.github.io/jquery-cui/'
+		: 'http://localhost:8080/';
 	var config = baseConfig(env);
 	return merge(config, {
 		mode: 'production',
+		output: {
+			path: path.resolve(__dirname, 'dist'),
+			filename: '[name].js',
+			publicPath: publicPath,
+			clean: true,
+		},
 		recordsPath: path.join(__dirname, 'records.json'),
 		plugins: [
 			// new BundleAnalyzerPlugin(),
@@ -25,7 +34,7 @@ module.exports = (env) => {
 				display: 'standalone',
 				theme_color: '#ffffff',
 				background_color: '#ffffff',
-				start_url: config.output.publicPath + 'index.html',
+				start_url: publicPath + 'index.html',
 				icons: [
 					{
 						src: path.resolve('./src/assets/logo.png'),

@@ -125,6 +125,8 @@ var _eventResizeListener = function () {
 	});
 	//entry point
 	$(function () {
+		const cui = new CustomEvent('cui', window.$);
+		document.dispatchEvent(cui);
 		$(document).trigger('cui.inital');
 	});
 })(window.$);
