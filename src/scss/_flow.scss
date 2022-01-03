@@ -9,9 +9,19 @@
 			display: block;
 			position: relative;
 			overflow: hidden;
+			&[title]:after {
+				padding: 0 $g1;
+				content: attr(title);
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: rgba(0, 0, 0, 0.5);
+				color: $color-bg;
+				z-index: 2;
+			}
 		}
 	}
-
 	img {
 		width: 100%;
 		display: block;

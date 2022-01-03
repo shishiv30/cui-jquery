@@ -5,9 +5,10 @@ export default {
 		source: null,
 		target: null,
 		container: null,
-		template: '<img alt="demo image">',
-		breakpoint: [414, 640, 992, 1200],
+		template: '<img>',
+		breakpoint: [320, 640, 960, 1280],
 		colCount: -1,
+		onclick: null,
 		reloadbefore: null,
 		reloadafter: null,
 	},
@@ -87,6 +88,11 @@ export default {
 			$tmp.css({
 				paddingTop: ratio * 100 + '%',
 			});
+			if (item.alt) {
+				$tmp.find('img').attr('alt', item.alt);
+				$tmp.attr('title', item.alt);
+			}
+			opt.onclick && _trigger(opt.onclick, $tmp, item);
 			return $tmp;
 		};
 		var _loadImage = function () {
@@ -217,13 +223,3 @@ export default {
 	destroyBefore: null,
 	isThirdPart: true,
 };
-// $.cui.plugin(flowConfig);
-// $(document).on('dom.load.flow', function () {
-//     $('[data-flow]').each(function (index, item) {
-//         var $this = $(item);
-//         var data = $this.data();
-//         $this.removeAttr('data-flow');
-//         $this.flow(data);
-//         $this.attr('data-flow-load', '');
-//     });
-// });
