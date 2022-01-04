@@ -1,3 +1,5 @@
+import _trigger from '../core/_trigger';
+
 export default {
 	name: 'flow',
 	defaultOpt: {
@@ -28,6 +30,19 @@ export default {
 				}
 			} else if (items && items.length) {
 				return items;
+			}
+			return;
+		};
+		var getItemHtml = function (template, data) {
+			if (typeof template === 'string') {
+				switch (typeof window[template]) {
+					case 'function':
+						return window[template](data);
+					default:
+						return template;
+				}
+			} else if (typeof template === 'function') {
+				return template(data);
 			}
 			return;
 		};
@@ -79,7 +94,8 @@ export default {
 			return columns;
 		};
 		var _createItemInColumns = function (item) {
-			var $tmp = $('<li>' + opt.template + '</li>');
+			var html = getItemHtml(opt.template, item);
+			var $tmp = $('<li>' + html + '</li>');
 			var ratio = item.height / item.width;
 			$tmp.data({
 				ratio: ratio,
@@ -92,7 +108,11 @@ export default {
 				$tmp.find('img').attr('alt', item.alt);
 				$tmp.attr('title', item.alt);
 			}
-			opt.onclick && _trigger(opt.onclick, $tmp, item);
+			if (opt.onclick) {
+				$tmp.on('click', function () {
+					_trigger(opt.onclick, $tmp, item);
+				});
+			}
 			return $tmp;
 		};
 		var _loadImage = function () {

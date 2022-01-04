@@ -6,8 +6,13 @@
 		<%= require('../page/meta.html').default %> 
 	</head>
 	<body id="body">
-		<%= require('../page/header.html').default %>
-
+	<%= require('../page/header.html').default %>
+		<div class="section">
+			<div class="panel">
+				<div class="flow" id="dataGridView" data-role="flow" data-items="flowdata" data-onclick="goTo"></div>
+			</div>
+		</div>
+	</body>
 	<%= require('../page/sw.html').default %> 
 	<%= require('./list-js.html').default %>
 </html>
