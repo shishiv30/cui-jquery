@@ -34,7 +34,7 @@ module.exports = (env) => {
 				display: 'standalone',
 				theme_color: '#ffffff',
 				background_color: '#ffffff',
-				start_url: '/',
+				start_url: publicPath + 'index.html',
 				icons: [
 					{
 						src: path.resolve('./src/assets/logo.png'),
