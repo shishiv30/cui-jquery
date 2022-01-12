@@ -26,7 +26,7 @@ export default {
 					case 'string':
 						return JSON.parse(window[items]);
 					default:
-						return JSON.parse(items);
+						return items;
 				}
 			} else if (items && items.length) {
 				return items;
@@ -34,15 +34,20 @@ export default {
 			return;
 		};
 		var getItemHtml = function (template, data) {
-			if (typeof template === 'string') {
-				switch (typeof window[template]) {
-					case 'function':
-						return window[template](data);
-					default:
-						return template;
+			if (data && typeof data === 'string') {
+				return data;
+			}
+			if (template) {
+				if (typeof template === 'string') {
+					switch (typeof window[template]) {
+						case 'function':
+							return window[template](data);
+						default:
+							return template;
+					}
+				} else if (typeof template === 'function') {
+					return template(data);
 				}
-			} else if (typeof template === 'function') {
-				return template(data);
 			}
 			return;
 		};
