@@ -1,6 +1,6 @@
 
 <script type="text/javascript">
-    window.flowdata = [{
+        window.flowdata = [{
         src: 'img.ex_1.jpg',
         alt: 'img ex_1',
         height: 640,
@@ -201,6 +201,9 @@
         height: 640,
         width: 400
     }]
+    window.flowTemplate= function(data){
+        return $.renderHtml('<div class="flow-item"><img src="{{src}}">{{#alt}}<span>{{alt}}</span>{{/alt}}</div>', data);
+    }
     window.goTo = function(e,data){
         console.log(e, data);
     };
@@ -209,3 +212,22 @@
     });
 
 </script>
+<style>
+    .flow-item{
+        display: block;
+        position: relative;
+    }
+    .flow-item img{
+        width: 100%;
+        height: auto;
+    }
+    .flow-item > span{
+        background-color: rgba(0,0,0,0.5);
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+    }
+</style>

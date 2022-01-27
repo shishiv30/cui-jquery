@@ -7,7 +7,7 @@ export default {
 		source: null,
 		target: null,
 		container: null,
-		template: '<img>',
+		template: '<img data-src="{{src}}" style="width:100%;" alt="{{alt}}">',
 		breakpoint: [320, 640, 960, 1280],
 		colCount: -1,
 		onclick: null,
@@ -18,13 +18,14 @@ export default {
 		var $container = opt.container ? $(opt.container) : $(window);
 		var initalItems = function (items) {
 			if (typeof items === 'string') {
-				switch (typeof window[items]) {
+				var data = window[items];
+				switch (typeof data) {
 					case 'function':
-						return window[items]();
+						return data();
 					case 'object':
-						return window[items];
+						return data;
 					case 'string':
-						return JSON.parse(window[items]);
+						return JSON.parse(data);
 					default:
 						return items;
 				}
@@ -39,11 +40,14 @@ export default {
 			}
 			if (template) {
 				if (typeof template === 'string') {
-					switch (typeof window[template]) {
+					var tmp = window[template];
+					switch (typeof tmp) {
 						case 'function':
-							return window[template](data);
+							return tmp(data);
+						case 'string':
+							return $.renderHtml(tmp, data);
 						default:
-							return template;
+							return $.renderHtml(template, data);
 					}
 				} else if (typeof template === 'function') {
 					return template(data);
@@ -101,18 +105,6 @@ export default {
 		var _createItemInColumns = function (item) {
 			var html = getItemHtml(opt.template, item);
 			var $tmp = $('<li>' + html + '</li>');
-			var ratio = item.height / item.width;
-			$tmp.data({
-				ratio: ratio,
-				src: item.src,
-			});
-			$tmp.css({
-				paddingTop: ratio * 100 + '%',
-			});
-			if (item.alt) {
-				$tmp.find('img').attr('alt', item.alt);
-				$tmp.attr('title', item.alt);
-			}
 			if (opt.onclick) {
 				$tmp.on('click', function () {
 					_trigger(opt.onclick, $tmp, item);
@@ -129,18 +121,22 @@ export default {
 					offsetTop < positionInfo.scrollBottom &&
 					offsetBottom > positionInfo.scrollTop
 				) {
-					var src = $item.data('src');
 					var $img = $item.find('img');
-					$item.addClass('flow-loading');
-					$img.on('load', function () {
-						$item.removeClass('flow-loading');
+					var src = $img.data('src');
+					if (src) {
+						$item.addClass('flow-loading');
+						$img.on('load', function () {
+							$item.removeClass('flow-loading');
+							$item.addClass('flow-loaded');
+						});
+						$img.on('error', function () {
+							$item.removeClass('flow-loading');
+							$item.addClass('flow-error');
+						});
+						$img.attr('src', src);
+					} else {
 						$item.addClass('flow-loaded');
-					});
-					$img.on('error', function () {
-						$item.removeClass('flow-loading');
-						$item.addClass('flow-error');
-					});
-					$img.attr('src', src);
+					}
 				}
 			});
 		};
@@ -196,7 +192,10 @@ export default {
 				var $li = _createItemInColumns(item);
 				var $ul = _getSmallestColumn(ulList);
 				$ul.append($li);
-				var newRatio = $ul.data('ratio') + $li.data('ratio');
+				if (item.height && item.width) {
+					item.ratio = item.height / item.width;
+				}
+				var newRatio = $ul.data('ratio') + (item.ratio || 1);
 				$ul.data('ratio', newRatio);
 			});
 			$this.addClass('flow');

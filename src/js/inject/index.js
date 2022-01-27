@@ -17,6 +17,7 @@ import _localstorage from './_extend.localstorage';
 import _debounce from './_extend.debounce';
 import _throttle from './_extend.throttle';
 import _scroll from './_extend.scroll';
+import _format from './_extend.format';
 
 export default function ($) {
 	var injects = [
@@ -39,6 +40,7 @@ export default function ($) {
 		_debounce,
 		_throttle,
 		_scroll,
+		_format,
 	];
 	injects.forEach((e) => {
 		e.call(window, $);
