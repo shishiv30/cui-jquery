@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
     function capFirst(string) {
         if(!string){
@@ -22,13 +21,45 @@
     }
     var warSys ={
         element: ['Fire', 'Water', 'Earth', 'Wind', 'Light', 'Dark'],
-        camp: ['Lawful Good', 'Lawful Neutral', 'Lawful Evil', 'Neutral Good', 'Neutral (True)', 'Neutral Evil', 'Chaotic Good', 'Chaotic Neutral', 'Chaotic Evil'],
+        camp: ['Lawful, Good', 'Lawful, Neutral', 'Lawful, Evil', 'Neutral, Good', 'Neutral, True', 'Neutral, Evil', 'Chaotic, Good', 'Chaotic, Neutral', 'Chaotic, Evil'],
         race: ['Angel', 'Human', 'Tiefling', 'Elf', 'Dragonborn', 'Undead', 'Dwarf', 'Orc',  'Demon'],
         title: ['Saber', 'Archer', 'Lancer', 'Knight', 'Caster', 'Assassin', 'Berserker'],
         position: ['Offlaner', 'Midlaner', 'Jungle', 'Toplaner'],
         talent: ['Attack', 'Protect', 'Gank', 'Control', 'Support', 'Solo'],
     }
-
+    var randomPickDate = function(start, end) {
+        var date = new Date(+start + Math.random() * (end - start));
+        return date.toISOString().substring(0, 10);
+    }
+    var warSysProfile = {
+        "img.dragonborn_l.jpg": { width:800, height:980},
+        "img.dragonborn_c.jpg": { width:640, height:1214},
+        "img.dragonborn_n.jpg": { width:920, height:930},
+        "img.human_l.jpg": { width:736, height:904},
+        "img.human_c.jpg": { width:761, height:1000},
+        "img.human_n.jpg": { width:736, height:1012},
+        "img.orc_l.jpg": { width:600, height:745},
+        "img.orc_c.jpg": { width:550, height:810},
+        "img.orc_n.jpg": { width:860, height:1113},
+        "img.angel_l.jpg": { width:820, height:968},
+        "img.angel_c.jpg": { width:640, height:640},
+        "img.angel_n.jpg": { width:1000, height:767},
+        "img.demon_l.jpg": { width:325, height:600},
+        "img.demon_c.jpg": { width:820, height:652},
+        "img.demon_n.jpg": { width:600, height:751},
+        "img.elf_l.jpg": { width:820, height:732},
+        "img.elf_c.jpg": { width:832, height:1024},
+        "img.elf_n.jpg": { width:900, height:1456},
+        "img.dwarf_l.jpg": { width:420, height:517},
+        "img.dwarf_c.jpg": { width:960, height:1020},
+        "img.dwarf_n.jpg": { width:641, height:900},
+        "img.undead_l.jpg": { width:640, height:1200},
+        "img.undead_c.jpg": { width:564, height:861},
+        "img.undead_n.jpg": { width:658, height:907},
+        "img.tiefling_l.jpg": { width:640, height:900},
+        "img.tiefling_c.jpg": { width:503, height:810},
+        "img.tiefling_n.jpg": { width:719, height:1043},
+    };
     var randomPick = function(arr) {
         var random = Math.floor(Math.random() * arr.length);
         return arr[random];
@@ -45,15 +76,20 @@
                 tags.push(value);
             });
             item.name = generateName();
-            item.src = `img.${item.race}_${item.camp[0]}.jpg`.toLowerCase(),
+            item.src = `img.${item.race}_${item.camp[0]}.jpg`.toLowerCase();
+            if(warSysProfile[item.src]){
+                item.height = warSysProfile[item.src].height;
+                item.width = warSysProfile[item.src].width;
+            }
             item.tag = tags.join(', ');
+            item.date = randomPickDate(new Date(0, 0, 1), new Date(2025, 0, 1));
             data.push(item);
         }
         return data;
     }
    
     window.flowTemplate= function(data){
-        return $.renderHtml('<div class="flow-item"><img src="{{src}}"><div>{{#name}}<p>{{name}}</p>{{#tag}}<p class="f6">{{tag}}</p>{{/tag}}{{/name}}</div></div>', data);
+        return $.renderHtml('<div class="flow-item"><img data-src="{{src}}"><div>{{#name}}<div>{{name}}</div>{{/name}}{{#tag}}<div class="f6">{{tag}}</div>{{/tag}}{{#date}}<div class="f6">BC {{date}}</div>{{/date}}</div></div>', data);
     }
     window.goTo = function(e,data){
         console.log(e, data);

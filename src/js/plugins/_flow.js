@@ -1,3 +1,4 @@
+import { list } from 'postcss';
 import _trigger from '../core/_trigger';
 
 export default {
@@ -115,6 +116,9 @@ export default {
 		var _loadImage = function () {
 			$this.find('li').each(function (index, item) {
 				var $item = $(item);
+				if ($item.is('flow-loaded')) {
+					return;
+				}
 				var offsetTop = $item.offset().top;
 				var offsetBottom = offsetTop + $item.outerHeight();
 				if (
@@ -191,10 +195,21 @@ export default {
 			$.each(data, function (index, item) {
 				var $li = _createItemInColumns(item);
 				var $ul = _getSmallestColumn(ulList);
-				$ul.append($li);
 				if (item.height && item.width) {
 					item.ratio = item.height / item.width;
 				}
+				if (item.ratio) {
+					$li.css({
+						paddingTop: item.ratio * 100 + '%',
+					});
+					$li.addClass('flow-ratio');
+				} else {
+					$li.addClass('flow-unratio');
+				}
+				$li.css({
+					paddingTop: item.ratio * 100 + '%',
+				});
+				$ul.append($li);
 				var newRatio = $ul.data('ratio') + (item.ratio || 1);
 				$ul.data('ratio', newRatio);
 			});

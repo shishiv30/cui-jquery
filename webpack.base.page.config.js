@@ -15,8 +15,8 @@ module.exports = {
 		},
 		{
 			name: 'list',
-			filename: 'list.html',
-			template: './src/pagelist/index.ejs',
+			filename: 'warsys.html',
+			template: './src/pagewarsys/index.ejs',
 			favicon: favicon,
 		},
 	],
