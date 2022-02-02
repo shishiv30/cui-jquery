@@ -15,8 +15,7 @@
 	> input,
 	> select {
 		width: 100%;
-		box-shadow: 0 0 0 1px $color-front-l1;
-		border: none;
+		border: 1px solid $color-front-l1;
 		@include form-default-1();
 		padding-left: $g1;
 		padding-right: $g1;
@@ -28,12 +27,13 @@
 	> a,
 	> button,
 	> .btn {
-		@extend %center-y;
+		position: absolute;
+		top: 0;
 		z-index: 1;
 		text-align: center;
-		padding-top: $g1;
-		padding-bottom: $g1;
 		width: $el-size-3;
+		@include form-default-1();
+		line-height: 1.618;
 	}
 
 	> .btn {
@@ -90,8 +90,7 @@
 		> a,
 		> button,
 		> .btn {
-			padding-top: $g0;
-			padding-bottom: $g0;
+			@include form-small();
 			width: $el-size-2;
 		}
 
@@ -122,8 +121,7 @@
 		> a,
 		> button,
 		> .btn {
-			padding-top: $g1;
-			padding-bottom: $g1;
+			@include form-large-1();
 			width: $el-size-4;
 		}
 
@@ -139,19 +137,6 @@
 			> select {
 				padding-left: $el-size-4;
 			}
-		}
-	}
-
-	&.plaintext {
-		> input,
-		> select {
-			background-color: transparent !important;
-			display: inline-block;
-			pointer-events: none;
-		}
-
-		> i {
-			color: inherit !important;
 		}
 	}
 

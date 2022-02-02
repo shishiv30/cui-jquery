@@ -41,11 +41,11 @@
 	font-size: $font-size-7;
 	background-color: var(--tag-bg);
 	color: var(--tag-color);
-	box-shadow: 0 0 0 1px var(--tag-border);
+	border: 1px solid var(--tag-border);
 	border-radius: $g1;
 	&.active {
 		background-color: var(--tag-active-bg);
-		box-shadow: 0 0 0 1px var(--tag-active-border);
+		border: 1px solid var(--tag-active-border);
 		color: var(--tag-active-color);
 	}
 }

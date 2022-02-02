@@ -11,8 +11,7 @@
 	}
 	> select {
 		width: 100%;
-		box-shadow: 0 0 0 1px $color-front-l1;
-		border: none;
+		border: 1px solid $color-front-l1;
 		padding-left: $g1;
 		padding-right: $g1;
 		@include form-default-2();

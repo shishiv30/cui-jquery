@@ -15,7 +15,7 @@
 	.tooltip-inner {
 		color: var(--tooltip-color);
 		background-color: var(--tooltip-color-bg);
-		box-shadow: 0 0 0 1px var(--tooltip-color-border);
+		border: 1px solid var(--tooltip-color-border);
 		border-radius: 4px;
 	}
 	&.in {

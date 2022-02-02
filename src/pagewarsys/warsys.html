@@ -2,6 +2,8 @@
     body{
         --color-major: #241505;
         --color-major-l1: #ffd3a1;
+        --color-minor: #fff6a0;
+        --color-minor-l1: #f0edd2;
         position: relative;
         background-color: var(--color-major-l1);
     }
@@ -16,6 +18,7 @@
         background-position-x: left;
         background-repeat: repeat-y;
         z-index: 10;
+        pointer-events: none;
     }
     body:after{
         position: absolute;
@@ -28,6 +31,7 @@
         background-position-x: right;
         background-repeat: repeat-y;
         z-index: 10;
+        pointer-events: none;
     }
     @media screen and (max-width: 991px) {
         body:before, body:after{
@@ -78,13 +82,69 @@
     li:not(.flow-loaded) img{
         opacity: 0;
     }
+    .form-filter{
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+    }
 </style>
 <div class="section">
+    <div class="form form-filter horizontal">
+        <div class="input small right">
+            <input type="text" placeholder="search">
+            <button class="icon-search"></button>
+        </div>
+        <div class="input small right">
+            <select>
+                <option value="" disabled selected>All</option>
+                <option value="">Option 1</option>
+                <option value="">Option 2</option>
+            </select>
+            <i disabled class="icon-angle-down"></i>
+        </div>
+        <div class="checkbox small">
+            <label for="checkbox-1">
+                <input type="checkbox" value="c1" id="checkbox-1">
+                <span>Dance 1</span>
+            </label>
+            <label for="checkbox-2">
+                <input type="checkbox" value="c2"  id="checkbox-2">
+                <span>Dance 2</span>
+            </label>
+            <label for="checkbox-3">
+                <input type="checkbox" value="c3" id="checkbox-3">
+                <span>Dance 3</span>
+            </label>
+            <label for="checkbox-4">
+                <input type="checkbox" value="c4" id="checkbox-4">
+                <span>Dance 4</span>
+            </label>
+        </div>
+        <div class="radio small">
+            <label for="radio-1">
+                <input type="radio" value="r1" id="radio-1" name="radio">
+                <span>Radio 1</span>
+            </label>
+            <label for="radio-2">
+                <input type="radio" value="r2" id="radio-2" name="radio">
+                <span>Radio 2</span>
+            </label>
+            <label for="radio-3">
+                <input type="radio" value="r3" id="radio-3" name="radio">
+                <span>Radio 3</span>
+            </label>
+            <label for="radio-4">
+                <input type="radio" value="r4" id="radio-4" name="radio">
+                <span>Radio 4</span>
+            </label>
+        </div>
+    </div>
     <div class="panel" >
         <div style="display: none;">
             <img data-role="lazyload" src="./src/img/bg1.png" width="380" height="4096" />
             <img data-role="lazyload" src="./src/img/bg2.png" width="380" height="4096" />
-
             <img data-role="lazyload" src="./src/img/dragonborn_l.jpg" width="800" height="980" />
             <img data-role="lazyload" src="./src/img/dragonborn_c.jpg" width="640" height="1214" />
             <img data-role="lazyload" src="./src/img/dragonborn_n.jpg" width="920" height="930" />

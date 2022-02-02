@@ -111,7 +111,7 @@
 		> ul {
 			background-color: $color-bg;
 			color: $color-front;
-			box-shadow: 0 0 0 1px var(--header-split);
+			border: 1px solid var(--header-split);
 			min-width: 100%;
 			position: relative;
 			a {

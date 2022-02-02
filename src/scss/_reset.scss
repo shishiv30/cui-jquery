@@ -66,9 +66,9 @@ input,
 select,
 textarea,
 button {
-	line-height: 1.618;
+	line-height: 1.418;
 	outline: none;
-	border: none;
+	border: 1px solid transparent;
 	margin: 0;
 	padding: 0;
 	color: $color-front;

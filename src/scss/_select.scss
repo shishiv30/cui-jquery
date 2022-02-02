@@ -1,14 +1,18 @@
 select {
-    width: 100%;
-    line-height: 100%;
-    border: 1px solid $color-front-l1;
-    border-radius: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: $color-bg;
-    cursor: pointer;
+	width: 100%;
+	line-height: 100%;
+	border: 1px solid $color-front-l1;
+	border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: $color-bg;
+	cursor: pointer;
+	[disabled] {
+		color: $color-front-l1;
+	}
 }
+
 select::-ms-expand {
-    display: none;
+	display: none;
 }

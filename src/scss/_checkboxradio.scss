@@ -1,60 +1,61 @@
-.checkbox, .radio {
-    display: inline-block;
-    white-space: nowrap;
-    min-width: fit-content;
-    label {
-        cursor: pointer;
-        margin-right: $g1;
-        user-select: none;
-        > input {
-            display: none;
-        }
-        > span {
-            @include form-default-1();
-            display: inline-flex;
-            align-items: center;
-            &:before{
-                @extend %icon;
-                margin-right: $g0;
-            }
-        }
-        input:disabled + span {
-            color: $color-front-l1;
-        }
-        &:last-of-type{
-            margin-right: 0;
-        }
-    }
-    &.small{
-        label{
-            > span{
-                @include form-small();
-            }
-        }
-    }
-    &.large{
-        label{
-            > span{
-                @include form-large-1();
-            }
-        }
-    }
+.checkbox,
+.radio {
+	display: inline-block;
+	white-space: nowrap;
+	min-width: fit-content;
+	label {
+		cursor: pointer;
+		margin-right: $g1;
+		user-select: none;
+		> input {
+			display: none;
+		}
+		> span {
+			@include form-default-1();
+			display: inline-flex;
+			align-items: center;
+			&:before {
+				@extend %icon;
+				margin-right: $g0;
+			}
+		}
+		input:disabled + span {
+			color: $color-front-l1;
+		}
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+	&.small {
+		label {
+			> span {
+				@include form-small();
+			}
+		}
+	}
+	&.large {
+		label {
+			> span {
+				@include form-large-1();
+			}
+		}
+	}
 }
 
 .checkbox {
-    input + span:before {
-        content: $icon-square-o;
-    }
-    input:checked + span:before {
-        content: $icon-check-square;
-    }
+	input + span:before {
+		content: $icon-square-o;
+	}
+	input:checked + span:before {
+		content: $icon-check-square;
+	}
 }
 
 .radio {
-    input + span:before {
-        content: $icon-circle-thin;
-    }
-    input:checked + span:before {
-        content: $icon-check-circle;
-    }
+	input + span:before {
+		content: $icon-circle-thin;
+	}
+	input:checked + span:before {
+		content: $icon-check-circle;
+	}
 }

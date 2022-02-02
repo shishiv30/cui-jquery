@@ -44,7 +44,7 @@
 	}
 
 	&.default {
-		box-shadow: 0 0 0 1px $color-front-l1;
+		border: 1px solid $color-front-l1;
 		> label {
 			border-color: $color-front-l1;
 		}
@@ -55,7 +55,7 @@
 		}
 	}
 	&.minor {
-		box-shadow: 0 0 0 1px $color-minor;
+		border: 1px solid $color-minor;
 		> label {
 			border-color: $color-minor;
 		}
@@ -67,7 +67,7 @@
 		}
 	}
 	&.major {
-		box-shadow: 0 0 0 1px $color-major;
+		border: 1px solid $color-major;
 		> label {
 			border-color: $color-major;
 		}
@@ -79,7 +79,7 @@
 		}
 	}
 	&.danger {
-		box-shadow: 0 0 0 1px $color-danger;
+		border: 1px solid $color-danger;
 		> label {
 			border-color: $color-danger;
 		}
@@ -91,7 +91,7 @@
 		}
 	}
 	&.safe {
-		box-shadow: 0 0 0 1px $color-safe;
+		border: 1px solid $color-safe;
 		> label {
 			border-color: $color-safe;
 		}
