@@ -220,11 +220,11 @@ export default {
 			});
 			_loadImage();
 		};
-		var _reload = (exportObj.reload = function (force) {
+		var _reload = (exportObj.reload = function (force, data) {
 			if (force) {
 				opt.colCount = -1;
 			}
-			var item = initalItems(opt.items);
+			var item = initalItems(data || opt.items);
 			if (item && item.length) {
 				var newColCount = _getColumnByBreakPoint();
 				if (opt.colCount !== newColCount) {

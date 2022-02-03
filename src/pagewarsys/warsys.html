@@ -91,53 +91,76 @@
     }
 </style>
 <div class="section">
-    <div class="form form-filter horizontal">
-        <div class="input small right">
-            <input type="text" placeholder="search">
+    <div id="searchFilter" class="form form-filter horizontal" data-role="form">
+        <div class="input small right" title="Name">
+            <input type="text" name="name" placeholder="search">
             <button class="icon-search"></button>
         </div>
-        <div class="input small right">
-            <select>
-                <option value="" disabled selected>All</option>
-                <option value="">Option 1</option>
-                <option value="">Option 2</option>
+        <div class="input small right" title="Race">
+            <select name="race">
+                <option value="" disabled selected>Race</option>
+                <option value="Angel">Angel</option>
+                <option value="Human">Human</option>
+                <option value="Tiefling">Tiefling</option>
+                <option value="Elf">Elf</option>
+                <option value="Dragonborn">Dragonborn</option>
+                <option value="Undead">Undead</option>
+                <option value="Dwarf">Dwarf</option>
+                <option value="Orc">Orc</option>
+                <option value="Demon">Demon</option>
             </select>
             <i disabled class="icon-angle-down"></i>
         </div>
-        <div class="checkbox small">
+        <div class="checkbox small" title="Camp">
             <label for="checkbox-1">
-                <input type="checkbox" value="c1" id="checkbox-1">
-                <span>Dance 1</span>
+                <input type="checkbox" value="Lawful" id="checkbox-1" name="camp">
+                <span>Lawful</span>
             </label>
             <label for="checkbox-2">
-                <input type="checkbox" value="c2"  id="checkbox-2">
-                <span>Dance 2</span>
+                <input type="checkbox" value="Chaotic" id="checkbox-2" name="camp">
+                <span>Chaotic</span>
             </label>
             <label for="checkbox-3">
-                <input type="checkbox" value="c3" id="checkbox-3">
-                <span>Dance 3</span>
+                <input type="checkbox" value="Good" id="checkbox-3" name="camp">
+                <span>Good</span>
             </label>
             <label for="checkbox-4">
-                <input type="checkbox" value="c4" id="checkbox-4">
-                <span>Dance 4</span>
+                <input type="checkbox" value="Evil" id="checkbox-4" name="camp">
+                <span>Evil</span>
+            </label>
+            <label for="checkbox-5">
+                <input type="checkbox" value="Neutral" id="checkbox-5" name="camp">
+                <span>Neutral</span>
             </label>
         </div>
-        <div class="radio small">
+        <div class="radio small"  title="Element">
+            <label for="radio-0">
+                <input type="radio" checked value="" id="radio-0" name="element">
+                <span>Any</span>
+            </label>
             <label for="radio-1">
-                <input type="radio" value="r1" id="radio-1" name="radio">
-                <span>Radio 1</span>
+                <input type="radio" value="Fire" id="radio-1" name="element">
+                <span>Fire</span>
             </label>
             <label for="radio-2">
-                <input type="radio" value="r2" id="radio-2" name="radio">
-                <span>Radio 2</span>
+                <input type="radio" value="Water"  id="radio-2" name="element">
+                <span>Water</span>
             </label>
             <label for="radio-3">
-                <input type="radio" value="r3" id="radio-3" name="radio">
-                <span>Radio 3</span>
+                <input type="radio" value="Earth" id="radio-3" name="element">
+                <span>Earth</span>
             </label>
             <label for="radio-4">
-                <input type="radio" value="r4" id="radio-4" name="radio">
-                <span>Radio 4</span>
+                <input type="radio" value="Wind" id="radio-4" name="element">
+                <span>Wind</span>
+            </label>
+            <label for="radio-5">
+                <input type="radio" value="Light" id="radio-5" name="element">
+                <span>Light</span>
+            </label>
+            <label for="radio-6">
+                <input type="radio" value="Dark" id="radio-6" name="element">
+                <span>Dark</span>
             </label>
         </div>
     </div>

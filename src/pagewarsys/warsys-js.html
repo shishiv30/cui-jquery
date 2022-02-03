@@ -21,7 +21,7 @@
     }
     var warSys ={
         element: ['Fire', 'Water', 'Earth', 'Wind', 'Light', 'Dark'],
-        camp: ['Lawful, Good', 'Lawful, Neutral', 'Lawful, Evil', 'Neutral, Good', 'Neutral, True', 'Neutral, Evil', 'Chaotic, Good', 'Chaotic, Neutral', 'Chaotic, Evil'],
+        camp: ['Lawful, Good', 'Lawful, Neutral', 'Lawful, Evil', 'Neutral, Good', 'Neutral', 'Neutral, Evil', 'Chaotic, Good', 'Chaotic, Neutral', 'Chaotic, Evil'],
         race: ['Angel', 'Human', 'Tiefling', 'Elf', 'Dragonborn', 'Undead', 'Dwarf', 'Orc',  'Demon'],
         title: ['Saber', 'Archer', 'Lancer', 'Knight', 'Caster', 'Assassin', 'Berserker'],
         position: ['Offlaner', 'Midlaner', 'Jungle', 'Toplaner'],
@@ -65,7 +65,7 @@
         return arr[random];
     }
 
-    window.flowdata = function(){
+    window.flowdata = (function(){
         var data =[];
         for(var i =0; i<1000; i++){
             var tags =[];
@@ -86,7 +86,7 @@
             data.push(item);
         }
         return data;
-    }
+    })()
    
     window.flowTemplate= function(data){
         return $.renderHtml('<div class="flow-item"><img data-src="{{src}}"><div>{{#name}}<div>{{name}}</div>{{/name}}{{#tag}}<div class="f6">{{tag}}</div>{{/tag}}{{#date}}<div class="f6">BC {{date}}</div>{{/date}}</div></div>', data);
@@ -94,4 +94,33 @@
     window.goTo = function(e,data){
         console.log(e, data);
     };
+    document.addEventListener('cui', function(e){
+        $(document).on('dom.load', function () {
+            $('#searchFilter').on('change','input,select',function(){
+                var $form = $('#searchFilter').data('form');
+                if($form.isValid()){
+                    var keywords = $form.getValue();
+                    var regxs = Object.keys(keywords).reduce(function(prev, next){
+                        var value = keywords[next];
+                        if(!value){
+                            return prev;
+                        }
+                        if(typeof value === 'string'){
+                            prev.push(new RegExp(value, 'i'));
+                        } else if(value.length >0){
+                            prev.push(new RegExp(value.join('|'), 'i'));
+                        }
+                        return prev;
+                    }, []);
+                    var data =  window.flowdata.filter(function(e){
+                        var issue = regxs.find(regx=>{ 
+                            return !regx.test(e.tag);
+                        })
+                        return !issue;
+                    });
+                    $('#dataGridView').data('flow').reload(true, data);
+                }
+            });
+        });
+    });
 </script>

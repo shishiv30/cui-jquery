@@ -8,6 +8,13 @@
 		appearance: none;
 		background: transparent;
 		cursor: pointer;
+		background: $color-bg;
+		&[disabled] {
+			color: $color-front-l1;
+		}
+	}
+	option[disabled] {
+		color: $color-front-l1;
 	}
 	> input::placeholder {
 		color: inherit;
