@@ -31,22 +31,22 @@ $color-danger: var(--color-danger);
 $color-danger-l1: var(--color-danger-l1);
 
 //color for rainbow
-$color-l0: var(--color-l0);
-$color-l1: var(--color-l1);
-$color-l2: var(--color-l2);
-$color-l3: var(--color-l3);
-$color-l4: var(--color-l4);
-$color-l5: var(--color-l5);
-$color-l6: var(--color-l6);
-$color-l7: var(--color-l7);
-$color-l8: var(--color-l8);
-$color-l9: var(--color-l9);
+$color-f0: var(--color-f0);
+$color-f1: var(--color-f1);
+$color-f2: var(--color-f2);
+$color-f3: var(--color-f3);
+$color-f4: var(--color-f4);
+$color-f5: var(--color-f5);
+$color-f6: var(--color-f6);
+$color-f7: var(--color-f7);
+$color-f8: var(--color-f8);
+$color-f9: var(--color-f9);
 
 //gray level
 $color-bg: var(--color-bg);
 $color-bg-l1: var(--color-bg-l1);
-$color-front: var(--color-front);
-$color-front-l1: var(--color-front-l1);
+$color: var(--color);
+$color-l1: var(--color-l1);
 $color-border: var(--color-border);
 //color for link
 $color-link-default: var(--color-link);
@@ -97,10 +97,10 @@ $el-size-3: 2.618rem;
 //$g0 + f3(f5*1.618) + f5(f7*1.618)  + $g0
 $el-size-4: 3.236rem;
 
-$radius-1: 0.809rem;
-$radius-2: 1rem;
+$radius-0: .309rem;
+$radius-1: .5rem;
+$radius-2: .809rem;
 $radius-3: 1.309rem;
-$radius-4: 1.618rem;
 
 //z-index
 $ui-tooltip-index: 1000;

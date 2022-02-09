@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "the jquery version of cui",
 	"private": true,
+	"main": "./src/index.js",
 	"scripts": {
 		"dev": "webpack-dev-server --config webpack.config.dev.js --open",
 		"make": "webpack --config webpack.config.prd.js && node server.js",

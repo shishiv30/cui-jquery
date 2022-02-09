@@ -15,7 +15,7 @@
 		span {
 			display: block;
 			@include form-default-1();
-			color: $color-front;
+			color: $color;
 			text-align: center;
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -44,13 +44,13 @@
 	}
 
 	&.default {
-		border: 1px solid $color-front-l1;
+		border: 1px solid $color-l1;
 		> label {
-			border-color: $color-front-l1;
+			border-color: $color-l1;
 		}
 		input {
 			&:checked + span {
-				background: $color-front-l1;
+				background: $color-l1;
 			}
 		}
 	}

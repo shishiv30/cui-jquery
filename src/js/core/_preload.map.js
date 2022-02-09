@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import _preload from './_preload';
 var mapLoaded = 0;
 export default function (googleMapKey) {

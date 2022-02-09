@@ -1,28 +1,40 @@
+.tabs{
+	--tab-bg: #{$color-bg-l1};
+	--tab-active-color: #{$color-l1};
+	--tab-border: #{$color-l1};
+	--tab-color: #{$color};
+}
 .tab-panel {
+	border-top-left-radius: $radius-0;
+	border-top-right-radius: $radius-0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 	display: none;
-	border: 1px solid $color-front-l1;
+	border: 1px solid var(--tab-border);
 	padding: $g3;
+	background: var(--tab-bg);
 }
 
 [data-tab] {
-	@extend %btn;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	@extend %btn-size;
+	border-top-left-radius: $radius-0;
+	border-top-right-radius: $radius-0;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 	min-width: 80px;
-	border: 1px solid $color-front-l1;
+	border: 1px solid $color-l1;
 	&.active {
-		background: $color-front;
-		color: $color-bg;
-		border-bottom: none;
+		background: var(--tab-bg);
+		border-bottom-color: var(--tab-bg);
+		color: var(--tab-color);
 	}
 }
 [data-role*='tabs'] {
 	> ul {
 		display: flex;
-		> li {
-			margin-right: $g0;
-		}
+		margin-left: $g2;
+		margin-right: $g2;
+		gap:$g0;
+		margin-bottom: -1px;
 	}
 }

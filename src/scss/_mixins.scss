@@ -167,7 +167,7 @@
 	}
 }
 
-$font-color: #{$color-front-l1};
+$font-color: #{$color-l1};
 $back-color: #{$color-bg-l1};
 $card-padding: 0.5rem;
 $card-height: 200px;
@@ -294,7 +294,7 @@ $blur-size: $blur-width $card-height;
 	max-height: 100%;
 }
 @mixin box-shadow() {
-	box-shadow: 0px 0px 2px 4px $color-front-l1;
+	box-shadow: 0px 0px 2px 4px $color-l1;
 }
 @mixin box-line() {
 	box-shadow: 0px 0px 5px 1px rgba(100, 100, 100, 0.35);

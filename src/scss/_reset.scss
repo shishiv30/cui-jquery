@@ -32,7 +32,7 @@ html {
 	font-family: $font-family, 'Helvetica Neue', Arial, sans-serif;
 	font-weight: $font-weight-normal;
 	font-style: normal;
-	color: $color-front;
+	color: $color;
 	font-size: 16px;
 	background-color: $color-bg;
 	@media screen and (max-width: $screen-xs-min) {
@@ -71,7 +71,7 @@ button {
 	border: 1px solid transparent;
 	margin: 0;
 	padding: 0;
-	color: $color-front;
+	color: $color;
 	font-family: $font-family, 'Helvetica Neue', Arial, sans-serif;
 	font-style: normal;
 	font-size: $font-size-5;

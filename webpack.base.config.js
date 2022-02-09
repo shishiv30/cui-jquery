@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const pageSettings = require('./webpack.base.page.config.js');
 
-const entry = { cui: './src/js/index.js' };
+const entry = { cui: './src/index.js' };
 const plugins = [
 	new MiniCssExtractPlugin({
 		filename: '[name].min.css',

@@ -1,8 +1,8 @@
 // very small screen / phone
 html {
 	--cui-font: 'Roboto';
-	--color-front: #1b1b1b;
-	--color-front-l1: #8d8d8d;
+	--color: #1b1b1b;
+	--color-l1: #8d8d8d;
 	--color-bg: #ffffff;
 	--color-bg-l1: #f0f0f0;
 
@@ -11,24 +11,24 @@ html {
 	--color-minor: #ffcb22;
 	--color-minor-l1: #{lighten(#ffcb22, 40%)};
 
-	--color-l0: #ff0062;
-	--color-l1: #ee0083;
-	--color-l2: #d900e0;
-	--color-l3: #9500eb;
-	--color-l4: #5800e6;
-	--color-l5: #003de4;
-	--color-l6: #008ae6;
-	--color-l7: #00d0df;
-	--color-l8: #00e6da;
-	--color-l9: #00c59a;
+	--color-f0: #ff0062;
+	--color-f1: #ee0083;
+	--color-f2: #d900e0;
+	--color-f3: #9500eb;
+	--color-f4: #5800e6;
+	--color-f5: #003de4;
+	--color-f6: #008ae6;
+	--color-f7: #00d0df;
+	--color-f8: #00e6da;
+	--color-f9: #00c59a;
 
-	--color-safe: var(--color-l9);
+	--color-safe: var(--color-f9);
 	--color-safe-l1: #dcfff5;
-	--color-danger: var(--color-l0);
+	--color-danger: var(--color-f0);
 	--color-danger-l1: #fff0f3;
 
-	--color-disabled: var(--color-front-l1);
-	--color-border: var(--color-front-l1);
+	--color-disabled: var(--color-l1);
+	--color-border: var(--color-l1);
 	--color-link: var(--color-major);
 	--color-link-hover: #{darken(#00485c, 5%)};
 }

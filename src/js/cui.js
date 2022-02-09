@@ -1,5 +1,4 @@
 import scss from '../scss/cui.scss';
-window.$ = window.jQuery = jQuery;
 import './libs';
 import core from './core';
 import inject from './inject';
@@ -87,7 +86,8 @@ var _eventResizeListener = function () {
 	);
 };
 //there is only one thing jQuery say to Death
-(function ($) {
+export default function($) {
+	window.jQuery = window.$ = $;
 	inject($);
 	for (var key in plugins) {
 		var config = plugins[key];
@@ -129,5 +129,5 @@ var _eventResizeListener = function () {
 		document.dispatchEvent(cui);
 		$(document).trigger('cui.inital');
 	});
-})(window.$);
+}
 //there is only one thing jQuery say to Death

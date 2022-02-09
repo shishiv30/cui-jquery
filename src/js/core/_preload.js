@@ -1,4 +1,3 @@
-import $ from 'jquery';
 var resource = {
 	js: {
 		load: function (src, callback) {

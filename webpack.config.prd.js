@@ -44,7 +44,7 @@ module.exports = (env) => {
 				],
 			}),
 			new WorkboxPlugin.InjectManifest({
-				swSrc: './src/js/sw.js',
+				swSrc: './sw.js',
 			}),
 		],
 	});
