@@ -1,4 +1,4 @@
-!(function ($) {
+export default function ($) {
 	function UTCDate() {
 		return new Date(Date.UTC.apply(Date, arguments));
 	}
@@ -2366,4 +2366,4 @@
 		'</div>' +
 		'</div>';
 	$.fn.datetimepicker.DPGlobal = DPGlobal;
-})(jQuery);
+};

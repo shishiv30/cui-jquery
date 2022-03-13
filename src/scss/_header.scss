@@ -1,5 +1,5 @@
 .header {
-	--header-font: #{$color-bg};
+	--header-color: #{$color-bg};
 	--header-background: #{$color-major};
 	--header-link-hover: #{$color-major};
 	--header-split: #{$color-border};
@@ -15,7 +15,7 @@
 	display: flex;
 	justify-content: space-between;
 	background-color: var(--header-background);
-	color: var(--header-font);
+	color: var(--header-color);
 	transition: transform 0.5s;
 	transform: translateY(0%);
 	z-index: $ui-header-index;
@@ -63,7 +63,7 @@
 		flex-shrink: 1;
 	}
 	.input {
-		color: var(--header-font);
+		color: var(--header-color);
 		input {
 			box-shadow: none;
 			border-radius: 0;

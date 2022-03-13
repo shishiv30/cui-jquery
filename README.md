@@ -1,5 +1,5 @@
-# jquery-cui
-jQuery CUI
+# cui-jquery
+CUI jQuery
 
 1. Git clone
 2. npm intall

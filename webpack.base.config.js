@@ -2,28 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const pageSettings = require('./webpack.base.page.config.js');
-
-const entry = { cui: './src/index.js' };
-const plugins = [
-	new MiniCssExtractPlugin({
-		filename: '[name].min.css',
-		chunkFilename: '[id].css',
-	}),
-	new webpack.ProvidePlugin({
-		'window.jQuery': 'jquery',
-		$: 'jquery',
-		jQuery: 'jquery',
-	}),
-];
-
-pageSettings.pages.forEach((page) => {
-	plugins.push(new HtmlWebpackPlugin(page));
-});
 
 module.exports = (env) => {
 	return {
-		entry: entry,
+		entry: { cui: './src/index.js' },
 		module: {
 			rules: [
 				{
@@ -71,6 +53,16 @@ module.exports = (env) => {
 				},
 			],
 		},
-		plugins: plugins,
+		plugins: [
+			new MiniCssExtractPlugin({
+				filename: '[name].min.css',
+				chunkFilename: '[id].css',
+			}),
+			new HtmlWebpackPlugin({
+				name: 'doc',
+				filename: 'index.html',
+				template: './src/index.html',
+			}),
+		],
 	};
 };

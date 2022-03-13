@@ -1,5 +1,5 @@
 import scss from '../scss/cui.scss';
-import './libs';
+import lib from './libs';
 import core from './core';
 import inject from './inject';
 import plugins from './plugins';
@@ -86,8 +86,9 @@ var _eventResizeListener = function () {
 	);
 };
 //there is only one thing jQuery say to Death
-export default function($) {
+export default function ($) {
 	window.jQuery = window.$ = $;
+	lib($);
 	inject($);
 	for (var key in plugins) {
 		var config = plugins[key];

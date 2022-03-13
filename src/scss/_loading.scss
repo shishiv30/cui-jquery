@@ -7,7 +7,7 @@
 }
 .img-load-error {
 	opacity: 1 !important;
-	background-image: url('../assets/images/noimg.jpg');
+	background-color: $color-bg-l1;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center center;

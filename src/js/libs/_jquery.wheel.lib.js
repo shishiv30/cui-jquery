@@ -6,7 +6,7 @@
  * http://jquery.org/license
  */
 
-(function ($) {
+export default function ($) {
 
     var toFix = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
         toBind = ('onwheel' in document || document.documentMode >= 9) ?
@@ -207,4 +207,4 @@
         return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
     }
 
-})(jQuery);
+};
