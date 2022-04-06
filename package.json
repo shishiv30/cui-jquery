@@ -2,15 +2,17 @@
 	"name": "cui-jquery",
 	"version": "1.0.0",
 	"description": "the jquery version of cui",
-	"private": true,
 	"main": "./src/index.js",
 	"scss": "./src/scss/index.scss",
 	"module": "./dist/cui.js",
 	"style": "./dist/cui.css",
 	"scripts": {
+		"webpack": "node ./node_modules/webpack/bin/webpack.js",
 		"dev": "webpack-dev-server --config webpack.config.dev.js --open",
 		"stage": "webpack --config webpack.config.build.js && node server.js",
-		"prd": "webpack --config webpack.config.build.js --env production"
+		"prd": "webpack --config webpack.config.build.js --env production",
+		"deploy": "node deploy",
+		"debug": "node --inspect-brk ./node_modules/webpack/bin/webpack.js --config webpack.config.build.js"
 	},
 	"repository": {
 		"type": "git",
@@ -35,7 +37,6 @@
 		"gh-pages": "^3.2.3",
 		"html-loader": "^2.1.2",
 		"html-webpack-plugin": "^5.3.2",
-		"lighthouse": "^9.0.0",
 		"mini-css-extract-plugin": "^2.2.0",
 		"postcss": "^8.3.6",
 		"postcss-loader": "^6.1.1",
@@ -48,7 +49,6 @@
 		"webpack-dev-server": "^4.2.1",
 		"webpack-merge": "^5.8.0",
 		"webpack-nano": "^1.1.1",
-		"webpack-pwa-manifest": "^4.3.0",
 		"workbox-webpack-plugin": "^6.2.4"
 	},
 	"dependencies": {

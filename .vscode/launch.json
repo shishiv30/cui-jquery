@@ -1,15 +1,15 @@
 {
+	"type": "node",
+	"request": "attach",
+	"name": "Attach",
+	"port": 5858,
 	"configurations": [
 		{
+			"name": "Attach to Chrome",
+			"port": 9222,
+			"request": "attach",
 			"type": "chrome",
-			"skipFiles": ["${workspaceFolder}/js/libs/*.js"],
-			"preLaunchTask": "npm run dev",
-			"request": "launch",
-			"name": "Debug CUI",
-			"url": "http://localhost:8080",
-			"webRoot": "${workspaceRoot}/src",
-			"sourceMaps": true,
-			"trace": true
+			"webRoot": "${workspaceFolder}"
 		}
 	]
 }
