@@ -1,6 +1,6 @@
 {
 	"name": "cui-jquery",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "the jquery version of cui",
 	"main": "./src/index.js",
 	"scss": "./src/scss/index.scss",
