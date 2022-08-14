@@ -1,8 +1,8 @@
 .tabs{
 	--tab-bg: #{$color-bg-l1};
-	--tab-active-color: #{$color-l1};
-	--tab-border: #{$color-l1};
-	--tab-color: #{$color};
+	--tab-active-color: #{$color-front-l1};
+	--tab-border: #{$color-front-l1};
+	--tab-color: #{$color-front};
 }
 .tab-panel {
 	border-top-left-radius: $radius-0;
@@ -22,7 +22,7 @@
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 	min-width: 80px;
-	border: 1px solid $color-l1;
+	border: 1px solid $color-front-l1;
 	&.active {
 		background: var(--tab-bg);
 		border-bottom-color: var(--tab-bg);

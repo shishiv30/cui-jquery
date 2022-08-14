@@ -43,7 +43,7 @@
 	.dialog-body {
 		position: relative;
 		z-index: 2;
-		color: $color;
+		color: $color-front;
 		padding: $g2;
 		overflow-x: hidden;
 		overflow-y: auto;
@@ -54,7 +54,7 @@
 	}
 	&.dialog-default {
 		.dialog-title {
-			@extend %singleline;
+			@include singleline();
 			font-size: $font-size-3;
 			position: relative;
 		}
@@ -96,7 +96,7 @@
 					}
 					display: block;
 					padding: 12px 20px;
-					border-top: 1px solid $color-l1;
+					border-top: 1px solid $color-front-l1;
 				}
 			}
 		}

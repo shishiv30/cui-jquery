@@ -50,12 +50,14 @@
 	padding-top: #{$g0 + $font-size-5};
 	padding-bottom: $g0;
 }
+
 @mixin responsive-invisibility($parent) {
 	#{$parent} {
 		display: none !important;
 	}
 }
-@mixin clearfix {
+
+@mixin clearFloat {
 	&:after,
 	&:before {
 		content: '';
@@ -101,6 +103,22 @@
 	}
 }
 
+/* mixin for multiline */
+@mixin multiline($lineCount: 2, $breakAll: false) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lineCount;
+    -webkit-box-orient: vertical;
+    @if $breakAll == true {
+        position: relative;
+        word-break: break-all;
+        >*{
+            display: inline-block;
+        }
+    }
+}
+
 @mixin only-mobile() {
 	body {
 		&.mobile {
@@ -140,21 +158,22 @@
 }
 
 @mixin hidden-scrollbar {
-	scrollbar-face-color: transparent;
-	scrollbar-shadow-color: transparent;
-	scrollbar-highlight-color: transparent;
-	scrollbar-3dlight-color: transparent;
-	scrollbar-darkshadow-color: transparent;
-	scrollbar-track-color: transparent;
-	scrollbar-arrow-color: transparent;
-	-ms-overflow-style: none;
-	overflow: -moz-scrollbars-none;
-	scrollbar-width: none;
-	&::-webkit-scrollbar {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
 		width: 0;
 		height: 0;
-		display: none;
-	}
+        display: none;
+    }
+}
+
+@mixin snap-scrollbar ($snap: start) {
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+    > * {
+        scroll-snap-align: $snap;
+    }
 }
 
 @mixin fullscreen {
@@ -167,7 +186,7 @@
 	}
 }
 
-$font-color: #{$color-l1};
+$font-color: #{$color-front-l1};
 $back-color: #{$color-bg-l1};
 $card-padding: 0.5rem;
 $card-height: 200px;
@@ -236,39 +255,6 @@ $blur-size: $blur-width $card-height;
 	}
 }
 
-/* mixin for multiline */
-@mixin multiline(
-	$lineHeight: 1.618,
-	$lineCount: 1,
-	$bgColor: white,
-	$offset: 0
-) {
-	overflow: hidden;
-	position: relative;
-	line-height: $lineHeight;
-	max-height: #{$lineHeight * $lineCount};
-	text-align: justify;
-	margin-right: -1em;
-	padding-right: #{$offset + 1};
-
-	&:before {
-		content: '...';
-		position: absolute;
-		right: $offset;
-		bottom: 0;
-	}
-
-	&:after {
-		content: '';
-		position: absolute;
-		right: $offset;
-		width: 1em;
-		height: 1em;
-		margin-top: 0.2em;
-		background: $bgColor;
-	}
-}
-
 @mixin center {
 	position: absolute;
 	top: 50%;
@@ -294,8 +280,16 @@ $blur-size: $blur-width $card-height;
 	max-height: 100%;
 }
 @mixin box-shadow() {
-	box-shadow: 0px 0px 2px 4px $color-l1;
+	box-shadow: 0px 0px 2px 4px $color-front-l1;
 }
 @mixin box-line() {
 	box-shadow: 0px 0px 5px 1px rgba(100, 100, 100, 0.35);
+}
+
+@mixin order($max:20){
+    @for $i from 0 through $max {
+        .order-#{$i} {
+            order: #{$i};
+        }
+    }
 }

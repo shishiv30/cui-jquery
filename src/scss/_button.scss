@@ -2,10 +2,10 @@
 	&.minor {
 		--button-color-bg: #{$color-minor-l1};
 		--button-color-border: #{$color-minor};
-		--button-color: #{$color};
+		--button-color: #{$color-front};
 		--button-active-color-bg: #{$color-minor};
 		--button-active-color-border: #{$color-minor-l1};
-		--button-active-color: #{$color};
+		--button-active-color: #{$color-front};
 	}
 	&.major {
 		--button-color-bg: #{$color-major-l1};
@@ -51,10 +51,10 @@
 %btn {
 	--button-width: 100%;
 	--button-color-bg: #{$color-bg};
-	--button-color-border: #{$color-l1};
-	--button-color: #{$color};
-	--button-active-color-bg: #{$color};
-	--button-active-color-border: #{$color-l1};
+	--button-color-border: #{$color-front-l1};
+	--button-color: #{$color-front};
+	--button-active-color-bg: #{$color-front};
+	--button-active-color-border: #{$color-front-l1};
 	--button-active-color: #{$color-bg};
 	@extend %btn-size;
 	@extend %btn-color;
@@ -75,9 +75,9 @@
 		color: var(--button-active-color);
 	}
 	&[disabled] {
-		background-color: $color-l1 !important;
-		border: 1px solid $color-l1 !important;
-		color: $color !important;
+		background-color: $color-front-l1 !important;
+		border: 1px solid $color-front-l1 !important;
+		color: $color-front !important;
 	}
 
 	&.loading {
@@ -94,7 +94,7 @@
 	display: inline-block;
 	font-size: $font-size-4;
 	border-radius: 50%;
-	background-color: $color-l1;
+	background-color: $color-front-l1;
 	color: $color-major;
 	text-align: center !important;
 	@include hover() {
@@ -142,12 +142,12 @@
 		left: 0;
 		right: 0;
 		z-index: $ui-buttongroup-index;
-		border: 1px solid $color-l1;
+		border: 1px solid $color-front-l1;
 		display: none;
 		> a {
-			color: $color;
+			color: $color-front;
 			background: $color-bg;
-			border-color: $color-l1;
+			border-color: $color-front-l1;
 			box-shadow: none;
 			border-top: 0;
 			@extend %btn-size;

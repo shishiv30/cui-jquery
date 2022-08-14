@@ -1,0 +1,258 @@
+#body{
+    //margin left & right
+    .m-x-0{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .m-x-xs{
+        margin-left: $gxs;
+        margin-right: $gxs;
+    }
+    .m-x-1{
+        margin-left: $g1;
+        margin-right: $g1;
+
+    }
+    .m-x-2{
+        margin-left: $g2;
+        margin-right: $g2;
+
+    }
+    .m-x-3{
+        margin-left: $g3;
+        margin-right: $g3;
+    }
+    .m-x-4{
+        margin-left: $g4;
+        margin-right: $g4;
+    }
+
+    // margin top & bottom
+    .m-y-0{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .m-y-xs{
+        margin-top: $gxs;
+        margin-bottom: $gxs;
+    }
+    .m-y-1{
+        margin-top: $g1;
+        margin-bottom: $g1;
+    }
+    .m-y-2{
+        margin-top: $g2;
+        margin-bottom: $g2;
+    }
+    .m-y-3{
+        margin-top: $g3;
+        margin-bottom: $g3;
+    }
+    .m-y-4{
+        margin-top: $g4;
+        margin-bottom: $g4;
+    }
+
+    //margin top
+    .m-t-0{
+        margin-top: 0;
+    }
+    .m-t-xs{
+        margin-top: $gxs;
+    }
+    .m-t-1{
+        margin-top: $g1;
+    }
+    .m-t-2{
+        margin-top: $g2;
+    }
+    .m-t-3{
+        margin-top: $g3;
+    }
+    .m-t-4{
+        margin-top: $g4;
+    }
+    //margin bottom
+    .m-b-0{
+        margin-bottom: 0;
+    }
+    .m-b-xs{
+        margin-bottom: $gxs;
+    }
+    .m-b-1{
+        margin-bottom: $g1;
+    }
+    .m-b-2{
+        margin-bottom: $g2;
+    }
+    .m-b-3{
+        margin-bottom: $g3;
+    }
+    .m-b-4{
+        margin-bottom: $g4;
+    }
+    //margin left
+    .m-l-0{
+        margin-left: 0;
+    }
+    .m-l-xs{
+        margin-left: $gxs;
+    }
+    .m-l-1{
+        margin-left: $g1;
+    }
+    .m-l-2{
+        margin-left: $g2;
+    }
+    .m-l-3{
+        margin-left: $g3;
+    }
+    .m-l-4{
+        margin-left: $g4;
+    }
+    //margin right
+    .m-r-0{
+        margin-right: 0;
+    }
+    .m-r-xs{
+        margin-right: $gxs;
+    }
+    .m-r-1{
+        margin-right: $g1;
+    }
+    .m-r-2{
+        margin-right: $g2;
+    }
+    .m-r-3{
+        margin-right: $g3;
+    }
+    .m-r-4{
+        margin-right: $g4;
+    }
+    //padding left & right
+    .p-x-0{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .p-x-xs{
+        padding-left: $gxs;
+        padding-right: $gxs;
+    }
+    .p-x-1{
+        padding-left: $g1;
+        padding-right: $g1;
+    }
+    .p-x-2{
+        padding-left: $g2;
+        padding-right: $g2;
+    }
+    .p-x-3{
+        padding-left: $g3;
+        padding-right: $g3;
+    }
+    .p-x-4{
+        padding-left: $g4;
+        padding-right: $g4;
+    }
+    //padding top & bottom
+    .p-y-0{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .p-y-xs{
+        padding-top: $gxs;
+        padding-bottom: $gxs;
+    }
+    .p-y-1{
+        padding-top: $g1;
+        padding-bottom: $g1;
+    }
+    .p-y-2{
+        padding-top: $g2;
+        padding-bottom: $g2;
+    }
+    .p-y-3{
+        padding-top: $g3;
+        padding-bottom: $g3;
+    }
+    .p-y-4{
+        padding-top: $g4;
+        padding-bottom: $g4;
+    }
+    // padding top
+    .p-t-0{
+        padding-top: 0;
+    }
+    .p-t-xs{
+        padding-top: $gxs;
+    }
+    .p-t-1{
+        padding-top: $g1;
+    }
+    .p-t-2{
+        padding-top: $g2;
+    }
+    .p-t-3{
+        padding-top: $g3;
+    }
+    .p-t-4{
+        padding-top: $g4;
+    }
+    //padding bottom
+    .p-b-0{
+        padding-bottom: 0;
+    }
+    .p-b-xs{
+        padding-bottom: $gxs;
+    }
+    .p-b-1{
+        padding-bottom: $g1;
+    }
+    .p-b-2{
+        padding-bottom: $g2;
+    }
+    .p-b-3{
+        padding-bottom: $g3;
+    }
+    .p-b-4{
+        padding-bottom: $g4;
+    }
+    //padding left
+    .p-l-0{
+        padding-left: 0;
+    }
+    .p-l-xs{
+        padding-left: $gxs;
+    }
+    .p-l-1{
+        padding-left: $g1;
+    }
+    .p-l-2{
+        padding-left: $g2;
+    }
+    .p-l-3{
+        padding-left: $g3;
+    }
+    .p-l-4{
+        padding-left: $g4;
+    }
+    //padding right
+    .p-r-0{
+        padding-right: 0;
+    }
+    .p-r-xs{
+        padding-right: $gxs;
+    }
+    .p-r-1{
+        padding-right: $g1;
+    }
+    .p-r-2{
+        padding-right: $g2;
+    }
+    .p-r-3{
+        padding-right: $g3;
+    }
+    .p-r-4{
+        padding-right: $g4;
+    }
+}

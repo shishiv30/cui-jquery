@@ -1,17 +1,17 @@
 .tag {
 	--tag-bg: #{$color-bg};
-	--tag-border: #{$color-l1};
-	--tag-color: #{$color};
-	--tag-active-bg: #{$color};
-	--tag-active-border: #{$color-l1};
+	--tag-border: #{$color-front-l1};
+	--tag-color: #{$color-front};
+	--tag-active-bg: #{$color-front};
+	--tag-active-border: #{$color-front-l1};
 	--tag-active-color: #{$color-bg};
 	&.minor {
 		--tag-bg: #{$color-minor-l1};
 		--tag-border: #{$color-minor};
-		--tag-color: #{$color};
+		--tag-color: #{$color-front};
 		--tag-active-bg: #{$color-minor};
 		--tag-active-border: #{$color-minor-l1};
-		--tag-active-color: #{$color};
+		--tag-active-color: #{$color-front};
 	}
 	&.major {
 		--tag-bg: #{$color-major-l1};

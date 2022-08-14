@@ -1,49 +1,30 @@
-.h1,
-.f1 {
-	@extend %f1;
+.h1, .f1 {
+    font-size: $font-size-1;
 }
 
-.h2,
-.f2 {
-	@extend %f2;
+.h2, .f2 {
+    font-size: $font-size-2;
+
 }
 
-.h3,
-.f3 {
-	@extend %f3;
+.h3, .f3 {
+    font-size: $font-size-3;
 }
 
-.h4,
-.f4 {
-	@extend %f4;
+.h4, .f4 {
+    font-size: $font-size-4;
 }
 
-.h5,
-.f5 {
-	@extend %f5;
+.h5, .f5 {
+    font-size: $font-size-5;
 }
 
-.h6,
-.f6 {
-	@extend %f6;
+.h6, .f6 {
+    font-size: $font-size-6;
 }
 
-.h7,
-.f7 {
-	@extend %f7;
-}
-
-.f1,
-.f2,
-.f3,
-.f4 {
-	@extend %font-light;
-}
-
-.h5,
-.h6,
-.h7 {
-	line-height: 1.618;
+.h7, .f7 {
+    font-size: $font-size-7;
 }
 
 .h1,
@@ -53,21 +34,14 @@
 .h5,
 .h6,
 .h7 {
-	display: flex;
-	gap: $g2;
 	position: relative;
-	width: 100%;
 	@include singleline();
-	align-items: baseline;
-	&.center {
-		align-items: center;
-	}
 }
 
 .h1,
 .h2,
 .h3 {
-	font-weight: $font-weight-light;
+	font-weight: $font-weight-bold;
 }
 
 .h1,
@@ -105,4 +79,52 @@
 	.sup {
 		font-size: $font-size-6;
 	}
+}
+
+.text-light {
+    font-weight: $font-weight-light;
+}
+
+.text-normal {
+    font-weight: $font-weight-normal;
+}
+
+.text-bold {
+    font-weight: $font-weight-bold;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-through{
+    text-decoration: line-through;
+}
+
+.text-underline{
+    text-decoration: underline;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-shadow {
+    @include text-shadow();
 }

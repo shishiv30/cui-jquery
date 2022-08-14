@@ -1,5 +1,5 @@
 .flow {
-	@extend %clearfix;
+	@include clearFloat;
 	> ul {
 		float: left;
 		transition: transform 0.5s ease-in-out;

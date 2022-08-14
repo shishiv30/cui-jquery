@@ -1,34 +1,53 @@
 // very small screen / phone
 html {
 	--cui-font: 'Roboto';
-	--color: #1b1b1b;
-	--color-l1: #8d8d8d;
+	--color-front: #1b1b1b;
+	--color-front-l1: #8d8d8d;
 	--color-bg: #ffffff;
 	--color-bg-l1: #f0f0f0;
 
-	--color-major: #00485c;
-	--color-major-l1: #{lighten(#00485c, 80%)};
-	--color-minor: #ffcb22;
-	--color-minor-l1: #{lighten(#ffcb22, 40%)};
+	--color-major: hsl(200, 100%, 20%);
+	--color-major-l1: #{lighten(hsl(200, 100%, 20%), 75)};
+	--color-minor: hsl(200, 100%, 50%);
+	--color-minor-l1: #{lighten(hsl(200, 100%, 50%), 75)};
 
-	--color-f0: #ff0037;
-	--color-f1: #bd2d7c;
-	--color-f2: #d900e0;
-	--color-f3: #9500eb;
-	--color-f4: #5800e6;
-	--color-f5: #003de4;
-	--color-f6: #008ae6;
-	--color-f7: #00d0df;
-	--color-f8: #00e6da;
-	--color-f9: #00c59a;
+	--color-r0: hsl(0, 100%, 80%);
+	--color-r1: hsl(200, 100%, 20%);
+	--color-r2: hsl(200, 100%, 20%);
+	--color-r3: hsl(200, 100%, 20%);
+	--color-r4: hsl(200, 100%, 20%);
+	--color-r5: hsl(200, 100%, 20%);
+	--color-r6: hsl(200, 100%, 20%)
+	--color-r7: hsl(200, 100%, 20%);
+	--color-r8: hsl(200, 100%, 20%);
+	--color-r9: hsl(200, 100%, 20%);
 
-	--color-safe: var(--color-f9);
-	--color-safe-l1: #dcfff5;
-	--color-danger: var(--color-f0);
-	--color-danger-l1: #fff0f3;
+	--color-0: #000000;
+	--color-1: #111111;
+	--color-2: #212121;
+	--color-3: #333333;
+	--color-4: #444444;
+	--color-5: #555555;
+	--color-6: #666666;
+	--color-7: #777777;
+	--color-8: #888888;
+	--color-9: #999999;
+	--color-a: #aaaaaa;
+	--color-b: #bbbbbb;
+	--color-c: #cccccc;
+	--color-d: #dddddd;
+	--color-e: #eeeeee;
+	--color-f: #ffffff;
 
-	--color-disabled: var(--color-l1);
-	--color-border: var(--color-l1);
+	--color-safe: var(--color-r5);
+	--color-safe-l1: #d1fff3;
+	--color-danger: var(--color-r0);
+	--color-danger-l1: #ffeaef;
+	--color-tip: var(--color-r2);
+	--color-tip-l1: #fff9f1
+
+	--color-disabled: var(--color-front-l1);
+	--color-border: var(--color-front-l1);
 	--color-link: var(--color-major);
-	--color-link-hover: #{darken(#00485c, 5%)};
+	--color-link-hover: #{darken(#00485c, 20%)};
 }

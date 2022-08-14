@@ -1,0 +1,19 @@
+.circle{
+    --circle-size: #{$el-size-2};
+    --circle-font-size: #{$font-size-5}
+    height:var(--circle-size);
+    width: var(--circle-size);
+    font-size: var(--circle-font-size);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &.tiny{
+        --circle-size: #{$el-size-1};
+        --circle-font-size: #{$font-size-6};
+    }
+    &large{
+        --circle-size: #{$el-size-3};
+        --circle-font-size: #{$font-size-4};
+    }
+}

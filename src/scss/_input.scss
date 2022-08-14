@@ -10,11 +10,11 @@
 		cursor: pointer;
 		background: $color-bg;
 		&[disabled] {
-			color: $color-l1;
+			color: $color-front-l1;
 		}
 	}
 	option[disabled] {
-		color: $color-l1;
+		color: $color-front-l1;
 	}
 	> input::placeholder {
 		color: inherit;
@@ -22,7 +22,7 @@
 	> input,
 	> select {
 		width: 100%;
-		border: 1px solid $color-l1;
+		border: 1px solid $color-front-l1;
 		@include form-default-1();
 		padding-left: $g1;
 		padding-right: $g1;
@@ -148,7 +148,7 @@
 	}
 
 	&.has-success {
-		color: $color;
+		color: $color-front;
 	}
 
 	&.has-error {

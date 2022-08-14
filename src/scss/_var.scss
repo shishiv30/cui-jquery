@@ -5,8 +5,11 @@ $screen-sm-min: 640px;
 // Medium screen / desktop
 $screen-md-min: 960px;
 // Large screen / wide desktop
-$screen-lg: 1280px;
-$screen-lg-min: $screen-lg;
+$screen-lg-min: 1600px;
+// HD+ screen / wide desktop
+$screen-xl-min: 1920px;
+
+$screen-lg-max: $screen-xl-min - 1;
 $screen-xs-max: $screen-sm-min - 1;
 $screen-sm-max: $screen-md-min - 1;
 $screen-md-max: $screen-lg-min - 1;
@@ -22,31 +25,52 @@ $color-major-l1: var(--color-major-l1);
 $color-minor: var(--color-minor);
 $color-minor-l1: var(--color-minor-l1);
 
-//green
+//colorfor positive
 $color-safe: var(--color-safe);
 $color-safe-l1: var(--color-safe-l1);
 
-//color for error
+//color for negative
 $color-danger: var(--color-danger);
 $color-danger-l1: var(--color-danger-l1);
 
+//color for neutral
+$color-tip: var(--color-tip);
+$color-tip-l1: var(--color-tip-l1);
+
 //color for rainbow
-$color-f0: var(--color-f0);
-$color-f1: var(--color-f1);
-$color-f2: var(--color-f2);
-$color-f3: var(--color-f3);
-$color-f4: var(--color-f4);
-$color-f5: var(--color-f5);
-$color-f6: var(--color-f6);
-$color-f7: var(--color-f7);
-$color-f8: var(--color-f8);
-$color-f9: var(--color-f9);
+$color-r0: var(--color-r0);
+$color-r1: var(--color-r1);
+$color-r2: var(--color-r2);
+$color-r3: var(--color-r3);
+$color-r4: var(--color-r4);
+$color-r5: var(--color-r5);
+$color-r6: var(--color-r6);
+$color-r7: var(--color-r7);
+$color-r8: var(--color-r8);
+$color-r9: var(--color-r9);
+
+$color-0: var(--color-0);
+$color-1: var(--color-1);
+$color-2: var(--color-2);
+$color-3: var(--color-3);
+$color-4: var(--color-4);
+$color-5: var(--color-5);
+$color-6: var(--color-6);
+$color-7: var(--color-7);
+$color-8: var(--color-8);
+$color-9: var(--color-9);
+$color-a: var(--color-a);
+$color-b: var(--color-b);
+$color-c: var(--color-c);
+$color-d: var(--color-d);
+$color-e: var(--color-e);
+$color-f: var(--color-f);
 
 //gray level
 $color-bg: var(--color-bg);
 $color-bg-l1: var(--color-bg-l1);
-$color: var(--color);
-$color-l1: var(--color-l1);
+$color-front: var(--color-front);
+$color-front-l1: var(--color-front-l1);
 $color-border: var(--color-border);
 //color for link
 $color-link-default: var(--color-link);

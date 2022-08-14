@@ -34,12 +34,12 @@
 	}
 
 	&.mid {
-		color: $color;
-		background-color: $color;
-		border: 1px solid $color-l1;
+		color: $color-front;
+		background-color: $color-front;
+		border: 1px solid $color-front-l1;
 	}
 	&.normal {
-		color: $color;
+		color: $color-front;
 		background-color: $color-bg;
 		border: 1px solid $color-bg-l1;
 	}
