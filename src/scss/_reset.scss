@@ -28,13 +28,10 @@ ul {
 }
 
 html {
-	line-height: 1.618;
 	font-family: $font-family, 'Helvetica Neue', Arial, sans-serif;
 	font-weight: $font-weight-normal;
 	font-style: normal;
-	color: $color-front;
 	font-size: 16px;
-	background-color: $color-bg;
 	@media screen and (max-width: $screen-xs-min) {
 		font-size: 14px;
 	}
@@ -45,6 +42,8 @@ html {
 }
 
 body {
+	color: var(--color);
+	background-color: var(--color-bg);
 	min-height: 100%;
 }
 
@@ -66,12 +65,12 @@ input,
 select,
 textarea,
 button {
-	line-height: 1.418;
+	line-height: normal;
 	outline: none;
 	border: 1px solid transparent;
 	margin: 0;
 	padding: 0;
-	color: $color-front;
+	color: $color;
 	font-family: $font-family, 'Helvetica Neue', Arial, sans-serif;
 	font-style: normal;
 	font-size: $font-size-5;
@@ -106,8 +105,8 @@ h6 {
 	margin: 0;
 	padding: 0;
 	line-height: 1.618;
+	font-weight: $font-weight-normal;
 	font-size: $font-size-5;
-	font-weight: normal;
 }
 
 abbr[title],

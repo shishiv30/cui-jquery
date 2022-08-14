@@ -1,4 +1,5 @@
 html {
+    line-height: 1.618;
 	@media screen and (max-width: $screen-xs-max) {
 		--layout-gap-x: #{$g2};
 		--layout-gap-y: #{$g3};
@@ -16,6 +17,27 @@ html {
 		--layout-gap-y: #{$g4};
 	}
 }
+
+//standard sematic tag gap
+
+section{
+    margin: $g4 auto;
+    padding-left: $g2;
+    padding-right: $g2;
+    >h2, >h3, >h4{
+        + div{
+            margin-top: $g2;
+        }
+    }
+}
+
+hr {
+    height: 1px;
+    margin: $g2 0;
+    border-width: 1px;
+}
+//standard sematic gap
+
 .section {
 	+ .section {
 		padding-top: var(--layout-gap-y);
@@ -159,10 +181,12 @@ html {
     margin: 0;
     position: relative;
     z-index: 1;
-    height: 50vh;
-    min-height: 350px;
+    height: 40vh;
+    min-height: 300px;
     margin-top:0;
     margin-bottom: 0;
+    background-color: var(--color-bg);
+    color: var(--color);
     h1,h2,h3{
         line-height: normal;
     }
@@ -195,9 +219,9 @@ html {
         }
     }
     .tab-bookmark {
-        --tab-bookmark-color:#{$color-front};
+        --tab-bookmark-color:#{$color};
         --tab-bookmark-border-color: transparent;
-        --tab-bookmark-active-border-color:#{$color-front};
+        --tab-bookmark-active-border-color:#{$color};
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
@@ -215,7 +239,6 @@ html {
         margin-right: auto;
         max-width: $screen-xs-max;
         flex-direction: column;
-        color:$color-f;
     }
     .content{
         display: flex;
@@ -356,7 +379,7 @@ html {
         margin-bottom: $gxs;
     }
     .attr{
-        background-color: $color-front-l1;
+        background-color: $color-l1;
         border-radius: $radius-1;
         padding: 2px $g1;
         font-size: $font-size-6;
@@ -376,7 +399,7 @@ html {
         &[data-count]{
             &:after{
                 content:attr(data-count);
-                color: $color-front;
+                color: $color;
                 pointer-events: none;
                 display: block;
                 flex-shrink: 0;
@@ -424,7 +447,7 @@ html {
         }
         li{
             width: 100%;
-            border-bottom: 1px solid $color-front-l1;
+            border-bottom: 1px solid $color-l1;
             display: flex;
             margin-bottom: $g1;
             padding-bottom: $g1;
@@ -484,13 +507,13 @@ html {
         }
         a {
             color: $color-link-default;
-            border-radius: #{$el-size-2/2};
+            border-radius: $radius-3;
             @include hover() {
                 color: $color-minor;
             }
             &[disabled]{
-                background-color:$color-front-l1;
-                color: $color-front;
+                background-color:$color-l1;
+                color: $color;
             }
 
             &.next,
@@ -499,8 +522,8 @@ html {
                 background-color: $color-link-default;
                 color: $color-f;
                 &[disabled]{
-                    background-color:$color-front-l1;
-                    color: $color-front;
+                    background-color:$color-l1;
+                    color: $color;
                 }
             }
             &.prev:before {
@@ -519,7 +542,6 @@ html {
         }
     }
 }
-
 
 .panel-overview {
     --market-overview-xs: repeat(2, minmax(0, 1fr));
@@ -548,7 +570,7 @@ html {
         color: $color-f;
         background-color: #49d9e2;
         border-radius: 2px;
-        text-shadow: $color-front;
+        text-shadow: $color;
         &:hover {
             background-color: #36c4cc;
         }

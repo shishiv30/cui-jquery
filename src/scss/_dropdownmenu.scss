@@ -3,7 +3,7 @@
 	left: 0;
 	right: 0;
 	z-index: 196;
-	background: $color-front-l1;
+	background: $color-l1;
 	height: 40px;
 	> .caret {
 		z-index: 1;
@@ -28,9 +28,9 @@
 		max-height: 40px;
 		transition: max-height 0.5s ease-out;
 		overflow: hidden;
-		@extend %clearfix;
+		@include clearFloat;
 		li {
-			background-color: $color-front-l1;
+			background-color: $color-l1;
 			text-align: left;
 			display: block;
 			float: left;
@@ -51,9 +51,9 @@
 				float: right;
 				width: 200px;
 				clear: both;
-				border-left: 1px solid $color-front-l1;
-				border-bottom: 1px solid $color-front-l1;
-				border-right: 1px solid $color-front-l1;
+				border-left: 1px solid $color-l1;
+				border-bottom: 1px solid $color-l1;
+				border-right: 1px solid $color-l1;
 				&.first {
 					margin-top: 2px;
 				}
@@ -76,7 +76,7 @@
 	.dropdown-item {
 		text-align: left;
 		ul {
-			box-shadow: 0 1px 1px $color-front-l1;
+			box-shadow: 0 1px 1px $color-l1;
 		}
 		li {
 			&.fullline {

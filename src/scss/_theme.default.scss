@@ -1,53 +1,93 @@
 // very small screen / phone
-html {
+body {
 	--cui-font: 'Roboto';
-	--color-front: #1b1b1b;
-	--color-front-l1: #8d8d8d;
-	--color-bg: #ffffff;
-	--color-bg-l1: #f0f0f0;
+	--color: hsl(0, 0%, 11%);
+	--color-l1: hsl(0, 0%, 35%);
+	--color-default: hsl(0, 0%, 11%);
+	--color-default-l1: hsl(0, 0%, 35%);
+	--color-disabled: var(--color-default-l1);
+	--color-border: var(--color-default-l1);
+
+	--color-bg: hsl(0, 0%, 100%);
+	--color-bg-l1: hsl(0, 0%, 94%);
+	--color-bg-default: hsl(0, 0%, 100%);
+	--color-bg-default-l1: hsl(0, 0%, 94%);
 
 	--color-major: hsl(200, 100%, 20%);
-	--color-major-l1: #{lighten(hsl(200, 100%, 20%), 75)};
-	--color-minor: hsl(200, 100%, 50%);
-	--color-minor-l1: #{lighten(hsl(200, 100%, 50%), 75)};
-
-	--color-r0: hsl(0, 100%, 80%);
-	--color-r1: hsl(200, 100%, 20%);
-	--color-r2: hsl(200, 100%, 20%);
-	--color-r3: hsl(200, 100%, 20%);
-	--color-r4: hsl(200, 100%, 20%);
-	--color-r5: hsl(200, 100%, 20%);
-	--color-r6: hsl(200, 100%, 20%)
-	--color-r7: hsl(200, 100%, 20%);
-	--color-r8: hsl(200, 100%, 20%);
-	--color-r9: hsl(200, 100%, 20%);
-
-	--color-0: #000000;
-	--color-1: #111111;
-	--color-2: #212121;
-	--color-3: #333333;
-	--color-4: #444444;
-	--color-5: #555555;
-	--color-6: #666666;
-	--color-7: #777777;
-	--color-8: #888888;
-	--color-9: #999999;
-	--color-a: #aaaaaa;
-	--color-b: #bbbbbb;
-	--color-c: #cccccc;
-	--color-d: #dddddd;
-	--color-e: #eeeeee;
-	--color-f: #ffffff;
-
-	--color-safe: var(--color-r5);
-	--color-safe-l1: #d1fff3;
-	--color-danger: var(--color-r0);
-	--color-danger-l1: #ffeaef;
-	--color-tip: var(--color-r2);
-	--color-tip-l1: #fff9f1
-
-	--color-disabled: var(--color-front-l1);
-	--color-border: var(--color-front-l1);
+	--color-major-l1:hsl(200, 100%, 95%);
 	--color-link: var(--color-major);
-	--color-link-hover: #{darken(#00485c, 20%)};
+	--color-link-hover: hsl(200, 100%, 10%);
+
+	--color-minor: hsl(200, 100%, 50%);
+	--color-minor-l1: hsl(200, 100%, 95%);
+
+	--color-r0: hsl(4, 100%, 30%);
+	--color-r1: hsl(34, 100%, 30%);
+	--color-r2: hsl(54, 100%, 30%);
+	--color-r3: hsl(84, 100%, 30%);
+	--color-r4: hsl(144, 100%, 30%);
+	--color-r5: hsl(174, 100%, 30%);
+	--color-r6: hsl(204, 100%, 30%);
+	--color-r7: hsl(224, 100%, 30%);
+	--color-r8: hsl(274, 100%, 30%);
+	--color-r9: hsl(344, 100%, 30%);
+
+	--color-safe: var(--color-r4);
+	--color-safe-l1: hsl(144, 100%, 95%);
+	--color-danger: var(--color-r0);
+	--color-danger-l1: hsl(4, 100%, 95%);
+	--color-tip: var(--color-r2);
+	--color-tip-l1: hsl(54, 100%, 95%);
+
+	--color-0: hsl(0, 0%, 0%);
+	--color-1: hsl(0, 0%, 7%);
+	--color-2: hsl(0, 0%, 13%);
+	--color-3: hsl(0, 0%, 20%);
+	--color-4: hsl(0, 0%, 27%);
+	--color-5: hsl(0, 0%, 33%);
+	--color-6: hsl(0, 0%, 40%);
+	--color-7: hsl(0, 0%, 47%);
+	--color-8: hsl(0, 0%, 53%);
+	--color-9: hsl(0, 0%, 60%);
+	--color-a: hsl(0, 0%, 67%);
+	--color-b: hsl(0, 0%, 73%);
+	--color-c: hsl(0, 0%, 80%);
+	--color-d: hsl(0, 0%, 87%);
+	--color-e: hsl(0, 0%, 93%);
+	--color-f: hsl(0, 0%, 100%);
+	#body.dark{
+		@media (prefers-color-scheme: dark) {
+			--color: hsl(0, 0%, 100%);
+			--color-l1: hsl(0, 0%, 94%);
+			--color-default: hsl(0, 0%, 100%);
+			--color-default-l1: hsl(0, 0%, 94%);
+
+			--color-bg: hsl(0, 0%, 11%);
+			--color-bg-l1: hsl(0, 0%, 35%);
+			--color-bg-default: hsl(0, 0%, 11%);
+			--color-bg-default-l1: hsl(0, 0%, 35%);
+		
+			--color-major-l1: hsl(200, 100%, 20%);
+			--color-major:hsl(200, 100%, 95%);
+			--color-link-hover: hsl(200, 100%, 80%);
+
+			--color-minor-l1: hsl(200, 100%, 50%);
+			--color-minor: hsl(200, 100%, 95%);
+		
+			--color-r0: hsl(4, 100%, 95%);
+			--color-r1: hsl(34, 100%, 95%);
+			--color-r2: hsl(54, 100%, 95%);
+			--color-r3: hsl(84, 100%, 95%);
+			--color-r4: hsl(144, 100%, 95%);
+			--color-r5: hsl(174, 100%, 95%);
+			--color-r6: hsl(204, 100%, 95%);
+			--color-r7: hsl(224, 100%, 95%);
+			--color-r8: hsl(274, 100%, 95%);
+			--color-r9: hsl(344, 100%, 95%);
+
+			--color-safe-l1: hsl(144, 100%, 10%);
+			--color-danger-l1: hsl(4, 100%, 10%);
+			--color-tip-l1: hsl(54, 100%, 10%);
+		}
+	}
 }

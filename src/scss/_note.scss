@@ -7,7 +7,7 @@
 			> div {
 				padding-top: $el-size-1;
 				padding-right: 10%;
-				border-top: 1px dashed $color-front;
+				border-top: 1px dashed $color;
 			}
 			&:last-of-type {
 				> div {
@@ -57,7 +57,7 @@
 				color: $color-bg;
 			}
 			~ div {
-				border-color: $color-front;
+				border-color: $color;
 			}
 		}
 	}

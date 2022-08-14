@@ -18,7 +18,7 @@ $social-list: socialbar-email $socialbar-email, socialbar-facebook $socialbar-fa
 
 .socialbar {
     padding: 7px;
-    background-color: $color-front;
+    background-color: $color;
     min-width: 180px;
 }
 
@@ -54,7 +54,7 @@ $social-list: socialbar-email $socialbar-email, socialbar-facebook $socialbar-fa
         // end @each directive
 
         a {
-            background-color: $color-front-l1;
+            background-color: $color-l1;
             border-radius: 2px;
             display: block;
             font-size: $font-size-5;
