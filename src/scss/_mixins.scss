@@ -2,6 +2,125 @@
 	text-shadow: 1px 0px 5px rgba(129, 129, 129, 0.5);
 }
 
+@mixin color() {
+	.default {
+		--color: #{$color-default};
+		--color-bg: #{$color-bg-default};
+		--color-border: #{$color-default-l1};
+		--color-active: #{$color-bg-default};
+		--color-bg-active: #{$color-default};
+		--color-border-active: #{$color-bg-default};
+	}
+	.gray {
+		--color: #{$color-default-l1};
+		--color-bg: #{$color-bg-l1};
+		--color-border: #{$color-default-l1};
+		--color-active: #{$color-bg-l1};
+		--color-bg-active: #{$color-default-l1};
+		--color-border-active: #{$color-default-l1};
+	}
+	.major {
+		--color: #{$color-major};
+		--color-bg: #{$color-major-l1};
+		--color-border: #{$color-major};
+		--color-active: #{$color-major-l1};
+		--color-bg-active: #{$color-major};
+		--color-border-active: #{$color-major};
+	}
+	.minor {
+		--color: #{$color-minor};
+		--color-bg: #{$color-minor-l1};
+		--color-active: #{$color-minor-l1};
+		--color-border: #{$color-minor};
+		--color-bg-active: #{$color-minor};
+		--color-border-active: #{$color-minor};
+	}
+	.danger {
+		--color: #{$color-danger};
+		--color-bg: #{$color-danger-l1};
+		--color-active: #{$color-danger-l1};
+		--color-border: #{$color-danger};
+		--color-bg-active: #{$color-danger};
+		--color-border-active: #{$color-danger};
+	}
+	.safe {
+		--color: #{$color-safe};
+		--color-bg: #{$color-safe-l1};
+		--color-active: #{$color-safe-l1};
+		--color-border: #{$color-safe};
+		--color-bg-active: #{$color-safe};
+		--color-border-active: #{$color-safe};
+	}
+	.tip {
+		--color: #{$color-tip};
+		--color-bg: #{$color-tip-l1};
+		--color-active: #{$color-tip-l1};
+		--color-border: #{$color-tip};
+		--color-bg-active: #{$color-tip};
+		--color-border-active: #{$color-tip};
+	}
+}
+
+@mixin comp() {
+	--comp-border-radius: #{$radius-0};
+	&.tiny {
+		--comp-gap-y: 0;
+		--comp-gap-x: #{$g1};
+		--comp-height: #{$comp-size-1};
+		--comp-font-size: #{font-size-7};
+		--comp-max-width: fit-content;
+	}
+	&.small {
+		--comp-gap-y: 0;
+		--comp-gap-x: #{$g1};
+		--comp-height: #{$comp-size-2};
+		--comp-font-size: #{$font-size-5};
+		--comp-max-width: fit-content;
+	}
+	&.normal {
+		--comp-gap-y: #{$g1};
+		--comp-gap-x: #{$g1};
+		--comp-height: #{$comp-size-3};
+		--comp-font-size: #{$font-size-5};
+		--comp-max-width: 12rem;
+	}
+	&.large {
+		--comp-gap-y: #{$g1};
+		--comp-gap-x: #{$g1};
+		--comp-height: #{$comp-size-4};
+		--comp-font-size: #{$font-size-4};
+		--comp-max-width: 15rem;
+	}
+	&.corner {
+		&.tiny {
+			--comp-border-radius: #{$radius-0};
+		}
+		&.small {
+			--comp-border-radius: #{$radius-1};
+		}
+		&.normal {
+			--comp-border-radius: #{$radius-2};
+		}
+		&.large {
+			--comp-border-radius: #{$radius-3};
+		}
+	}
+	&.pill {
+		&.tiny {
+			--comp-border-radius: #{$radius-1};
+		}
+		&.small {
+			--comp-border-radius: #{$radius-2};
+		}
+		&.normal {
+			--comp-border-radius: #{$radius-3};
+		}
+		&.large {
+			--comp-border-radius: #{$radius-4};
+		}
+	}
+}
+
 @mixin form-tiny() {
 	font-size: $font-size-5;
 	height: $el-size-1;
@@ -11,42 +130,42 @@
 
 @mixin form-small() {
 	font-size: $font-size-5;
-	height: $el-size-2;
+	height: $comp-size-2;
 	padding-top: $gxs;
 	padding-bottom: $gxs;
 }
 
 @mixin form-default-1() {
 	font-size: $font-size-5;
-	height: $el-size-3;
+	height: $comp-size-3;
 	padding-top: $g1;
 	padding-bottom: $g1;
 }
 
 @mixin form-default-2() {
 	font-size: $font-size-5;
-	height: $el-size-3;
+	height: $comp-size-3;
 	padding-top: $font-size-5;
 	padding-bottom: 0;
 }
 
 @mixin form-large-1() {
 	font-size: $font-size-5;
-	height: $el-size-4;
+	height: $comp-size-4;
 	padding-top: $g2;
 	padding-bottom: $g2;
 }
 
 @mixin form-large-2() {
 	font-size: $font-size-4;
-	height: $el-size-4;
+	height: $comp-size-4;
 	padding-top: $font-size-7;
 	padding-bottom: $font-size-7;
 }
 
 @mixin form-large-3() {
 	font-size: $font-size-5;
-	height: $el-size-4;
+	height: $comp-size-4;
 	padding-top: #{$g0 + $font-size-5};
 	padding-bottom: $g0;
 }
@@ -105,22 +224,32 @@
 
 /* mixin for multiline */
 @mixin multiline($lineCount: 2, $breakAll: false) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: $lineCount;
-    -webkit-box-orient: vertical;
-    @if $breakAll == true {
-        position: relative;
-        word-break: break-all;
-        >*{
-            display: inline-block;
-        }
-    }
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: $lineCount;
+	-webkit-box-orient: vertical;
+	@if $breakAll == true {
+		position: relative;
+		word-break: break-all;
+		> * {
+			display: inline-block;
+		}
+	}
+}
+
+@mixin only-dark() {
+	#body {
+		&.dark {
+			@media (prefers-color-scheme: dark) {
+				@content;
+			}
+		}
+	}
 }
 
 @mixin only-mobile() {
-	body {
+	#body {
 		&.mobile {
 			@content;
 		}
@@ -128,7 +257,7 @@
 }
 
 @mixin only-desktop() {
-	body {
+	#body {
 		&.desktop {
 			@content;
 		}
@@ -150,7 +279,7 @@
 }
 
 @mixin hover {
-	@media not all and (pointer: coarse) {
+	@media (hover: hover) {
 		&:hover {
 			@content;
 		}
@@ -158,30 +287,33 @@
 }
 
 @mixin hidden-scrollbar {
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+	scrollbar-width: none;
+	&::-webkit-scrollbar {
 		width: 0;
 		height: 0;
-        display: none;
-    }
+		display: none;
+	}
 }
 
-@mixin snap-scrollbar ($snap: start) {
-    -ms-scroll-snap-type: x mandatory;
-    scroll-snap-type: x mandatory;
-    > * {
-        scroll-snap-align: $snap;
-    }
+@mixin snap($snap: start) {
+	-ms-scroll-snap-type: x mandatory;
+	scroll-snap-type: x mandatory;
+	> * {
+		scroll-snap-align: $snap;
+	}
+}
+
+@mixin scroll-smooth {
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
 }
 
 @mixin fullscreen {
-	@media (max-width: $screen-xs-max) {
-		#body {
-			&.fullscreen {
-				@content;
-			}
+	#body {
+		&.fullscreen {
+			@content;
 		}
 	}
 }
@@ -286,10 +418,119 @@ $blur-size: $blur-width $card-height;
 	box-shadow: 0px 0px 5px 1px rgba(100, 100, 100, 0.35);
 }
 
-@mixin order($max:20){
-    @for $i from 0 through $max {
-        .order-#{$i} {
-            order: #{$i};
-        }
-    }
+@mixin order($max: 20) {
+	@for $i from 0 through $max {
+		.order-#{$i} {
+			order: #{$i};
+		}
+	}
+}
+
+@mixin clearfix {
+	&:after,
+	&:before {
+		content: '';
+		display: table;
+	}
+	&:after {
+		clear: both;
+		overflow: hidden;
+	}
+}
+
+@mixin fixed {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	@media screen and (max-width: $screen-xs-max) {
+		width: 100%;
+	}
+	@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+		width: 100%;
+	}
+	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+		max-width: $screen-md-min;
+	}
+	@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+		max-width: $screen-lg-min;
+	}
+}
+
+@mixin gap-size() {
+	--panel-gap-x: var(--panel-gap-default-x);
+	--panel-gap-y: var(--panel-gap-default-y);
+	&.off {
+		--panel-gap-x: 0;
+		--panel-gap-y: 0;
+	}
+	&.small {
+		--panel-gap-x: var(--g2);
+		--panel-gap-y: var(--g1);
+	}
+	&.large {
+		--panel-gap-x: var(--g2);
+		--panel-gap-y: var(--g3);
+	}
+	&.normal {
+		--panel-gap-x: var(--panel-gap-default-x);
+		--panel-gap-y: var(--panel-gap-default-y);
+	}
+}
+
+@mixin padding-size {
+	&.off {
+		padding: 0;
+	}
+	&.tiny {
+		padding: $g0 $g2;
+	}
+	&.small {
+		padding: $g1 $g2;
+	}
+	&.normal {
+		padding: $g2 $g2;
+	}
+	&.large {
+		padding: $g3 $g2;
+	}
+}
+
+@mixin margin-size {
+	&.off {
+		padding: 0;
+	}
+	&.tiny {
+		padding: $g0 $g2;
+	}
+	&.small {
+		padding: $g1 $g2;
+	}
+	&.normal {
+		padding: $g2 $g2;
+	}
+	&.large {
+		padding: $g3 $g2;
+	}
+}
+
+@mixin f1 {
+	font-size: $font-size-1;
+}
+@mixin f2 {
+	font-size: $font-size-2;
+}
+@mixin f3 {
+	font-size: $font-size-3;
+}
+@mixin f4 {
+	font-size: $font-size-4;
+}
+@mixin f5 {
+	font-size: $font-size-5;
+}
+@mixin f6 {
+	font-size: $font-size-6;
+}
+@mixin f7 {
+	font-size: $font-size-7;
 }

@@ -1,9 +1,11 @@
 .nav {
+	@include comp();
 	@include box-line();
+	color: $color;
+	background-color: $color-bg;
 	&.sticky {
 		position: sticky;
 		top: 0;
-		background-color: $color-bg;
 		z-index: $ui-stick-index;
 	}
 	> ul {
@@ -11,18 +13,22 @@
 		max-width: fit-content;
 	}
 	a {
+		padding: $comp-gap-y $comp-gap-x;
 		border-bottom: 2px solid transparent;
 		font-size: $font-size-5;
-		padding: $g0 $g2;
 		color: $color;
+		background-color: $color-bg;
 		display: inline-block;
+		height: $comp-height;
+		line-height: $comp-line-height;
 		@include hover() {
 			font-weight: $font-weight-bold;
-			color: $color-major;
 		}
 		&.active {
 			font-weight: $font-weight-bold;
-			border-bottom-color: $color;
+			border-bottom-color: $color-border-active;
+			color: $color;
+			background-color: $color-bg;
 		}
 	}
 }

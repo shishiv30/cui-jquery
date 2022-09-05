@@ -1,327 +1,245 @@
 .grid {
-    --grid-xs: repeat(1, minmax(80%, 1fr));
-    --grid-sm: repeat(2, minmax(40%, 1fr));
-    --grid-md: repeat(3, minmax(30%, 1fr));
-    --grid-lg: repeat(4, minmax(20%, 1fr));
-    --grid-xl: repeat(5, minmax(15%, 1fr));
-    --grid-gap-xs-col: #{$g1};
-    --grid-gap-sm-col: #{$g1};
-    --grid-gap-md-col: #{$g1};
-    --grid-gap-lg-col: #{$g1};
-    --grid-gap-xl-col: #{$g1};
-    --grid-gap-xs-row: #{$g2};
-    --grid-gap-sm-row: #{$g2};
-    --grid-gap-md-row: #{$g2};
-    --grid-gap-lg-row: #{$g2};
-    --grid-gap-xl-row: #{$g2};
-    --grid-sm-fix-width: 420px;
-    --grid-md-fix-width: 460px;
-    --grid-lg-fix-width: 480px;
-    display: grid;
-    grid-template-columns: var(--grid-xs);
-    @media screen and (max-width:$screen-xs-max) {
-        grid-template-columns: var(--grid-xs);
-        gap: var(--grid-gap-xs-row) var(--grid-gap-xs-col);
-    }
-    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-        grid-template-columns: var(--grid-sm);
-        gap: var(--grid-gap-sm-row) var(--grid-gap-sm-col);
-    }
-    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-        grid-template-columns: var(--grid-md);
-        gap: var(--grid-gap-md-row) var(--grid-gap-md-col);
-    }
-    @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-        grid-template-columns: var(--grid-lg);
-        gap: var(--grid-gap-lg-row) var(--grid-gap-lg-col);
-    }
-    @media (min-width: $screen-xl-min){
-        grid-template-columns: var(--grid-xl);
-        gap: var(--grid-gap-xl-row) var(--grid-gap-xl-col);
-    }
-    &.tiny{
-        --grid-gap-xs-col: #{$gxs};
-        --grid-gap-sm-col: #{$gxs};
-        --grid-gap-md-col: #{$gxs};
-        --grid-gap-lg-col: #{$gxs};
-        --grid-gap-xl-col: #{$gxs};
-        --grid-gap-xs-row: #{$gxs};
-        --grid-gap-sm-row: #{$gxs};
-        --grid-gap-md-row: #{$gxs};
-        --grid-gap-lg-row: #{$gxs};
-        --grid-gap-xl-row: #{$gxs};
-    }
-    &.large{
-        --grid-gap-xs-col: #{$g2};
-        --grid-gap-sm-col: #{$g2};
-        --grid-gap-md-col: #{$g3};
-        --grid-gap-lg-col: #{$g3};
-        --grid-gap-xl-col: #{$g4};
-        --grid-gap-xs-row: #{$g3};
-        --grid-gap-sm-row: #{$g3};
-        --grid-gap-md-row: #{$g4};
-        --grid-gap-lg-row: #{$g4};
-        --grid-gap-xl-row: #{$g4};
-    }
+	--grid-col-1: repeat(1, minmax(80%, 1fr));
+	--grid-col-2: repeat(2, minmax(40%, 1fr));
+	--grid-col-3: repeat(3, minmax(30%, 1fr));
+	--grid-col-4: repeat(4, minmax(20%, 1fr));
+	--grid-col-5: repeat(5, minmax(15%, 1fr));
+	--grid-col-6: repeat(6, minmax(15%, 1fr));
 
-    &.grid-scroll{
-        @media screen and (max-width:$screen-xs-max) {
-            overflow-y: hidden;
-            overflow-x: scroll;
-            @include hidden-scrollbar();
-            @include snap-scrollbar();
-            display: flex;
-            flex-wrap: nowrap;
-            >*{
-                width:100vw;
-                flex-shrink: 0;
-            }
-        }
-    }
-    &.grid-sm-fix {
-        --grid-xs: repeat(1, minmax(80%, 1fr));
-        --grid-sm: minmax(0,100%) var(--grid-sm-fix-width);
-        --grid-md: minmax(0,100%) var(--grid-md-fix-width);
-        --grid-lg: minmax(0,100%) var(--grid-lg-fix-width);
-        --grid-xl: minmax(0,100%) var(--grid-lg-fix-width);
-    }
-    &.grid-md-fix {
-        --grid-xs: repeat(1, minmax(80%, 1fr));
-        --grid-sm: repeat(1, minmax(80%, 1fr));
-        --grid-md: minmax(0,100%) var(--grid-md-fix-width);
-        --grid-lg: minmax(0,100%) var(--grid-lg-fix-width);
-        --grid-xl: minmax(0,100%) var(--grid-lg-fix-width);
+	--grid-xs: var(--grid-col-1);
+	--grid-sm: var(--grid-col-2);
+	--grid-md: var(--grid-col-3);
+	--grid-lg: var(--grid-col-4);
+	--grid-xl: var(--grid-col-5);
 
-    }
+	display: grid;
+	grid-template-columns: var(--grid-xs);
+	@include gap-size();
+	gap: $panel-gap-y $panel-gap-x;
 
-    &.grid-lg-fix {
-        --grid-xs: repeat(1, minmax(80%, 1fr));
-        --grid-sm: repeat(1, minmax(80%, 1fr));
-        --grid-sm: repeat(1, minmax(80%, 1fr));
-        --grid-lg: minmax(0,100%) var(--grid-lg-fix-width);
-        --grid-xl: minmax(0,100%) var(--grid-lg-fix-width);
+	@media screen and (max-width: $screen-xs-max) {
+		grid-template-columns: var(--grid-xs);
+	}
+	@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+		grid-template-columns: var(--grid-sm);
+	}
+	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+		grid-template-columns: var(--grid-md);
+	}
+	@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+		grid-template-columns: var(--grid-lg);
+	}
+	@media (min-width: $screen-xl-min) {
+		grid-template-columns: var(--grid-xl);
+	}
 
-    }
+	&.grid-xs-1 {
+		--grid-xs: var(--grid-col-1);
+		--grid-sm: var(--grid-col-1);
+		--grid-md: var(--grid-col-1);
+		--grid-lg: var(--grid-col-1);
+		--grid-xl: var(--grid-col-1);
+	}
+	&.grid-xs-2 {
+		--grid-xs: var(--grid-col-2);
+		--grid-sm: var(--grid-col-2);
+		--grid-md: var(--grid-col-2);
+		--grid-lg: var(--grid-col-2);
+		--grid-xl: var(--grid-col-2);
+	}
+	&.grid-xs-3 {
+		--grid-xs: var(--grid-col-3);
+		--grid-sm: var(--grid-col-3);
+		--grid-md: var(--grid-col-3);
+		--grid-lg: var(--grid-col-3);
+		--grid-xl: var(--grid-col-3);
+	}
+	&.grid-xs-4 {
+		--grid-xs: var(--grid-col-4);
+		--grid-sm: var(--grid-col-4);
+		--grid-md: var(--grid-col-4);
+		--grid-lg: var(--grid-col-4);
+		--grid-xl: var(--grid-col-4);
+	}
+	&.grid-xs-5 {
+		--grid-xs: var(--grid-col-5);
+		--grid-sm: var(--grid-col-5);
+		--grid-md: var(--grid-col-5);
+		--grid-lg: var(--grid-col-5);
+		--grid-xl: var(--grid-col-5);
+	}
+	&.grid-xs-6 {
+		--grid-xs: var(--grid-col-6);
+		--grid-sm: var(--grid-col-6);
+		--grid-md: var(--grid-col-6);
+		--grid-lg: var(--grid-col-6);
+		--grid-xl: var(--grid-col-6);
+	}
+	@media (min-width: $screen-sm-min) {
+		&.grid-sm-1 {
+			--grid-sm: var(--grid-col-1);
+			--grid-md: var(--grid-col-1);
+			--grid-lg: var(--grid-col-1);
+			--grid-xl: var(--grid-col-1);
+		}
+		&.grid-sm-2 {
+			--grid-sm: var(--grid-col-2);
+			--grid-md: var(--grid-col-2);
+			--grid-lg: var(--grid-col-2);
+			--grid-xl: var(--grid-col-2);
+		}
+		&.grid-sm-3 {
+			--grid-sm: var(--grid-col-3);
+			--grid-md: var(--grid-col-3);
+			--grid-lg: var(--grid-col-3);
+			--grid-xl: var(--grid-col-3);
+		}
+		&.grid-sm-4 {
+			--grid-sm: var(--grid-col-4);
+			--grid-md: var(--grid-col-4);
+			--grid-lg: var(--grid-col-4);
+			--grid-xl: var(--grid-col-4);
+		}
+		&.grid-sm-5 {
+			--grid-sm: var(--grid-col-5);
+			--grid-md: var(--grid-col-5);
+			--grid-lg: var(--grid-col-5);
+			--grid-xl: var(--grid-col-5);
+		}
+		&.grid-sm-6 {
+			--grid-sm: var(--grid-col-6);
+			--grid-md: var(--grid-col-6);
+			--grid-lg: var(--grid-col-6);
+			--grid-xl: var(--grid-col-6);
+		}
+	}
+	@media (min-width: $screen-md-min) {
+		&.grid-md-1 {
+			--grid-md: var(--grid-col-1);
+			--grid-lg: var(--grid-col-1);
+			--grid-xl: var(--grid-col-1);
+		}
+		&.grid-md-2 {
+			--grid-md: var(--grid-col-2);
+			--grid-lg: var(--grid-col-2);
+			--grid-xl: var(--grid-col-2);
+		}
+		&.grid-md-3 {
+			--grid-md: var(--grid-col-3);
+			--grid-lg: var(--grid-col-3);
+			--grid-xl: var(--grid-col-3);
+		}
+		&.grid-md-4 {
+			--grid-md: var(--grid-col-4);
+			--grid-lg: var(--grid-col-4);
+			--grid-xl: var(--grid-col-4);
+		}
+		&.grid-md-5 {
+			--grid-md: var(--grid-col-5);
+			--grid-lg: var(--grid-col-5);
+			--grid-xl: var(--grid-col-5);
+		}
+		&.grid-md-6 {
+			--grid-md: var(--grid-col-6);
+			--grid-lg: var(--grid-col-6);
+			--grid-xl: var(--grid-col-6);
+		}
+	}
+	@media (min-width: $screen-lg-min) {
+		&.grid-lg-1 {
+			--grid-lg: var(--grid-col-1);
+			--grid-xl: var(--grid-col-1);
+		}
+		&.grid-lg-2 {
+			--grid-lg: var(--grid-col-2);
+			--grid-xl: var(--grid-col-2);
+		}
+		&.grid-lg-3 {
+			--grid-lg: var(--grid-col-3);
+			--grid-xl: var(--grid-col-3);
+		}
+		&.grid-lg-4 {
+			--grid-lg: var(--grid-col-4);
+			--grid-xl: var(--grid-col-4);
+		}
+		&.grid-lg-5 {
+			--grid-lg: var(--grid-col-5);
+			--grid-xl: var(--grid-col-5);
+		}
+		&.grid-lg-6 {
+			--grid-lg: var(--grid-col-6);
+			--grid-xl: var(--grid-col-6);
+		}
+	}
+	@media (min-width: $screen-lg-max) {
+		&.grid-xl-1 {
+			--grid-xl: var(--grid-col-1);
+		}
+		&.grid-xl-2 {
+			--grid-xl: var(--grid-col-2);
+		}
+		&.grid-xl-3 {
+			--grid-xl: var(--grid-col-3);
+		}
+		&.grid-xl-4 {
+			--grid-xl: var(--grid-col-4);
+		}
+		&.grid-xl-5 {
+			--grid-xl: var(--grid-col-5);
+		}
+		&.grid-xl-6 {
+			--grid-xl: var(--grid-col-6);
+		}
+	}
+	.wrap {
+		grid-column: 1/-1;
+	}
+	@media screen and (max-width: $screen-xs-max) {
+		.wrap-xs {
+			grid-column: 1/-1;
+		}
+	}
+	@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+		.wrap-sm {
+			grid-column: 1/-1;
+		}
+	}
+	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+		.wrap-md {
+			grid-column: 1/-1;
+		}
+	}
+	@media (min-width: $screen-md-min) {
+		.wrap-lg {
+			grid-column: 1/-1;
+		}
+	}
 
-    &.grid-xs-1{
-        --grid-xs: repeat(1, minmax(80%, 1fr));
-        --grid-sm: repeat(1, minmax(80%, 1fr));
-        --grid-md: repeat(1, minmax(80%, 1fr));
-        --grid-lg: repeat(1, minmax(80%, 1fr));
-        --grid-xl: repeat(1, minmax(80%, 1fr));
-    }
-    &.grid-xs-2{
-        --grid-xs: repeat(2, minmax(40%, 1fr));
-        --grid-sm: repeat(2, minmax(40%, 1fr));
-        --grid-md: repeat(2, minmax(40%, 1fr));
-        --grid-lg: repeat(2, minmax(40%, 1fr));
-        --grid-xl: repeat(2, minmax(40%, 1fr));
-    }
-    &.grid-xs-3{
-        --grid-xs: repeat(3, minmax(30%, 1fr));
-        --grid-sm: repeat(3, minmax(30%, 1fr));
-        --grid-md: repeat(3, minmax(30%, 1fr));
-        --grid-lg: repeat(3, minmax(30%, 1fr));
-        --grid-xl: repeat(3, minmax(30%, 1fr));
-    }
-    &.grid-xs-4{
-        --grid-xs: repeat(4, minmax(20%, 1fr));
-        --grid-sm: repeat(4, minmax(20%, 1fr));
-        --grid-md: repeat(4, minmax(20%, 1fr));
-        --grid-lg: repeat(4, minmax(20%, 1fr));
-        --grid-xl: repeat(4, minmax(20%, 1fr));
-    }
-    &.grid-xs-5{
-        --grid-xs: repeat(5, minmax(15%, 1fr));
-        --grid-sm: repeat(5, minmax(15%, 1fr));
-        --grid-md: repeat(5, minmax(15%, 1fr));
-        --grid-lg: repeat(5, minmax(15%, 1fr));
-        --grid-xl: repeat(5, minmax(15%, 1fr));
-    }
-    &.grid-xs-6{
-        --grid-xs: repeat(6, minmax(12%, 1fr));
-        --grid-sm: repeat(6, minmax(12%, 1fr));
-        --grid-md: repeat(6, minmax(12%, 1fr));
-        --grid-lg: repeat(6, minmax(12%, 1fr));
-        --grid-xl: repeat(6, minmax(12%, 1fr));
-    }
-    @media (min-width: $screen-sm-min){
-        &.grid-sm-1{
-            --grid-sm: repeat(1, minmax(80%, 1fr));
-            --grid-md: repeat(1, minmax(80%, 1fr));
-            --grid-lg: repeat(1, minmax(80%, 1fr));
-            --grid-xl: repeat(1, minmax(80%, 1fr));
-        }
-        &.grid-sm-2{
-            --grid-sm: repeat(2, minmax(40%, 1fr));
-            --grid-md: repeat(2, minmax(40%, 1fr));
-            --grid-lg: repeat(2, minmax(40%, 1fr));
-            --grid-xl: repeat(2, minmax(40%, 1fr));
-        }
-        &.grid-sm-3{
-            --grid-sm: repeat(3, minmax(30%, 1fr));
-            --grid-md: repeat(3, minmax(30%, 1fr));
-            --grid-lg: repeat(3, minmax(30%, 1fr));
-            --grid-xl: repeat(3, minmax(30%, 1fr));
-        }
-        &.grid-sm-4{
-            --grid-sm: repeat(4, minmax(20%, 1fr));
-            --grid-md: repeat(4, minmax(20%, 1fr));
-            --grid-lg: repeat(4, minmax(20%, 1fr));
-            --grid-xl: repeat(4, minmax(20%, 1fr));
-        }
-        &.grid-sm-5{
-            --grid-sm: repeat(5, minmax(15%, 1fr));
-            --grid-md: repeat(5, minmax(15%, 1fr));
-            --grid-lg: repeat(5, minmax(15%, 1fr));
-            --grid-xl: repeat(5, minmax(15%, 1fr));
-        }
-        &.grid-sm-6{
-            --grid-sm: repeat(6, minmax(12%, 1fr));
-            --grid-md: repeat(6, minmax(12%, 1fr));
-            --grid-lg: repeat(6, minmax(12%, 1fr));
-            --grid-xl: repeat(6, minmax(12%, 1fr));
-        }
-    }
-    @media (min-width: $screen-md-min){
-        &.grid-md-2{
-            --grid-md: repeat(2, minmax(40%, 1fr));
-            --grid-lg: repeat(2, minmax(40%, 1fr));
-            --grid-xl: repeat(2, minmax(40%, 1fr));
-        }
-        &.grid-md-3{
-            --grid-md: repeat(3, minmax(30%, 1fr));
-            --grid-lg: repeat(3, minmax(30%, 1fr));
-            --grid-xl: repeat(3, minmax(30%, 1fr));
-        }
-        &.grid-md-4{
-            --grid-md: repeat(4, minmax(20%, 1fr));
-            --grid-lg: repeat(4, minmax(20%, 1fr));
-            --grid-xl: repeat(4, minmax(20%, 1fr));
-        }
-        &.grid-md-5{
-            --grid-md: repeat(5, minmax(15%, 1fr));
-            --grid-lg: repeat(5, minmax(15%, 1fr));
-            --grid-xl: repeat(5, minmax(15%, 1fr));
-        }
-        &.grid-md-6{
-            --grid-md: repeat(6, minmax(12%, 1fr));
-            --grid-lg: repeat(6, minmax(12%, 1fr));
-            --grid-xl: repeat(6, minmax(12%, 1fr));
-        }
-    }
-    @media (min-width: $screen-lg-min){
-        &.grid-lg-2{
-            --grid-lg: repeat(2, minmax(40%, 1fr));
-            --grid-xl: repeat(2, minmax(40%, 1fr));
-        }
-        &.grid-lg-3{
-            --grid-lg: repeat(3, minmax(30%, 1fr));
-            --grid-xl: repeat(3, minmax(30%, 1fr));
-        }
-        &.grid-lg-4{
-            --grid-lg: repeat(4, minmax(20%, 1fr));
-            --grid-xl: repeat(4, minmax(20%, 1fr));
-        }
-        &.grid-lg-5{
-            --grid-lg: repeat(5, minmax(15%, 1fr));
-            --grid-xl: repeat(5, minmax(15%, 1fr));
-        }
-        &.grid-lg-6{
-            --grid-lg: repeat(6, minmax(12%, 1fr));
-            --grid-xl: repeat(6, minmax(12%, 1fr));
-        }
-    }
-    @media (min-width: $screen-lg-max){
-        &.grid-xl-2{
-            --grid-xl: repeat(2, minmax(40%, 1fr));
-        }
-        &.grid-xl-3{
-            --grid-xl: repeat(3, minmax(30%, 1fr));
-        }
-        &.grid-xl-4{
-            --grid-xl: repeat(4, minmax(20%, 1fr));
-        }
-        &.grid-xl-5{
-            --grid-xl: repeat(5, minmax(15%, 1fr));
-        }
-        &.grid-xl-6{
-            --grid-xl: repeat(6, minmax(12%, 1fr));
-        }
-    }
-    .wrap{
-        grid-column: 1/-1;
-    }
-    @media screen and (max-width:$screen-xs-max) {
-        .wrap-xs{
-            grid-column: 1/-1;
-        }
-    }
-    @media (min-width:$screen-sm-min) and (max-width:$screen-sm-max){
-        .wrap-sm{
-            grid-column: 1/-1;
-        }
-    }
-    @media (min-width:$screen-md-min) and (max-width:$screen-md-max){
-        .wrap-md{
-            grid-column: 1/-1;
-        }
-    }
-    @media (min-width:$screen-md-min){
-        .wrap-lg{
-            grid-column: 1/-1;
-        }
-    }
-
-    --grid-img-ratio: 66%;
-    // --grid-ratio: 66%;
-    // --grid-ratio-sm: 33%;
-    // --grid-ratio-md: 22%;
-    // --grid-ratio-lg: 22%;
-    .grid-item-img{
-        position: relative;
-        font-size: 0;
-        padding-top: var(--grid-img-ratio);
-        img{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-
-}
-.grid-sm-fix{
-    @media screen and (min-width:$screen-sm-min){
-        .panel-record{
-            --record-sm: 100%;
-            --record-md: 100%;
-        }
-    }
-    @media screen and (min-width:$screen-md-min){
-        > div:last-of-type{
-            .panel-record{
-                --record-sm: 100%;
-                --record-md: 100%;
-            }
-        }
-    }
-}
-.grid-md-fix{
-    > div:last-of-type{
-        .panel-record{
-            --record-sm: 100%;
-            --record-md: 100%;
-        }
-    }
-}
-.grid-lg-fix{
-    > div:last-of-type{
-        .panel-record{
-            --record-sm: 100%;
-            --record-md: 100%;
-        }
-    }
+	&.left {
+		justify-content: flex-start;
+	}
+	&.right {
+		justify-content: flex-end;
+	}
+	&.center {
+		justify-content: center;
+	}
+	&.space-around {
+		justify-content: space-around;
+	}
+	&.space-between {
+		justify-content: space-between;
+	}
+	&.top {
+		align-items: flex-start;
+	}
+	&.middle {
+		align-items: center;
+	}
+	&.baseline {
+		align-items: baseline;
+	}
+	&.bottom {
+		align-items: flex-end;
+	}
 }

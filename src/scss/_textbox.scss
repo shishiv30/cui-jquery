@@ -65,17 +65,17 @@
 
 				&.right {
 					> input {
-						padding-right: $el-size-3;
+						padding-right: $comp-size-3;
 					}
 				}
 
 				&.left {
 					> label {
-						left: $el-size-3;
+						left: $comp-size-3;
 					}
 
 					> input {
-						padding-left: $el-size-3;
+						padding-left: $comp-size-3;
 					}
 				}
 			}
@@ -84,29 +84,29 @@
 		&.left,
 		&.right {
 			> label {
-				width: calc(100% - #{$el-size-4});
+				width: calc(100% - #{$comp-size-4});
 			}
 		}
 
 		&.right.left {
 			> label {
-				width: calc(100% - #{$el-size-4 * 2});
+				width: calc(100% - #{$comp-size-4} * 2);
 			}
 		}
 
 		&.right {
 			> input {
-				padding-right: $el-size-4;
+				padding-right: $comp-size-4;
 			}
 		}
 
 		&.left {
 			> label {
-				left: $el-size-4;
+				left: $comp-size-4;
 			}
 
 			> input {
-				padding-left: $el-size-4;
+				padding-left: $comp-size-4;
 			}
 		}
 	}

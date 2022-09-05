@@ -1,30 +1,36 @@
-.h1, .f1 {
-    font-size: $font-size-1;
+.h1,
+.f1 {
+	font-size: $font-size-1;
 }
 
-.h2, .f2 {
-    font-size: $font-size-2;
-
+.h2,
+.f2 {
+	font-size: $font-size-2;
 }
 
-.h3, .f3 {
-    font-size: $font-size-3;
+.h3,
+.f3 {
+	font-size: $font-size-3;
 }
 
-.h4, .f4 {
-    font-size: $font-size-4;
+.h4,
+.f4 {
+	font-size: $font-size-4;
 }
 
-.h5, .f5 {
-    font-size: $font-size-5;
+.h5,
+.f5 {
+	font-size: $font-size-5;
 }
 
-.h6, .f6 {
-    font-size: $font-size-6;
+.h6,
+.f6 {
+	font-size: $font-size-6;
 }
 
-.h7, .f7 {
-    font-size: $font-size-7;
+.h7,
+.f7 {
+	font-size: $font-size-7;
 }
 
 .h1,
@@ -82,49 +88,49 @@
 }
 
 .text-light {
-    font-weight: $font-weight-light;
+	font-weight: $font-weight-light;
 }
 
 .text-normal {
-    font-weight: $font-weight-normal;
+	font-weight: $font-weight-normal;
 }
 
 .text-bold {
-    font-weight: $font-weight-bold;
+	font-weight: $font-weight-bold;
 }
 
 .text-left {
-    text-align: left;
+	text-align: left;
 }
 
 .text-right {
-    text-align: right;
+	text-align: right;
 }
 
 .text-center {
-    text-align: center;
+	text-align: center;
 }
 
 .text-capitalize {
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 
-.text-through{
-    text-decoration: line-through;
+.text-through {
+	text-decoration: line-through;
 }
 
-.text-underline{
-    text-decoration: underline;
+.text-underline {
+	text-decoration: underline;
 }
 
 .text-uppercase {
-    text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 .text-lowercase {
-    text-transform: lowercase;
+	text-transform: lowercase;
 }
 
 .text-shadow {
-    @include text-shadow();
+	@include text-shadow();
 }

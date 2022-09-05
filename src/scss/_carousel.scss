@@ -2,9 +2,9 @@
 [data-role*='carousel'] {
 	--carousel-height: auto;
 	position: relative;
-	--arrow-size: #{$el-size-2};
+	--arrow-size: #{$comp-size-2};
 	&.tiny {
-		--arrow-size: #{$el-size-1};
+		--arrow-size: #{$comp-size-1};
 	}
 	&.hasNext {
 		.arrow.next {

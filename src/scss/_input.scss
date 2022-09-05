@@ -38,14 +38,14 @@
 		top: 0;
 		z-index: 1;
 		text-align: center;
-		width: $el-size-3;
+		width: $comp-size-3;
 		@include form-default-1();
 		line-height: 1.618;
 	}
 
 	> .btn {
-		--color:inhert;
-		--color-bg:inhert;
+		--color: inhert;
+		--color-bg: inhert;
 		--color-border: inhert;
 		border-radius: 0;
 	}
@@ -53,7 +53,7 @@
 	&.left {
 		> input,
 		> select {
-			padding-left: $el-size-3;
+			padding-left: $comp-size-3;
 		}
 		> label,
 		> span,
@@ -69,7 +69,7 @@
 	&.right {
 		> input,
 		> select {
-			padding-right: $el-size-3;
+			padding-right: $comp-size-3;
 			~ label,
 			~ span,
 			~ i,
@@ -95,20 +95,20 @@
 		> button,
 		> .btn {
 			@include form-small();
-			width: $el-size-2;
+			width: $comp-size-2;
 		}
 
 		&.right {
 			> input,
 			> select {
-				padding-right: $el-size-2;
+				padding-right: $comp-size-2;
 			}
 		}
 
 		&.left {
 			> input,
 			> select {
-				padding-left: $el-size-2;
+				padding-left: $comp-size-2;
 			}
 		}
 	}
@@ -126,20 +126,20 @@
 		> button,
 		> .btn {
 			@include form-large-1();
-			width: $el-size-4;
+			width: $comp-size-4;
 		}
 
 		&.right {
 			> input,
 			> select {
-				padding-right: $el-size-4;
+				padding-right: $comp-size-4;
 			}
 		}
 
 		&.left {
 			> input,
 			> select {
-				padding-left: $el-size-4;
+				padding-left: $comp-size-4;
 			}
 		}
 	}

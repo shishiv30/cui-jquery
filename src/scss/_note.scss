@@ -5,7 +5,7 @@
 		justify-content: space-between;
 		> div {
 			> div {
-				padding-top: $el-size-1;
+				padding-top: $comp-size-1;
 				padding-right: 10%;
 				border-top: 1px dashed $color;
 			}
@@ -23,7 +23,7 @@
 	@media screen and (max-width: $screen-md-max) {
 		max-width: fit-content;
 		margin: 0 auto;
-		padding-left: $el-size-1;
+		padding-left: $comp-size-1;
 		> div {
 			> div {
 				padding: $g3;

@@ -32,6 +32,7 @@ html {
 	font-weight: $font-weight-normal;
 	font-style: normal;
 	font-size: 16px;
+	line-height: $line-height-2;
 	@media screen and (max-width: $screen-xs-min) {
 		font-size: 14px;
 	}

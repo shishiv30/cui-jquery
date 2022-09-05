@@ -1,109 +1,112 @@
-
 //help
 #body {
-    .float {
-        @include clearFloat;
-    }
-    .float-left {
-        float: left;
-    }
-    .float-right {
-        float: right;
-    }
-    .singleline {
-        @include singleline(100%);
-    }
-    .multiline{
-        @include multiline();
-    }
-    .help {
-        border-bottom: dashed 1px $color-l1;
-        cursor: help;
-    }
-    [disabled], .disabled {
-        pointer-events: none;
-    }
-    .corner-0{
-        border-radius:0;
-    }
-    .corner-1{
-        border-radius: #{radius-1};
-    }
-    .corner-2{
-        border-radius: #{$radius-2};
-    }
-    .corner-3{
-        border-radius: #{$radius-3};
-    }
-    .abosulte-bottom{
-        position: absolute;
-        top: initial;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-    .abosulte-top{
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: initial;
-    }
-    .abosulte-left{
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: initial;
-        bottom: 0;
-    }
-    .abosulte-right{
-        position: absolute;
-        top: 0;
-        left: initial;
-        right: 0;
-        bottom: 0;
-    }
-    .lh-tiny{
-        line-height: 1;
-    }
-    .lh-normal{
-        line-height: 1.25;
-    }
-    .lh-large{
-        line-height: 1.618;
-    }
-    .hide {
-        display: none;
-    }
-    .img-bg{
-        position: relative;
-        > img{
-            background: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-    }
-    .img-tiny{
-        height: $font-size-5;
-        padding: 2px;
-        object-fit: cover;
-        width:auto;
-    }
-    .blur-10{
-        filter: blur(10px);
-    }
-    .scale-120{
-        transform: scale(1.5);
-        transform-origin: center center;
-    }
-    .scale-150{
-        transform: scale(1.5);
-        transform-origin: center center;
-    }
+	.fixed {
+		@include fixed();
+	}
+	.float {
+		@include clearFloat;
+	}
+	.float-left {
+		float: left;
+	}
+	.float-right {
+		float: right;
+	}
+	.singleline {
+		@include singleline(100%);
+	}
+	.multiline {
+		@include multiline();
+	}
+	.help {
+		border-bottom: dashed 1px $color-l1;
+		cursor: help;
+	}
+	[disabled],
+	.disabled {
+		pointer-events: none;
+	}
+	.corner-0 {
+		border-radius: 0;
+	}
+	.corner-1 {
+		border-radius: #{radius-1};
+	}
+	.corner-2 {
+		border-radius: #{$radius-2};
+	}
+	.corner-3 {
+		border-radius: #{$radius-3};
+	}
+	.abosulte-bottom {
+		position: absolute;
+		top: initial;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	.abosulte-top {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: initial;
+	}
+	.abosulte-left {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: initial;
+		bottom: 0;
+	}
+	.abosulte-right {
+		position: absolute;
+		top: 0;
+		left: initial;
+		right: 0;
+		bottom: 0;
+	}
+	.lh-tiny {
+		line-height: 1;
+	}
+	.lh-normal {
+		line-height: 1.25;
+	}
+	.lh-large {
+		line-height: 1.618;
+	}
+	.hide {
+		display: none;
+	}
+	.img-bg {
+		position: relative;
+		> img {
+			background: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: 1;
+		}
+	}
+	.img-tiny {
+		height: $font-size-5;
+		padding: 2px;
+		object-fit: cover;
+		width: auto;
+	}
+	.blur-10 {
+		filter: blur(10px);
+	}
+	.scale-120 {
+		transform: scale(1.5);
+		transform-origin: center center;
+	}
+	.scale-150 {
+		transform: scale(1.5);
+		transform-origin: center center;
+	}
 }
 
 @include order();

@@ -1,11 +1,11 @@
 .circle {
-	width: $el-size-4;
-	height: $el-size-4;
+	width: $comp-size-4;
+	height: $comp-size-4;
 	border-radius: 50%;
 	display: block;
 	color: $color-bg;
 	border: 1px solid $color-bg;
-	line-height: $el-size-4;
+	line-height: $comp-size-4;
 	&.large {
 		transform: scale(1.5);
 	}

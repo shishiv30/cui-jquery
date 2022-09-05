@@ -1,20 +1,96 @@
 // very small screen / phone
 body {
+	--animation-time: 0.1s;
 	--cui-font: 'Roboto';
-	--color: hsl(0, 0%, 11%);
-	--color-l1: hsl(0, 0%, 35%);
+
 	--color-default: hsl(0, 0%, 11%);
 	--color-default-l1: hsl(0, 0%, 35%);
-	--color-disabled: var(--color-default-l1);
-	--color-border: var(--color-default-l1);
-
-	--color-bg: hsl(0, 0%, 100%);
-	--color-bg-l1: hsl(0, 0%, 94%);
 	--color-bg-default: hsl(0, 0%, 100%);
 	--color-bg-default-l1: hsl(0, 0%, 94%);
 
+	--color: var(--color-default);
+	--color-l1: var(--color-default-l1);
+	--color-border: var(--color-default-l1);
+	--color-bg: var(--color-bg-default);
+	--color-bg-l1: var(--color-bg-default-l1);
+
+	--color-active: var(--color-bg-default);
+	--color-bg-active: var(--color-default);
+	--color-border-active: var(--color-default-l1);
+	--color-disabled: var(--color-default-l1);
+
+	//f1 = f3 / 0.618 = f3 + f3 * 0.618
+	--font-size-1: 2.618rem;
+	//f2 = f3 + (f1-f3) *0.382
+	--font-size-2: 2rem;
+	//f3 = f5 / 0.618 = f5 + f5 * 0.618
+	--font-size-3: 1.618rem;
+	//f4 = f5 + (f3-f5) * 0.382
+	--font-size-4: 1.236rem;
+	//f5 =  f7 / 0.618 = f7 + f7 * 0.618
+	--font-size-5: 1rem;
+	//f6 = f7 + (f5-f7) * 0.382
+	--font-size-6: 0.764rem;
+	//0.618 = 1 * 0.618
+	--font-size-7: 0.618rem;
+
+	//half of gs
+	--gxs: 0.191rem;
+	//half of f7
+	--g0: 0.309rem;
+	//half of f5
+	--g1: 0.5rem;
+	//half of f3 or g0 + g1
+	--g2: 0.809rem;
+	//half of f1 or g1 + g2
+	--g3: 1.309rem;
+	//half of f1 or g2 + g3
+	--g4: 2.118rem;
+	//g3 + g4
+	--g5: 3.427rem;
+
+	//line-height
+	--line-height-1: 1;
+	--line-height-2: 1.25;
+	--line-height-3: 1.618;
+
+	//boderradius
+	--radius-0: 0.309rem;
+	--radius-1: 0.809rem;
+	--radius-2: 1rem;
+	--radius-3: 1.309rem;
+	--radius-4: 1.618rem;
+
+	--section-gap-x: var(--g2);
+	--section-gap-y: var(--g4);
+
+	--panel-gap-x: var(--g2);
+	--panel-gap-y: var(--g2);
+	--panel-gap-default-x: var(--g2);
+	--panel-gap-default-y: var(--g2);
+
+	//comps like: button, input, select, etc
+	//f3(f5*1.618)
+	--comp-size-1: 1.618rem;
+	//$gxs + f3(f5*1.618) + $gxs
+	--comp-size-2: 2rem;
+	//$g1 + f3(f5*1.618) + $g1
+	--comp-size-3: 2.618rem;
+	//$g1 + f3(f5*1.618) + $g1
+	//f7+ f2(f4*1.618) +f7
+	//$g0 + f3(f5*1.618) + f5(f7*1.618)  + $g0
+	--comp-size-4: 3.236rem;
+	//default size
+	--comp-gap-x: var(--g1);
+	--comp-gap-y: var(--g1);
+	--comp-height: var(--comp-size-3);
+	--comp-font-size: var(--font-size-5);
+	--comp-border-radius: 0;
+	--comp-max-width: auto;
+	--comp-line-height: var(--line-height-3);
+
 	--color-major: hsl(200, 100%, 20%);
-	--color-major-l1:hsl(200, 100%, 95%);
+	--color-major-l1: hsl(200, 100%, 95%);
 	--color-link: var(--color-major);
 	--color-link-hover: hsl(200, 100%, 10%);
 
@@ -55,7 +131,7 @@ body {
 	--color-d: hsl(0, 0%, 87%);
 	--color-e: hsl(0, 0%, 93%);
 	--color-f: hsl(0, 0%, 100%);
-	#body.dark{
+	#body.dark {
 		@media (prefers-color-scheme: dark) {
 			--color: hsl(0, 0%, 100%);
 			--color-l1: hsl(0, 0%, 94%);
@@ -66,14 +142,14 @@ body {
 			--color-bg-l1: hsl(0, 0%, 35%);
 			--color-bg-default: hsl(0, 0%, 11%);
 			--color-bg-default-l1: hsl(0, 0%, 35%);
-		
+
 			--color-major-l1: hsl(200, 100%, 20%);
-			--color-major:hsl(200, 100%, 95%);
+			--color-major: hsl(200, 100%, 95%);
 			--color-link-hover: hsl(200, 100%, 80%);
 
 			--color-minor-l1: hsl(200, 100%, 50%);
 			--color-minor: hsl(200, 100%, 95%);
-		
+
 			--color-r0: hsl(4, 100%, 95%);
 			--color-r1: hsl(34, 100%, 95%);
 			--color-r2: hsl(54, 100%, 95%);

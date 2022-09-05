@@ -1,205 +1,129 @@
-#body{
-    .default {
-        --color: var(--color-default);
-        --color-bg: var(--color-bg-default);
-        --color-active: var(--color-bg-default);
-        --color-bg-active:var(--color-default);
-        --color-border: var(--color-default-l1);
-        &.active{
-            --color: var(--color-bg-default);
-            --color-bg: var(--color-default);
-        }
-    }
-    .gray {
-        --color: #{$color};
-        --color-bg: #{$color-bg-l1};
-        --color-active: #{$color-bg-l1};
-        --color-bg-active:#{$color};
-        --color-border: #{$color-l1};
-        &.active{
-            --color: #{$color-bg-l1};
-            --color-bg: #{$color};
-        }
-    }
-    .major{
-        --color: #{$color-major};
-        --color-bg: #{$color-major-l1};
-        --color-active: #{$color-major-l1};
-        --color-bg-active: #{$color-major};
-        --color-border: #{$color-major};
-        &.active{
-            --color: #{$color-major-l1};
-            --color-bg: #{$color-major};
-        }
-    }
-    .minor{
-        --color: #{$color-minor};
-        --color-bg: #{$color-minor-l1};
-        --color-active: #{$color-minor-l1};
-        --color-bg-active: #{$color-minor};
-        --color-border: #{$color-minor};
-        &.active{
-            --color: #{$color-minor-l1};
-            --color-bg: #{$color-minor};
-        }
-    }
-    .danger{
-        --color: #{$color-danger};
-        --color-bg: #{$color-danger-l1};
-        --color-active: #{$color-danger-l1};
-        --color-bg-active: #{$color-danger};
-        --color-border: #{$color-danger};
-        &.active{
-            --color: #{$color-danger-l1};
-            --color-bg: #{$color-danger};
-        }
-    }
-    .safe{
-        --color: #{$color-safe};
-        --color-bg: #{$color-safe-l1};
-        --color-active: #{$color-safe-l1};
-        --color-bg-active: #{$color-safe};
-        --color-border: #{$color-safe};
-        &.active{
-            --color: #{$color-safe-l1};
-            --color-bg: #{$color-safe};
-        }
-    }
-    .tip{
-        --color: #{$color-tip};
-        --color-bg: #{$color-tip-l1};
-        --color-active: #{$color-tip-l1};
-        --color-bg-active: #{$color-tip};
-        --color-border: #{$color-tip};
-        &.active{
-            --color: #{$color-tip-l1};
-            --color-bg: #{$color-tip};
-        }
-    }
-    .color-front {
-        color: $color;
-    }
+body {
+	@include color();
+	.color-front {
+		color: $color;
+	}
 
-    .color-front-l1 {
-        color: $color-l1;
-    }
+	.color-front-l1 {
+		color: $color-l1;
+	}
 
-    .color-bg{
-        color: $color-bg;
-    }
+	.color-bg {
+		color: $color-bg;
+	}
 
-    .color-bg-l1{
-        color: $color-bg;
-    }
+	.color-bg-l1 {
+		color: $color-bg;
+	}
 
-    .color-white {
-        color: $color-f;
-    }
+	.color-white {
+		color: $color-f;
+	}
 
-    .color-black{
-        color: $color-0;
-    }
+	.color-black {
+		color: $color-0;
+	}
 
-    .color-major {
-        color: $color-major;
-    }
+	.color-major {
+		color: $color-major;
+	}
 
-    .color-major-l1 {
-        color: $color-major-l1;
-    }
+	.color-major-l1 {
+		color: $color-major-l1;
+	}
 
-    .color-minor {
-        color: $color-minor;
-    }
+	.color-minor {
+		color: $color-minor;
+	}
 
-    .color-minor-l1 {
-        color: $color-minor-l1;
-    }
+	.color-minor-l1 {
+		color: $color-minor-l1;
+	}
 
-    .color-safe {
-        color: $color-safe;
-    }
+	.color-safe {
+		color: $color-safe;
+	}
 
-    .color-safe-l1 {
-        color: $color-safe-l1;
-    }
+	.color-safe-l1 {
+		color: $color-safe-l1;
+	}
 
-    .color-danger {
-        color: $color-danger;
-    }
+	.color-danger {
+		color: $color-danger;
+	}
 
-    .color-danger-l1 {
-        color: $color-danger-l1;
-    }
+	.color-danger-l1 {
+		color: $color-danger-l1;
+	}
 
-    .color-tip{
-        color: $color-tip;
-    }
+	.color-tip {
+		color: $color-tip;
+	}
 
-    .color-tip-l1{
-        color: $color-tip-l1;
-    }
+	.color-tip-l1 {
+		color: $color-tip-l1;
+	}
 
-    .bg-bg {
-        background-color: $color-bg;
-    }
+	.bg-bg {
+		background-color: $color-bg;
+	}
 
-    .bg-bg-l1 {
-        background-color: $color-bg-l1;
-    }
+	.bg-bg-l1 {
+		background-color: $color-bg-l1;
+	}
 
-    .bg-front {
-        background-color: $color;
-    }
+	.bg-front {
+		background-color: $color;
+	}
 
-    .bg-front-l1 {
-        background-color: $color-l1;
-    }
+	.bg-front-l1 {
+		background-color: $color-l1;
+	}
 
-    .bg-white {
-        background-color: $color-f;
-    }
+	.bg-white {
+		background-color: $color-f;
+	}
 
-    .bg-black{
-        background-color: $color-0;
-    }
+	.bg-black {
+		background-color: $color-0;
+	}
 
-    .bg-major {
-        background-color: $color-major;
-    }
+	.bg-major {
+		background-color: $color-major;
+	}
 
-    .bg-major-l1 {
-        background-color: $color-major-l1;
-    }
+	.bg-major-l1 {
+		background-color: $color-major-l1;
+	}
 
-    .bg-minor {
-        background-color: $color-minor;
-    }
+	.bg-minor {
+		background-color: $color-minor;
+	}
 
-    .bg-minor-l1 {
-        background-color: $color-minor-l1;
-    }
+	.bg-minor-l1 {
+		background-color: $color-minor-l1;
+	}
 
-     .bg-safe {
-        background-color: $color-safe;
-    }
-    .bg-safe-l1{
-        background-color: $color-safe-l1;
-    }
-    
-    .bg-danger {
-        background-color: $color-danger;
-    }
+	.bg-safe {
+		background-color: $color-safe;
+	}
+	.bg-safe-l1 {
+		background-color: $color-safe-l1;
+	}
 
-    .bg-danger-l1 {
-        background-color: $color-danger-l1;
-    }
+	.bg-danger {
+		background-color: $color-danger;
+	}
 
-    .bg-tip{
-        background-color: $color-tip;
-    }
+	.bg-danger-l1 {
+		background-color: $color-danger-l1;
+	}
 
-    .bg-tip-l1{
-        background-color: $color-tip-l1;
-    }
+	.bg-tip {
+		background-color: $color-tip;
+	}
+
+	.bg-tip-l1 {
+		background-color: $color-tip-l1;
+	}
 }
