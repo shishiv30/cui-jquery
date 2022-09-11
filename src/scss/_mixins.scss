@@ -451,7 +451,7 @@ $blur-size: $blur-width $card-height;
 	@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
 		max-width: $screen-md-min;
 	}
-	@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+	@media (min-width: $screen-lg-min) {
 		max-width: $screen-lg-min;
 	}
 }

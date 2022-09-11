@@ -40,59 +40,26 @@
 .h5,
 .h6,
 .h7 {
+	text-transform: capitalize;
 	position: relative;
 	@include singleline();
+	line-height: $font-size-1;
 }
 
-.h1,
-.h2,
-.h3 {
-	font-weight: $font-weight-bold;
+.sub {
+	vertical-align: sub;
 }
 
-.h1,
-.h2,
-.h3,
-.h4 {
-	text-transform: capitalize;
-	.sub,
-	.sup {
-		text-transform: lowercase;
-	}
-}
-
-.h1 {
-	.sub,
-	.sup {
-		font-size: $font-size-3;
-	}
-}
-
-.h2 {
-	.sub,
-	.sup {
-		font-size: $font-size-4;
-	}
-}
-.h3 {
-	.sub,
-	.sup {
-		font-size: $font-size-5;
-	}
-}
-.h4 {
-	.sub,
-	.sup {
-		font-size: $font-size-6;
-	}
+.sup {
+	vertical-align: super;
 }
 
 .text-light {
 	font-weight: $font-weight-light;
 }
 
-.text-normal {
-	font-weight: $font-weight-normal;
+.text-regular {
+	font-weight: $font-weight-regular;
 }
 
 .text-bold {

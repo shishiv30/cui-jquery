@@ -23,9 +23,12 @@
 		opacity: 1;
 	}
 	&[disabled] {
-		--color: #{$color-default} !important;
-		--color-bg: #{$color-default-l1} !important;
+		--color: #{$color-default-l1} !important;
+		--color-bg: #{$color-bg-default-l1} !important;
 		--color-border: #{$color-default-l1} !important;
+		--color-active: #{$color-default-l1} !important;
+		--color-bg-active: #{$color-bg-default-l1} !important;
+		--color-border-active: #{$color-default-l1} !important;
 	}
 	&.loading {
 		opacity: 0.5 !important;
