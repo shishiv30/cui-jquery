@@ -5,7 +5,6 @@ section {
 		color: $color-active;
 		background-color: $color-bg-active;
 	}
-	margin: $section-gap-y auto;
 	padding-left: $section-gap-x;
 	padding-right: $section-gap-x;
 	~ section {
@@ -19,6 +18,44 @@ hr {
 	border-width: 1px;
 }
 //standard sematic gap
+.section-welcome {
+	position: relative;
+	overflow: hidden;
+	height: var(--welcome-height);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--layout-gap-x);
+	.bg {
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		z-index: 1;
+		background-color: $color-major;
+		opacity: 0.9;
+	}
+	.panel {
+		overflow: hidden;
+		border-radius: $radius-3;
+		position: relative;
+		z-index: 2;
+		border: $radius-3;
+		background-color: rgba(255, 255, 255, 0.8);
+		margin-top: var(--layout-gap-y);
+		margin-bottom: var(--layout-gap-y);
+		@media screen and (max-width: $screen-sm-max) {
+			h1,
+			h2,
+			h3,
+			h4 {
+				text-align: center;
+			}
+		}
+	}
+}
 .section-hero {
 	margin: 0;
 	position: relative;
