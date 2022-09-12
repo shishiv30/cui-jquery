@@ -101,3 +101,8 @@
 .text-shadow {
 	@include text-shadow();
 }
+
+img {
+	max-width: 100%;
+	object-fit: cover;
+}

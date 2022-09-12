@@ -21,43 +21,43 @@ hr {
 .section-welcome {
 	position: relative;
 	overflow: hidden;
-	height: var(--welcome-height);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: var(--layout-gap-x);
-	.bg {
-		pointer-events: none;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		right: 0;
-		left: 0;
-		z-index: 1;
-		background-color: $color-major;
-		opacity: 0.9;
-	}
-	.panel {
+	padding: $section-gap-y $section-gap-x;
+	// .bg {
+	// 	content: '';
+	// 	pointer-events: none;
+	// 	position: absolute;
+	// 	top: 0;
+	// 	bottom: 0;
+	// 	right: 0;
+	// 	left: 0;
+	// 	z-index: 1;
+	// 	background-color: $color-bg;
+	// 	opacity: 0.9;
+	// }
+	> div {
+		@include fixed();
 		overflow: hidden;
 		border-radius: $radius-3;
 		position: relative;
 		z-index: 2;
 		border: $radius-3;
-		background-color: rgba(255, 255, 255, 0.8);
-		margin-top: var(--layout-gap-y);
-		margin-bottom: var(--layout-gap-y);
-		@media screen and (max-width: $screen-sm-max) {
-			h1,
-			h2,
-			h3,
-			h4 {
-				text-align: center;
-			}
+		color: $color-bg;
+		background-color: $color;
+		padding: $g3;
+	}
+	&.active {
+		> div {
+			color: $color;
+			background-color: $color-bg;
 		}
 	}
 }
 .section-hero {
 	margin: 0;
+	padding: 0;
 	position: relative;
 	z-index: 1;
 	height: 40vh;
@@ -95,32 +95,19 @@ hr {
 			}
 		}
 	}
-	.tab-bookmark {
-		--tab-bookmark-color: #{$color};
-		--tab-bookmark-border-color: transparent;
-		--tab-bookmark-active-border-color: #{$color};
-		width: fit-content;
-		margin-left: auto;
-		margin-right: auto;
-	}
 	> div {
 		height: 100%;
 		width: 100%;
 		position: relative;
 		z-index: 2;
 		display: flex;
-		padding: $g3;
-		gap: $g2;
+		padding: $panel-gap-y $panel-gap-x;
+		gap: $panel-gap-y $panel-gap-x;
 		justify-content: center;
 		margin-left: auto;
 		margin-right: auto;
 		max-width: $screen-xs-max;
 		flex-direction: column;
-	}
-	.content {
-		display: flex;
-		flex-direction: column;
-		gap: $g2;
 	}
 }
 
