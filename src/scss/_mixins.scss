@@ -166,7 +166,7 @@
 @mixin form-large-3() {
 	font-size: $font-size-5;
 	height: $comp-size-4;
-	padding-top: #{$g0 + $font-size-5};
+	padding-top: calc(#{$g0} + #{$font-size-5});
 	padding-bottom: $g0;
 }
 
