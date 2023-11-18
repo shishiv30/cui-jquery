@@ -2366,4 +2366,4 @@ export default function ($) {
 		'</div>' +
 		'</div>';
 	$.fn.datetimepicker.DPGlobal = DPGlobal;
-};
+}
